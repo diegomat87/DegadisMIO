@@ -1,0 +1,92 @@
+﻿<Page x:Name="PageDatosAtmosfericos" x:Class="Degadis.DatosAtmosfericos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="DatosAtmosfericos" Foreground="Black" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Atmospheric parameters" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackMenuInicio">
+                <Grid x:Name="GridDatosAtmosfericos">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="LblNombreArchivoCaso"  Content="Title"  Cursor="None" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" x:Name="TxtTituloCaso" Height="24" Width="400" TabIndex="1"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblzr" Content="Surface roughness, zr [m]" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtzr" KeyDown="txtzr_KeyDown" LostFocus="txtzr_LostFocus" TabIndex="2" Style="{DynamicResource EstiloTextBox}" />
+                    <Button Grid.Row="1" Grid.Column="2" x:Name="btnAyudaZr" Content="?" Click="BtnAyudaZr_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="3" x:Name="Lblu0" Content="Atmospheric windspeed, u0 [m/s]" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="5" x:Name="txtu0" KeyDown="Txtu0_KeyDown" TabIndex="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <Button Grid.Row="1" Grid.Column="6" x:Name="btnAyudau0" Content="?" Click="BtnAyudau0_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" x:Name="Lbltiempopromedio" Content="Averaging time for estimating DELTAY [s]"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="txttiempopromedio" KeyDown="txttiempopromedio_KeyDown" TabIndex="4"/>
+                    <Button Grid.Row="2" Grid.Column="2" x:Name="BtnAyudaTiempoPromedio" Content="?" Click="BtnAyudaTiempoPromedio_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="3" x:Name="lblz0" Content="Elevation at windspeed, z0 [m]"/>
+                    <TextBox Grid.Row="2" Grid.Column="5" x:Name="txtz0" KeyDown="txtz0_KeyDown" TabIndex="5" Style="{DynamicResource EstiloTextBox}"/>
+                    <Button Grid.Row="2" Grid.Column="6" x:Name="btnAyudaz0" Content="?" Click="BtnAyudaz0_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" x:Name="lblestabilidad" Content="Pasquill stability class"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cmbEstabilidad" SelectionChanged="cmbEstabilidad_SelectionChanged" TabIndex="6" Style="{DynamicResource EstiloComboBox}"/>
+                    <Button Grid.Row="3" Grid.Column="2" x:Name="btnAyudaEstabilidad" Content="?" Click="BtnAyudaEstabilidad_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="3" Grid.Column="3" x:Name="lbllongitudMoninObukhov" Content="Monin-Obukhov length [m]"/>
+                    <TextBox Grid.Row="3" Grid.Column="5" x:Name="txtlongitudMoninObukhov" KeyDown="txtlongitudMoninObukhov_KeyDown" IsEnabled="False" TabIndex="7" Style="{DynamicResource EstiloTextBox}"/>
+                    <StackPanel Grid.Row="3" Grid.Column="4">
+                        <RadioButton x:Name="RdBtnLongMODefault" GroupName="LongMO" Content="Default" IsChecked="True" Checked="RdBtnLongMODefault_Checked"/>
+                        <RadioButton x:Name="RdBtnLongMOSet" GroupName="LongMO" Content="Set" Checked="RdBtnLongMOSet_Checked"/>
+                    </StackPanel>
+                    <Button Grid.Row="3" Grid.Column="6" x:Name="BtnAyudaLongitudMO" Content="?" Click="BtnAyudaLongitudMO_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" x:Name="lblPresionAmbiente" Content="Ambient pressure [atm]"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtPresionAmbiente" KeyDown="txtPresionAmbiente_KeyDown" TabIndex="8" Style="{DynamicResource EstiloTextBox}"/>
+                    <Button Grid.Row="4" Grid.Column="2" x:Name="BtnAyudaPresionAtm" Content="?" Click="BtnAyudaPresionAtm_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="4" Grid.Column="3" x:Name="lblTemperaturaAmbiente" Content="Ambient air temperature [K]"/>
+                    <TextBox Grid.Row="4" Grid.Column="5" x:Name="txtTemperaturaAmbiente" KeyDown="txtTemperaturaAmbiente_KeyDown" TabIndex="9" Style="{DynamicResource EstiloTextBox}"/>
+                    <Button Grid.Row="4" Grid.Column="6" x:Name="BtnAyudaTemperaturaAmb" Content="?" Click="BtnAyudaTemperaturaAmb_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtHumedad" KeyDown="txtHumedadAbsoluta_KeyDown" TabIndex="10" Style="{DynamicResource EstiloTextBox}"/>
+                    <StackPanel Grid.Row="5" Grid.Column="0">
+                        <RadioButton x:Name="RdBtnHumedadA" GroupName="Humedad" Content="Absolut ambient humidity &#xD;&#xA;[kg water/kg dry air]" Checked="RdBtnHumedadA_Checked" VerticalContentAlignment="Center"/>
+                        <RadioButton x:Name="RdBtnHumedadR" GroupName="Humedad" Content="Relative ambient humidity [%]" IsChecked="True" Checked="RdBtnHumedadR_Checked"/>
+                    </StackPanel>
+                    <Button Grid.Row="5" Grid.Column="2" x:Name="BtnAyudaHumedad" Content="?" Click="BtnAyudaHumedad_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="11" Style="{DynamicResource EstiloBotones}"/>
+    </Grid>
+</Page>

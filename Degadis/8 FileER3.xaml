@@ -1,0 +1,58 @@
+﻿<Page x:Name="PageFileER3" x:Class="Degadis.FileER3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="FileER3">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Set up for the run parameters" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" Name="ScrollFileER3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackFileER3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1024" Height="800">
+                <Grid x:Name="GridER3" Height="800" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="1024">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Name="LblErt1" Content="FIRST SORT TIME --- ERT1"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtErt1" Height="23" Width="120"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblErdt" Content="SORT TIME DELTA --- ERDT"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TxtErdt" Height="23" Width="120" Text="5,0"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblErntim" Content="NUMBER OF TIMES FOR THE SORT --- ERNTIM"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtErntim" Height="23" Width="120" Text="20,0"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Name="LblCheck5" Content="USE THE DEFAULT TIME PARAMETERS --- CHECK5" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="TxtCheck5" Height="23" Width="120" Text="0"/>
+                    <Label Grid.Row="3" Grid.Column="2" Name="LblCheck5b" Content="The value of CHECK5 determines whether the above sort parameters are used.  CHECK5 is &#xD;&#xA;initialized through the passed transfer files to .FALSE.  CHECK5 is set to .TRUE. if a real value &#xD;&#xA;of 1 is passed in this file."/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Name="LblSigxflag" Content="correction for x-direction dispersion is to be made&#xD;&#xA; --- sigx_flag"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="TxtSigxflag" HorizontalAlignment="Right" Height="23" Width="120" Text="1"/>
+                    <Label Grid.Row="4" Grid.Column="2" Name="LblSigxflagb" Content="sigx_flag    0.       no correction for x-direction dispersion" VerticalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Width="120" Height="24" Click="BtnSiguiente_Click" HorizontalAlignment="Right"/>
+    </Grid>
+</Page>

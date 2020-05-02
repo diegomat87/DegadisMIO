@@ -1,0 +1,87 @@
+﻿<Page x:Name="PageBaseDeDatosPropiedades" x:Class="Degadis.BaseDeDatosPropiedades"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="BaseDeDatosPropiedades" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Contaminant property specifications" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1"  x:Name="ScrollBaseDeDatosPropiedades" HorizontalScrollBarVisibility="Auto">
+            <StackPanel >
+                <Grid x:Name="GridBaseDeDatosPropiedades">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Name="lblList" Content="List of available contaminants" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="cmbGases" Height="24" SelectionChanged="cmbGases_SelectionChanged" TabIndex="1" />
+                    <Button Grid.Row="0" Grid.Column="4" Name="BtnNuevoGas" Content="New Gas" Click="BtnNuevoGas_Click" Style="{DynamicResource EstiloBotones}" TabIndex="2"/>
+                    <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaPropiedadesContaminante" Content="?" Click="BtnAyudaPropiedadesContaminante_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" x:Name="LblGasFormula" Content="Gas Formula"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="TxtGasFormula" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
+
+                    <Label Grid.Row="1" Grid.Column="3" Name="LblGasCpk" Content="Contaminant heat capacity constant [J/kg/K]"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Name="TxtGasCpk" KeyDown="TxtGasCpk_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="4"/>
+                    <Button Grid.Row="1" Grid.Column="5" Name="BtnAyudaGasCpk" Content="?" Click="BtnAyudaGasCpk_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblGasDescripcion" Content="Description"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtGasDescripcion" Style="{DynamicResource EstiloTextBox}" TabIndex="5"/>
+
+                    <Label Grid.Row="2" Grid.Column="3" Name="LblGasCpp" Content="Contaminant heat capacity power"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Name="TxtGasCpp" KeyDown="TxtGasCpp_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="6"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Name="LblGasMW" Content="Contaminant molecular weight [kg/kmol]"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="TxtGasMW" KeyDown="TxtGasMW_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="7"/>
+                    <Button Grid.Row="3" Grid.Column="2" x:Name="BtnAyudaGasMW" Content="?" Click="BtnAyudaGasMW_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="3" Grid.Column="3" x:Name="LblGasUlc" Content="Upper limit of concern as a mole fraction &#xD;&#xA;(ULC)"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Name="TxtGasUlc" KeyDown="TxtGasUlc_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="8"/>
+                    <Button Grid.Row="3" Grid.Column="5" Name="BtnAyudaGasUlc" Content="?" Click="BtnAyudaGasUlc_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Name="LblGasTemp" Content="Contaminant release temperature [K]" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="TxtGasTemp" KeyDown="TxtGasTemp_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="9"/>
+                    <Button Grid.Row="4" Grid.Column="2" Name="BtnAyudaGasTemp" Content="?" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="4" Grid.Column="3" Name="LblGasLlc" Content="Lower limit of concern as a mole fraction&#xD;&#xA; (LLC)"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Name="TxtGasLlc" KeyDown="TxtGasLlc_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="10"/>
+                    <Button Grid.Row="4" Grid.Column="5" Name="BtnAyudaGasZzc" Content="?" Click="BtnAyudaGasZzc_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Name="LblGasRho" Content="Contaminant release density [kg/m3]"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Name="TxtGasRho" KeyDown="TxtGasRho_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="11"/>
+                    <Button Grid.Row="5" Grid.Column="2" Name="BtnAyudaGasRho" Content="?" Click="BtnAyudaGasRho_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="5" Grid.Column="3" Name="LblGasZzc" Content="Elevation for contour (receptor) output [m]"/>
+                    <TextBox Grid.Row="5" Grid.Column="4" Name="TxtGasZzc" KeyDown="TxtGasZzc_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="12"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" Style="{DynamicResource EstiloBotones}" HorizontalAlignment="Right" TabIndex="13"/>
+    </Grid>
+</Page>

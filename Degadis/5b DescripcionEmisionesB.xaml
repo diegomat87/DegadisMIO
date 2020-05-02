@@ -1,0 +1,72 @@
+﻿<Page x:Name="PageDescrpcionEmisionB" x:Class="Degadis.DescripcionEmisionB"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="DescripcionEmisionB" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Descripción de la emisión estacionaria" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" x:Name="ScrollDescrpcionEmisionB2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackDescrpcionEmisionB2">
+                <Grid x:Name="GridDescrpcionEmisionB">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Name="LblMasainicialFuente" Content="Initial mass of pure contaminant over the source (kg)" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtMasainicialFuente" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
+                    <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaMasaInicial" Content="?" Click="BtnAyudaMasaInicial_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="0" Grid.Column="3" Name="LblTimeSource" Content="Time [s]" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="0" Grid.Column="4" Name="TxtTimeSource" KeyDown="TxtTimeSource_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
+                    <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaTimeSource" Content="?" Click="BtnAyudaTimeSource_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblReleaseRate" Content="Contaminant release rate [kg/s]" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TxtRleaseRate" KeyDown="TxtRleaseRate_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
+                    <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaReleaseRate" Content="?" Click="BtnAyudaReleaseRate_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="3" Name="LblSourceRadius" Content="Source radius [m]" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Name="TxtSourceRadius" KeyDown="TxtSourceRadius_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="4"/>
+                    <Button Grid.Row="1" Grid.Column="5" Name="BtnAyudaSourceRadius" Content="?" Click="BtnAyudaSourceRadius_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblMassFraction" Content="Mass Fraction" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtMassFraction" KeyDown="TxtMassFraction_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="5"/>
+                    <Button Grid.Row="2" Grid.Column="2" Name="BtnAyudaMassFraction" Content="?" Click="BtnAyudaMassFraction_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="3" Name="LblSourceTemprature" Content="Soruce Temperature [K]" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Name="TxtSourceTemprature" KeyDown="TxtSourceTemprature_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="6"/>
+                    <Button Grid.Row="2" Grid.Column="5" Name="BtnAyudaSourceTemprature" Content="?" Click="BtnAyudaSourceTemprature_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Button Grid.Row="3" Grid.Column="4" Name="BtnAgregarLinea" Content="Agregar" Click="BtnAgregarLinea_Click" Style="{DynamicResource EstiloBotones}" TabIndex="7"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <DataGrid Grid.Row="2" Name="DataListaTransientSource" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" />
+        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Siguiente"  Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}"/>
+    </Grid>
+</Page>

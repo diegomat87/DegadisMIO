@@ -1,0 +1,40 @@
+﻿<Application x:Class="Degadis.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Degadis"
+             StartupUri="Navegador.xaml">
+    <Application.Resources>
+        <Style x:Key="EstiloBotones" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="88" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+
+        <Style x:Key="EstiloBotonAyuda" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="22" />
+            <Setter Property="Height" Value="22" />
+        </Style>
+
+        <Style x:Key="EstiloComboBox" TargetType="{x:Type ComboBox}">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="25" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="EstiloGrid" TargetType="{x:Type Grid}">
+            <Setter Property="Margin" Value="10,10,10,10" />
+        </Style>
+
+        <Style x:Key="EstiloTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="EstiloLabel" TargetType="{x:Type Label}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+        </Style>
+    </Application.Resources>
+</Application>

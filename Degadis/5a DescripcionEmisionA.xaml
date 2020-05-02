@@ -1,0 +1,56 @@
+﻿<Page x:Name="PageDescripcionEmisionA" x:Class="Degadis.DescripcionEmisionA"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="DescripcionEmisionA" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Descripción de la emisión estacionaria" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackMenuInicio">
+                <Grid x:Name="GridDescrpcionEmisionA" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="LblFlujoEmison" Content="Enter the release rate (kg contaminant/s)"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtFlujoEmision"  KeyDown="TxtFlujoEmision_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
+                    <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaFlujoEmision" Content="?" Click="BtnAyudaFlujoEmision_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblRadioFuente" Content="Enter the source radius (m)"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TxtRadioFuente" KeyDown="TxtRadioFuente_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
+                    <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaRadioFuente" Content="?" Click="BtnAyudaRadioFuente_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblFraccionMolarCont" Content="Enter the source contaminant mass fraction"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtFraccionMolarCont" KeyDown="TxtFraccionMolarCont_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
+                    <Button Grid.Row="2" Grid.Column="2" Name="BtnAyudaFraccionMolarCont" Content="?" Click="BtnAyudaFraccionMolarCont_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Name="LblTemperaturaFuente" Content="Enter the source temperature (K)"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="TxtTemperaturaFuente" KeyDown="TxtTemperaturaFuente_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="4"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}" TabIndex="5"/>
+    </Grid>
+</Page>

@@ -1,0 +1,57 @@
+﻿<Page x:Name="PageCurvaDen" x:Class="Degadis.CurvaDeDensidad"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="CurvaDeDensidad">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Density curve" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+
+        <Grid Grid.Row="1" x:Name="GridCurvaDen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Name="LblFraccionMContaminante" Content=" Contaminant mole fraction"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtFraccionMContaminante" KeyDown="TxtFraccionMContaminante_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
+            <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaFraccionMolarCont" Content="?" Click="BtnAyudaFraccionMolarCont_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+            <Label Grid.Row="0" Grid.Column="3" Name="LblConcntracionContaminante" Content="Contaminant concentration [kg/m3]"/>
+            <TextBox Grid.Row="0" Grid.Column="4" Name="TxtConcentracionContaminante"  KeyDown="TxtConcentracionContaminante_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
+            <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaConcentracionContaminante" Content="?" Click="BtnAyudaConcentracionContaminante_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Name="LblDensidadMezcla" Content=" Mixture density [kg/m3]"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtDensidadMezcla" KeyDown="TxtDensidadMezcla_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
+            <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaDensidadMezcla" Content="?" Click="BtnAyudaDensidadMezcla_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+            <Button Grid.Row="1" Grid.Column="4" Name="BtnAgregarFila" Content="Agregar" Click="BtnAgregarFila_Click" Style="{DynamicResource EstiloBotones}" TabIndex="4"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2" x:Name="ScrollCurvaDen" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackCurvaDen">
+                <DataGrid x:Name="DataListaDEN" AutoGenerateColumns="False" IsReadOnly="True"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}"/>
+    </Grid>
+</Page>

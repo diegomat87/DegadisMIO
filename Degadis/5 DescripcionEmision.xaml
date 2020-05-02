@@ -1,0 +1,57 @@
+﻿<Page x:Name="PageDescripcionEmision" x:Class="Degadis.DescripcionEmision"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Degadis"
+      mc:Ignorable="d" 
+      Title="DescripcionEmision" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label Content="Release description" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackMenuInicio">
+                <Grid x:Name="GridDescripcionEmision">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Name="LblYclow" Content="Lowest mole fraction of interest"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtYclow" KeyDown="TxtYclow_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
+                    <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaYclow" Content="?" Click="BtnAyudaYclow_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblEmisionPoD" Content="Is the contaminant released: pure or diluted with air?"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <RadioButton x:Name="RdBtnPure" GroupName="PoD" Content="Pure" IsChecked="True"/>
+                        <RadioButton x:Name="RdBtnDiluted" GroupName="PoD" Content="Diluted"/>
+                    </StackPanel>
+                    <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaPoD" Content="?" Click="BtnAyudaPoD_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblSteadyorTransient" Content="Can this release be considered: steady state or transient?" VerticalContentAlignment="Center"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1">
+                        <RadioButton Name="RdBtnSteady" GroupName="SoT" Content="Estacionaria" IsChecked="True"/>
+                        <RadioButton Name="RdBtnTransient" GroupName="SoT" Content="Transitoria"/>
+                    </StackPanel>
+                    <Button Grid.Row="2" Grid.Column="2" Name="BtnAyudaSoT" Content="?" Click="BtnAyudaSoT_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" Style="{DynamicResource EstiloBotones}" TabIndex="5" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+    </Grid>
+</Page>

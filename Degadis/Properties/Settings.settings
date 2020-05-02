@@ -1,0 +1,225 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Degadis.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="wma" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">28.96</Value>
+    </Setting>
+    <Setting Name="wmw" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">18.02</Value>
+    </Setting>
+    <Setting Name="cpa" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1006.3</Value>
+    </Setting>
+    <Setting Name="cpw" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1865</Value>
+    </Setting>
+    <Setting Name="rhowl" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="dhvap" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">2.5023</Value>
+    </Setting>
+    <Setting Name="dhfus" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.33</Value>
+    </Setting>
+    <Setting Name="rgas" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.08205</Value>
+    </Setting>
+    <Setting Name="igen" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">42</Value>
+    </Setting>
+    <Setting Name="gasmw" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">28.96</Value>
+    </Setting>
+    <Setting Name="gastem" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">293.15</Value>
+    </Setting>
+    <Setting Name="gasrho" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1.204009943</Value>
+    </Setting>
+    <Setting Name="gascpk" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1006.3</Value>
+    </Setting>
+    <Setting Name="gascpp" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="gasulc" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.05</Value>
+    </Setting>
+    <Setting Name="gasllc" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.025</Value>
+    </Setting>
+    <Setting Name="gaszzc" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="u0" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="z0" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="zr" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.01</Value>
+    </Setting>
+    <Setting Name="oodist" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="avtime" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="rml" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="deltaz" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.04134</Value>
+    </Setting>
+    <Setting Name="betaz" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1.1737</Value>
+    </Setting>
+    <Setting Name="gammaz" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">-0.0316</Value>
+    </Setting>
+    <Setting Name="sigxco" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.04</Value>
+    </Setting>
+    <Setting Name="deltay" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="tamb" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">293.15</Value>
+    </Setting>
+    <Setting Name="pamb" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="humid" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.0148252061</Value>
+    </Setting>
+    <Setting Name="relhum" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="betay" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.9</Value>
+    </Setting>
+    <Setting Name="sigxp" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1.14</Value>
+    </Setting>
+    <Setting Name="sigxmd" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="tsurf" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="htco" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="wtco" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="isofl" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ihtfl" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="iwtfl" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="yclow" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.01</Value>
+    </Setting>
+    <Setting Name="idilut" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="itran" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="Check4" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="rhoe" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="rhoa" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="gmass0" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ptemp1" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="pwc1" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="swid" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="slen" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ess" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="r1ss" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="indvel" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="nden" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="title" Type="Entidades.ListaTitles" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DENtriples" Type="Entidades.ListaDEN" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="nsrc" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="tend" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">60230</Value>
+    </Setting>
+    <Setting Name="SourceSoT" Type="Entidades.ListaSource" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tinp" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="istab" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="gasnam" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="temjet" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">293.15</Value>
+    </Setting>
+    <Setting Name="indht" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="numden" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="distmx" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="booljet" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ruta" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="erate" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="diajet" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="elejet" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
