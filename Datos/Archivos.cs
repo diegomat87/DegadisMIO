@@ -103,6 +103,71 @@ namespace Datos
             generar(DEN, dNT);
         }
 
+        public void crearJet(string ruta,List<string> titulo, double velViento, double altViento, double rugosidad, int estabilidad, int inddvel, double molength, double tempAmbiente, double presAmbiente,
+            double humRelativa, double tempSuperficie, string nombre, double pesoMole, double tiempoprom, double tiempojet, double limitesuperior, double limiteinferior, double alturacontorno,
+            int indht, double capCalorifica, double potenciaCapCal, List<Entidades.LineaDensidad> DEN, double erate, double elejet, double diajet, double tend, double distMax)
+        {
+            StreamWriter archivo = new StreamWriter(ruta + "\\jet.inp");
+            try
+            {
+                archivo.WriteLine(titulo[0]);
+            }
+            catch (Exception) {
+                archivo.WriteLine("");
+            }
+            try
+            {
+                archivo.WriteLine(titulo[1]);
+            }
+            catch (Exception)
+            {
+                archivo.WriteLine("");
+            }
+            try
+            {
+                archivo.WriteLine(titulo[2]);
+            }
+            catch (Exception)
+            {
+                archivo.WriteLine("");
+            }
+            try
+            {
+                archivo.WriteLine(titulo[3]);
+            }
+            catch (Exception)
+            {
+                archivo.WriteLine("");
+            }
+            archivo.WriteLine("   " + velViento.ToString("F15", culture).Substring(0, 16) + "        " + altViento.ToString("F15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + rugosidad.ToString("0.000000000000000E+000", culture));
+            archivo.WriteLine("   " + inddvel.ToString(culture) + "        " + estabilidad.ToString(culture)+ "        "+ molength.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + tempAmbiente.ToString("N7", culture).Substring(0, 8) + "       " + presAmbiente.ToString("N7", culture).Substring(0, 8) + "   " + humRelativa.ToString("N7", culture).Substring(0, 8));
+            archivo.WriteLine("   " + tempSuperficie.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("");
+            archivo.WriteLine(nombre);
+            archivo.WriteLine("   " + pesoMole.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + tiempoprom.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + tiempojet.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + limitesuperior.ToString("0.000000000000000E+000", culture) + "  " + limiteinferior.ToString("0.000000000000000E+000", culture) + "  " + alturacontorno.ToString("0.000000000000000E+000", culture));
+            archivo.WriteLine("   " + indht.ToString() + "       " + capCalorifica.ToString("N15", culture).Substring(0, 16) + "       " + potenciaCapCal.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + DEN.Count.ToString("F15", culture).Substring(0, 8));
+                for (int i = 0; i < DEN.Count; i++)
+                {
+                    string den1 = DEN[i].Den1.ToString("N7", culture).Substring(0, 8);
+                    string den2 = DEN[i].Den2.ToString("N7", culture).Substring(0, 8);
+                    string den3 = DEN[i].Den3.ToString("N7", culture).Substring(0, 8);
+                    string den4 = DEN[i].Den4.ToString("N7", culture).Substring(0, 8);
+                    string den5 = DEN[i].Den5.ToString("N7", culture).Substring(0, 8);
+                    archivo.WriteLine("   " + den1 + "       " + den2 + "       " + den3 + "       " + den4 + "       " + den5);
+                }
+            archivo.WriteLine("   "+ erate.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + elejet.ToString("N15", culture).Substring(0, 16) + "       " + diajet.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + tend.ToString("N15", culture).Substring(0, 16));
+            archivo.WriteLine("   " + distMax.ToString("N15", culture).Substring(0, 16));
+            archivo.Close();
+        }
+
         private void generar(List<Entidades.LineaDensidad> DEN, List<Entidades.LineaSource> dNT)
         {
             int i = 0;

@@ -21,6 +21,7 @@ namespace Degadis
     public partial class DescripcionEmisionJet : Page
     {
         Controlador cont = new Controlador();
+        Datos.archivos arch = new Datos.archivos();
 
         #region Constructor
         public DescripcionEmisionJet()
@@ -99,7 +100,10 @@ namespace Degadis
         #endregion
         private void BtnSiguiente_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Validar())
+            {
+                arch.crearJet(cont.ruta,cont.titles,cont.u0,cont.z0,cont.zr,cont.istab,cont.indvel,cont.rml,cont.tamb,cont.pamb,cont.humedadrel,cont.tsurf,cont.gasnam,cont.gasmw,cont.avtime,cont.temjet,cont.gasulc,cont.gasllc,cont.gaszzc,cont.indht,cont.gascpk,cont.gascpp,cont.DENtriples,cont.erate,cont.elejet,cont.diajet,cont.tend,cont.distmax);
+            }
         }
         #endregion
 

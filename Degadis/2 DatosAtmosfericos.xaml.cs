@@ -41,8 +41,6 @@ namespace Degadis
             opTermodinamicas.HumedadAbs(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedadrel);
             calcularRml();
             cargarComboBox();
-            
-            //no copie dentriples
         }
 
         private void cargarComboBox()

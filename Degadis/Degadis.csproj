@@ -99,8 +99,8 @@
     <Compile Include="5c DescripcionEmisioneJet.xaml.cs">
       <DependentUpon>5c DescripcionEmisioneJet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CurvaDeDensidad.xaml.cs">
-      <DependentUpon>CurvaDeDensidad.xaml</DependentUpon>
+    <Compile Include="4 CurvaDeDensidad.xaml.cs">
+      <DependentUpon>4 CurvaDeDensidad.xaml</DependentUpon>
     </Compile>
     <Compile Include="DegadisJetInicio.xaml.cs">
       <DependentUpon>DegadisJetInicio.xaml</DependentUpon>
@@ -182,7 +182,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CurvaDeDensidad.xaml">
+    <Page Include="4 CurvaDeDensidad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
