@@ -77,6 +77,9 @@ namespace Degadis
             try { wtbep = Convert.ToDouble(TxtWtbep.Text); }
             catch (FormatException) { MError += "El valor ingresado para wtbep debe ser un numero\n"; }
 
+            try { wtdh = Convert.ToDouble(TxtWtdh.Text); }
+            catch (FormatException) { MError += "El valor ingresado para wtdh debe ser un numero\n"; }
+
             try { errg = Convert.ToDouble(TxtErrg.Text); }
             catch (FormatException) { MError += "El valor ingresado para errg debe ser un numero positivo\n"; }
 

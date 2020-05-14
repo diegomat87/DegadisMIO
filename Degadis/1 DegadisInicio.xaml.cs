@@ -46,11 +46,5 @@ namespace Degadis
                 }
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //FileER3 fileER3 = new FileER3();
-            //this.NavigationService.Navigate(fileER3);
-        }
     }
 }

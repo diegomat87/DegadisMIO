@@ -24,7 +24,6 @@ namespace Degadis
         public DegadisJetInicio()
         {
             InitializeComponent();
-            this.Title = "Degadis";
         }
 
         private void BtnNuevoCaso_Click(object sender, RoutedEventArgs e)

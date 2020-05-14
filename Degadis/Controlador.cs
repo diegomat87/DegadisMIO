@@ -770,5 +770,15 @@ namespace Degadis
             get { return Properties.Settings.Default.elejet; }
         }
 
+        public double distmx
+        {
+            set
+            {
+                Properties.Settings.Default.distmx = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.distmx; }
+        }
+
     }
 }

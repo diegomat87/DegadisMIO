@@ -102,8 +102,8 @@
     <Compile Include="4 CurvaDeDensidad.xaml.cs">
       <DependentUpon>4 CurvaDeDensidad.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DegadisJetInicio.xaml.cs">
-      <DependentUpon>DegadisJetInicio.xaml</DependentUpon>
+    <Compile Include="1 DegadisJetInicio.xaml.cs">
+      <DependentUpon>1 DegadisJetInicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navegador.xaml.cs">
       <DependentUpon>Navegador.xaml</DependentUpon>
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DegadisJetInicio.xaml">
+    <Page Include="1 DegadisJetInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
