@@ -21,7 +21,6 @@
                 <Label Content="Editar caso" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  />
                 <Label Content="Sobrescribir caso" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                 <Label Content="Buscar caso" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  HorizontalContentAlignment="Center" />
-                <Button x:Name="btnSelect" Content="Seleccionar &#xD;&#xA;Carpeta &#xD;&#xA;Deg exe" HorizontalAlignment="Left" Margin="749,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Click="btnSelect_Click" Height="100" HorizontalContentAlignment="Center"/>
             </Grid>
         </StackPanel>
     </ScrollViewer>

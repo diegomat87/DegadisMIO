@@ -57,14 +57,45 @@ namespace Datos
         /// <summary>
         /// Crea Archivo *.inp
         /// </summary>
-        public void CrearInp(double velViento, double altViento, double rugosidad, int estabilidad, double tiempoprom, int inddvel, double molength, double tempAmbiente, double presAmbiente,
+        public void CrearInp(List<string> titulo, double velViento, double altViento, double rugosidad, int estabilidad, double tiempoprom, int inddvel, double molength, double tempAmbiente, double presAmbiente,
             double humAbsoluta, double humRelativa, int isofll, double tempSuperficie, int ihtfll, double htcoo, int iwtfll, double wtcoo, string nombre, double pesoMole, double temperatura,
             double densidad, double capCalorifica, double potenciaCapCal, double limitesuperior, double limiteinferior, double alturacontorno, List<Entidades.LineaDensidad> DEN, double limiteinferiorinteres,
-            double masainicial, bool check04, List<Entidades.LineaSource> dNT, string tiempoinp, string ruta)
+            double masainicial, bool check04, List<Entidades.LineaSource> dNT, string tiempoinp, string ruta, string nombarch)
         {
             rut = ruta;
             culture.NumberGroupSeparator = "";
-
+            try
+            {
+                titulo1=titulo[0];
+            }
+            catch (Exception)
+            {
+                titulo1 = "";
+            }
+            try
+            {
+                titulo2 = titulo[1];
+            }
+            catch (Exception)
+            {
+                titulo2 = "";
+            }
+            try
+            {
+                titulo3 = titulo[2];
+            }
+            catch (Exception)
+            {
+                titulo3 = "";
+            }
+            try
+            {
+                titulo4 = titulo[3];
+            }
+            catch (Exception)
+            {
+                titulo4 = "";
+            }
             u0 = velViento.ToString("F15", culture).Substring(0, 16);
             z0 = altViento.ToString("F15", culture).Substring(0, 16);
             zr = rugosidad.ToString("0.000000000000000E+000", culture);
@@ -100,14 +131,14 @@ namespace Datos
             else { check4 = "F"; }
             tinp = tiempoinp;
 
-            generar(DEN, dNT);
+            generar(DEN, dNT,nombarch);
         }
 
-        public void crearJet(string ruta,List<string> titulo, double velViento, double altViento, double rugosidad, int estabilidad, int inddvel, double molength, double tempAmbiente, double presAmbiente,
-            double humRelativa, double tempSuperficie, string nombre, double pesoMole, double tiempoprom, double tiempojet, double limitesuperior, double limiteinferior, double alturacontorno,
+        public void crearJet(string nombarch, string ruta,List<string> titulo, double velViento, double altViento, double rugosidad, int estabilidad, int inddvel, double molength, double tempAmbiente, double presAmbiente,
+            double humRelativa, double tempSuperficie, string nomgas, double pesoMole, double tiempoprom, double tiempojet, double limitesuperior, double limiteinferior, double alturacontorno,
             int indht, double capCalorifica, double potenciaCapCal, List<Entidades.LineaDensidad> DEN, double erate, double elejet, double diajet, double tend, double distMax)
         {
-            StreamWriter archivo = new StreamWriter(ruta + "\\jet.inp");
+            StreamWriter archivo = new StreamWriter(ruta + "\\" + nombarch + "jet.inp");
             try
             {
                 archivo.WriteLine(titulo[0]);
@@ -145,7 +176,7 @@ namespace Datos
             archivo.WriteLine("   " + tempAmbiente.ToString("N7", culture).Substring(0, 8) + "       " + presAmbiente.ToString("N7", culture).Substring(0, 8) + "   " + humRelativa.ToString("N7", culture).Substring(0, 8));
             archivo.WriteLine("   " + tempSuperficie.ToString("N15", culture).Substring(0, 16));
             archivo.WriteLine("");
-            archivo.WriteLine(nombre);
+            archivo.WriteLine(nomgas);
             archivo.WriteLine("   " + pesoMole.ToString("N15", culture).Substring(0, 16));
             archivo.WriteLine("   " + tiempoprom.ToString("N15", culture).Substring(0, 16));
             archivo.WriteLine("   " + tiempojet.ToString("N15", culture).Substring(0, 16));
@@ -168,11 +199,11 @@ namespace Datos
             archivo.Close();
         }
 
-        private void generar(List<Entidades.LineaDensidad> DEN, List<Entidades.LineaSource> dNT)
+        private void generar(List<Entidades.LineaDensidad> DEN, List<Entidades.LineaSource> dNT, string nombarch)
         {
             int i = 0;
 
-            StreamWriter archivo = new StreamWriter(rut + "\\prueba.inp");
+            StreamWriter archivo = new StreamWriter(rut + "\\" + nombarch + ".inp");
             archivo.WriteLine(titulo1);
             archivo.WriteLine(titulo2);
             archivo.WriteLine(titulo3);
@@ -221,9 +252,9 @@ namespace Datos
             archivo.Close();
         }
 
-        public void crearER2(double syoer, double erro, double szoer, double wtaio, double wtqoo, double wtszo, double errp, double smxp, double wtszp, double wtsyp, double wtbep, double wtdh, double errg, double smxg, double ertdnf, double ertupf, double wtruh, double wtdhg, double stpo, double stpp, double odlp, double odllp, double stpg, double odlg, double odllg, double nobs, string ruta)
+        public void crearER2(double syoer, double erro, double szoer, double wtaio, double wtqoo, double wtszo, double errp, double smxp, double wtszp, double wtsyp, double wtbep, double wtdh, double errg, double smxg, double ertdnf, double ertupf, double wtruh, double wtdhg, double stpo, double stpp, double odlp, double odllp, double stpg, double odlg, double odllg, double nobs, string ruta, string nombarch)
         {
-            StreamWriter archivo = new StreamWriter(ruta + "\\prueba.ER2");
+            StreamWriter archivo = new StreamWriter(ruta + "\\" + nombarch + ".ER2");
             archivo.WriteLine(@"! This is an example for an ""ER2"" run parameter file.
 ! The same rules apply as for the ""ER1"" files.
 !
@@ -274,9 +305,9 @@ NOBS      " + nobs.ToString("N10", culture).Substring(0, 9) + @"
             archivo.Close();
         }
 
-        public void crearER3(double ert1, double erdt, double erntim, double check5, double sigx_flag, string ruta)
+        public void crearER3(double ert1, double erdt, double erntim, double check5, double sigx_flag, string ruta, string nombarch)
         {
-            StreamWriter archivo = new StreamWriter(ruta + "\\prueba.ER3");
+            StreamWriter archivo = new StreamWriter(ruta + "\\" + nombarch + ".ER3");
             archivo.WriteLine(@"! This is an example for an ""ER3"" run parameter file.
 ! The same rules apply as for the ""ER1"" files.
 !
@@ -311,9 +342,9 @@ sigx_flag " + sigx_flag.ToString("N10", culture).Substring(0, 9) + @"  correctio
             archivo.Close();
         }
 
-        public void crearER1(double stpin, double erbnd, double wtrg, double wttm, double wtya, double wtyc, double wteb, double wtmb, double xli, double xri, double eps, double zlow, double stpinz, double erbndz, double srcoer, double srcss, double srccut, double ernobl, double noblpt, double crfger, double epsilon, double ce, double delrhomin, double szstp0, double szerr, double szsz0, double ialpfl, double alpco, double iphifl, double dellay, double vua, double vub, double vuc, double vud, double vudelta, string ruta)
+        public void crearER1(double stpin, double erbnd, double wtrg, double wttm, double wtya, double wtyc, double wteb, double wtmb, double xli, double xri, double eps, double zlow, double stpinz, double erbndz, double srcoer, double srcss, double srccut, double ernobl, double noblpt, double crfger, double epsilon, double ce, double delrhomin, double szstp0, double szerr, double szsz0, double ialpfl, double alpco, double iphifl, double dellay, double vua, double vub, double vuc, double vud, double vudelta, string ruta, string nombarch)
         {
-            StreamWriter archivo = new StreamWriter(ruta + "\\prueba.ER1");
+            StreamWriter archivo = new StreamWriter(ruta + "\\" + nombarch + ".ER1");
             archivo.WriteLine(@"!This is an example of how to set up and use the run parameter
 ! input files.  Comment lines start with an exclamation mark(!)
 ! in the first column.  The only restrictions for data input are
