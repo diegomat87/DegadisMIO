@@ -195,7 +195,9 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
             }
             cont.SourceSoT = ListaLinea;
 
-            cont.tinp = DateTime.Now.ToString("d'-'MMM'-'yyyy HH:mm:ss.ff");
+            int mesn = DateTime.Now.Month - 1;
+            string[] mes = new string[12] { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+            cont.tinp = DateTime.Now.ToString("d'-'") + mes[mesn] + DateTime.Now.ToString("'-'yyyy HH:mm:ss.ff");
             MessageBox.Show(cont.tinp);
             Datos.archivos archivos = new Datos.archivos();
             archivos.CrearInp(cont.u0, cont.z0, cont.zr, cont.istab, cont.avtime, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.humedad, cont.humedadrel, cont.isofl,

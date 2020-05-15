@@ -142,7 +142,9 @@ namespace Degadis
                 lineaTransients.Add(lineaTransient4);
                 cont.SourceSoT = lineaTransients;
 
-                cont.tinp = DateTime.Now.ToString("d'-'MMM'-'yyyy HH:mm:ss.ff");
+                int mesn = DateTime.Now.Month - 1;
+                string[] mes = new string[12] { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+                cont.tinp = DateTime.Now.ToString("d'-'") + mes[mesn] + DateTime.Now.ToString("'-'yyyy HH:mm:ss.ff");
                 MessageBox.Show(cont.tinp);
 
                 MessageBox.Show("OK");
