@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Degadis
+namespace Operativo
 {
     public class PropiedadesTermodinamicas
     {
@@ -27,6 +27,19 @@ namespace Degadis
             sat = wmw / wma * watvp / (pamb - watvp);
             return humedad * 100 / sat;
 
+        }
+
+        public double cpc(double gascpk,double gascpp, double gastem, double gasmw, double temp)
+        {
+            double con = 3.33;
+            if (temp==gastem)
+            {
+                return (con + gascpk * gascpp * Math.Pow(gastem, -gascpp))/gasmw;
+            }
+            else
+            {
+                return (con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem) / gasmw;
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Degadis
     {
         Controlador cont = new Controlador();
         Datos.archivos arch = new Datos.archivos();
+        Operativo.PropiedadesTermodinamicas proter = new Operativo.PropiedadesTermodinamicas();
 
         #region Constructor
         public DescripcionEmisionJet()
@@ -103,11 +104,49 @@ namespace Degadis
             if (Validar())
             {
                 arch.crearJet(cont.nombre, cont.ruta, cont.titles, cont.u0, cont.z0, cont.zr, cont.istab, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.humedadrel, cont.tsurf, cont.gasnam, cont.gasmw, cont.avtime, cont.temjet, cont.gasulc, cont.gasllc, cont.gaszzc, cont.indht, cont.gascpk, cont.gascpp, cont.DENtriples, cont.erate, cont.elejet, cont.diajet, cont.tend, cont.distmx);
+                Siguiente();
             }
         }
         #endregion
 
         #region Metodos
+        private void Siguiente()
+        {
+            double qinit;
+            double gamma;
+            int tamDen = cont.DENtriples.Count;
+            if (tamDen > 0)
+            {
+                Entidades.LineaDensidad den = new Entidades.LineaDensidad();
+                den.Den1 = 2;
+                cont.DENtriples.Add(den);
+                cont.rhoa = cont.DENtriples[0].Den3;
+                cont.rhoe = cont.DENtriples[tamDen].Den3;
+            }
+            else
+            {
+                cont.rhoa = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+                cont.rhoe = cont.pamb * cont.gasmw / cont.rgas / cont.gastem;
+            }
+            cont.gasrho = cont.rhoe;
+            qinit = cont.erate / cont.rhoe;
+            gamma = (cont.rhoe - cont.rhoa) / cont.rhoe;
+            cont.yclow = cont.gasllc / 4.0;
+            if (cont.tend <= 0)
+            {
+                cont.yclow = cont.gasllc;
+            }
+
+            /*ver si esta parte es necesario
+            double wc = 1;
+            double wa = 0;
+
+            double enth = proter.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.temjet) * (cont.gastem - cont.tamb);
+
+            y lo que sigue
+            */
+        }
+
         private bool Validar()
         {
             string MError = "";

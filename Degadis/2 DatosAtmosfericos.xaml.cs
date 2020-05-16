@@ -22,7 +22,7 @@ namespace Degadis
     {
         Controlador Cont = new Controlador();
         Entidades.ListaTitles title1to4 = new Entidades.ListaTitles();
-        PropiedadesTermodinamicas opTermodinamicas = new PropiedadesTermodinamicas();
+        Operativo.PropiedadesTermodinamicas opTermodinamicas = new Operativo.PropiedadesTermodinamicas();
         double rml=0;
 
         #region Constructores
