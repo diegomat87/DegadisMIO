@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="DescripcionEmisionA" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+      Title="DescripcionEmisionA" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
-            <Label Content="Descripción de la emisión estacionaria" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Content="Steady state release" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
         </Border>
         <ScrollViewer Grid.Row="1" Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="StackMenuInicio">
@@ -51,6 +51,6 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}" TabIndex="5"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}" TabIndex="5"/>
     </Grid>
 </Page>

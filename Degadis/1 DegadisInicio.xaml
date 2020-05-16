@@ -5,23 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Degadis"
         mc:Ignorable="d"
-        Title="Degadis" Background="White">
-    <ScrollViewer x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="StackMenuInicio" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid x:Name="GridMenuInicio" Width="1024" Height="800">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label x:Name="LbLDegadis" Grid.Row="0" Content="DEnse GAs DISpersion Model input module." FontWeight="Bold" FontStyle="Italic" FontSize="30" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Button x:Name="btnNuevoCaso" Grid.Row="1" Content="Crear Nuevo Caso" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="125" Click="btnNuevoCaso_Click"/>
-                <Label Content="Editar caso" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  />
-                <Label Content="Sobrescribir caso" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-                <Label Content="Buscar caso" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  HorizontalContentAlignment="Center" />
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+        Title="Degadis" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Style="{DynamicResource EstiloGrid}" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label x:Name="LbLDegadis" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center" Foreground="White" Style="{DynamicResource EstiloLabel}" Content="DEnse GAs DISpersion Model input module"/>
+        </Border>
+        <ScrollViewer x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <StackPanel x:Name="StackMenuInicio">
+                <Grid x:Name="GridMenuInicio" Style="{DynamicResource EstiloGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnNuevoCaso" Content="Crear Nuevo Caso" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="125" Click="btnNuevoCaso_Click"/>
+                    <Label Content="Editar caso" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Style="{DynamicResource EstiloLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+                    <Label Content="Sobrescribir caso" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
+                    <Label Content="Buscar caso" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" VerticalContentAlignment="Center" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Page>

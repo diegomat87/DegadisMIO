@@ -49,6 +49,18 @@ namespace Degadis
             }
         }
         #endregion
+
+        #region Componenetes        
+        #region Transfornaciones
+        private void TxtYclow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
+                e.Handled = false; //transformar punto en coma
+            else
+                e.Handled = true;
+        }
+        #endregion
+
         private void BtnAyudaYclow_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(@"The (default) lowest mole fraction of interest is based on the lowest level of concern given before. If you wish to follow contaminant mole fractions lower than the lowest level of concern, set the lowest mole fraction of interest accordingly. For steady-state simulations, the calculations are discontinued when the mole fraction is less than the lowest level of concern. For transient simulations, the calculations are discontinued when the mole fraction is less than one-fifth of the lowest level of concern.");
@@ -77,16 +89,6 @@ A release is considered steady state when 'trel' >> 'thaz' and 'ttrav';
 
 A release is considered transient when it cannot be considered steady state. 'tdy' should be set to the smaller of 'trel' or 'thaz'(to properly represent the lateral plume meander).  When 'trel'< 'thaz', the concentration time history at a point (or receptor) available from DEG4 should be averaged over 'thaz' for consequence analysis.");
         }
-        #region Componenetes        
-        #region Transfornaciones
-        private void TxtYclow_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
-                e.Handled = false; //transformar punto en coma
-            else
-                e.Handled = true;
-        }
-        #endregion
         private void BtnSiguiente_Click(object sender, RoutedEventArgs e)
         {
             siguiente();

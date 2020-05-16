@@ -25,6 +25,16 @@ namespace Degadis
         Datos.archivos arch = new Datos.archivos();
         double ert1, erdt, erntim, check5, sigx_flag;
 
+        private void BtnAyudaSigxflag_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(@"sigx_flag    0.       no correction for x-direction dispersion");
+        }
+
+        private void BtnAyudaCHECK5_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(@"The value of CHECK5 determines whether the above sort parameters are used. CHECK5 is  initialized through the passed transfer files to FALSE. CHECK5 is set to TRUE if a real value of 1 is passed in this file.");
+        }
+
         public FileER3()
         {
             InitializeComponent();

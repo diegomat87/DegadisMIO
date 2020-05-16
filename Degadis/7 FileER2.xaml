@@ -5,87 +5,98 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="FileER2" Width="Auto" Height="Auto">
-    <ScrollViewer x:Name="ScrollFileER2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="StackFileER2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1024" Height="800">
-            <Grid x:Name="GridER2" Height="800" Width="1024" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label x:Name="LblSetupRP" Content="Set up for the run parameters" Grid.ColumnSpan="2" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-                <Label x:Name="LblSy0er" Margin="0,0,150,0" Grid.Row="1" Content="SSSUP - RKGST - INITIAL SY --- SY0ER" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="TblErro" Content="SSSUP - RKGST(OBS) - ERROR BOUND --- ERRO" Grid.Row="2" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblSz0er" Content="SSSUP - RKGST(OBS) - INITIAL SZ --- SZ0ER" Grid.Row="3" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtaio" Content="SSSUP - RKGST(OBS) - WEIGHT FOR AI --- WTAIO" Grid.Row="4" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtqoo" Content="SSSUP - RKGST(OBS) - WEIGHT FOR Q --- WTQOO" Grid.Row="5" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtszo" Content="SSSUP - RKGST(OBS) - WEIGHT FOR SZ --- WTSZO" Grid.Row="6" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblErrp" Content="SSSUP - RKGST(PSS) - ERROR BOUND --- ERRP" Grid.Row="7" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblSmxp" Content="SSSUP - RKGST(PSS) - MAXIMUM STEP --- SMXP" Grid.Row="8" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtszp" Content="SSSUP - RKGST(PSS) - WEIGHT FOR SZ --- WTSZP" Grid.Row="9" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtsyp" Content="SSSUP - RKGST(PSS) - WEIGHT FOR SY --- WTSYP" Grid.Row="10" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtbep" Content="SSSUP - RKGST(PSS) - WEIGHT FOR BEFF --- WTBEP" Grid.Row="11" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtdh" Content="SSSUP - RKGST(PSS) - WEIGHT FOR DH --- WTDH" Grid.Row="12" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblErrg" Content="SSSUP - RKGST(SSG) - ERROR BOUND --- ERRG" Grid.Row="13" VerticalContentAlignment="Center" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblSmxg" Content="SSSUP - RKGST(SSG) - MAXIMUM STEP SIZE --- SMXG" Grid.Row="1" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblErtdnf" Content="TDNF - CONVERGENCE CRITERION - ERTDNF" Grid.Row="2" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblErtupf" Content="TUPF - CONVERGENCE CRITERION --- ERTUPF" Grid.Row="3" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtruh" Content="SSSUP - RKGST(SSG) - WEIGHT FOR RUH --- WTRUH" Grid.Row="4" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblWtdhg" Content="SSSUP - RKGST(SSG) - WEIGHT FOR DH --- WTDHG" Grid.Row="5" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblStpo" Content="SSSUP - RKGST(OBS) - INITIAL STEP --- STPO" Grid.Row="6" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblStpp" Content="SSSUP - RKGST(PSS) - INITIAL STEP --- STPP" Grid.Row="7" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblOdlp" Content="SSSUP - RKGST(PSS) - RELATIVE OUTPUT DELTA --- ODLP" Grid.Row="8" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblOdllp" Content="SSSUP-RKGST(PSS)-MAXIMUM DISTANCE BETWEEN --- ODLLP" Grid.Row="9" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblStpg" Content="SSSUP - RKGST(SSG) - INITIAL STEP --- STPG" Grid.Row="10" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblOdlg" Content="SSSUP - RKGST(SSG) - RELATIVE OUTPUT DELTA --- ODLG" Grid.Row="11" Grid.Column="1" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <Label x:Name="LblOdllg" Content="SSSUP-RKGST(SSG)-MAXIMUM DISTANCE &#xD;&#xA;BETWEEN OUTPUTS(m)                               --- ODLLG" Grid.Row="12" Grid.Column="1" Margin="0,0,150,0" HorizontalAlignment="Right"/>
-                <Label x:Name="LblNobs" Grid.Row="13" Grid.Column="1" Margin="0,0,150,0" Content="NOBS " VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox x:Name="TxtSy0er1" TextWrapping="Wrap" Text="TextBox" Margin="0,0,20,0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtErro" TextWrapping="Wrap" Text="0,003" Margin="0,0,20,0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtSz0er" TextWrapping="Wrap" Text="0,00001 " Margin="0,0,20,0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtaio" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtqoo" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtszo" TextWrapping="Wrap" Text=",0" Margin="0,0,20,0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtErrp" TextWrapping="Wrap" Text="0,003" Margin="0,0,20,0" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtSmxp" TextWrapping="Wrap" Text="80,0" Margin="0,0,20,0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtszp" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtsyp" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtbep" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="11" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtWtdh" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="12" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtErrg" TextWrapping="Wrap" Text="0,003" Margin="0,0,20,0" Grid.Row="13" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtSy0er" TextWrapping="Wrap" Text="0,0" Margin="0,0,20,0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24"/>
-                <TextBox x:Name="TxtSmxg" TextWrapping="Wrap" Text="120,0" Margin="0,0,20,0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtErtdnf" TextWrapping="Wrap" Text="0,0005" Margin="0,0,20,0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtErtupf" TextWrapping="Wrap" Text="0,0005" Margin="0,0,20,0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtWtruh" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtWtdhg" TextWrapping="Wrap" Text="1,0" Margin="0,0,20,0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtStpo" TextWrapping="Wrap" Text="0,05" Margin="0,0,20,0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtStpp" TextWrapping="Wrap" Text="0,05" Margin="0,0,20,0" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtOdlp" TextWrapping="Wrap" Text="0,06" Margin="0,0,20,0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtOdllp" TextWrapping="Wrap" Text="80,0" Margin="0,0,20,0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtStpg" TextWrapping="Wrap" Text="60,0" Margin="0,0,20,0" Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtOdlg" TextWrapping="Wrap" Text="0,045" Margin="0,0,20,0" Grid.Row="11" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtOdllg" TextWrapping="Wrap" Text="80,0" Margin="0,0,20,0" Grid.Row="12" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <TextBox x:Name="TxtNobs" TextWrapping="Wrap" Text="30,0" Margin="0,0,20,0" Grid.Row="13" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1"/>
-                <Button x:Name="BtnSiguiente" Content="Siguiente" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="14" VerticalAlignment="Center" Width="124" Height="26" Click="BtnSiguiente_Click"/>
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+      Title="FileER2" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Style="{DynamicResource EstiloGrid}" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label x:Name="LblSetupRP" Content="Set up for the run parameters"  VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Left"/>
+        </Border>
+        <ScrollViewer x:Name="ScrollFileER2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" Grid.Row="1">
+            <StackPanel x:Name="StackFileER2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid x:Name="GridER2" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Style="{DynamicResource EstiloGrid}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LblSy0er" Margin="0" Content="SSSUP - RKGST - INITIAL SY --------------- SY0ER" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    <Label x:Name="TblErro" Content="SSSUP - RKGST(OBS) - ERROR BOUND --- ERRO" Grid.Row="1" Margin="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblSz0er" Content="SSSUP - RKGST(OBS) - INITIAL SZ -------- SZ0ER" Grid.Row="2" Margin="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtaio" Content="SSSUP - RKGST(OBS) - WEIGHT FOR AI--- WTAIO" Grid.Row="3" Margin="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtqoo" Content="SSSUP - RKGST(OBS) - WEIGHT FOR Q --- WTQOO" Grid.Row="4" Margin="0" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    <Label x:Name="LblWtszo" Content="SSSUP - RKGST(OBS) - WEIGHT FOR SZ -- WTSZO" Grid.Row="5" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblErrp" Content="SSSUP - RKGST(PSS) - ERROR BOUND ---- ERRP" Grid.Row="6" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblSmxp" Content="SSSUP - RKGST(PSS) - MAXIMUM STEP --- SMXP" Grid.Row="7" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtszp" Content="SSSUP - RKGST(PSS) - WEIGHT FOR SZ --- WTSZP" Grid.Row="8" Margin="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtsyp" Content="SSSUP - RKGST(PSS) - WEIGHT FOR SY --- WTSYP" Grid.Row="9" Margin="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtbep" Content="SSSUP - RKGST(PSS) - WEIGHT FOR BEFF - WTBEP" Grid.Row="10" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtdh" Content="SSSUP - RKGST(PSS) - WEIGHT FOR DH --- WTDH" Grid.Row="11" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblErrg" Content="SSSUP - RKGST(SSG) - ERROR BOUND ---- ERRG" Grid.Row="12" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblSmxg" Content="SSSUP - RKGST(SSG) - MAXIMUM STEP SIZE ----------- SMXG" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblErtdnf" Content="TDNF - CONVERGENCE CRITERION --------------------- ERTDNF" Grid.Row="1" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblErtupf" Content="TUPF - CONVERGENCE CRITERION ---------------------- ERTUPF" Grid.Row="2" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtruh" Content="SSSUP - RKGST(SSG) - WEIGHT FOR RUH --------------- WTRUH" Grid.Row="3" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblWtdhg" Content="SSSUP - RKGST(SSG) - WEIGHT FOR DH ----------------- WTDHG" Grid.Row="4" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblStpo" Content="SSSUP - RKGST(OBS) - INITIAL STEP ---------------------- STPO" Grid.Row="5" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblStpp" Content="SSSUP - RKGST(PSS) - INITIAL STEP ----------------------- STPP" Grid.Row="6" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblOdlp" Content="SSSUP - RKGST(PSS) - RELATIVE OUTPUT DELTA --------- ODLP" Grid.Row="7" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblOdllp" Content="SSSUP-RKGST(PSS)-MAXIMUM DISTANCE BETWEEN ---- ODLLP" Grid.Row="8" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblStpg" Content="SSSUP - RKGST(SSG) - INITIAL STEP ----------------------- STPG" Grid.Row="9" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblOdlg" Content="SSSUP - RKGST(SSG) - RELATIVE OUTPUT DELTA --------- ODLG" Grid.Row="10" Grid.Column="2" Margin="15,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <Label x:Name="LblOdllg" Content="SSSUP-RKGST(SSG)-MAX. DIST. BETWEEN OUTPUTS(m) - ODLLG" Grid.Row="11" Grid.Column="2" Margin="15,0,0,0" HorizontalAlignment="Stretch" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    <Label x:Name="LblNobs" Grid.Row="12" Grid.Column="2" Margin="15,0,0,0" Content="NOBS " VerticalContentAlignment="Center" HorizontalAlignment="Right" Style="{DynamicResource EstiloLabel}" VerticalAlignment="Stretch"/>
+                    <TextBox x:Name="TxtSy0er" TextWrapping="Wrap" Text="0,0" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtErro" TextWrapping="Wrap" Text="0,003" Margin="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtSz0er" TextWrapping="Wrap" Text="0,00001 " Margin="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtaio" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtqoo" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtszo" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtErrp" TextWrapping="Wrap" Text="0,003" Margin="0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtSmxp" TextWrapping="Wrap" Text="80,0" Margin="0" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtszp" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtsyp" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtbep" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtdh" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="11" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtErrg" TextWrapping="Wrap" Text="0,003" Margin="0" Grid.Row="12" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtSmxg" TextWrapping="Wrap" Text="120,0" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtErtdnf" TextWrapping="Wrap" Text="0,0005" Margin="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtErtupf" TextWrapping="Wrap" Text="0,0005" Margin="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtruh" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtWtdhg" TextWrapping="Wrap" Text="1,0" Margin="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtStpo" TextWrapping="Wrap" Text="0,05" Margin="0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtStpp" TextWrapping="Wrap" Text="0,05" Margin="0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtOdlp" TextWrapping="Wrap" Text="0,06" Margin="0" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtOdllp" TextWrapping="Wrap" Text="80,0" Margin="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtStpg" TextWrapping="Wrap" Text="60,0" Margin="0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtOdlg" TextWrapping="Wrap" Text="0,045" Margin="0" Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtOdllg" TextWrapping="Wrap" Text="80,0" Margin="0" Grid.Row="11" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                    <TextBox x:Name="TxtNobs" TextWrapping="Wrap" Text="30,0" Margin="0" Grid.Row="12" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="24" Grid.Column="3" Style="{DynamicResource EstiloTextBox}"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Button x:Name="BtnSiguiente" Content="Next" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Click="BtnSiguiente_Click" Style="{DynamicResource ButtonNext}"/>
+    </Grid>
 </Page>

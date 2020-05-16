@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="DescripcionEmision" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+      Title="DescripcionEmision" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,14 +36,14 @@
                     <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtYclow" KeyDown="TxtYclow_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
                     <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaYclow" Content="?" Click="BtnAyudaYclow_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="1" Grid.Column="0" Name="LblEmisionPoD" Content="Is the contaminant released: pure or diluted with air?"/>
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblEmisionPoD" Content="Is the contaminant released: pure or diluted with air?" VerticalAlignment="Center"/>
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                        <RadioButton x:Name="RdBtnPure" GroupName="PoD" Content="Pure" IsChecked="True"/>
-                        <RadioButton x:Name="RdBtnDiluted" GroupName="PoD" Content="Diluted"/>
+                        <RadioButton x:Name="RdBtnPure" GroupName="PoD" Content="Pure" IsChecked="True" Margin="0,10,0,0"/>
+                        <RadioButton x:Name="RdBtnDiluted" GroupName="PoD" Content="Diluted" Margin="0,0,0,10"/>
                     </StackPanel>
                     <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaPoD" Content="?" Click="BtnAyudaPoD_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" Name="LblSteadyorTransient" Content="Can this release be considered: steady state or transient?" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblSteadyorTransient" Content="Can this release be considered: steady state or transient?" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                     <StackPanel Grid.Row="2" Grid.Column="1">
                         <RadioButton Name="RdBtnSteady" GroupName="SoT" Content="Estacionaria" IsChecked="True"/>
                         <RadioButton Name="RdBtnTransient" GroupName="SoT" Content="Transitoria"/>
@@ -52,6 +52,6 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" Style="{DynamicResource EstiloBotones}" TabIndex="5" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" Style="{DynamicResource ButtonNext}" TabIndex="5" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
     </Grid>
 </Page>

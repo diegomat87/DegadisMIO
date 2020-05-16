@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="DescripcionEmisionB" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+      Title="DescripcionEmisionB" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
-            <Label Content="Descripción de la emisión estacionaria" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Content="Transient state release" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
         </Border>
         <ScrollViewer Grid.Row="1" x:Name="ScrollDescrpcionEmisionB2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="StackDescrpcionEmisionB2">
@@ -42,7 +42,7 @@
                     <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtMasainicialFuente" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
                     <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaMasaInicial" Content="?" Click="BtnAyudaMasaInicial_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="0" Grid.Column="3" Name="LblTimeSource" Content="Time [s]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Name="LblTimeSource" Content="Time [s]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="0" Grid.Column="4" Name="TxtTimeSource" KeyDown="TxtTimeSource_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
                     <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaTimeSource" Content="?" Click="BtnAyudaTimeSource_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -50,7 +50,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1" Name="TxtRleaseRate" KeyDown="TxtRleaseRate_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
                     <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaReleaseRate" Content="?" Click="BtnAyudaReleaseRate_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="1" Grid.Column="3" Name="LblSourceRadius" Content="Source radius [m]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Name="LblSourceRadius" Content="Source radius [m]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="1" Grid.Column="4" Name="TxtSourceRadius" KeyDown="TxtSourceRadius_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="4"/>
                     <Button Grid.Row="1" Grid.Column="5" Name="BtnAyudaSourceRadius" Content="?" Click="BtnAyudaSourceRadius_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -58,7 +58,7 @@
                     <TextBox Grid.Row="2" Grid.Column="1" Name="TxtMassFraction" KeyDown="TxtMassFraction_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="5"/>
                     <Button Grid.Row="2" Grid.Column="2" Name="BtnAyudaMassFraction" Content="?" Click="BtnAyudaMassFraction_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="2" Grid.Column="3" Name="LblSourceTemprature" Content="Soruce Temperature [K]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="2" Grid.Column="3" Name="LblSourceTemprature" Content="Soruce Temperature [K]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="2" Grid.Column="4" Name="TxtSourceTemprature" KeyDown="TxtSourceTemprature_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="6"/>
                     <Button Grid.Row="2" Grid.Column="5" Name="BtnAyudaSourceTemprature" Content="?" Click="BtnAyudaSourceTemprature_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -67,6 +67,6 @@
             </StackPanel>
         </ScrollViewer>
         <DataGrid Grid.Row="2" Name="DataListaTransientSource" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" />
-        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Siguiente"  Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}"/>
+        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Next"  Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}"/>
     </Grid>
 </Page>

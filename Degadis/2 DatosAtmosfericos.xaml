@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
-            <Label Content="Atmospheric parameters" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Content="Atmospheric parameters" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Left"/>
         </Border>
         <ScrollViewer Grid.Row="1" x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="StackMenuInicio">
@@ -39,14 +39,14 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" x:Name="LblNombreArchivoCaso"  Content="Title"  Cursor="None" VerticalContentAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" x:Name="TxtTituloCaso" Height="24" Width="400" TabIndex="1"/>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="LblNombreArchivoCaso"  Content="Title"  Cursor="None" VerticalContentAlignment="Center" Height="26" VerticalAlignment="Top"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" x:Name="TxtTituloCaso" Height="24" TabIndex="1" Margin="0,1"/>
 
                     <Label Grid.Row="1" Grid.Column="0" x:Name="lblzr" Content="Surface roughness, zr [m]" VerticalContentAlignment="Center"/>
                     <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtzr" KeyDown="txtzr_KeyDown" LostFocus="txtzr_LostFocus" TabIndex="2" Style="{DynamicResource EstiloTextBox}" />
-                    <Button Grid.Row="1" Grid.Column="2" x:Name="btnAyudaZr" Content="?" Click="BtnAyudaZr_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                    <Button Grid.Row="1" Grid.Column="2" x:Name="btnAyudaZr" Content="?" Click="BtnAyudaZr_Click" Style="{DynamicResource EstiloBotonAyuda}" HorizontalAlignment="Left" Margin="0,2"/>
 
-                    <Label Grid.Row="1" Grid.Column="3" x:Name="Lblu0" Content="Atmospheric windspeed, u0 [m/s]" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="3" x:Name="Lblu0" Content="Atmospheric windspeed, u0 [m/s]" VerticalContentAlignment="Center" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="1" Grid.Column="5" x:Name="txtu0" KeyDown="Txtu0_KeyDown" TabIndex="3" Style="{DynamicResource EstiloTextBox}"/>
                     <Button Grid.Row="1" Grid.Column="6" x:Name="btnAyudau0" Content="?" Click="BtnAyudau0_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -54,7 +54,7 @@
                     <TextBox Grid.Row="2" Grid.Column="1" x:Name="txttiempopromedio" KeyDown="txttiempopromedio_KeyDown" TabIndex="4"/>
                     <Button Grid.Row="2" Grid.Column="2" x:Name="BtnAyudaTiempoPromedio" Content="?" Click="BtnAyudaTiempoPromedio_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="2" Grid.Column="3" x:Name="lblz0" Content="Elevation at windspeed, z0 [m]"/>
+                    <Label Grid.Row="2" Grid.Column="3" x:Name="lblz0" Content="Elevation at windspeed, z0 [m]" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="2" Grid.Column="5" x:Name="txtz0" KeyDown="txtz0_KeyDown" TabIndex="5" Style="{DynamicResource EstiloTextBox}"/>
                     <Button Grid.Row="2" Grid.Column="6" x:Name="btnAyudaz0" Content="?" Click="BtnAyudaz0_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -62,9 +62,9 @@
                     <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cmbEstabilidad" SelectionChanged="cmbEstabilidad_SelectionChanged" TabIndex="6" Style="{DynamicResource EstiloComboBox}"/>
                     <Button Grid.Row="3" Grid.Column="2" x:Name="btnAyudaEstabilidad" Content="?" Click="BtnAyudaEstabilidad_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="3" Grid.Column="3" x:Name="lbllongitudMoninObukhov" Content="Monin-Obukhov length [m]"/>
+                    <Label Grid.Row="3" Grid.Column="3" x:Name="lbllongitudMoninObukhov" Content="Monin-Obukhov length [m]" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="3" Grid.Column="5" x:Name="txtlongitudMoninObukhov" KeyDown="txtlongitudMoninObukhov_KeyDown" IsEnabled="False" TabIndex="7" Style="{DynamicResource EstiloTextBox}"/>
-                    <StackPanel Grid.Row="3" Grid.Column="4">
+                    <StackPanel Grid.Row="3" Grid.Column="4" Margin="0,0,4,0">
                         <RadioButton x:Name="RdBtnLongMODefault" GroupName="LongMO" Content="Default" IsChecked="True" Checked="RdBtnLongMODefault_Checked"/>
                         <RadioButton x:Name="RdBtnLongMOSet" GroupName="LongMO" Content="Set" Checked="RdBtnLongMOSet_Checked"/>
                     </StackPanel>
@@ -74,7 +74,7 @@
                     <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtPresionAmbiente" KeyDown="txtPresionAmbiente_KeyDown" TabIndex="8" Style="{DynamicResource EstiloTextBox}"/>
                     <Button Grid.Row="4" Grid.Column="2" x:Name="BtnAyudaPresionAtm" Content="?" Click="BtnAyudaPresionAtm_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="4" Grid.Column="3" x:Name="lblTemperaturaAmbiente" Content="Ambient air temperature [K]"/>
+                    <Label Grid.Row="4" Grid.Column="3" x:Name="lblTemperaturaAmbiente" Content="Ambient air temperature [K]" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="4" Grid.Column="5" x:Name="txtTemperaturaAmbiente" KeyDown="txtTemperaturaAmbiente_KeyDown" TabIndex="9" Style="{DynamicResource EstiloTextBox}"/>
                     <Button Grid.Row="4" Grid.Column="6" x:Name="BtnAyudaTemperaturaAmb" Content="?" Click="BtnAyudaTemperaturaAmb_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -87,6 +87,6 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="11" Style="{DynamicResource EstiloBotones}"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="11" Style="{DynamicResource ButtonNext}" Margin="0,0,12,12"/>
     </Grid>
 </Page>

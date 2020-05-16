@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="CurvaDeDensidad">
-    <Grid>
+      Title="CurvaDeDensidad" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -37,7 +37,7 @@
             <TextBox Grid.Row="0" Grid.Column="1" Name="TxtFraccionMContaminante" KeyDown="TxtFraccionMContaminante_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
             <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaFraccionMolarCont" Content="?" Click="BtnAyudaFraccionMolarCont_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-            <Label Grid.Row="0" Grid.Column="3" Name="LblConcntracionContaminante" Content="Contaminant concentration [kg/m3]"/>
+            <Label Grid.Row="0" Grid.Column="3" Name="LblConcntracionContaminante" Content="Contaminant concentration [kg/m3]" Margin="42,0,0,0"/>
             <TextBox Grid.Row="0" Grid.Column="4" Name="TxtConcentracionContaminante"  KeyDown="TxtConcentracionContaminante_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
             <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaConcentracionContaminante" Content="?" Click="BtnAyudaConcentracionContaminante_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -52,6 +52,6 @@
                 <DataGrid x:Name="DataListaDEN" AutoGenerateColumns="False" IsReadOnly="True"/>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}"/>
+        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}"/>
     </Grid>
 </Page>
