@@ -306,7 +306,7 @@ namespace Degadis
         {
             if (validar())
             {
-                arch.crearER1(stpin, erbnd, wtrg, wttm, wtya, wtyc, wteb, wtmb, xli, xri, eps, zlow, stpinz, erbndz, srcoer, srcss, srccut, ernobl, noblpt, crfger, epsilon, ce, delrhomin, szstp0, szerr, szsz0, ialpfl, alpco, iphifl, dellay, vua, vub, vuc, vud, vudelta, cont.ruta);
+                arch.crearER1(stpin, erbnd, wtrg, wttm, wtya, wtyc, wteb, wtmb, xli, xri, eps, zlow, stpinz, erbndz, srcoer, srcss, srccut, ernobl, noblpt, crfger, epsilon, ce, delrhomin, szstp0, szerr, szsz0, ialpfl, alpco, iphifl, dellay, vua, vub, vuc, vud, vudelta, cont.ruta,cont.nombre);
                 MessageBox.Show("Archivo creado");
                 FileER2 fileER2 = new FileER2();
                 this.NavigationService.Navigate(fileER2);

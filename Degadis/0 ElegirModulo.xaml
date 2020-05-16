@@ -18,6 +18,9 @@
                 <Label x:Name="LabelElegirModulo" Grid.Row="0" Content="DEGADIS V2.1" FontWeight="Bold" FontStyle="Italic" FontSize="30" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Button x:Name="BtnJet" Content="Jet/Plume Model" HorizontalAlignment="Center" Margin="0,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Height="30" Click="BtnJet_Click"/>
                 <Button x:Name="BtnDeg" Content="Degadis Model" HorizontalAlignment="Center" Margin="0" Grid.Row="1" Width="150" VerticalAlignment="Center" Height="30" Click="BtnDeg_Click"/>
+                <Button x:Name="btnSelect" Content="Seleccionar &#xA;Carpeta &#xA;Deg exe" HorizontalAlignment="Left" Margin="749,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="btnSelect_Click" Height="100" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="749,51,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Nombre de archivo" HorizontalAlignment="Left" Margin="749,15,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             </Grid>
         </StackPanel>
     </ScrollViewer>

@@ -151,9 +151,9 @@ namespace Degadis
 
                 MessageBox.Show("OK");
                 Datos.archivos archivos = new Datos.archivos();
-                archivos.CrearInp(cont.u0, cont.z0, cont.zr, cont.istab, cont.avtime, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.humedad, cont.humedadrel, cont.isofl,
+                archivos.CrearInp(cont.titles,cont.u0, cont.z0, cont.zr, cont.istab, cont.avtime, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.humedad, cont.humedadrel, cont.isofl,
                     cont.tsurf, cont.ihtfl, cont.htco, cont.iwtfl, cont.wtco, cont.gasnam, cont.gasmw, cont.gastem, cont.gasrho, cont.gascpk, cont.gascpp, cont.gasulc, cont.gasllc,
-                    cont.gaszzc, cont.DENtriples, cont.yclow, cont.gmass0, cont.Check4, cont.SourceSoT, cont.tinp, cont.ruta);
+                    cont.gaszzc, cont.DENtriples, cont.yclow, cont.gmass0, cont.Check4, cont.SourceSoT, cont.tinp, cont.ruta,cont.nombre);
 
                 FileER1 fileER1 = new FileER1();
                 this.NavigationService.Navigate(fileER1);

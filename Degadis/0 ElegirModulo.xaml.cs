@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Degadis
 {
@@ -30,6 +31,7 @@ namespace Degadis
         private void BtnJet_Click(object sender, RoutedEventArgs e)
         {
             cont.booljet = true;
+            cont.nombre = txtNombre.Text;
             DegadisJetInicio degadisJetInicio = new DegadisJetInicio();
             this.NavigationService.Navigate(degadisJetInicio);            
         }
@@ -37,8 +39,22 @@ namespace Degadis
         private void BtnDeg_Click(object sender, RoutedEventArgs e)
         {
             cont.booljet = false;
+            cont.nombre = txtNombre.Text;
             DegadisInicio degadisInicio = new DegadisInicio();
             this.NavigationService.Navigate(degadisInicio);
+        }
+
+        private void btnSelect_Click(object sender, RoutedEventArgs e)
+        {
+            using (var fd = new FolderBrowserDialog())
+            {
+                if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fd.SelectedPath))
+                {
+                    string ruta = "D:\\CAIMI\\Modelos\\DEGADIS\\Degexe";
+                    ruta = fd.SelectedPath;
+                    cont.ruta = ruta;
+                }
+            }
         }
     }
 }

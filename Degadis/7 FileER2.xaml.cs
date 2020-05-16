@@ -32,7 +32,7 @@ namespace Degadis
         {
             if (validar())
             {
-                arch.crearER2(sy0er, erro, sz0er, wtaio, wtqoo, wtszo, errp, smxp, wtszp, wtsyp, wtbep, wtdh, errg, smxg, ertdnf, ertupf, wtruh, wtdhg, stpo, stpp, odlp, odllp, stpg, odlg, odllg, nobs, cont.ruta);
+                arch.crearER2(sy0er, erro, sz0er, wtaio, wtqoo, wtszo, errp, smxp, wtszp, wtsyp, wtbep, wtdh, errg, smxg, ertdnf, ertupf, wtruh, wtdhg, stpo, stpp, odlp, odllp, stpg, odlg, odllg, nobs, cont.ruta,cont.nombre);
                 MessageBox.Show("Archivo creado");
                 FileER3 fileER3 = new FileER3();
                 this.NavigationService.Navigate(fileER3);

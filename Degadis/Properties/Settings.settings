@@ -212,6 +212,9 @@
     <Setting Name="ruta" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+	  <Setting Name="nombre" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
     <Setting Name="erate" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>

@@ -21,7 +21,6 @@ namespace Degadis
     /// </summary>
     public partial class DegadisInicio : Page
     {
-        Controlador cont = new Controlador();
         public DegadisInicio()
         {
             InitializeComponent();
@@ -32,19 +31,6 @@ namespace Degadis
             DatosAtmosfericos datosAtmosfericos = new DatosAtmosfericos();
             this.NavigationService.Navigate(datosAtmosfericos);
             System.Windows.MessageBox.Show("Se muestran valores por defecto", "", MessageBoxButton.OK);
-        }
-
-        private void btnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            using (var fd = new FolderBrowserDialog())
-            {
-                if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fd.SelectedPath))
-                {
-                    string ruta = "D:\\CAIMI\\Modelos\\DEGADIS\\Degexe";
-                    ruta = fd.SelectedPath;
-                    cont.ruta = ruta;
-                }
-            }
         }
     }
 }

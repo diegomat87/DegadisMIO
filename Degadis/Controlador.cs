@@ -719,6 +719,18 @@ namespace Degadis
                 return Properties.Settings.Default.ruta;
             }
         }
+        public string nombre
+        {
+            set
+            {
+                Properties.Settings.Default.nombre = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.nombre;
+            }
+        }
 
         public int indht
         {

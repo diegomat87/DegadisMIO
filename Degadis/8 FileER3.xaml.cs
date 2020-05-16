@@ -35,7 +35,7 @@ namespace Degadis
         {
             if (validar())
             {
-                arch.crearER3(ert1, erdt, erntim, check5, sigx_flag, cont.ruta);
+                arch.crearER3(ert1, erdt, erntim, check5, sigx_flag, cont.ruta,cont.nombre);
                 MessageBox.Show("Archivo creado");
                 ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
                 Process p = new Process();
