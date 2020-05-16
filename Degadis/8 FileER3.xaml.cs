@@ -24,6 +24,7 @@ namespace Degadis
         Controlador cont = new Controlador();
         Datos.archivos arch = new Datos.archivos();
         double ert1, erdt, erntim, check5, sigx_flag;
+        //.
 
 
         public FileER3()
