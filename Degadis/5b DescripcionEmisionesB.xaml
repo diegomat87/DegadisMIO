@@ -42,7 +42,7 @@
                     <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtMasainicialFuente" Style="{DynamicResource EstiloTextBox}" TabIndex="1"/>
                     <Button Grid.Row="0" Grid.Column="2" Name="BtnAyudaMasaInicial" Content="?" Click="BtnAyudaMasaInicial_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="0" Grid.Column="3" Name="LblTimeSource" Content="Time [s]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Name="LblTimeSource" Content="Time [s]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="0" Grid.Column="4" Name="TxtTimeSource" KeyDown="TxtTimeSource_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="2"/>
                     <Button Grid.Row="0" Grid.Column="5" Name="BtnAyudaTimeSource" Content="?" Click="BtnAyudaTimeSource_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -50,7 +50,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1" Name="TxtRleaseRate" KeyDown="TxtRleaseRate_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="3"/>
                     <Button Grid.Row="1" Grid.Column="2" Name="BtnAyudaReleaseRate" Content="?" Click="BtnAyudaReleaseRate_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="1" Grid.Column="3" Name="LblSourceRadius" Content="Source radius [m]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Name="LblSourceRadius" Content="Source radius [m]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="1" Grid.Column="4" Name="TxtSourceRadius" KeyDown="TxtSourceRadius_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="4"/>
                     <Button Grid.Row="1" Grid.Column="5" Name="BtnAyudaSourceRadius" Content="?" Click="BtnAyudaSourceRadius_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
@@ -58,7 +58,7 @@
                     <TextBox Grid.Row="2" Grid.Column="1" Name="TxtMassFraction" KeyDown="TxtMassFraction_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="5"/>
                     <Button Grid.Row="2" Grid.Column="2" Name="BtnAyudaMassFraction" Content="?" Click="BtnAyudaMassFraction_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 
-                    <Label Grid.Row="2" Grid.Column="3" Name="LblSourceTemprature" Content="Soruce Temperature [K]" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="2" Grid.Column="3" Name="LblSourceTemprature" Content="Soruce Temperature [K]" Style="{DynamicResource EstiloLabel}" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="2" Grid.Column="4" Name="TxtSourceTemprature" KeyDown="TxtSourceTemprature_KeyDown" Style="{DynamicResource EstiloTextBox}" TabIndex="6"/>
                     <Button Grid.Row="2" Grid.Column="5" Name="BtnAyudaSourceTemprature" Content="?" Click="BtnAyudaSourceTemprature_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
 

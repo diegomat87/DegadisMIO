@@ -31,6 +31,8 @@ namespace Degadis
                 BtnAyudaFraccionMolarCont.Visibility = Visibility.Hidden;
                 TxtFraccionMolarCont.Visibility = Visibility.Hidden;
                 TxtTemperaturaFuente.Visibility = Visibility.Hidden;
+                LblFraccionMolarCont.Visibility = Visibility.Hidden;
+                LblTemperaturaFuente.Visibility = Visibility.Hidden;
                 TxtFraccionMolarCont.Text = Convert.ToString(1.0);
                 TxtTemperaturaFuente.Text = Convert.ToString(cont.gastem);
             }

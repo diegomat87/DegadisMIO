@@ -35,7 +35,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Name="LblErt1" Content="FIRST SORT TIME --- ERT1"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtErt1" Height="23" Width="120"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtErt1" Height="23" Width="120" Text="20,0"/>
 
                     <Label Grid.Row="1" Grid.Column="0" Name="LblErdt" Content="SORT TIME DELTA --- ERDT"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Name="TxtErdt" Height="23" Width="120" Text="5,0"/>

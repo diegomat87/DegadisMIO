@@ -39,38 +39,38 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Name="LbLIsotermico" Content="Is this an &quot;isothermal&quot; spill?"/>
                 <CheckBox Grid.Row="0" Grid.Column="1" Name="ChcIsotermico" Content="Yes" Checked="ChcIsotermico_Checked" Unchecked="ChcIsotermico_Unchecked" Height="16" Width="46" TabIndex="1"/>
-                <Button Grid.Row="0" Grid.Column="3" Name="BtnAyudaIsotermico" Content="?" Click="BtnAyudaIsotermico_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                <Button Grid.Row="0" Grid.Column="3" Name="BtnAyudaIsotermico" Content="?" Click="BtnAyudaIsotermico_Click" Style="{DynamicResource EstiloBotonAyuda}" Margin="10,0,0,0"/>
 
                 <Label Grid.Row="1" Grid.Column="0" Name="LblTransfCalor" Content="Is heat transfer to be included in the calculations?"/>
                 <CheckBox Grid.Row="1" Grid.Column="1" Name="ChcTransfCalor" Content="Yes" Checked="ChcTransfCalor_Checked" Unchecked="ChcTransfCalor_Unchecked" Width="46" Height="14" TabIndex="2" />
-                <Button Grid.Row="1" Grid.Column="3" Name="BtnAyudaTransfCalor" Content="?" Click="BtnAyudaTransfCalor_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                <Button Grid.Row="1" Grid.Column="3" Name="BtnAyudaTransfCalor" Content="?" Click="BtnAyudaTransfCalor_Click" Style="{DynamicResource EstiloBotonAyuda}" Margin="10,0,0,0"/>
 
                 <Label Grid.Row="2" Grid.Column="0" Name="LblTempSup" Content="Ground temperature [K]"/>
-                <TextBox Grid.Row="2" Grid.Column="2" Name="TxtTemperaturaSuperficie" Text="" KeyDown="TxtTemperaturaSuperficie_KeyDown" IsEnabled="False" TabIndex="3" Style="{DynamicResource EstiloTextBox}"/>
-                <Button Grid.Row="2" Grid.Column="3" Name="BtnAyudaTempSup" Content="?" Click="BtnAyudaTempSup_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                <TextBox Grid.Row="2" Grid.Column="2" Name="TxtTemperaturaSuperficie" Text="" KeyDown="TxtTemperaturaSuperficie_KeyDown" IsEnabled="False" TabIndex="3" Style="{DynamicResource EstiloTextBox}" Margin="10,0,0,0"/>
+                <Button Grid.Row="2" Grid.Column="3" Name="BtnAyudaTempSup" Content="?" Click="BtnAyudaTempSup_Click" Style="{DynamicResource EstiloBotonAyuda}" Margin="10,0,0,0"/>
 
                 <Label Grid.Row="3" Grid.Column="0" Name="LblCoefTransfCalor" Content="Heat transfer coefficient [J/m^2/s/K]" VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="2" Name="TxtCoeficienteCalorInput" IsEnabled="False" KeyDown="TxtCoeficienteCalorInput_KeyDown" TabIndex="4" Style="{DynamicResource EstiloTextBox}"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Name="TxtCoeficienteCalorInput" IsEnabled="False" KeyDown="TxtCoeficienteCalorInput_KeyDown" TabIndex="4" Style="{DynamicResource EstiloTextBox}" Margin="10,0,0,0"/>
                 <StackPanel Grid.Row="3" Grid.Column="1">
-                    <RadioButton Name="RdBtnCoefTransfCInput" GroupName="TransfCalor" Content="Particular Value" Checked="RdBtnCoefTransfCInput_Checked" IsEnabled="False"/>
+                    <RadioButton Name="RdBtnCoefTransfCInput" GroupName="TransfCalor" Content="Particular Value" Checked="RdBtnCoefTransfCInput_Checked" IsEnabled="False" Margin="0,10,0,0"/>
                     <RadioButton Name="RdBtnCoefTransfCDegadis" GroupName="TransfCalor" Content="Degadis Correlation" IsChecked="True" Checked="RdBtnCoefTransfCDegadis_Checked" IsEnabled="False"/>
-                    <RadioButton Name="RdBtnCoefTransfCLlnLCorr" GroupName="TransfCalor" Content="LLNL Correlation" Checked="RdBtnCoefTransfCLlnLCorr_Checked" Unchecked="RdBtnCoefTransfCLlnLCorr_Unchecked" IsEnabled="False"/>
+                    <RadioButton Name="RdBtnCoefTransfCLlnLCorr" GroupName="TransfCalor" Content="LLNL Correlation" Checked="RdBtnCoefTransfCLlnLCorr_Checked" Unchecked="RdBtnCoefTransfCLlnLCorr_Unchecked" IsEnabled="False" Margin="0,0,0,10"/>
                 </StackPanel>
-                <Button Grid.Row="3" Grid.Column="3" Name="BtnAyudaCoefTransfCalor" Content="?" Click="BtnAyudaCoefTransfCalor_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                <Button Grid.Row="3" Grid.Column="3" Name="BtnAyudaCoefTransfCalor" Content="?" Click="BtnAyudaCoefTransfCalor_Click" Style="{DynamicResource EstiloBotonAyuda}" Margin="10,0,0,0"/>
 
                 <Label Grid.Row="3" Grid.Column="4" x:Name="LblLlnlCorrVh" Content="Ingrese el valor de Vh [m/s]" VerticalContentAlignment="Center" Visibility="Hidden"/>
                 <TextBox Grid.Row="3" Grid.Column="5" x:Name="TxtLlnlCorrVh" Text="0,0125" Height="22" Width="120" IsEnabled="False" KeyDown="TxtLlnlCorrVh_KeyDown" Visibility="Hidden"/>
 
                 <Label Grid.Row="4" Grid.Column="0" x:Name="LblTransfAgua" Content="Is water transfer to be included in the calculations?" VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="2" x:Name="TxtCoeficienteAguaInput" IsEnabled="False" KeyDown="TxtCoeficienteAguaInput_KeyDown" TabIndex="5" Style="{DynamicResource EstiloTextBox}"/>
+                <TextBox Grid.Row="4" Grid.Column="2" x:Name="TxtCoeficienteAguaInput" IsEnabled="False" KeyDown="TxtCoeficienteAguaInput_KeyDown" TabIndex="5" Style="{DynamicResource EstiloTextBox}" Margin="10,0,0,0"/>
                 <StackPanel Grid.Row="4" Grid.Column="1">
-                    <RadioButton x:Name="RdBtnTransfAguaNo" GroupName="TransfAgua" Content="No" Checked="RdBtnTransfAguaNo_Checked" IsEnabled="False"/>
+                    <RadioButton x:Name="RdBtnTransfAguaNo" GroupName="TransfAgua" Content="No" Checked="RdBtnTransfAguaNo_Checked" IsEnabled="False" Margin="0,10,0,0"/>
                     <RadioButton x:Name="RdBtnCoefTransfADegadis" GroupName="TransfAgua" Content="Degadis Correlation" IsChecked="True" Checked="RdBtnCoefTransfADegadis_Checked" IsEnabled="False"/>
-                    <RadioButton x:Name="RdBtnCoefTransfAInput" GroupName="TransfAgua" Content="Particular Value" Checked="RdBtnCoefTransfAInput_Checked" IsEnabled="False"/>
+                    <RadioButton x:Name="RdBtnCoefTransfAInput" GroupName="TransfAgua" Content="Particular Value" Checked="RdBtnCoefTransfAInput_Checked" IsEnabled="False" Margin="0,0,0,10"/>
                 </StackPanel>
-                <Button Grid.Row="4" Grid.Column="3" x:Name="BtnAyudaTransfAgua" Content="?" Click="BtnAyudaTransfAgua_Click" Style="{DynamicResource EstiloBotonAyuda}"/>
+                <Button Grid.Row="4" Grid.Column="3" x:Name="BtnAyudaTransfAgua" Content="?" Click="BtnAyudaTransfAgua_Click" Style="{DynamicResource EstiloBotonAyuda}" Margin="10,0,0,0"/>
             </Grid>
         </StackPanel>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="6" Style="{DynamicResource EstiloBotones}"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="6" Style="{DynamicResource ButtonNext}" Height="22"/>
     </Grid>
 </Page>

@@ -36,5 +36,10 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="FontStyle" Value="Normal"/>
         </Style>
+        <Style x:Key="ButtonNext" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="88" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Content" Value="Next"/>
+        </Style>
     </Application.Resources>
 </Application>
