@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
       Title="FileER3">
-    <Grid>
+    <Grid Style="{DynamicResource EstiloGrid}" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -20,7 +20,7 @@
         </Border>
         <ScrollViewer Grid.Row="1" Name="ScrollFileER3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="StackFileER3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1024" Height="800">
-                <Grid x:Name="GridER3" Height="800" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="1024">
+                <Grid x:Name="GridER3" Height="800" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="1024" Style="{DynamicResource EstiloGrid}" Margin="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -34,25 +34,25 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" Name="LblErt1" Content="FIRST SORT TIME --- ERT1"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtErt1" Height="23" Width="120" Text="20,0"/>
+                    <Label Grid.Row="0" Grid.Column="0" Name="LblErt1" Content="FIRST SORT TIME --- ERT1" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TxtErt1" Height="23" Width="120" Text="20,0" Style="{DynamicResource EstiloTextBox}" Margin="0"/>
 
-                    <Label Grid.Row="1" Grid.Column="0" Name="LblErdt" Content="SORT TIME DELTA --- ERDT"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="TxtErdt" Height="23" Width="120" Text="5,0"/>
+                    <Label Grid.Row="1" Grid.Column="0" Name="LblErdt" Content="SORT TIME DELTA --- ERDT" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TxtErdt" Height="23" Width="120" Text="5,0" Style="{DynamicResource EstiloTextBox}"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" Name="LblErntim" Content="NUMBER OF TIMES FOR THE SORT --- ERNTIM"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtErntim" Height="23" Width="120" Text="20,0"/>
+                    <Label Grid.Row="2" Grid.Column="0" Name="LblErntim" Content="NUMBER OF TIMES FOR THE SORT --- ERNTIM" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="TxtErntim" Height="23" Width="120" Text="20,0" Style="{DynamicResource EstiloTextBox}"/>
 
-                    <Label Grid.Row="3" Grid.Column="0" Name="LblCheck5" Content="USE THE DEFAULT TIME PARAMETERS --- CHECK5" VerticalContentAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Name="TxtCheck5" Height="23" Width="120" Text="0"/>
-                    <Label Grid.Row="3" Grid.Column="2" Name="LblCheck5b" Content="The value of CHECK5 determines whether the above sort parameters are used.  CHECK5 is &#xD;&#xA;initialized through the passed transfer files to .FALSE.  CHECK5 is set to .TRUE. if a real value &#xD;&#xA;of 1 is passed in this file."/>
+                    <Label Grid.Row="3" Grid.Column="0" Name="LblCheck5" Content="USE THE DEFAULT TIME PARAMETERS --- CHECK5" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="TxtCheck5" Height="23" Width="120" Text="0" Style="{DynamicResource EstiloTextBox}"/>
+                    <Label Grid.Row="3" Grid.Column="2" Name="LblCheck5b" Content="The value of CHECK5 determines whether the above sort parameters are used.  CHECK5 is &#xD;&#xA;initialized through the passed transfer files to .FALSE.  CHECK5 is set to .TRUE. if a real value &#xD;&#xA;of 1 is passed in this file." Style="{DynamicResource EstiloLabel}"/>
 
-                    <Label Grid.Row="4" Grid.Column="0" Name="LblSigxflag" Content="correction for x-direction dispersion is to be made&#xD;&#xA; --- sigx_flag"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Name="TxtSigxflag" HorizontalAlignment="Right" Height="23" Width="120" Text="1"/>
-                    <Label Grid.Row="4" Grid.Column="2" Name="LblSigxflagb" Content="sigx_flag    0.       no correction for x-direction dispersion" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="4" Grid.Column="0" Name="LblSigxflag" Content="correction for x-direction dispersion is to be made&#xD;&#xA; --- sigx_flag" Style="{DynamicResource EstiloLabel}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="TxtSigxflag" HorizontalAlignment="Right" Height="23" Width="120" Text="1" Style="{DynamicResource EstiloTextBox}"/>
+                    <Label Grid.Row="4" Grid.Column="2" Name="LblSigxflagb" Content="sigx_flag    0.       no correction for x-direction dispersion" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Width="120" Height="24" Click="BtnSiguiente_Click" HorizontalAlignment="Right"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Width="120" Height="24" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}" Margin="0"/>
     </Grid>
 </Page>

@@ -30,7 +30,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="LblSetupRP" Content="Set up for the run parameters" Grid.ColumnSpan="2" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+                <Border Grid.Row="0" Height="35" Padding="0" Background="#4E87D4" Grid.ColumnSpan="2">
+                    <Label x:Name="LblSetupRP" Content="Set up for the run parameters" Grid.ColumnSpan="2" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" VerticalAlignment="Center"/>
+                </Border>
                 <Label x:Name="LblSy0er" Margin="0,0,150,0" Grid.Row="1" Content="SSSUP - RKGST - INITIAL SY --- SY0ER" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
                 <Label x:Name="TblErro" Content="SSSUP - RKGST(OBS) - ERROR BOUND --- ERRO" Grid.Row="2" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
                 <Label x:Name="LblSz0er" Content="SSSUP - RKGST(OBS) - INITIAL SZ --- SZ0ER" Grid.Row="3" Margin="0,0,150,0" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>

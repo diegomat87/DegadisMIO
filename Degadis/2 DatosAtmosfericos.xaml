@@ -64,7 +64,7 @@
 
                     <Label Grid.Row="3" Grid.Column="3" x:Name="lbllongitudMoninObukhov" Content="Monin-Obukhov length [m]" Margin="42,0,0,0"/>
                     <TextBox Grid.Row="3" Grid.Column="5" x:Name="txtlongitudMoninObukhov" KeyDown="txtlongitudMoninObukhov_KeyDown" IsEnabled="False" TabIndex="7" Style="{DynamicResource EstiloTextBox}"/>
-                    <StackPanel Grid.Row="3" Grid.Column="4">
+                    <StackPanel Grid.Row="3" Grid.Column="4" Margin="0,0,4,0">
                         <RadioButton x:Name="RdBtnLongMODefault" GroupName="LongMO" Content="Default" IsChecked="True" Checked="RdBtnLongMODefault_Checked"/>
                         <RadioButton x:Name="RdBtnLongMOSet" GroupName="LongMO" Content="Set" Checked="RdBtnLongMOSet_Checked"/>
                     </StackPanel>
@@ -87,6 +87,6 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="11" Style="{DynamicResource ButtonNext}"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" TabIndex="11" Style="{DynamicResource ButtonNext}" Margin="0,0,12,12"/>
     </Grid>
 </Page>
