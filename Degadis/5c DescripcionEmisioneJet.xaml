@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="DescripcionEmisionJet" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+      Title="DescripcionEmisionJet" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -53,6 +53,7 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}" TabIndex="5"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next
+                " Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}" TabIndex="5"/>
     </Grid>
 </Page>

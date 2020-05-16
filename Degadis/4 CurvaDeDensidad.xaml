@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
-      Title="CurvaDeDensidad">
-    <Grid>
+      Title="CurvaDeDensidad" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -52,6 +52,6 @@
                 <DataGrid x:Name="DataListaDEN" AutoGenerateColumns="False" IsReadOnly="True"/>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Siguiente" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource EstiloBotones}"/>
+        <Button Grid.Row="3" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}"/>
     </Grid>
 </Page>

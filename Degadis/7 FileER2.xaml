@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
       Title="FileER2" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Grid Style="{DynamicResource EstiloGrid}" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+    <Grid Style="{DynamicResource EstiloGrid}" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
