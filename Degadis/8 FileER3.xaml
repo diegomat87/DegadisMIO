@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Degadis"
       mc:Ignorable="d" 
       Title="FileER3">
-    <Grid Style="{DynamicResource EstiloGrid}" Margin="0">
+    <Grid Style="{DynamicResource EstiloGrid}" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -19,8 +19,8 @@
             <Label Content="Set up for the run parameters" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
         </Border>
         <ScrollViewer Grid.Row="1" Name="ScrollFileER3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="StackFileER3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1024" Height="800">
-                <Grid x:Name="GridER3" Height="800" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="1024" Style="{DynamicResource EstiloGrid}" Margin="0">
+            <StackPanel x:Name="StackFileER3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid x:Name="GridER3" Style="{DynamicResource EstiloGrid}" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -45,14 +45,14 @@
 
                     <Label Grid.Row="3" Grid.Column="0" Name="LblCheck5" Content="USE THE DEFAULT TIME PARAMETERS --- CHECK5" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}"/>
                     <TextBox Grid.Row="3" Grid.Column="1" Name="TxtCheck5" Height="23" Width="120" Text="0" Style="{DynamicResource EstiloTextBox}"/>
-                    <Label Grid.Row="3" Grid.Column="2" Name="LblCheck5b" Content="The value of CHECK5 determines whether the above sort parameters are used.  CHECK5 is &#xD;&#xA;initialized through the passed transfer files to .FALSE.  CHECK5 is set to .TRUE. if a real value &#xD;&#xA;of 1 is passed in this file." Style="{DynamicResource EstiloLabel}"/>
+                    <Button x:Name="BtnAyudaCHECK5" Content="?" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Style="{DynamicResource EstiloBotonAyuda}" Click="BtnAyudaCHECK5_Click" Grid.RowSpan="2" Grid.Column="2"/>
 
-                    <Label Grid.Row="4" Grid.Column="0" Name="LblSigxflag" Content="correction for x-direction dispersion is to be made&#xD;&#xA; --- sigx_flag" Style="{DynamicResource EstiloLabel}"/>
+                    <Label Grid.Row="4" Grid.Column="0" Name="LblSigxflag" Content="correction for x-direction dispersion is to be made --- sigx_flag" Style="{DynamicResource EstiloLabel}"/>
                     <TextBox Grid.Row="4" Grid.Column="1" Name="TxtSigxflag" HorizontalAlignment="Right" Height="23" Width="120" Text="1" Style="{DynamicResource EstiloTextBox}"/>
-                    <Label Grid.Row="4" Grid.Column="2" Name="LblSigxflagb" Content="sigx_flag    0.       no correction for x-direction dispersion" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}"/>
+                    <Button x:Name="BtnAyudaSigxflag" Content="?" Grid.Row="4" Style="{DynamicResource EstiloBotonAyuda}" Grid.Column="2" Margin="0" Click="BtnAyudaSigxflag_Click"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Siguiente" Width="120" Height="24" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}" Margin="0"/>
+        <Button Grid.Row="2" x:Name="btnSiguiente" Content="Next" Click="BtnSiguiente_Click" HorizontalAlignment="Right" Style="{DynamicResource ButtonNext}"/>
     </Grid>
 </Page>
