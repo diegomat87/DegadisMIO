@@ -38,8 +38,32 @@ namespace Operativo
             }
             else
             {
-                return (con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem) / gasmw;
+                return con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem) / gasmw;
             }
+        }
+
+        public double velocidadViento(double Ustar, double vkc, double elejet, double ZR, double rml)
+        {
+            return Ustar / vkc * (Math.Log((elejet + ZR) / ZR) - psif(elejet, rml));
+        }
+
+        public double psif(double z, double rml)
+        {
+            double psif = 0;
+            if (rml==10)
+            {
+                double a = Math.Pow((1.0 - 15.0 * z / rml), 0.25);
+                psif= 2 * Math.Log((1 + a) / 2) + Math.Log((1 + Math.Pow(a, 2) / 2)) - 2 * Math.Atan(a) + Math.PI / 2;
+            }
+            else if (rml==20)
+            {
+                psif = 0;
+            }
+            else if (rml==30)
+            {
+                psif = -4.7 * z / rml;
+            }
+            return psif;
         }
     }
 }
