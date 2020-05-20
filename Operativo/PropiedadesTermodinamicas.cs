@@ -34,27 +34,27 @@ namespace Operativo
             double con = 3.33;
             if (temp==gastem)
             {
-                return (con + gascpk * gascpp * Math.Pow(gastem, -gascpp))/gasmw;
+                return (con + gascpk * gascpp * Math.Pow(gastem, gascpp-1.0))/gasmw;
             }
             else
             {
-                return con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem) / gasmw;
+                return (con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem)) / gasmw;
             }
         }
 
         public double psif(double z, double rml)
         {
             double psif = 0;
-            if (rml==10)
+            if (rml<0.0)
             {
                 double a = Math.Pow((1.0 - 15.0 * z / rml), 0.25);
                 psif= 2 * Math.Log((1 + a) / 2) + Math.Log((1 + Math.Pow(a, 2) / 2)) - 2 * Math.Atan(a) + Math.PI / 2;
             }
-            else if (rml==20)
+            else if (rml==0)
             {
                 psif = 0;
             }
-            else if (rml==30)
+            else if (rml>0)
             {
                 psif = -4.7 * z / rml;
             }
