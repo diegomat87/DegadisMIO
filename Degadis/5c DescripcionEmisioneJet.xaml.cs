@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Operativo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -145,6 +146,10 @@ namespace Degadis
 
             y lo que sigue
             */
+
+            //Lo necesario son todas las instancias de call... las write se pueden omitir.
+            PropiedadesTermodinamicas propiedadesTermodinamicas = new PropiedadesTermodinamicas();
+            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.elejet, cont.rml)); ;
         }
 
         private bool Validar()

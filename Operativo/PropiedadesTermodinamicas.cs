@@ -42,11 +42,6 @@ namespace Operativo
             }
         }
 
-        public double velocidadViento(double Ustar, double vkc, double elejet, double ZR, double rml)
-        {
-            return Ustar / vkc * (Math.Log((elejet + ZR) / ZR) - psif(elejet, rml));
-        }
-
         public double psif(double z, double rml)
         {
             double psif = 0;

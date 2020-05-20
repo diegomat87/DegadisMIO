@@ -212,7 +212,7 @@
     <Setting Name="ruta" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-	  <Setting Name="nombre" Type="System.String" Scope="User">
+    <Setting Name="nombre" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="erate" Type="System.Double" Scope="User">
@@ -223,6 +223,15 @@
     </Setting>
     <Setting Name="elejet" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UA" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="vkc" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.31</Value>
+    </Setting>
+    <Setting Name="gg" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">9.81</Value>
     </Setting>
   </Settings>
 </SettingsFile>

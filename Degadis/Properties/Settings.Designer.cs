@@ -907,5 +907,41 @@ namespace Degadis.Properties {
                 this["elejet"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double UA {
+            get {
+                return ((double)(this["UA"]));
+            }
+            set {
+                this["UA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.31")]
+        public double vkc {
+            get {
+                return ((double)(this["vkc"]));
+            }
+            set {
+                this["vkc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("9.81")]
+        public double gg {
+            get {
+                return ((double)(this["gg"]));
+            }
+            set {
+                this["gg"] = value;
+            }
+        }
     }
 }

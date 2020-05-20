@@ -792,5 +792,25 @@ namespace Degadis
             get { return Properties.Settings.Default.distmx; }
         }
 
+        public double UA
+        {
+            set
+            {
+                Properties.Settings.Default.UA = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.UA; }
+        }
+
+        public double vkc
+        {
+            set
+            {
+                Properties.Settings.Default.vkc = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.vkc; }
+        }
+
     }
 }
