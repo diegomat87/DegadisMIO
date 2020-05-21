@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Xml;
 
 namespace Degadis
 {
@@ -27,12 +25,6 @@ namespace Degadis
         Datos.archivos arch = new Datos.archivos();
         Operativo.PropiedadesTermodinamicas proter = new Operativo.PropiedadesTermodinamicas();
 
-        double wc = 1;
-        double wa = 0;
-        double ww = 0;
-        double wm = 0;
-        double ya = 0;
-        double enth;
         #region Constructor
         public DescripcionEmisionJet()
         {
@@ -146,62 +138,20 @@ namespace Degadis
                 cont.yclow = cont.gasllc;
             }
 
-            enth = proter.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.temjet) * (cont.gastem - cont.tamb);
-            Entidades.LineaDensidad ld = new Entidades.LineaDensidad();
+            /*ver si esta parte es necesario
+            double wc = 1;
+            double wa = 0;
 
+            double enth = proter.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.temjet) * (cont.gastem - cont.tamb);
 
-            adiabat(cont.gasllc);
-            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.psif(cont.elejet, cont.rml)); ;
+            y lo que sigue
+            */
+
+            //Lo necesario son todas las instancias de call... las write se pueden omitir.
+            PropiedadesTermodinamicas propiedadesTermodinamicas = new PropiedadesTermodinamicas();
+            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.elejet, cont.rml)); ;
         }
 
-        private void adiabat(double yc)
-        {
-            int i = 0;
-            double ycl = yc;
-            if (yc < 0)
-            {
-                ycl = 0;
-                wa = 1 / (1 + cont.humedad);
-                ww = 1 - wa;
-                wm = 1 / (cont.wma / wa + cont.wmw / ww);
-                ya = wm / cont.wma * wa;
-            }
-            else if (yc > 1)
-            {
-                ycl = 1;
-                ya = 0;
-            }
-            i = 2;
-            bool aux = true;
-            do
-            {                
-                if(cont.DENtriples[i].Den1 >1)
-                {
-                    i--;
-                }
-                if (ycl<cont.DENtriples[i].Den1)
-                {
-                    aux = false;
-                }
-                else
-                {
-                    i++;
-                }
-            } while (aux);
-            wm = ycl * cont.gasmw + (1 - ycl) * cont.wma * cont.wmw * (1 + cont.humedad) / (cont.wmw + cont.wma * cont.humedad);
-            wc = ycl * cont.gasmw / wm;
-            wa = (1 - wc) / (1 + cont.humedad);
-            ww = 1 - wc - wa;
-            double slope = (cont.DENtriples[i].Den3 - cont.DENtriples[i - 1].Den3) / (cont.DENtriples[i].Den2 - cont.DENtriples[i - 1].Den2);
-            double cc = wc * (cont.DENtriples[i - 1].Den3 - slope * cont.DENtriples[i - 1].Den2) / (1 - wc * slope);
-            double rho = cc / wc;
-            double w1 = cont.DENtriples[i - 1].Den2 / cont.DENtriples[i - 1].Den3;
-            double w2 = cont.DENtriples[i].Den2 / cont.DENtriples[i].Den3;
-            slope = (cont.DENtriples[i].Den4 - cont.DENtriples[i - 1].Den4) / (w2 - w1);
-            enth = (wc - w1) * slope + cont.DENtriples[i - 1].Den4;
-            slope = (cont.DENtriples[i].Den5 - cont.DENtriples[i - 1].Den5) / (w2 - w1);
-            enth = (wc - w1) * slope + cont.DENtriples[i - 1].Den5;
-        }
         private bool Validar()
         {
             string MError = "";
