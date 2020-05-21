@@ -44,15 +44,15 @@ namespace Operativo
 
         public double psif(double z, double rml)
         {
-            double psif = 0;
+            double psif = 0.0;
             if (rml<0.0)
             {
                 double a = Math.Pow((1.0 - 15.0 * z / rml), 0.25);
-                psif= 2 * Math.Log((1 + a) / 2) + Math.Log((1 + Math.Pow(a, 2) / 2)) - 2 * Math.Atan(a) + Math.PI / 2;
+                psif= 2.0 * Math.Log((1 + a) / 2.0) + Math.Log((1 + Math.Pow(a, 2) / 2.0)) - 2 * Math.Atan(a) + Math.PI / 2.0;
             }
             else if (rml==0)
             {
-                psif = 0;
+                psif = 0.0;
             }
             else if (rml>0)
             {
