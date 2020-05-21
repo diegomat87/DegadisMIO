@@ -812,5 +812,6 @@ namespace Degadis
             get { return Properties.Settings.Default.vkc; }
         }
 
+        public double Ustar { get; internal set; }
     }
 }
