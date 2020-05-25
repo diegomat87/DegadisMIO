@@ -15,7 +15,7 @@ namespace Operativo
             watvp = Math.Exp(14.683943 - 5407.0 / tamb);
             sat = wmw / wma * watvp / (pamb - watvp);
 
-            return humedadrel / 100 * sat; //Evento no controlado: humedad relativa mayor al 100%
+            return humedadrel / 100 * sat; 
 
         }
 

@@ -922,7 +922,7 @@ namespace Degadis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.31")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.35")]
         public double vkc {
             get {
                 return ((double)(this["vkc"]));
@@ -941,6 +941,42 @@ namespace Degadis.Properties {
             }
             set {
                 this["gg"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double Ustar {
+            get {
+                return ((double)(this["Ustar"]));
+            }
+            set {
+                this["Ustar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double alfa1 {
+            get {
+                return ((double)(this["alfa1"]));
+            }
+            set {
+                this["alfa1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double alfa2 {
+            get {
+                return ((double)(this["alfa2"]));
+            }
+            set {
+                this["alfa2"] = value;
             }
         }
     }

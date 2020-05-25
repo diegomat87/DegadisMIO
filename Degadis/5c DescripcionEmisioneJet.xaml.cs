@@ -116,7 +116,29 @@ namespace Degadis
             double qinit;
             double gamma;
             int tamDen = cont.DENtriples.Count;
-            if (tamDen > 0)
+
+            if (cont.tsurf < 250) { cont.tsurf = cont.tamb; }
+            PropiedadesTermodinamicas propiedadesTermodinamicas = new PropiedadesTermodinamicas();
+            cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.z0, cont.rml));
+            if (cont.gascpp == 0) { cont.gascpp = 1; cont.gascpk = cont.gascpk * cont.gasmw - 3.34; }
+            if (cont.nden == -1)
+            {
+                cont.isofl = 1;
+                cont.rhoe = cont.pamb * cont.gasmw / cont.rgas / cont.temjet;
+                cont.rhoa = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+                Entidades.LineaDensidad linea1 = new Entidades.LineaDensidad();
+                Entidades.LineaDensidad linea2 = new Entidades.LineaDensidad();
+                linea1.Den1 = 0;linea1.Den2 = 0;linea1.Den3 = cont.rhoa;linea1.Den4 = 0;linea1.Den5 = cont.tamb;
+                linea2.Den1 = 1; linea2.Den2 = cont.rhoe; linea2.Den3 = cont.rhoe; linea2.Den4 = 0; linea2.Den5 = cont.tamb;
+                cont.DENtriples = null;
+                cont.DENtriples.Add(linea1);
+                cont.DENtriples.Add(linea2);
+            }
+            else if (cont.nden == 0) { cont.isofl = 0; }
+            else { cont.isofl = 1; }
+            if (cont.elejet < 2 * cont.zr) { cont.elejet = 2 * cont.zr; MessageBox.Show("JETPLUIN: ELEJET has been increased to:" + cont.elejet); }
+            cont.alfa1 = 0.028; cont.alfa2 = 0.37;
+                if (tamDen > 0)
             {
                 Entidades.LineaDensidad den = new Entidades.LineaDensidad();
                 den.Den1 = 2;
@@ -137,18 +159,6 @@ namespace Degadis
             {
                 cont.yclow = cont.gasllc;
             }
-
-            /*ver si esta parte es necesario
-            double wc = 1;
-            double wa = 0;
-
-            double enth = proter.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.temjet) * (cont.gastem - cont.tamb);
-
-            y lo que sigue
-            */
-
-            //Lo necesario son todas las instancias de call... las write se pueden omitir.
-            PropiedadesTermodinamicas propiedadesTermodinamicas = new PropiedadesTermodinamicas();
             cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.elejet, cont.rml)); ;
         }
 

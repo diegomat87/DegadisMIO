@@ -812,6 +812,44 @@ namespace Degadis
             get { return Properties.Settings.Default.vkc; }
         }
 
-        public double Ustar { get; internal set; }
+        public double Ustar 
+        {
+            set
+            {
+                Properties.Settings.Default.Ustar = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.Ustar; }
+        }
+
+        public double gg
+        {
+            set
+            {
+                Properties.Settings.Default.gg = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.gg; }
+        }
+
+        public double alfa1
+        {
+            set
+            {
+                Properties.Settings.Default.alfa1 = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.alfa1; }
+        }
+
+        public double alfa2
+        {
+            set
+            {
+                Properties.Settings.Default.alfa2 = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.alfa2; }
+        }
     }
 }

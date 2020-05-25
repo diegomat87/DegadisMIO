@@ -116,7 +116,7 @@ The Pasquill-Gifford stability class is used to estimate:
         #region Transformaciones
         private void Txtu0_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -124,7 +124,7 @@ The Pasquill-Gifford stability class is used to estimate:
 
         private void txtz0_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -238,6 +238,12 @@ The Pasquill-Gifford stability class is used to estimate:
                 if (RdBtnHumedadA.IsChecked == true)
                 {
                     Cont.humedadrel = opTermodinamicas.HumedadRel(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedad);
+                    if (Cont.humedadrel > 100)
+                    {
+                        Cont.humedadrel = 100;
+                        Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedadrel);
+                        MessageBox.Show("This absolute humidity lead to a relative humidity greater than 100. This is not possible so relative humidity has been adjusted to 100 giving an absolute humidity of"+ Cont.humedad);
+                    }
                 }
                 else
                 {
@@ -423,7 +429,20 @@ The Pasquill-Gifford stability class is used to estimate:
             try { Cont.pamb = Convert.ToDouble(txtPresionAmbiente.Text); }
             catch (FormatException) { MError += "El valor ingresado para la presion ambiente debe ser un numero positivo\n"; }
 
-            try { Cont.humedad = Convert.ToDouble(txtHumedad.Text); }
+            try 
+            { 
+                Convert.ToDouble(txtHumedad.Text);
+                if (RdBtnHumedadR.IsChecked == true)
+                {
+                    if (Convert.ToDouble(txtHumedad.Text) > 100) { MError += "El valor ingresado para la humedad relativa debe ser un numero positivo entre 0 y 100\n"; }
+                    else { Cont.humedadrel = Convert.ToDouble(txtHumedad.Text); }
+                }
+                else
+                {
+                    Cont.humedad= Convert.ToDouble(txtHumedad.Text);
+                }
+                
+            }
             catch (FormatException) { MError += "El valor ingresado para la humedad debe ser un numero positivo\n"; }
 
             if (MError == "")

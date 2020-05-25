@@ -89,7 +89,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
         #region Transformaciones
         private void TxtGasMW_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -97,7 +97,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasTemp_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -105,7 +105,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasRho_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -113,7 +113,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasCpk_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -121,7 +121,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasCpp_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma || e.Key==Key.OemMinus)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -129,7 +129,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasUlc_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -137,7 +137,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasLlc_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -145,7 +145,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
         private void TxtGasZzc_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || Key.OemComma == e.Key || e.Key == Key.Decimal)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
             else
                 e.Handled = true;
@@ -426,9 +426,9 @@ Because the contaminant molecular weight converts between mass and mole fraction
             try
             {
                 cont.gasulc = Convert.ToDouble(TxtGasUlc.Text);
-                if (cont.gasulc < 0)
+                if (cont.gasulc < 0.0 || cont.gasulc>1.0)
                 {
-                    mnsError += "El valor ingresado para el limite superior debe ser un numero positivo\n";
+                    mnsError += "El valor ingresado para el limite superior debe ser un numero positivo entre 0 y 1\n";
                 }
             }
             catch (FormatException)
@@ -446,9 +446,9 @@ Because the contaminant molecular weight converts between mass and mole fraction
             try
             {
                 cont.gasllc = Convert.ToDouble(TxtGasLlc.Text);
-                if (cont.gasllc < 0)
+                if (cont.gasllc < 0.0 || cont.gasllc>1.0)
                 {
-                    mnsError += "El valor ingresado para el limite inferior debe ser un numero positivo\n";
+                    mnsError += "El valor ingresado para el limite inferior debe ser un numero positivo entre 0 y 1, y menor al limite inferior\n";
                 }
             }
             catch (FormatException)
