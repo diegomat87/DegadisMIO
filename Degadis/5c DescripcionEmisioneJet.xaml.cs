@@ -161,7 +161,9 @@ namespace Degadis
                 cont.yclow = cont.gasllc;
             }
             double wc = 1.0; double wa = 0.0; double enth;
-            enth = propiedadesTermodinamicas.cpc(cont.gastem) * (cont.gastem - cont.tamb);
+            enth = propiedadesTermodinamicas.cpc(cont.gascpk,cont.gascpp,cont.gastem,cont.gasmw,cont.gastem) * (cont.gastem - cont.tamb);
+            if (cont.isofl == 0) { //setden --- primero programar tprop luego setden
+            }
 
 
 

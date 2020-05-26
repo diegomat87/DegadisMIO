@@ -108,7 +108,7 @@
     <Compile Include="Navegador.xaml.cs">
       <DependentUpon>Navegador.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OperativoDeg.cs" />
+    <Compile Include="OperativoDegPropTermod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

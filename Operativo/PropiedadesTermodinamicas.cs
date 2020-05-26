@@ -9,7 +9,7 @@ namespace Operativo
     public class PropiedadesTermodinamicas
     {
         public double HumedadAbs(double tamb, double wmw, double wma, double pamb, double humedadrel)
-        {
+        {///determina la humedad absoluta kg/kg
             double watvp; double sat; //atm y °K
 
             watvp = Math.Exp(14.683943 - 5407.0 / tamb);
@@ -20,7 +20,7 @@ namespace Operativo
         }
 
         public double HumedadRel(double tamb, double wmw, double wma, double pamb, double humedad)
-        {
+        {///Determina la humedad relativa
             double watvp; double sat; //atm y °K
 
             watvp = Math.Exp(14.683943 - 5407.0 / tamb);
@@ -30,7 +30,7 @@ namespace Operativo
         }
 
         public double cpc(double gascpk,double gascpp, double gastem, double gasmw, double temp)
-        {
+        {///CPC determines the contaminant heat capacity
             double con = 3.33;
             if (temp==gastem)
             {

@@ -8,9 +8,31 @@ using System.Windows.Forms;
 
 namespace Degadis
 {
-    public class OperativoDeg
+    public class OperativoDegPropTermod
     {
         Controlador cont = new Controlador();
+
+        private void setden()
+        {
+            #region Descripcion
+            //subroutine to load /GEN2/ as needed
+            // 
+            //adiabatic mixing of: WC
+            // WA
+            //WW @ specified enthalpy
+            //
+            //with ambient humid air @ tamb
+            //
+            //den(1,i)	mole fraction(yc)
+            //den(2,i)	concentration(cc[=] kg c / m * *3)
+            //den(3,i)	mixture density(rho[=] kg mix/ m * *3)
+            //den(4,i)	mixture enthalpy(enthalpy[=] J/ kg)
+            //den(5,i)	mixture temperature(temp[=] K)
+            #endregion
+            int k = 1; //contador
+            Entidades.LineaDensidad linea = new Entidades.LineaDensidad();
+            linea.Den1 = 0; linea.Den2 = 0; linea.Den3 = cont.rhoa; ; linea.Den4 = 0; linea.Den5 = cont.tamb;
+        }
         private void adiabat(double ifl, double wc, double wa, double yc, double ya, double cc, double rho, double wm, double enthalpy, double temp)
         {
             int i = 0;
