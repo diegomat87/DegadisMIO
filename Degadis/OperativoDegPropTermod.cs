@@ -35,6 +35,31 @@ namespace Degadis
         }
         private void adiabat(double ifl, double wc, double wa, double yc, double ya, double cc, double rho, double wm, double enthalpy, double temp)
         {
+            #region comment
+            //subroutine to return:
+            //mass fractions(w's)
+            //       mole fractions(y's)
+            //       concentration(cc[=]kg / m * *3)
+            //       density(rho[=]kg / m * *3)
+            //       molecular weight(wm)
+            //       enthalpy([=]J / kg)
+            //       temperature(temp[=]K)
+            //
+            //  for a mixture from DEN lookup of adiabatic mixing calculation
+            //  den(1, i)    mole fraction(yc)
+            //  den(2, i)    concentration(cc[=] kg c / m * *3)
+            //  den(3, i)    mixture density(rho[=] kg mix / m * *3)
+            //  den(4, i)    mixture enthalpy(enthalpy[=] J / kg)
+            //  den(5, i)    mixture temperature(temp[=] K)
+            //
+            //  ifl indicates given information:
+            // - 2) mole fraction(Yc) and assumption of constant gamma in enthalpy
+            // - 1)concentration(cc) and assumption of constant gamma in enthalpy
+            //   0) concentration(cc)
+            //   1) mass fraction c(wc)
+            //   2) mole fraction(Yc)
+            #endregion
+            ///cheuquear humsrc que es cont.humedadrel aca///
             int i = 0;
             double ccl = 0;
             double ycl = 0;
@@ -85,10 +110,7 @@ namespace Degadis
                     {
                         ccl = 0;
                     }
-                    else
-                    {
-                        i = 2;
-                    }
+                    i = 2;
                     aux = true;
                     do
                     {
@@ -99,13 +121,10 @@ namespace Degadis
                             {
                                 ccl = cont.DENtriples[i].Den2;
                             }
-                            else
-                            {
-                                aux = false;
-                                break;
-                            }
+                            aux = false;
+                            break;
                         }
-                        if (cc < cont.DENtriples[i].Den2)
+                        if (cc <= cont.DENtriples[i].Den2)
                         {
                             aux = false;
                             break;
