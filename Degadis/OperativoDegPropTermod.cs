@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Operativo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,51 @@ namespace Degadis
     {
         Controlador cont = new Controlador();
 
+        private void tprop(double ifl, double wc, double wa, double enth, double yc, double ya, double wm, double temp, double rho, double cp)
+        {
+            #region resumen
+            //            c subroutine to return:
+            //c mole fractions(y's)
+            //c       molecular weight(wm)
+            //c       temperature(temp[=]K)
+            //c       density(rho[=]kg / m * *3)
+            //c       heat capacity(cp[=]J / kg / K)
+            //c
+            //c   for a mixture from:
+            //c       mass fractions(w's)
+            //c       temperature(K)     for ifl.lt.0
+            //c
+            //c   for a mixture from:
+            //c       mass fractions(w's)
+            //c       enthalpy(J / kg)     for ifl.ge.0
+            //c
+            //c       adiabatic mixing of:	emitted gas @ gastem
+            //c                   entrained ambient humid air @ tamb
+            //c                   entrained water from surface @ tsurf
+            //c               for ifl.eq.0 calculate and return
+            //c
+            //c adiabatic lookup CALL ADIABAT
+            //c               for isofl.eq.1.or.ihtfl.eq.0.and.ifl.eq.1
+            #endregion
+            double ww; double yw; PropiedadesTermodinamicas propiedades = new PropiedadesTermodinamicas();
+            ww = 1 - wc - wa;
+            wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
+            yc = wm / cont.gasmw * wc;
+            ya = wm / cont.wma * wa;
+            yw = 1 - yc - ya;
+
+            if (cont.isofl == 1)
+            {
+                adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
+            }
+
+            if (ifl == 0) { enth = wc * propiedades.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.gastem) * (cont.gastem - cont.tamb)
+                            + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); }
+            
+            if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp); }
+        
+            ///
+        }
         private void setden()
         {
             #region Descripcion
