@@ -58,7 +58,7 @@ namespace Degadis
         
             ///
         }
-        private void setden()
+        private void setden(double wc, double wa, double enthalpy, double rho, double yc)
         {
             #region Descripcion
             //subroutine to load /GEN2/ as needed
@@ -77,7 +77,94 @@ namespace Degadis
             #endregion
             int k = 1; //contador
             Entidades.LineaDensidad linea = new Entidades.LineaDensidad();
-            linea.Den1 = 0; linea.Den2 = 0; linea.Den3 = cont.rhoa; ; linea.Den4 = 0; linea.Den5 = cont.tamb;
+            linea.Den1 = 0; 
+            linea.Den2 = 0; 
+            linea.Den3 = cont.rhoa;
+            linea.Den4 = 0; 
+            linea.Den5 = cont.tamb;
+
+            /*esto lo escribo por lo que entiendo de
+             parameter (iils=200, ils=iils-1, iback=25)
+             aca declaro todas las variables que se usan, seguramente algunas van a controlador
+            */
+            Entidades.ListaDEN backsp = new Entidades.ListaDEN();
+            double iils = 200;
+            int ils = 199;
+            double zbda;
+            double zw;
+            double zg;
+            double enmix;
+            double cc;
+            double err = 0;
+            double slope;
+            double ccint;
+            double rhoint;
+            double wccal;
+            double w1, w2;
+            double entint;
+            double zero = 1E-20;//si lo entendi bien busca un valor practicamente 0, no se porque no 0 bsoluto
+            int ind = 1;
+            // aca vi en internet que el do es un for pero no encuentro el end do asi que no se cuando termina
+            for (int i = ils; i > 0; i--)
+            {
+                zbda = (i / iils) / (1 + cont.humedad);
+                zw = zbda * cont.humedad;
+                zg = 1 - zbda - zw;
+                enmix = zg * enthalpy;
+                zbda += zg * wa;
+                zg = zg * wc;
+                //tprop(2,zg,zbda,enmix,yc,ya,wm,temp,rho,cp)
+                cc = zg * rho;
+
+                //esto no se si es una linea de densidad o que pero tiene la misma estructura
+                Entidades.LineaDensidad curnt = new Entidades.LineaDensidad();
+                curnt.Den1 = yc;
+                curnt.Den2 = cc;
+                curnt.Den3 = rho;
+                curnt.Den4 = enmix;
+                curnt.Den5 = cont.tamb; //puse temperatura ambiente porser la unica temperatura que tengo en cont,pero no se
+
+                if (i == ils)
+                {
+                    //esto asigna la linea anterior a una lista
+                    backsp.Add(curnt);//falta goto 300 que supongo programare en un par de lineas
+                    //break;
+                }
+                err = 0;
+                for (int iind = 0; iind < ind; iind++)
+                {
+                    yc = backsp[iind].Den1;
+                    cc = backsp[iind].Den2;
+                    rho = backsp[iind].Den3;
+                    enmix = backsp[iind].Den4;
+                    cont.tamb = backsp[iind].Den5;
+                    slope = (cont.DENtriples[k].Den2 - curnt.Den2) / (cont.DENtriples[k].Den1 - curnt.Den1);
+                    ccint = (yc - curnt.Den1) * slope + curnt.Den2;
+                    err = Math.Max(err, 2 * Math.Abs(cc - ccint) / (Math.Abs(cc + ccint) + zero));
+                    slope=(cont.DENtriples[k].Den3-curnt.Den3) / (cont.DENtriples[k].Den1 - curnt.Den1);
+                    rhoint= (yc - curnt.Den1) * slope + curnt.Den3;
+                    err = Math.Max(err, 2 * Math.Abs(rho - rhoint) / (Math.Abs(rho + rhoint) + zero));
+                    wccal = cc / rhoint;
+                    w1 = curnt.Den2 / curnt.Den3;
+                    w2 = cont.DENtriples[k].Den2 / cont.DENtriples[k].Den3;
+                    slope = (cont.DENtriples[k].Den4 - curnt.Den4) / (w2 - w1);
+                    entint = (wccal - w1) * slope + curnt.Den4;
+                    err = Math.Max(err, 2 * Math.Abs(enmix - entint) / (Math.Abs(enmix + entint) + zero));
+                    slope = (cont.DENtriples[k].Den5 - curnt.Den5) / (w2 - w1);
+                    double temint= (wccal - w1) * slope + curnt.Den5;
+                    err = Math.Max(err, 2 * Math.Abs(cont.tamb - temint) / (Math.Abs(cont.tamb + temint) + zero));
+                }
+                if (err<=0.002)
+                {
+                    if (ind < 25)
+                    {
+                        ind++;
+                        backsp.Add(curnt);
+                    }
+                }
+                k++;
+                //hasta aca llegue linea 615 de tprop no entendi demasiado que es lo que estaba programando. mañana sigo un poco
+            }
         }
         private void adiabat(double ifl, double wc, double wa, double yc, double ya, double cc, double rho, double wm, double enthalpy, double temp)
         {
