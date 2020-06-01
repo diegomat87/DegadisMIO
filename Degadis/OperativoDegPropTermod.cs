@@ -102,6 +102,7 @@ namespace Degadis
             double wccal;
             double w1, w2;
             double entint;
+            double igen = 0; //no se que es
             double zero = 1E-20;//si lo entendi bien busca un valor practicamente 0, no se porque no 0 bsoluto
             int ind = 1;
             // aca vi en internet que el do es un for pero no encuentro el end do asi que no se cuando termina
@@ -127,8 +128,8 @@ namespace Degadis
                 if (i == ils)
                 {
                     //esto asigna la linea anterior a una lista
-                    backsp.Add(curnt);//falta goto 300 que supongo programare en un par de lineas
-                    //break;
+                    backsp.Add(curnt);
+                    k = Auxiliar(wc, enthalpy, k);
                 }
                 err = 0;
                 for (int iind = 0; iind < ind; iind++)
@@ -141,8 +142,8 @@ namespace Degadis
                     slope = (cont.DENtriples[k].Den2 - curnt.Den2) / (cont.DENtriples[k].Den1 - curnt.Den1);
                     ccint = (yc - curnt.Den1) * slope + curnt.Den2;
                     err = Math.Max(err, 2 * Math.Abs(cc - ccint) / (Math.Abs(cc + ccint) + zero));
-                    slope=(cont.DENtriples[k].Den3-curnt.Den3) / (cont.DENtriples[k].Den1 - curnt.Den1);
-                    rhoint= (yc - curnt.Den1) * slope + curnt.Den3;
+                    slope = (cont.DENtriples[k].Den3 - curnt.Den3) / (cont.DENtriples[k].Den1 - curnt.Den1);
+                    rhoint = (yc - curnt.Den1) * slope + curnt.Den3;
                     err = Math.Max(err, 2 * Math.Abs(rho - rhoint) / (Math.Abs(rho + rhoint) + zero));
                     wccal = cc / rhoint;
                     w1 = curnt.Den2 / curnt.Den3;
@@ -151,21 +152,58 @@ namespace Degadis
                     entint = (wccal - w1) * slope + curnt.Den4;
                     err = Math.Max(err, 2 * Math.Abs(enmix - entint) / (Math.Abs(enmix + entint) + zero));
                     slope = (cont.DENtriples[k].Den5 - curnt.Den5) / (w2 - w1);
-                    double temint= (wccal - w1) * slope + curnt.Den5;
+                    double temint = (wccal - w1) * slope + curnt.Den5;
                     err = Math.Max(err, 2 * Math.Abs(cont.tamb - temint) / (Math.Abs(cont.tamb + temint) + zero));
                 }
-                if (err<=0.002)
+                if (err <= 0.002)
                 {
                     if (ind < 25)
                     {
                         ind++;
                         backsp.Add(curnt);
+                        //extraje para llamar desde 2 lugares no se que nombre ponerle
+                        k = Auxiliar(wc, enthalpy, k);
+                    }
+                    else
+                    {
+                        k++;
+                        if (k >=igen)
+                        {
+                            //call trap(28,0)
+                            cont.DENtriples[k] = backsp[ind];
+                            ind = 1;
+                        }
                     }
                 }
-                k++;
-                //hasta aca llegue linea 615 de tprop no entendi demasiado que es lo que estaba programando. mañana sigo un poco
+                k = Auxiliar(wc, enthalpy, k);
             }
         }
+
+        private int Auxiliar(double wc, double enthalpy, int k)
+        {
+            k++;
+            if (k >= igen)
+            {
+                //call trap(28,0)
+            }
+            if (wc == 1)
+            {
+                cont.DENtriples[k].Den1 = 1;
+                cont.DENtriples[k].Den2 = cont.gasrho;
+                cont.DENtriples[k].Den3 = cont.gasrho;
+                cont.DENtriples[k].Den4 = enthalpy;
+                cont.DENtriples[k].Den5 = cont.gastem;
+            }
+            else
+            {
+                //call tprop(2,wc,wa,enthalpy,den(1,k),ya,wm,den(5,k),den(3,k),cp)
+                cont.DENtriples[k].Den2 = wc * cont.DENtriples[k].Den3;
+                cont.DENtriples[k].Den4 = enthalpy;
+            }
+            cont.DENtriples[k + 1].Den1 = 2;
+            return k;
+        }
+
         private void adiabat(double ifl, double wc, double wa, double yc, double ya, double cc, double rho, double wm, double enthalpy, double temp)
         {
             #region comment
