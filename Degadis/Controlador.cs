@@ -851,5 +851,56 @@ namespace Degadis
             }
             get { return Properties.Settings.Default.alfa2; }
         }
+
+        public double cpw
+        {
+            set
+            {
+                Properties.Settings.Default.cpw = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.cpw;
+            }
+        }
+
+        public double dhvap
+        {
+            set
+            {
+                Properties.Settings.Default.dhvap = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.dhvap;
+            }
+        }
+        public double dhfus
+        {
+            set
+            {
+                Properties.Settings.Default.dhfus = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.dhfus;
+            }
+        }
+
+        public double cpa
+        {
+            set
+            {
+                Properties.Settings.Default.cpa = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.cpa;
+            }
+        }
     }
 }

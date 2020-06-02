@@ -1,5 +1,6 @@
 ﻿using Operativo;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,9 +55,41 @@ namespace Degadis
             if (ifl == 0) { enth = wc * propiedades.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.gastem) * (cont.gastem - cont.tamb)
                             + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); }
             
-            if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp); }
-        
-            ///
+            if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);}
+
+            if (ifl == -1) { //goto
+            }
+
+            var tmin=0; var tmax=0; var elementos =[cont.gastem, cont.tsurf, cont.tamb];
+            tmin = Math.Min(elementos) ;
+            tmax = Math.Max(elementos);
+
+            var elow = enthal(wc, wa, tmin);
+            if(enth < elow) { temp = tmin; enth = elow; }//goto
+        }
+
+        private double enthal (double wc,double wa ,double temp)
+        {
+            ///ENTHAL calculates the mixture enthalpy
+            double deltaf = 10; double ww; double wm; double ya; double yc; double yw;
+            ww = 1.0 - wa - wc;
+            wm = 1.0 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
+            ya = wa * wm / cont.wma;
+            yc = wc * wm / cont.gasmw;
+            yw = 1 - ya - yc;
+
+            var dh = cont.dhvap;
+            var frac = 0.0;
+
+            if (temp < 273.15) { frac = Math.Min((273.15-temp)/deltaf,1.0); }
+            dh = cont.dhvap + cont.dhfus * frac;
+            PropiedadesTermodinamicas prop = new PropiedadesTermodinamicas();
+            var ywsat = prop.HumedadAbs(temp,cont.wmw,cont.wma,cont.pamb,100) / cont.pamb;
+            var wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1 - ywsat);
+            var conden = Math.Max(0.0, ww - wwsat);
+
+            var enthal = wc * prop.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, temp) * (temp - cont.tamb) - conden * dh + ww * cont.cpw * (temp - cont.tamb) + wa * cont.cpa * (temp - cont.tamb);
+            return enthal;
         }
         private void setden(double wc, double wa, double enthalpy, double rho, double yc)
         {
