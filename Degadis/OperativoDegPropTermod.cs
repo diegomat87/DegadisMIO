@@ -15,21 +15,23 @@ namespace Degadis
 
         public double HumedadAbs(double tamb, double humedadrel)
         {///determina la humedad absoluta kg/kg
-            double watvp; double sat; //atm y °K
-
-            watvp = Math.Exp(14.683943 - 5407.0 / tamb);
-            sat = cont.wmw / cont.wma * watvp / (cont.pamb - watvp);
+            double sat; //atm y °K
+            sat = cont.wmw / cont.wma * watvp(tamb) / (cont.pamb - watvp(tamb));
 
             return humedadrel / 100 * sat;
 
         }
 
+        private static double watvp(double tamb)
+        {
+            return Math.Exp(14.683943 - 5407.0 / tamb);
+        }
+
         public double HumedadRel()
         {///Determina la humedad relativa
-            double watvp; double sat; //atm y °K
+            double sat; //atm y °K
 
-            watvp = Math.Exp(14.683943 - 5407.0 / cont.tamb);
-            sat = cont.wmw / cont.wma * watvp / (cont.pamb - watvp);
+            sat = cont.wmw / cont.wma * watvp(cont.tamb) / (cont.pamb - watvp(cont.tamb));
             return cont.humedad * 100 / sat;
 
         }
@@ -109,7 +111,8 @@ namespace Degadis
             
             if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);}
 
-            if (ifl == -1) { //goto
+            if (ifl == -1) {
+                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
             }
 
             var tmin=0; var tmax=0; var elementos =[cont.gastem, cont.tsurf, cont.tamb];
@@ -117,7 +120,25 @@ namespace Degadis
             tmax = Math.Max(elementos);
 
             var elow = enthal(wc, wa, tmin);
-            if(enth < elow) { temp = tmin; enth = elow; }//goto
+            if(enth < elow) { temp = tmin; enth = elow; densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); }
+        }
+
+        private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp)
+        {
+            double ywsat = watvp(temp) / cont.pamb;
+            double wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1.0 - ywsat);
+            double conden = Math.Max(0.0, ww - wwsat);
+
+            rho = 1.0 / (wa / (cont.pamb * cont.wma / cont.rgas / temp) + (ww / conden) / (cont.pamb * cont.wmw / cont.rgas / temp) + conden / rhowl + wc * temp / cont.gastem / cont.gasrho);
+
+            double tmin = temp + 10.0;
+            double tmax = enthal(wc, wa, tmin);
+
+            double cp = (enth - tmax) / (temp - tmin);
+            if (cp<cpa)
+            {
+                cp = cpa;
+            }
         }
 
         private double enthal (double wc,double wa ,double temp)
