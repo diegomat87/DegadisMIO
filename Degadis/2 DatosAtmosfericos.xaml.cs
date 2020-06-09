@@ -38,7 +38,7 @@ namespace Degadis
             txtPresionAmbiente.Text = Cont.pamb.ToString();
             txtlongitudMoninObukhov.Text = Cont.rml.ToString();
             txtHumedad.Text = Cont.humedadrel.ToString();
-            opTermodinamicas.HumedadAbs(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedadrel);
+            opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
             calcularRml();
             cargarComboBox();
         }
@@ -237,17 +237,17 @@ The Pasquill-Gifford stability class is used to estimate:
                 SetParametros();
                 if (RdBtnHumedadA.IsChecked == true)
                 {
-                    Cont.humedadrel = opTermodinamicas.HumedadRel(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedad);
+                    Cont.humedadrel = opTermodinamicas.HumedadRel();
                     if (Cont.humedadrel > 100)
                     {
                         Cont.humedadrel = 100;
-                        Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedadrel);
+                        Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
                         MessageBox.Show("This absolute humidity lead to a relative humidity greater than 100. This is not possible so relative humidity has been adjusted to 100 giving an absolute humidity of"+ Cont.humedad);
                     }
                 }
                 else
                 {
-                    Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.wmw, Cont.wma, Cont.pamb, Cont.humedadrel);
+                    Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
                 }
                 Cont.rhoa = Cont.pamb * (1.0 + Cont.humedad) * Cont.wmw / (Cont.rgas * (Cont.wmw / Cont.wma + Cont.humedad)) / Cont.tamb;
 
