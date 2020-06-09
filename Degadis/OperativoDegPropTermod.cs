@@ -113,6 +113,7 @@ namespace Degadis
 
             if (ifl == -1) {
                 densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+                return;
             }
 
             var tmin=0; var tmax=0; var elementos =[cont.gastem, cont.tsurf, cont.tamb];
@@ -120,7 +121,7 @@ namespace Degadis
             tmax = Math.Max(elementos);
 
             var elow = enthal(wc, wa, tmin);
-            if(enth < elow) { temp = tmin; enth = elow; densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); }
+            if(enth < elow) { temp = tmin; enth = elow; densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); return; }
         }
 
         private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp)
@@ -235,6 +236,7 @@ namespace Degadis
                     //esto asigna la linea anterior a una lista
                     backsp.Add(curnt);
                     k = Auxiliar(wc, enthalpy, k);
+                    return;
                 }
                 err = 0;
                 for (int iind = 0; iind < ind; iind++)
@@ -268,6 +270,7 @@ namespace Degadis
                         backsp.Add(curnt);
                         //extraje para llamar desde 2 lugares no se que nombre ponerle
                         k = Auxiliar(wc, enthalpy, k);
+                        return;
                     }
                     else
                     {
@@ -281,6 +284,7 @@ namespace Degadis
                     }
                 }
                 k = Auxiliar(wc, enthalpy, k);
+                return;
             }
         }
 
