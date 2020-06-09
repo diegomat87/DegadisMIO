@@ -1,5 +1,4 @@
-﻿using Operativo;
-using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +39,7 @@ namespace Degadis
             //c adiabatic lookup CALL ADIABAT
             //c               for isofl.eq.1.or.ihtfl.eq.0.and.ifl.eq.1
             #endregion
-            double ww; double yw; PropiedadesTermodinamicas propiedades = new PropiedadesTermodinamicas();
+            double ww; double yw; 
             ww = 1 - wc - wa;
             wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
             yc = wm / cont.gasmw * wc;
@@ -52,7 +51,7 @@ namespace Degadis
                 adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
             }
 
-            if (ifl == 0) { enth = wc * propiedades.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.gastem) * (cont.gastem - cont.tamb)
+            if (ifl == 0) { enth = wc * cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, cont.gastem) * (cont.gastem - cont.tamb)
                             + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); }
             
             if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);}
@@ -83,12 +82,11 @@ namespace Degadis
 
             if (temp < 273.15) { frac = Math.Min((273.15-temp)/deltaf,1.0); }
             dh = cont.dhvap + cont.dhfus * frac;
-            PropiedadesTermodinamicas prop = new PropiedadesTermodinamicas();
-            var ywsat = prop.HumedadAbs(temp,cont.wmw,cont.wma,cont.pamb,100) / cont.pamb;
+            var ywsat = HumedadAbs(temp,cont.wmw,cont.wma,cont.pamb,100) / cont.pamb;
             var wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1 - ywsat);
             var conden = Math.Max(0.0, ww - wwsat);
 
-            var enthal = wc * prop.cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, temp) * (temp - cont.tamb) - conden * dh + ww * cont.cpw * (temp - cont.tamb) + wa * cont.cpa * (temp - cont.tamb);
+            var enthal = wc * cpc(cont.gascpk, cont.gascpp, cont.gastem, cont.gasmw, temp) * (temp - cont.tamb) - conden * dh + ww * cont.cpw * (temp - cont.tamb) + wa * cont.cpa * (temp - cont.tamb);
             return enthal;
         }
         private void setden(double wc, double wa, double enthalpy, double rho, double yc)
@@ -469,6 +467,59 @@ namespace Degadis
                     enthalpy = (wc - w1) * slope + cont.DENtriples[i - 1].Den5;
                     break;
             }
+        }
+
+        public double HumedadAbs(double tamb, double wmw, double wma, double pamb, double humedadrel)
+        {///determina la humedad absoluta kg/kg
+            double watvp; double sat; //atm y °K
+
+            watvp = Math.Exp(14.683943 - 5407.0 / tamb);
+            sat = wmw / wma * watvp / (pamb - watvp);
+
+            return humedadrel / 100 * sat;
+
+        }
+
+        public double HumedadRel(double tamb, double wmw, double wma, double pamb, double humedad)
+        {///Determina la humedad relativa
+            double watvp; double sat; //atm y °K
+
+            watvp = Math.Exp(14.683943 - 5407.0 / tamb);
+            sat = wmw / wma * watvp / (pamb - watvp);
+            return humedad * 100 / sat;
+
+        }
+
+        public double cpc(double gascpk, double gascpp, double gastem, double gasmw, double temp)
+        {///CPC determines the contaminant heat capacity
+            double con = 3.33;
+            if (temp == gastem)
+            {
+                return (con + gascpk * gascpp * Math.Pow(gastem, gascpp - 1.0)) / gasmw;
+            }
+            else
+            {
+                return (con + gascpk * (Math.Pow(temp, gascpp) - Math.Pow(gastem, gascpp)) / (temp - gastem)) / gasmw;
+            }
+        }
+
+        public double psif(double z)
+        {
+            double psif = 0.0;
+            if (cont.rml < 0.0)
+            {
+                double a = Math.Pow((1.0 - 15.0 * z / cont.rml), 0.25);
+                psif = 2.0 * Math.Log((1 + a) / 2.0) + Math.Log((1 + Math.Pow(a, 2) / 2.0)) - 2 * Math.Atan(a) + Math.PI / 2.0;
+            }
+            else if (cont.rml == 0)
+            {
+                psif = 0.0;
+            }
+            else if (cont.rml > 0)
+            {
+                psif = -4.7 * z / cont.rml;
+            }
+            return psif;
         }
     }
 }

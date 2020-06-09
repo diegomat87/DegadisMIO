@@ -205,10 +205,6 @@
       <Project>{7841b8bf-ebaa-4515-ad57-6c09c0c45638}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Operativo\Operativo.csproj">
-      <Project>{fc7e9a42-4a5e-4d8c-b824-7f8551c17e62}</Project>
-      <Name>Operativo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

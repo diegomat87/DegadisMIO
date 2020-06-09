@@ -1,5 +1,4 @@
-﻿using Operativo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace Degadis
     {
         Controlador cont = new Controlador();
         Datos.archivos arch = new Datos.archivos();
-        Operativo.PropiedadesTermodinamicas proter = new Operativo.PropiedadesTermodinamicas();
+        OperativoDegPropTermod proter = new OperativoDegPropTermod();
 
         #region Constructor
         public DescripcionEmisionJet()
@@ -118,8 +117,7 @@ namespace Degadis
             double gamma;
 
             if (cont.tsurf < 250) { cont.tsurf = cont.tamb; }
-            PropiedadesTermodinamicas propiedadesTermodinamicas = new PropiedadesTermodinamicas();
-            cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.z0, cont.rml));
+            cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - proter.psif(cont.z0));
             if (cont.gascpp == 0) { cont.gascpp = 1; cont.gascpk = cont.gascpk * cont.gasmw - 3.34; }
             if (cont.nden == -1)
             {
@@ -161,13 +159,13 @@ namespace Degadis
                 cont.yclow = cont.gasllc;
             }
             double wc = 1.0; double wa = 0.0; double enth;
-            enth = propiedadesTermodinamicas.cpc(cont.gascpk,cont.gascpp,cont.gastem,cont.gasmw,cont.gastem) * (cont.gastem - cont.tamb);
+            enth = proter.cpc(cont.gascpk,cont.gascpp,cont.gastem,cont.gasmw,cont.gastem) * (cont.gastem - cont.tamb);
             if (cont.isofl == 0) { //setden --- primero programar tprop luego setden
             }
 
 
 
-            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - propiedadesTermodinamicas.psif(cont.elejet, cont.rml)); ;
+            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.psif(cont.elejet)); ;
         }
 
         private bool Validar()
