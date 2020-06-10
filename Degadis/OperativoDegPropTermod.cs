@@ -104,24 +104,53 @@ namespace Degadis
             if (cont.isofl == 1)
             {
                 adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
+                return;
             }
 
-            if (ifl == 0) { enth = wc * cpc(cont.gastem) * (cont.gastem - cont.tamb)
-                            + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); }
+            if (ifl == 0) 
+            {
+                enth = wc * cpc(cont.gastem) * (cont.gastem - cont.tamb)
+                            + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); 
+            }
             
-            if(ifl==1 && cont.ihtfl == 0) { adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);}
+            if(ifl==1 && cont.ihtfl == 0) 
+            {
+                adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
+                return;
+            }
 
-            if (ifl == -1) {
+            if (ifl == -1) 
+            {
                 densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
                 return;
             }
 
             var tmin=0; var tmax=0; var elementos =[cont.gastem, cont.tsurf, cont.tamb];
-            tmin = Math.Min(elementos) ;
+            tmin = Math.Min(elementos);
             tmax = Math.Max(elementos);
 
             var elow = enthal(wc, wa, tmin);
-            if(enth < elow) { temp = tmin; enth = elow; densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); return; }
+            if(enth < elow) 
+            { 
+                temp = tmin; enth = elow; 
+                densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); 
+                return; 
+            }
+
+            elow = enthal(wc, wa, tmax);
+            if (enth > elow)
+            {
+                temp = tmax; enth = elow;
+                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+                return;
+            }
+
+            var cwc = wc; var cwa = wa; var centh = enth;
+            /// programar zbrent.for
+            ///call zbrent(temp, enth0, tmin, tmax, acrit, ierr)
+            ///if (ierr.ne. 0) call trap(24,0)
+            densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+            return;
         }
 
         private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp)
@@ -181,6 +210,10 @@ namespace Degadis
             //den(4,i)	mixture enthalpy(enthalpy[=] J/ kg)
             //den(5,i)	mixture temperature(temp[=] K)
             #endregion
+            ///Parametros
+            double tcrit = 0.002; double zero = 1e-20;
+            int iils = 200; int ils = iils - 1; int iback = 25;
+
             int k = 1; //contador
             Entidades.LineaDensidad linea = new Entidades.LineaDensidad();
             linea.Den1 = 0; 
@@ -194,8 +227,6 @@ namespace Degadis
              aca declaro todas las variables que se usan, seguramente algunas van a controlador
             */
             Entidades.ListaDEN backsp = new Entidades.ListaDEN();
-            double iils = 200;
-            int ils = 199;
             double zbda;
             double zw;
             double zg;

@@ -1,0 +1,2 @@
+humsrc = (1.D0 - wc - wa*(1.D0+humid))/wc
+humsrc = (1.D0-wc-wa*(1.D0+humid))/wc
