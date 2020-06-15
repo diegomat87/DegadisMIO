@@ -121,7 +121,7 @@ namespace Degadis
 
             if (ifl == -1) 
             {
-                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
                 return;
             }
 
@@ -133,7 +133,7 @@ namespace Degadis
             if(enth < elow) 
             { 
                 temp = tmin; enth = elow; 
-                densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp); 
+                densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp,enth); 
                 return; 
             }
 
@@ -141,7 +141,7 @@ namespace Degadis
             if (enth > elow)
             {
                 temp = tmax; enth = elow;
-                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
                 return;
             }
 
@@ -149,25 +149,25 @@ namespace Degadis
             /// programar zbrent.for
             ///call zbrent(temp, enth0, tmin, tmax, acrit, ierr)
             ///if (ierr.ne. 0) call trap(24,0)
-            densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp);
+            densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp, enth);
             return;
         }
 
-        private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp)
+        private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp, double enth)
         {
             double ywsat = watvp(temp) / cont.pamb;
             double wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1.0 - ywsat);
             double conden = Math.Max(0.0, ww - wwsat);
 
-            rho = 1.0 / (wa / (cont.pamb * cont.wma / cont.rgas / temp) + (ww / conden) / (cont.pamb * cont.wmw / cont.rgas / temp) + conden / rhowl + wc * temp / cont.gastem / cont.gasrho);
+            rho = 1.0 / (wa / (cont.pamb * cont.wma / cont.rgas / temp) + (ww / conden) / (cont.pamb * cont.wmw / cont.rgas / temp) + conden / cont.rhowl + wc * temp / cont.gastem / cont.gasrho);
 
             double tmin = temp + 10.0;
             double tmax = enthal(wc, wa, tmin);
 
             double cp = (enth - tmax) / (temp - tmin);
-            if (cp<cpa)
+            if (cp<cont.cpa)
             {
-                cp = cpa;
+                cp = cont.cpa;
             }
         }
 
@@ -214,19 +214,20 @@ namespace Degadis
             double tcrit = 0.002; double zero = 1e-20;
             int iils = 200; int ils = iils - 1; int iback = 25;
 
-            int k = 1; //contador
+            if (cont.isofl == 1) { return; }
+
+            int k = 1;
             Entidades.LineaDensidad linea = new Entidades.LineaDensidad();
+            Entidades.ListaDEN listden = new Entidades.ListaDEN();
+            Entidades.ListaDEN backsp = new Entidades.ListaDEN();
+
             linea.Den1 = 0; 
             linea.Den2 = 0; 
-            linea.Den3 = cont.rhoa;
+            linea.Den3 = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
             linea.Den4 = 0; 
             linea.Den5 = cont.tamb;
+            listden.Add(linea);
 
-            /*esto lo escribo por lo que entiendo de
-             parameter (iils=200, ils=iils-1, iback=25)
-             aca declaro todas las variables que se usan, seguramente algunas van a controlador
-            */
-            Entidades.ListaDEN backsp = new Entidades.ListaDEN();
             double zbda;
             double zw;
             double zg;
@@ -238,20 +239,22 @@ namespace Degadis
             double rhoint;
             double wccal;
             double w1, w2;
-            double entint;
-            double igen = 0; //no se que es
-            double zero = 1E-20;//si lo entendi bien busca un valor practicamente 0, no se porque no 0 bsoluto
+            double entint; 
             int ind = 1;
-            // aca vi en internet que el do es un for pero no encuentro el end do asi que no se cuando termina
+
             for (int i = ils; i > 0; i--)
             {
-                zbda = (i / iils) / (1 + cont.humedad);
+                zbda = (Convert.ToDouble(i) / Convert.ToDouble(iils)) / (1.0 + cont.humedad);
                 zw = zbda * cont.humedad;
-                zg = 1 - zbda - zw;
+                zg = 1.0 - zbda - zw;
+
                 enmix = zg * enthalpy;
+
                 zbda += zg * wa;
                 zg = zg * wc;
-                //tprop(2,zg,zbda,enmix,yc,ya,wm,temp,rho,cp)
+                //estoy aca diego... yc, ya, wm, temp, rho, cp deberian ser los return del metodo tprop, se los utiliza en la ejecucion entonces 
+                //de lo que sigue en este metodo (setden). probe cambiando void a double de tprop y no me funciono.. 
+                tprop(2, zg, zbda, enmix, yc, ya, wm, temp, rho, cp);
                 cc = zg * rho;
 
                 //esto no se si es una linea de densidad o que pero tiene la misma estructura
@@ -306,7 +309,7 @@ namespace Degadis
                     else
                     {
                         k++;
-                        if (k >=igen)
+                        if (k >=cont.igen)
                         {
                             //call trap(28,0)
                             cont.DENtriples[k] = backsp[ind];
@@ -322,7 +325,7 @@ namespace Degadis
         private int Auxiliar(double wc, double enthalpy, int k)
         {
             k++;
-            if (k >= igen)
+            if (k >= cont.igen)
             {
                 //call trap(28,0)
             }

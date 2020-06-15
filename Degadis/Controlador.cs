@@ -902,5 +902,31 @@ namespace Degadis
                 return Properties.Settings.Default.cpa;
             }
         }
+
+        public int igen
+        {
+            set
+            {
+                Properties.Settings.Default.igen = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.igen;
+            }
+        }
+
+        public double rhowl
+        {
+            set
+            {
+                Properties.Settings.Default.rhowl = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.rhowl;
+            }
+        }
     }
 }
