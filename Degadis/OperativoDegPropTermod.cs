@@ -12,6 +12,12 @@ namespace Degadis
     public class OperativoDegPropTermod
     {
         Controlador cont = new Controlador();
+        double yc;
+        double ya;
+        double wm;
+        double temp;
+        double rho;
+        double cp;
 
         public double HumedadAbs(double tamb, double humedadrel)
         {///determina la humedad absoluta kg/kg
@@ -68,7 +74,7 @@ namespace Degadis
             return psif;
         }
 
-        private void tprop(double ifl, double wc, double wa, double enth, double yc, double ya, double wm, double temp, double rho, double cp)
+        private void tprop(double ifl, double wc, double wa, double enth)
         {
             #region resumen
             //            c subroutine to return:
@@ -252,9 +258,7 @@ namespace Degadis
 
                 zbda += zg * wa;
                 zg = zg * wc;
-                //estoy aca diego... yc, ya, wm, temp, rho, cp deberian ser los return del metodo tprop, se los utiliza en la ejecucion entonces 
-                //de lo que sigue en este metodo (setden). probe cambiando void a double de tprop y no me funciono.. 
-                tprop(2, zg, zbda, enmix, yc, ya, wm, temp, rho, cp);
+                tprop(2, zg, zbda, enmix);
                 cc = zg * rho;
 
                 //esto no se si es una linea de densidad o que pero tiene la misma estructura
