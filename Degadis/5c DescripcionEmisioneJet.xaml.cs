@@ -113,11 +113,48 @@ namespace Degadis
         #region Metodos
         private void Siguiente()
         {
+            JetPlu();
+        }
+
+        private bool Validar()
+        {
+            string MError = "";
+
+            try { cont.erate = Convert.ToDouble(TxtReleaseRate.Text); }
+            catch (Exception) { MError += "El valor ingresado para el flujo de contaminante debe ser un numero positivo\n"; }
+
+            try { cont.diajet = Convert.ToDouble(TxtSourceDiameter.Text); }
+            catch (Exception) { MError += "El valor ingresado para el diametro de la fuente debe ser un numero positivo\n"; }
+
+            try { cont.elejet = Convert.ToDouble(TxtSourceElevation.Text); }
+            catch (Exception) { MError += "El valor ingresado para la elevacion de la fuente debe ser un numero positivo\n"; }
+
+            if (cont.booljet)
+            {
+                try { cont.tend = Convert.ToDouble(TxtSourceDuration.Text); }
+                catch (Exception) { MError += "El valor ingresado para la duracion debe ser un numero positivo\n"; }
+            }
+
+
+            if (MError.Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(MError);
+                return false;
+            }
+        }
+
+        private void JetPlu()
+        {
+
             double qinit;
             double gamma;
 
             if (cont.tsurf < 250) { cont.tsurf = cont.tamb; }
-            cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - proter.psif(cont.z0));
+            cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - proter.Psif(cont.z0));
             if (cont.gascpp == 0) { cont.gascpp = 1; cont.gascpk = cont.gascpk * cont.gasmw - 3.34; }
             if (cont.nden == -1)
             {
@@ -159,44 +196,16 @@ namespace Degadis
                 cont.yclow = cont.gasllc;
             }
             double wc = 1.0; double wa = 0.0; double enth;
-            enth = proter.cpc(cont.gastem) * (cont.gastem - cont.tamb);
-            if (cont.isofl == 0) { //setden --- primero programar tprop luego setden
-            }
-
-
-
-            cont.UA= cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.psif(cont.elejet)); ;
-        }
-
-        private bool Validar()
-        {
-            string MError = "";
-
-            try { cont.erate = Convert.ToDouble(TxtReleaseRate.Text); }
-            catch (Exception) { MError += "El valor ingresado para el flujo de contaminante debe ser un numero positivo\n"; }
-
-            try { cont.diajet = Convert.ToDouble(TxtSourceDiameter.Text); }
-            catch (Exception) { MError += "El valor ingresado para el diametro de la fuente debe ser un numero positivo\n"; }
-
-            try { cont.elejet = Convert.ToDouble(TxtSourceElevation.Text); }
-            catch (Exception) { MError += "El valor ingresado para la elevacion de la fuente debe ser un numero positivo\n"; }
-
-            if (cont.booljet)
+            enth = proter.Cpc(cont.gastem) * (cont.gastem - cont.tamb);
+            if (cont.isofl == 0)
             {
-                try { cont.tend = Convert.ToDouble(TxtSourceDuration.Text); }
-                catch (Exception) { MError += "El valor ingresado para la duracion debe ser un numero positivo\n"; }
+                OperativoDegPropTermod operativo = new OperativoDegPropTermod();
+                operativo.Setden(wc, wa, enth);
+                //	call adiabat(2,twc,twa,gasllc,ya,cllc,r,w,t,p)
+                //  call adiabat(2,twc,twa,gasulc,ya,culc,r,w,t,p)
             }
 
-
-            if (MError.Length == 0)
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show(MError);
-                return false;
-            }
+            cont.UA = cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.Psif(cont.elejet));
         }
         #endregion
     }
