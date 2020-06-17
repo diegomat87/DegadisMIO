@@ -60,6 +60,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="zbrent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="4 BaseDeDatosPropiedades.xaml.cs">

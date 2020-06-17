@@ -248,7 +248,7 @@ namespace Degadis
             double entint; 
             int ind = 1;
 
-            for (int i = ils; i > 0; i--)
+            for (int i = ils; i < 0; i--)
             {
                 zbda = (Convert.ToDouble(i) / Convert.ToDouble(iils)) / (1.0 + cont.humedad);
                 zw = zbda * cont.humedad;
@@ -274,7 +274,7 @@ namespace Degadis
                     //esto asigna la linea anterior a una lista
                     backsp.Add(curnt);
                     k = Auxiliar(wc, enthalpy, k);
-                    return;
+                    continue;
                 }
                 err = 0;
                 for (int iind = 0; iind < ind; iind++)
@@ -308,7 +308,7 @@ namespace Degadis
                         backsp.Add(curnt);
                         //extraje para llamar desde 2 lugares no se que nombre ponerle
                         k = Auxiliar(wc, enthalpy, k);
-                        return;
+                        continue;
                     }
                     else
                     {
@@ -322,7 +322,7 @@ namespace Degadis
                     }
                 }
                 k = Auxiliar(wc, enthalpy, k);
-                return;
+                continue;
             }
         }
 
