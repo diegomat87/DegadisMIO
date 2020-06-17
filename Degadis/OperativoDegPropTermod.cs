@@ -12,23 +12,29 @@ namespace Degadis
     public class OperativoDegPropTermod
     {
         Controlador cont = new Controlador();
+        double wc;
+        double wa;
         double yc;
         double ya;
         double wm;
+        double cc;
         double temp;
         double rho;
         double cp;
+        double enthalpy;
+        double humsrc = 0;
+
 
         public double HumedadAbs(double tamb, double humedadrel)
         {///determina la humedad absoluta kg/kg
             double sat; //atm y °K
-            sat = cont.wmw / cont.wma * watvp(tamb) / (cont.pamb - watvp(tamb));
+            sat = cont.wmw / cont.wma * Watvp(tamb) / (cont.pamb - Watvp(tamb));
 
             return humedadrel / 100 * sat;
 
         }
 
-        private static double watvp(double tamb)
+        private static double Watvp(double tamb)
         {
             return Math.Exp(14.683943 - 5407.0 / tamb);
         }
@@ -37,12 +43,12 @@ namespace Degadis
         {///Determina la humedad relativa
             double sat; //atm y °K
 
-            sat = cont.wmw / cont.wma * watvp(cont.tamb) / (cont.pamb - watvp(cont.tamb));
+            sat = cont.wmw / cont.wma * Watvp(cont.tamb) / (cont.pamb - Watvp(cont.tamb));
             return cont.humedad * 100 / sat;
 
         }
 
-        public double cpc(double temp)
+        public double Cpc(double temp)
         {///CPC determines the contaminant heat capacity
             double con = 3.33;
             if (temp == cont.gastem)
@@ -55,7 +61,7 @@ namespace Degadis
             }
         }
 
-        public double psif(double z)
+        public double Psif(double z)
         {
             double psif = 0.0;
             if (cont.rml < 0.0)
@@ -74,7 +80,7 @@ namespace Degadis
             return psif;
         }
 
-        private void tprop(double ifl, double wc, double wa, double enth)
+        private void Tprop(double ifl, double wc, double wa, double enth)
         {
             #region resumen
             //            c subroutine to return:
@@ -109,45 +115,48 @@ namespace Degadis
 
             if (cont.isofl == 1)
             {
-                adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
+                Adiabat(1);
                 return;
             }
 
             if (ifl == 0) 
             {
-                enth = wc * cpc(cont.gastem) * (cont.gastem - cont.tamb)
+                enth = wc * Cpc(cont.gastem) * (cont.gastem - cont.tamb)
                             + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); 
             }
             
             if(ifl==1 && cont.ihtfl == 0) 
             {
-                adiabat(1, wc, wa, yc, ya, cc, rho, wm, enth, temp);
+                Adiabat(1);
                 return;
             }
 
             if (ifl == -1) 
             {
-                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
+                DensityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
                 return;
             }
 
-            var tmin=0; var tmax=0; var elementos =[cont.gastem, cont.tsurf, cont.tamb];
-            tmin = Math.Min(elementos);
-            tmax = Math.Max(elementos);
+            var tmin=0.0; var tmax=0.0; double[] elementos = new double[3]; 
+            elementos[1] =cont.gastem;
+            elementos[2] =cont.tsurf;
+            elementos[3] =cont.tamb;
+            tmin = elementos.Min(); 
+            tmax = elementos.Max();
 
-            var elow = enthal(wc, wa, tmin);
+            var elow = Enthal(wc, wa, tmin);
             if(enth < elow) 
             { 
                 temp = tmin; enth = elow; 
-                densityCalculation(wm,ww,wa,wc,ya,yc,rho,temp,enth); 
+                DensityCalculation(wm,ww,wa,wc,ya,yc,rho,temp,enth); 
                 return; 
             }
 
-            elow = enthal(wc, wa, tmax);
+            elow = Enthal(wc, wa, tmax);
             if (enth > elow)
             {
                 temp = tmax; enth = elow;
-                densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
+                DensityCalculation(wm, ww, wa, wc, ya, yc, rho, temp,enth);
                 return;
             }
 
@@ -155,20 +164,19 @@ namespace Degadis
             /// programar zbrent.for
             ///call zbrent(temp, enth0, tmin, tmax, acrit, ierr)
             ///if (ierr.ne. 0) call trap(24,0)
-            densityCalculation(wm, ww, wa, wc, ya, yc, rho, temp, enth);
+            DensityCalculation(wm, ww, wa, wc, ya, yc, rho, temp, enth);
             return;
         }
-
-        private void densityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp, double enth)
+        private void DensityCalculation(double wm, double ww, double wa, double wc, double ya, double yc, double rho, double temp, double enth)
         {
-            double ywsat = watvp(temp) / cont.pamb;
+            double ywsat = Watvp(temp) / cont.pamb;
             double wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1.0 - ywsat);
             double conden = Math.Max(0.0, ww - wwsat);
 
             rho = 1.0 / (wa / (cont.pamb * cont.wma / cont.rgas / temp) + (ww / conden) / (cont.pamb * cont.wmw / cont.rgas / temp) + conden / cont.rhowl + wc * temp / cont.gastem / cont.gasrho);
 
             double tmin = temp + 10.0;
-            double tmax = enthal(wc, wa, tmin);
+            double tmax = Enthal(wc, wa, tmin);
 
             double cp = (enth - tmax) / (temp - tmin);
             if (cp<cont.cpa)
@@ -177,7 +185,7 @@ namespace Degadis
             }
         }
 
-        private double enthal (double wc,double wa ,double temp)
+        private double Enthal (double wc,double wa ,double temp)
         {
             ///ENTHAL calculates the mixture enthalpy
             double deltaf = 10; double ww; double wm; double ya; double yc; double yw;
@@ -196,10 +204,11 @@ namespace Degadis
             var wwsat = cont.wmw / wm * ywsat * (ya + yc) / (1 - ywsat);
             var conden = Math.Max(0.0, ww - wwsat);
 
-            var enthal = wc * cpc(temp) * (temp - cont.tamb) - conden * dh + ww * cont.cpw * (temp - cont.tamb) + wa * cont.cpa * (temp - cont.tamb);
+            var enthal = wc * Cpc(temp) * (temp - cont.tamb) - conden * dh + ww * cont.cpw * (temp - cont.tamb) + wa * cont.cpa * (temp - cont.tamb);
             return enthal;
         }
-        private void setden(double wc, double wa, double enthalpy, double rho, double yc)
+
+        public void Setden(double wc, double wa, double enthalpy)
         {
             #region Descripcion
             //subroutine to load /GEN2/ as needed
@@ -226,6 +235,7 @@ namespace Degadis
             Entidades.LineaDensidad linea = new Entidades.LineaDensidad();
             Entidades.ListaDEN listden = new Entidades.ListaDEN();
             Entidades.ListaDEN backsp = new Entidades.ListaDEN();
+            Entidades.LineaDensidad curnt = new Entidades.LineaDensidad();
 
             linea.Den1 = 0; 
             linea.Den2 = 0; 
@@ -245,10 +255,11 @@ namespace Degadis
             double rhoint;
             double wccal;
             double w1, w2;
-            double entint; 
+            double entint;
+            double temint;
             int ind = 1;
 
-            for (int i = ils; i < 0; i--)
+            for (int i = ils; i > 0; i--)
             {
                 zbda = (Convert.ToDouble(i) / Convert.ToDouble(iils)) / (1.0 + cont.humedad);
                 zw = zbda * cont.humedad;
@@ -258,100 +269,96 @@ namespace Degadis
 
                 zbda += zg * wa;
                 zg = zg * wc;
-                tprop(2, zg, zbda, enmix);
+                Tprop(2, zg, zbda, enmix);
                 cc = zg * rho;
-
-                //esto no se si es una linea de densidad o que pero tiene la misma estructura
-                Entidades.LineaDensidad curnt = new Entidades.LineaDensidad();
+  
                 curnt.Den1 = yc;
                 curnt.Den2 = cc;
                 curnt.Den3 = rho;
                 curnt.Den4 = enmix;
-                curnt.Den5 = cont.tamb; //puse temperatura ambiente porser la unica temperatura que tengo en cont,pero no se
+                curnt.Den5 = temp;
 
                 if (i == ils)
                 {
-                    //esto asigna la linea anterior a una lista
                     backsp.Add(curnt);
-                    k = Auxiliar(wc, enthalpy, k);
                     continue;
                 }
-                err = 0;
-                for (int iind = 0; iind < ind; iind++)
+                err = 0.0;
+                for (int iind = 1; iind < ind; iind++)
                 {
                     yc = backsp[iind].Den1;
                     cc = backsp[iind].Den2;
                     rho = backsp[iind].Den3;
                     enmix = backsp[iind].Den4;
-                    cont.tamb = backsp[iind].Den5;
-                    slope = (cont.DENtriples[k].Den2 - curnt.Den2) / (cont.DENtriples[k].Den1 - curnt.Den1);
+                    temp = backsp[iind].Den5;
+                    slope = (listden[k].Den2 - curnt.Den2) / (listden[k].Den1 - curnt.Den1);
                     ccint = (yc - curnt.Den1) * slope + curnt.Den2;
-                    err = Math.Max(err, 2 * Math.Abs(cc - ccint) / (Math.Abs(cc + ccint) + zero));
-                    slope = (cont.DENtriples[k].Den3 - curnt.Den3) / (cont.DENtriples[k].Den1 - curnt.Den1);
+                    err = Math.Max(err, 2.0 * Math.Abs(cc - ccint) / (Math.Abs(cc + ccint) + zero));
+                    slope = (listden[k].Den3 - curnt.Den3) / (listden[k].Den1 - curnt.Den1);
                     rhoint = (yc - curnt.Den1) * slope + curnt.Den3;
                     err = Math.Max(err, 2 * Math.Abs(rho - rhoint) / (Math.Abs(rho + rhoint) + zero));
                     wccal = cc / rhoint;
                     w1 = curnt.Den2 / curnt.Den3;
-                    w2 = cont.DENtriples[k].Den2 / cont.DENtriples[k].Den3;
-                    slope = (cont.DENtriples[k].Den4 - curnt.Den4) / (w2 - w1);
+                    w2 = listden[k].Den2 / listden[k].Den3;
+                    slope = (listden[k].Den4 - curnt.Den4) / (w2 - w1);
                     entint = (wccal - w1) * slope + curnt.Den4;
                     err = Math.Max(err, 2 * Math.Abs(enmix - entint) / (Math.Abs(enmix + entint) + zero));
-                    slope = (cont.DENtriples[k].Den5 - curnt.Den5) / (w2 - w1);
-                    double temint = (wccal - w1) * slope + curnt.Den5;
-                    err = Math.Max(err, 2 * Math.Abs(cont.tamb - temint) / (Math.Abs(cont.tamb + temint) + zero));
+                    slope = (listden[k].Den5 - curnt.Den5) / (w2 - w1);
+                    temint = (wccal - w1) * slope + curnt.Den5;
+                    err = Math.Max(err, 2 * Math.Abs(temp - temint) / (Math.Abs(temp + temint) + zero));
                 }
-                if (err <= 0.002)
+
+                if (err <= tcrit)
                 {
-                    if (ind < 25)
-                    {
-                        ind++;
-                        backsp.Add(curnt);
-                        //extraje para llamar desde 2 lugares no se que nombre ponerle
-                        k = Auxiliar(wc, enthalpy, k);
-                        continue;
-                    }
-                    else
+                    if (ind >= iback)
                     {
                         k++;
-                        if (k >=cont.igen)
-                        {
-                            //call trap(28,0)
-                            cont.DENtriples[k] = backsp[ind];
-                            ind = 1;
-                        }
+                        listden[k].Den1 = backsp[ind].Den1;
+                        listden[k].Den2 = backsp[ind].Den2;
+                        listden[k].Den3 = backsp[ind].Den3;
+                        listden[k].Den4 = backsp[ind].Den4;
+                        listden[k].Den5 = backsp[ind].Den5;
+                        ind = 1;
+                        continue;
                     }
+                    ind = ind + 1;
+                    backsp[ind].Den1 = curnt.Den1;
+                    backsp[ind].Den2 = curnt.Den2;
+                    backsp[ind].Den3 = curnt.Den3;
+                    backsp[ind].Den4 = curnt.Den4;
+                    backsp[ind].Den5 = curnt.Den5;
+                    continue;
                 }
-                k = Auxiliar(wc, enthalpy, k);
-                continue;
             }
-        }
 
-        private int Auxiliar(double wc, double enthalpy, int k)
-        {
             k++;
             if (k >= cont.igen)
             {
                 //call trap(28,0)
             }
-            if (wc == 1)
+            if (wc == 1.0)
             {
-                cont.DENtriples[k].Den1 = 1;
-                cont.DENtriples[k].Den2 = cont.gasrho;
-                cont.DENtriples[k].Den3 = cont.gasrho;
-                cont.DENtriples[k].Den4 = enthalpy;
-                cont.DENtriples[k].Den5 = cont.gastem;
+                listden[k].Den1 = 1;
+                listden[k].Den2 = cont.gasrho;
+                listden[k].Den3 = cont.gasrho;
+                listden[k].Den4 = enthalpy;
+                listden[k].Den5 = cont.gastem;
             }
             else
             {
-                //call tprop(2,wc,wa,enthalpy,den(1,k),ya,wm,den(5,k),den(3,k),cp)
-                cont.DENtriples[k].Den2 = wc * cont.DENtriples[k].Den3;
-                cont.DENtriples[k].Den4 = enthalpy;
+                Tprop(2, wc, wa, enthalpy);
+                listden[k].Den1 = yc;
+                listden[k].Den2 = wc * listden[k].Den3;
+                listden[k].Den3 = rho;
+                listden[k].Den4 = enthalpy;
+                listden[k].Den5 = temp;
             }
-            cont.DENtriples[k + 1].Den1 = 2;
-            return k;
+            listden[k + 1].Den1 = 2.0;
+            cont.DENtriples = listden;
+            return;
         }
 
-        private void adiabat(double ifl, double wc, double wa, double yc, double ya, double cc, double rho, double wm, double enthalpy, double temp)
+        private void Adiabat(double ifl, double yc, double cc, double wc)
         {
             #region comment
             //subroutine to return:
@@ -378,28 +385,28 @@ namespace Degadis
             //   2) mole fraction(Yc)
             #endregion
             ///cheuquear humsrc que es cont.humedadrel aca///
-            int i = 0;
-            double ccl = 0;
-            double ycl = 0;
-            double yw = 0;
-            double wcl = 0;
-            double ww = 0;
-            double cwc = 0;
+            int i;
+            double ccl;
+            double ycl;
+            double yw;
+            double wcl;
+            double ww;
+            double cwc;
+            double gamma;
+            double w2;
+            double w1;
+            double slope;
             bool aux = true;
-            double slope = 0;
-            double w1 = 0;
-            double w2 = 0;
-            double gamma = 0;
             switch (ifl)
             {
                 case -2:
                     ycl = yc;
-                    if (ycl<0)
+                    if (ycl < 0)
                     {
                         ycl = 0;
                     }
                     gamma = enthalpy;
-                    ya = (1 - (1 + cont.gasmw * cont.humedadrel / cont.wmw) * ycl) / (1 + cont.humedad * cont.wma / cont.wmw);
+                    ya = (1 - (1 + cont.gasmw * humsrc / cont.wmw) * ycl) / (1 + cont.humedad * cont.wma / cont.wmw);
                     yw = 1 - ya - ycl;
                     wm = ycl * cont.gasmw + ya * cont.wma + yw * cont.wmw;
                     wc = cont.gasmw / wm * ycl;
@@ -409,13 +416,13 @@ namespace Degadis
                     break;
                 case -1:
                     ccl = cc;
-                    if(ccl<0)
+                    if (ccl < 0)
                     {
                         ccl = 0;
                     }
                     gamma = enthalpy;
                     wc = ccl / (cont.rhoa + ccl * gamma);
-                    wa = (1 - (1 + cont.humedadrel) * wc) / (1 + cont.humedad);
+                    wa = (1 - (1 + humsrc) * wc) / (1 + cont.humedad);
                     ww = 1 - wa - wc;
                     wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
                     yc = wm / cont.gasmw * wc;
@@ -424,7 +431,7 @@ namespace Degadis
                     break;
                 case 0:
                     ccl = cc;
-                    if(cc<0)
+                    if (cc < 0)
                     {
                         ccl = 0;
                     }
@@ -453,7 +460,7 @@ namespace Degadis
                     rho = (ccl - cont.DENtriples[i - 1].Den2) * slope + cont.DENtriples[i - 1].Den3;
                     wcl = ccl / rho;
                     wc = wcl;
-                    wa = (1 - (1 + cont.humedadrel) * wc) / (1 + cont.humedad);
+                    wa = (1 - (1 + humsrc) * wc) / (1 + cont.humedad);
                     ww = 1 - wa - wc;
                     wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
                     yc = wm / cont.gasmw * wc;
@@ -467,12 +474,12 @@ namespace Degadis
                     break;
                 case 1:
                     wcl = wc;
-                    if(wc<0)
+                    if (wc < 0)
                     {
                         wcl = 0;
                         wa = 1 / (1 + cont.humedad);
                     }
-                    else if(wc>1)
+                    else if (wc > 1)
                     {
                         wcl = 1;
                         wa = 0;
@@ -515,7 +522,7 @@ namespace Degadis
                             break;
                         }
                         cwc = cont.DENtriples[i].Den2 / cont.DENtriples[i].Den3;
-                        if (wcl<cwc)
+                        if (wcl < cwc)
                         {
                             aux = false;
                             break;
