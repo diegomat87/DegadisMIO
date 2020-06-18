@@ -928,5 +928,82 @@ namespace Degadis
                 return Properties.Settings.Default.rhowl;
             }
         }
+
+        public double wa
+        {
+            set
+            {
+                Properties.Settings.Default.wa = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.wa;
+            }
+        }
+
+        public double ya
+        {
+            set
+            {
+                Properties.Settings.Default.ya = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.ya;
+            }
+        }
+        public double rho
+        {
+            set
+            {
+                Properties.Settings.Default.rho = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.rho;
+            }
+        }
+
+        public double wm
+        {
+            set
+            {
+                Properties.Settings.Default.wm = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.wm;
+            }
+        }
+
+        public double enthalpy
+        {
+            set
+            {
+                Properties.Settings.Default.enthalpy = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.enthalpy;
+            }
+        }
+
+        public double temp
+        {
+            set
+            {
+                Properties.Settings.Default.temp = value;
+                Properties.Settings.Default.Save();
+            }
+            get
+            {
+                return Properties.Settings.Default.temp;
+            }
+        }
     }
 }
