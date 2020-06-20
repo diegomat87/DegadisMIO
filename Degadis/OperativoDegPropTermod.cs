@@ -17,6 +17,9 @@ namespace Degadis
         double cc;
         double cp;
         double humsrc = 0;
+        double cwc;
+        double cwa;
+        double centh;
 
 
         public double HumedadAbs(double tamb, double humedadrel)
@@ -100,7 +103,7 @@ namespace Degadis
             //c adiabatic lookup CALL ADIABAT
             //c               for isofl.eq.1.or.ihtfl.eq.0.and.ifl.eq.1
             #endregion
-            double ww; double yw; 
+            double ww; double yw; double acrit = 0.001;
             ww = 1 - wc - wa;
             cont.wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
             yc = cont.wm / cont.gasmw * wc;
@@ -109,7 +112,7 @@ namespace Degadis
 
             if (cont.isofl == 1)
             {
-                Adiabat(1);
+                Adiabat(1,yc,cc,wc);
                 return;
             }
 
@@ -121,7 +124,7 @@ namespace Degadis
             
             if(ifl==1 && cont.ihtfl == 0) 
             {
-                Adiabat(1);
+                Adiabat(1,yc,cc,wc);
                 return;
             }
 
@@ -154,9 +157,9 @@ namespace Degadis
                 return;
             }
 
-            var cwc = wc; var cwa = wa; var centh = enth;
-            /// programar zbrent.for
-            ///call zbrent(temp, enth0, tmin, tmax, acrit, ierr)
+            cwc = wc;  cwa = wa; centh = enth;
+            zbrent zbrent = new zbrent();
+            cont.temp = zbrent.zb(Enth, tmin, tmax, acrit);
             ///if (ierr.ne. 0) call trap(24,0)
             DensityCalculation(cont.wm, ww, wa, wc, cont.ya, yc, cont.rho, cont.temp, enth);
             return;
@@ -202,6 +205,12 @@ namespace Degadis
             return enthal;
         }
 
+        private double Enth(double temp)
+        {
+            double enth0; 
+            enth0 = centh - Enthal(cwc, cwa, temp);
+            return enth0;
+        }
         public void Setden(double wc, double wa, double enthalpy)
         {
             #region Descripcion
@@ -378,7 +387,6 @@ namespace Degadis
             //   1) mass fraction c(wc)
             //   2) mole fraction(Yc)
             #endregion
-            ///cheuquear humsrc que es cont.humedadrel aca///
             int i;
             double ccl;
             double ycl;
