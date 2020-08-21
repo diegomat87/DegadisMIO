@@ -23,10 +23,10 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="BtnNuevoCaso" Content="Crear Nuevo Caso" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="126" Height="35" Click="BtnNuevoCaso_Click"/>
-                    <Label Content="Editar caso" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Style="{DynamicResource EstiloLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
-                    <Label Content="Sobrescribir caso" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
-                    <Label Content="Buscar caso" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
+                    <Button x:Name="btnNuevoCaso" Content="Crear Nuevo Caso" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="126" Height="35" Click="BtnNuevoCaso_Click"/>
+                    <Label x:Name="lblEditar" Content="Editar caso" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Style="{DynamicResource EstiloLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+                    <Label x:Name="lblSobreescribir" Content="Sobrescribir caso" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
+                    <Label x:Name="lblBuscar" Content="Buscar caso" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
                 </Grid>
             </StackPanel>
         </ScrollViewer>

@@ -25,6 +25,17 @@ namespace Degadis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Globalization.CultureInfo idioma {
+            get {
+                return ((global::System.Globalization.CultureInfo)(this["idioma"]));
+            }
+            set {
+                this["idioma"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("28.96")]
         public double wma {
             get {

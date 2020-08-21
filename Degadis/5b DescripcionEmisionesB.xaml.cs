@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -27,6 +29,22 @@ namespace Degadis
         public DescripcionEmisionB()
         {
             InitializeComponent();
+            iniciar();
+        }
+
+        private void iniciar()
+        {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            lblTitulo.Content = Properties.Resources.kEstTrans;
+            LblMasainicialFuente.Content = Properties.Resources.KMasaIni;
+            LblMassFraction.Content = Properties.Resources.kFracMas;
+            LblReleaseRate.Content = Properties.Resources.kLibCont;
+            LblSourceRadius.Content = Properties.Resources.kRadOrig;
+            LblTimeSource.Content = Properties.Resources.kTiempo;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+            BtnAgregarLinea.Content = Properties.Resources.kAgregar;
+
             if (cont.idilut == 0)
             {
                 LblMassFraction.Visibility = Visibility.Hidden;

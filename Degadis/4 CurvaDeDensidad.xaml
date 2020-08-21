@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
-            <Label Content="Density curve" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Name="lblTitulo" Content="Density curve" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
         </Border>
 
         <Grid Grid.Row="1" x:Name="GridCurvaDen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Margin="0">

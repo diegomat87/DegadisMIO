@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -29,7 +31,29 @@ namespace Degadis
         public DatosAtmosfericos()
         {
             InitializeComponent();
-            
+            Inicializar();
+        }
+
+        private void Inicializar()
+        {
+            Thread.CurrentThread.CurrentCulture = Cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = Cont.idioma;
+            lblAtmospheric.Content = Properties.Resources.kAtmPar;
+            lblestabilidad.Content = Properties.Resources.kEstabilidad;
+            lbllongitudMoninObukhov.Content = Properties.Resources.kMonin;
+            lblPresionAmbiente.Content = Properties.Resources.kPresAmb;
+            lblTemperaturaAmbiente.Content = Properties.Resources.kTempAire;
+            lblz0.Content = Properties.Resources.kZ0;
+            lblzr.Content = Properties.Resources.kRugosidad;
+            LblNombreArchivoCaso.Content = Properties.Resources.kTitulo;
+            Lbltiempopromedio.Content = Properties.Resources.kDELTAY;
+            Lblu0.Content = Properties.Resources.kU0;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+            RdBtnHumedadA.Content = Properties.Resources.kHumAbs;
+            RdBtnHumedadR.Content = Properties.Resources.kHumRel;
+            RdBtnLongMODefault.Content = Properties.Resources.kDefault;
+            RdBtnLongMOSet.Content = Properties.Resources.kSet;
+
             txtu0.Text = Cont.u0.ToString();
             txtz0.Text = Cont.z0.ToString();
             txtzr.Text = Cont.zr.ToString();

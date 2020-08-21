@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
-            <Label Content="Release description" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Name="lblTitulo" Content="Release description" VerticalAlignment="Center" Foreground="White" FontStyle="Normal" FontWeight="Bold"/>
         </Border>
         <ScrollViewer Grid.Row="1" x:Name="ScrollMenuInicio" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="StackMenuInicio">

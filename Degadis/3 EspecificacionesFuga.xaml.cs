@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
+
 
 namespace Degadis
 {
@@ -31,6 +34,25 @@ namespace Degadis
 
         private void Iniciar()
         {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            lblTitulo.Content = Properties.Resources.kTitulo;
+            LblCoefTransfCalor.Content = Properties.Resources.kCoefTransCal;
+            LbLIsotermico.Content = Properties.Resources.kIsoterma;
+            //LblLlnlCorrVh.Content = Properties.Resources.ksi;
+            LblTempSup.Content = Properties.Resources.kTempSuelo;
+            LblTransfAgua.Content = Properties.Resources.kTransfereAgua;
+            LblTransfCalor.Content = Properties.Resources.kTransfCalor;
+            RdBtnCoefTransfADegadis.Content = Properties.Resources.kCorrDegadis;
+            RdBtnCoefTransfAInput.Content = Properties.Resources.kValPar;
+            RdBtnCoefTransfCDegadis.Content = Properties.Resources.kCorrDegadis;
+            RdBtnCoefTransfCInput.Content = Properties.Resources.kValPar;
+            RdBtnCoefTransfCLlnLCorr.Content = Properties.Resources.kCorrLLNL;
+            RdBtnTransfAguaNo.Content = Properties.Resources.kNo;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+            ChcIsotermico.Content = Properties.Resources.kSi;
+            ChcTransfCalor.Content = Properties.Resources.kSi;
+
             if (cont.booljet)
             {
                 LblCoefTransfCalor.Visibility = Visibility.Hidden;

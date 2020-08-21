@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,234 +112,307 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="kSiguiente" xml:space="preserve">
     <value>Siguiente</value>
   </data>
   <data name="kMJet" xml:space="preserve">
     <value>Modelo Jet/Plume</value>
+    <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kMDeg" xml:space="preserve">
     <value>Modelo Degadis</value>
+    <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kNomArch" xml:space="preserve">
     <value>Nombre de archivo</value>
+    <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kSelCarp" xml:space="preserve">
     <value>Seleccionar
 carpeta</value>
+    <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kCrearCaso" xml:space="preserve">
     <value>Crear nuevo caso</value>
+    <comment>1 DegadisInicio</comment>
   </data>
   <data name="kEditCaso" xml:space="preserve">
     <value>Editar Caso</value>
+    <comment>1 DegadisInicio</comment>
   </data>
   <data name="kSobreCaso" xml:space="preserve">
     <value>Sobreescribir caso</value>
+    <comment>1 DegadisInicio</comment>
   </data>
   <data name="KBuscCaso" xml:space="preserve">
     <value>Buscar caso</value>
+    <comment>1 DegadisInicio</comment>
   </data>
   <data name="kAtmPar" xml:space="preserve">
     <value>Parámetros Atmosféricos</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kTitulo" xml:space="preserve">
     <value>Titulo</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kRugosidad" xml:space="preserve">
     <value>Rugosidad superficial, zr [m]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kDELTAY" xml:space="preserve">
     <value>Tiempo medio estimado DELTAY [s]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kEstabilidad" xml:space="preserve">
     <value>Estabilidad Pasquill</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kPresAmb" xml:space="preserve">
     <value>Presión ambiente [atm]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kHumAbs" xml:space="preserve">
     <value>Humedad ambiente absoluta [kg agua/kg aire seco]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kHumRel" xml:space="preserve">
     <value>Humedad ambiente relativa [%]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kU0" xml:space="preserve">
     <value>Velocidad del viento, u0 [m/s]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kZ0" xml:space="preserve">
     <value>Altura de medición del viento, z0 [m]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kMonin" xml:space="preserve">
     <value>Longitud de Monin-Obukhov [m]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kTempAire" xml:space="preserve">
     <value>Temperatura del aire [K]</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kDefault" xml:space="preserve">
     <value>Por defecto</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kSet" xml:space="preserve">
     <value>Ingresar</value>
+    <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kDetalle" xml:space="preserve">
     <value>Detalle del Matrial</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kIsoterma" xml:space="preserve">
     <value>¿Es este un derrame de "isoterma"?</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kSi" xml:space="preserve">
     <value>Si</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kTransfCalor" xml:space="preserve">
     <value>¿Debe incluirse la transferencia de calor en los cálculos?</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kTempSuelo" xml:space="preserve">
     <value>Temperatura del suelo [K]</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kCoefTransCal" xml:space="preserve">
     <value>Coeficiente de transferencia de calor [J/m^2/s/K]</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kValPar" xml:space="preserve">
     <value>Valor particular</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kCorrDegadis" xml:space="preserve">
     <value>Correlación Degadis</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kCorrLLNL" xml:space="preserve">
     <value>Correlación LLNL</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kTransfereAgua" xml:space="preserve">
     <value>¿Se incluirá la transferencia de agua en los cálculos?</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kNo" xml:space="preserve">
     <value>No</value>
+    <comment>3especificacionesFuga</comment>
   </data>
   <data name="kEspCont" xml:space="preserve">
     <value>Especificar propiedades contaminante</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kListGas" xml:space="preserve">
     <value>Lista de contaminantes disponibles</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kNuevoGas" xml:space="preserve">
     <value>Nuevo Gas</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kFormula" xml:space="preserve">
     <value>Formula gas</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kCapCal" xml:space="preserve">
     <value>Constante de capacidad calorífica del contaminante [J/kg/K]</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kDescrip" xml:space="preserve">
     <value>Descripción</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kPoteCalGas" xml:space="preserve">
     <value>Potencia de capacidad calorífica contaminante</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kPesoMol" xml:space="preserve">
     <value>Peso molecular del contaminante [kg/kmol]</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kULC" xml:space="preserve">
     <value>Límite superior de preocupación como fracción molar
 (ULC)</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kTempCalGas" xml:space="preserve">
     <value>Temperatura de liberación de contaminantes [K]</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kLLC" xml:space="preserve">
     <value>Límite inferior de preocupación como fracción molar
 (LLC)</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kDensGas" xml:space="preserve">
     <value>Densidad de liberación de contaminantes [kg/m3]</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kElevRec" xml:space="preserve">
     <value>Elevación para salida de contorno (receptor) [m]</value>
+    <comment>4BaseDatos</comment>
   </data>
   <data name="kCurva" xml:space="preserve">
     <value>Curva de densidad</value>
+    <comment>4CurvaDensidad</comment>
   </data>
   <data name="kFracMol" xml:space="preserve">
     <value>Fracción molar contaminante</value>
+    <comment>4CurvaDensidad</comment>
   </data>
   <data name="kConcCon" xml:space="preserve">
     <value>Concentración de contaminantes [kg/m3]</value>
+    <comment>4CurvaDensidad</comment>
   </data>
   <data name="kDensCon" xml:space="preserve">
     <value>Densidad de la mezcla [kg/m3]</value>
+    <comment>4CurvaDensidad</comment>
   </data>
   <data name="kAgregar" xml:space="preserve">
     <value>Agregar</value>
+    <comment>4CurvaDensidad</comment>
   </data>
   <data name="kDescVer" xml:space="preserve">
     <value>Descripción de la versión</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kFracMolBaja" xml:space="preserve">
     <value>Fracción molar más baja de interés</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kPoD" xml:space="preserve">
     <value>¿Se libera el contaminante: puro o diluido con aire?</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kPuro" xml:space="preserve">
     <value>Puro</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kDiluido" xml:space="preserve">
     <value>Diluido</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kEoT" xml:space="preserve">
     <value>¿Se puede considerar esta liberación: en estado estacionario o transitoria?</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kEstacionaria" xml:space="preserve">
     <value>Estacionaria</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kTransitoria" xml:space="preserve">
     <value>Transitoria</value>
+    <comment>5Emision</comment>
   </data>
   <data name="kEstEstacionario" xml:space="preserve">
     <value>Liberación de estado estacionario</value>
+    <comment>5EmisionA</comment>
   </data>
   <data name="kTasaLib" xml:space="preserve">
     <value>Ingrese la tasa de liberación [kg de contaminante/s]</value>
+    <comment>5EmisionA</comment>
   </data>
   <data name="kRadFuente" xml:space="preserve">
     <value>Ingrese el radio de la fuente [m]</value>
+    <comment>5EmisionA</comment>
   </data>
   <data name="kMasaCont" xml:space="preserve">
     <value>Ingrese la fracción de masa del contaminante de origen</value>
+    <comment>5EmisionA</comment>
   </data>
   <data name="kTempFuente" xml:space="preserve">
     <value>Ingrese la temperatura de la fuente [K]</value>
+    <comment>5EmisionA</comment>
   </data>
   <data name="kEstTrans" xml:space="preserve">
     <value>Liberación de estado transitorio</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="kFracMas" xml:space="preserve">
     <value>Fracción de masa</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="kLibCont" xml:space="preserve">
     <value>Tasa de liberación de contaminantes [kg/s]</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="KMasaIni" xml:space="preserve">
     <value>Masa inicial de contaminante puro sobre la fuente [kg]</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="kRadOrig" xml:space="preserve">
     <value>Radio de origen [m]</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="kTiempo" xml:space="preserve">
-    <value>Tiempo [s]</value>
+    <value>Tiempo medio estimado DELTAY [s]</value>
+    <comment>5EmisionB</comment>
   </data>
   <data name="kDiamFuente" xml:space="preserve">
     <value>Ingrese el diámetro de la fuente [m]</value>
+    <comment>5EmisionC</comment>
   </data>
   <data name="kDuracionFuente" xml:space="preserve">
     <value>Duración de la fuente [s]</value>
+    <comment>5EmisionC</comment>
   </data>
   <data name="kElevFuente" xml:space="preserve">
     <value>Ingrese la elevación de la fuente [m]</value>
+    <comment>5EmisionC</comment>
   </data>
 </root>

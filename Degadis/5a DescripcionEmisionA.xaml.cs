@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -26,6 +28,20 @@ namespace Degadis
         public DescripcionEmisionA()
         {
             InitializeComponent();
+            iniciar();
+        }
+
+        private void iniciar()
+        {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            lblTitulo.Content = Properties.Resources.kEstEstacionario;
+            LblFlujoEmison.Content = Properties.Resources.kTasaLib;
+            LblFraccionMolarCont.Content = Properties.Resources.kMasaCont;
+            LblRadioFuente.Content = Properties.Resources.kRadFuente;
+            LblTemperaturaFuente.Content = Properties.Resources.kTempFuente;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+
             if (cont.idilut == 0)
             {
                 BtnAyudaFraccionMolarCont.Visibility = Visibility.Hidden;

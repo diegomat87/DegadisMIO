@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -24,6 +26,28 @@ namespace Degadis
         public BaseDeDatosPropiedades()
         {
             InitializeComponent();
+            Iniciar();
+        }
+
+        private void Iniciar()
+        {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            lblTitulo.Content = Properties.Resources.kEspCont;
+            lblList.Content = Properties.Resources.kListGas;
+            LblGasCpk.Content = Properties.Resources.kCapCal;
+            LblGasCpp.Content = Properties.Resources.kPoteCalGas;
+            LblGasDescripcion.Content = Properties.Resources.kDescrip;
+            LblGasFormula.Content = Properties.Resources.kFormula;
+            LblGasLlc.Content = Properties.Resources.kLLC;
+            LblGasMW.Content = Properties.Resources.kPesoMol;
+            LblGasRho.Content = Properties.Resources.kDensGas;
+            LblGasTemp.Content = Properties.Resources.kTempCalGas;
+            LblGasUlc.Content = Properties.Resources.kULC;
+            LblGasZzc.Content = Properties.Resources.kElevRec;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+            BtnNuevoGas.Content = Properties.Resources.kNuevoGas;
+
             cargarComboBox();
             if (cont.booljet)
             {
