@@ -24,9 +24,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button x:Name="btnNuevoCaso" Content="Crear Nuevo Caso" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="125" Click="btnNuevoCaso_Click"/>
-                    <Label Content="Editar caso" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Style="{DynamicResource EstiloLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
-                    <Label Content="Sobrescribir caso" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
-                    <Label Content="Buscar caso" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" VerticalContentAlignment="Center" />
+                    <Label x:Name="lblEditar" Content="Editar caso" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Style="{DynamicResource EstiloLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+                    <Label x:Name="lblSobreescribir" Content="Sobrescribir caso" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" />
+                    <Label x:Name="lblBuscar" Content="Buscar caso" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16"  HorizontalContentAlignment="Center" Style="{DynamicResource EstiloLabel}" VerticalContentAlignment="Center" />
                 </Grid>
             </StackPanel>
         </ScrollViewer>

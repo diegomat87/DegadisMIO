@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -30,6 +32,15 @@ namespace Degadis
             cont.DENtriples = null;
             cont.rhoe = cont.gasrho;
             cont.rhoa = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            lblTitulo.Content = Properties.Resources.kCurva;
+            LblConcntracionContaminante.Content = Properties.Resources.kConcCon;
+            LblDensidadMezcla.Content = Properties.Resources.kDensCon;
+            LblFraccionMContaminante.Content = Properties.Resources.kFracMol;
+            btnSiguiente.Content = Properties.Resources.kSiguiente;
+            BtnAgregarFila.Content = Properties.Resources.kAgregar;
+
             generarColumnas();
             DataListaDEN.ItemsSource = ListaLinea;
         }

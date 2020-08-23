@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,15 @@ namespace Degadis
 {
     public class Controlador
     {
+        public CultureInfo idioma
+        {
+            set
+            {
+                Properties.Settings.Default.idioma = value;
+                Properties.Settings.Default.Save();
+            }
+            get { return Properties.Settings.Default.idioma; }
+        }
         public bool booljet
         {
             set

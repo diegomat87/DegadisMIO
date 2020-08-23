@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -21,9 +23,21 @@ namespace Degadis
     /// </summary>
     public partial class DegadisInicio : Page
     {
+        Controlador cont = new Controlador();
         public DegadisInicio()
         {
             InitializeComponent();
+            idiomas();
+        }
+
+        private void idiomas()
+        {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            btnNuevoCaso.Content = Properties.Resources.kCrearCaso;
+            lblEditar.Content = Properties.Resources.kEditCaso;
+            lblBuscar.Content = Properties.Resources.KBuscCaso;
+            lblSobreescribir.Content = Properties.Resources.kSobreCaso;
         }
 
         private void btnNuevoCaso_Click(object sender, RoutedEventArgs e)

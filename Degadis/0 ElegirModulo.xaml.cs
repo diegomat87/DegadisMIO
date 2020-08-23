@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.Threading;
+using System.Globalization;
 
 namespace Degadis
 {
@@ -26,8 +28,19 @@ namespace Degadis
         public ElegirModulo()
         {
             InitializeComponent();
+            cont.idioma = new CultureInfo("es-AR");
+            idiomas();
         }
 
+        private void idiomas()
+        {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            btnSelect.Content = Properties.Resources.kSelCarp;
+            BtnDeg.Content = Properties.Resources.kMDeg;
+            BtnJet.Content = Properties.Resources.kMJet;
+            lblNombre.Content = Properties.Resources.kNomArch;            
+        }
         private void BtnJet_Click(object sender, RoutedEventArgs e)
         {
             cont.booljet = true;
