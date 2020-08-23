@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Navigation;
 
 namespace Degadis
 {
@@ -159,7 +160,7 @@ namespace Degadis
 
             cwc = wc;  cwa = wa; centh = enth;
             zbrent zbrent = new zbrent();
-            cont.temp = zbrent.zb(Enth, tmin, tmax, acrit);
+            cont.temp = zbrent.zb(Enth0, tmin, tmax, acrit);
             ///if (ierr.ne. 0) call trap(24,0)
             DensityCalculation(cont.wm, ww, wa, wc, cont.ya, yc, cont.rho, cont.temp, enth);
             return;
@@ -180,6 +181,12 @@ namespace Degadis
             {
                 cp = cont.cpa;
             }
+        }
+        private double Enth0(double temp)
+        {
+            double enth0;
+            enth0 = centh + Enthal(cwc, cwa, temp);
+            return enth0;
         }
 
         private double Enthal (double wc,double wa ,double temp)
