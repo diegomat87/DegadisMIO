@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media.Animation;
 
@@ -13,7 +15,7 @@ namespace Degadis
     {
         public double zb(del func, double x1, double x2, double tol)
         {
-            int ierr;
+            int ierr = 0;
             double a = x1;
             double b = x2;
             double c = 0;
@@ -38,13 +40,13 @@ namespace Degadis
             }
             if (Signo(1.0,fa) * Signo(1.0,fb) > 0)
             {
-                ierr = 2;
-                //devolver error 2
+                ierr = 2; // no existe raiz entre a y b. El progrma termina y debe devolver une error.
+                return ierr;
             }
             fc = fb;
             for (int i = 1; 1 <= 100; i++)
             {
-                if (Signo(1.0,fb) *Signo(1.0,fc) > 0)
+                if (Signo(1.0,fb) * Signo(1.0,fc) > 0)
                 {
                     c = a;
                     fc = fa;
@@ -115,7 +117,8 @@ namespace Degadis
                     fb = func(b);
                 }
             }
-            ierr = 1;
+            
+           return ierr = 1; // error por falta de convergencia. no se encontro la raiz.
         }
 
         private static double Signo(double a, double b)
