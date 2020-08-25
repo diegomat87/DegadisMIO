@@ -160,7 +160,9 @@ namespace Degadis
 
             cwc = wc;  cwa = wa; centh = enth;
             zbrent zbrent = new zbrent();
-            cont.temp = zbrent.zb(Enth0, tmin, tmax, acrit);
+            List<double> aux= zbrent.zb(Enth0, tmin, tmax, acrit);
+            cont.temp = aux[0];
+            //if (aux[1] !=0)
             ///if (ierr.ne. 0) call trap(24,0)
             DensityCalculation(cont.wm, ww, wa, wc, cont.ya, yc, cont.rho, cont.temp, enth);
             return;
