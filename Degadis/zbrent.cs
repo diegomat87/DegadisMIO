@@ -13,8 +13,9 @@ namespace Degadis
     public delegate double del(double x);
     class zbrent
     {
-        public double zb(del func, double x1, double x2, double tol)
+        public List<double> zb(del func, double x1, double x2, double tol)
         {
+            List<double> resultados = new List<double>();
             int ierr = 0;
             double a = x1;
             double b = x2;
@@ -32,16 +33,26 @@ namespace Degadis
             double xm;
             if (fa == 0)
             {
-                return a;
+                resultados.Clear();
+                resultados.Add(a);
+                resultados.Add(ierr);
+                return resultados;
             }
             if (fb == 0)
             {
-                return b;
+                resultados.Clear();
+                resultados.Add(b);
+                resultados.Add(ierr);
+                return resultados;
             }
             if (Signo(1.0,fa) * Signo(1.0,fb) > 0)
             {
+                double res = Signo(1.0, fa) * Signo(1.0, fb);
                 ierr = 2; // no existe raiz entre a y b. El progrma termina y debe devolver une error.
-                return ierr;
+                resultados.Clear();
+                resultados.Add(res);
+                resultados.Add(ierr);
+                return resultados;
             }
             fc = fb;
             for (int i = 1; 1 <= 100; i++)
@@ -66,7 +77,10 @@ namespace Degadis
                 xm = 0.5 * (c - b);
                 if ((Math.Abs(xm) <= tol1) || (fb == 0))
                 {
-                    return b;
+                    resultados.Clear();
+                    resultados.Add(b);
+                    resultados.Add(ierr);
+                    return resultados;
                 }
                 if ((Math.Abs(e) >= tol1) && (Math.Abs(fa) > Math.Abs(fb)))
                 {
@@ -117,8 +131,6 @@ namespace Degadis
                     fb = func(b);
                 }
             }
-            
-           return ierr = 1; // error por falta de convergencia. no se encontro la raiz.
         }
 
         private static double Signo(double a, double b)
