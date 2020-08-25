@@ -47,10 +47,9 @@ namespace Degadis
             }
             if (Signo(1.0,fa) * Signo(1.0,fb) > 0)
             {
-                double res = Signo(1.0, fa) * Signo(1.0, fb);
-                ierr = 2; // no existe raiz entre a y b. El progrma termina y debe devolver une error.
+                ierr = 2; 
                 resultados.Clear();
-                resultados.Add(res);
+                resultados.Add(0);
                 resultados.Add(ierr);
                 return resultados;
             }
@@ -131,6 +130,11 @@ namespace Degadis
                     fb = func(b);
                 }
             }
+
+            ierr = 1;
+            resultados.Clear();
+            resultados.Add(0);
+            resultados.Add(ierr);
         }
 
         private static double Signo(double a, double b)
