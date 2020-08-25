@@ -28,13 +28,13 @@ namespace Degadis
         public DescripcionEmision()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             iniciar();
         }
 
         private void iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kDescVer;
             LblYclow.Content = Properties.Resources.kFracMolBaja;
             LblEmisionPoD.Content = Properties.Resources.kPoD;
@@ -82,31 +82,17 @@ namespace Degadis
 
         private void BtnAyudaYclow_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The (default) lowest mole fraction of interest is based on the lowest level of concern given before. If you wish to follow contaminant mole fractions lower than the lowest level of concern, set the lowest mole fraction of interest accordingly. For steady-state simulations, the calculations are discontinued when the mole fraction is less than the lowest level of concern. For transient simulations, the calculations are discontinued when the mole fraction is less than one-fifth of the lowest level of concern.");
+            MessageBox.Show(Properties.Resources.aYclow);
         }
 
         private void BtnAyudaPoD_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The model can consider releases which are 'pure' or 'diluted' as follows:
-
-A release is considered to be pure if no air is present in the released gas or aerosol. An example of a pure release would be a boiling liquid pool. The gas leaving the boiling liquid pool contains no air which comes from the pool.  For a pure release, the pure contaminant release rate (kg contaminant/s) will be required. 
-
-A release is considered to be diluted if air is present in the released gas or aerosol. An example of a diluted release would be the discharge from an exhaust (when air is present in the exhaust stream).  The gas entering the atmosphere contains air which cannot be attributed to the atmospheric mixing processes where the stream is released.  For a diluted release, the PURE contaminant release rate (without air in kg contaminant/s) will be required; the mass fraction of air in the released gas will also be required.");
+            MessageBox.Show(Properties.Resources.aPoD);
         }
 
         private void BtnAyudaSoT_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"In a transient release, the source characteristics vary with time; in a steady state release, the source characteristics do not vary with time.  A release is also considered transient if the source characteristics do not vary with time but the duration of the source is limited.
-
-There are three time scales which help determine whether a release is modeled as steady state or transient: 
-'trel' is the duration of the (secondary) source,
-'thaz' is the averaging time associated with a given contaminant concentration for hazard assessment purposes, and 
-'ttrav' is the travel time(based on the mean advection speed of the contaminant) to (1) the lowest concentration of interest OR (2) the farthest downwind receptor.
-
-A release is considered steady state when 'trel' >> 'thaz' and 'ttrav';
-'tdy' should be set to 'thaz'.
-
-A release is considered transient when it cannot be considered steady state. 'tdy' should be set to the smaller of 'trel' or 'thaz'(to properly represent the lateral plume meander).  When 'trel'< 'thaz', the concentration time history at a point (or receptor) available from DEG4 should be averaged over 'thaz' for consequence analysis.");
+            MessageBox.Show(Properties.Resources.aSoT);
         }
         private void BtnSiguiente_Click(object sender, RoutedEventArgs e)
         {
@@ -178,13 +164,13 @@ A release is considered transient when it cannot be considered steady state. 'td
         {
             string MError = "";
             try { cont.yclow = Convert.ToDouble(TxtYclow.Text); }
-            catch (Exception) { MError += "El valor ingresado para la menor fraccion molar de interes debe ser un numero positivo"; }
+            catch (Exception) { MError += Properties.Resources.eYclowp; }
 
             if (MError.Length == 0)
             {
                 if (Convert.ToDouble(TxtYclow.Text) <= 0 || Convert.ToDouble(TxtYclow.Text) > 1)
                 {
-                    MessageBox.Show(@"El valor de la fraccion molar debe estar entre 0 y 1");
+                    MessageBox.Show(Properties.Resources.eYclow01);
                     return false;
                 }
                 return true;

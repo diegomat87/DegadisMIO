@@ -50,27 +50,19 @@ namespace Degadis
         #region Ayudas
         private void BtnAyudaDenCurv_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The density is determined as a function of concentration by a listing of ordered triples supplied by the user.  Use the following form:
-first point    -- pure air  y=0.0,Cc=0.0,RHOG=RHOA=kg/m**3,
-          .
-          .
-          .
-last point     -- pure gas  y=1.0,Cc=RHOE,RHOG=RHOE");
+            MessageBox.Show(Properties.Resources.aDenCurv);
         }
         private void BtnAyudaFraccionMolarCont_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The contaminant mole fraction is the first element in each ordered triple. The triples must start with pure air (contaminant mole fraction = 0.) and increase to the last point with pure released contaminant.
-
-The contaminant mole fraction must be entered as a monotonically increasing function starting with pure air (i.e.contaminant mole fraction =0.0).");
+            MessageBox.Show(Properties.Resources.aFracMol);
         }
         private void BtnAyudaConcentracionContaminante_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The contaminant concentration (in kg/m**3) entered here should correspond with the contaminant mole fraction just entered. For a contaminant mole fraction of zero, the contaminant concentration must also be zero. For a contaminant mole fraction of one, the contaminant concentration must also be equal to the pure contaminant density.");
+            MessageBox.Show(Properties.Resources.aConCont);
         }
         private void BtnAyudaDensidadMezcla_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The mixture density (in kg/m**3) entered here should correspond with the contaminant mole fraction and contaminant concentration just entered. For a contaminant mole fraction of zero, the mixture density must be the ambient air density.
-For a contaminant mole fraction of one, the mixture density must be equal to the pure contaminant density.");
+            MessageBox.Show(Properties.Resources.aDenMezcla);
         }
         #endregion
 
@@ -109,7 +101,7 @@ For a contaminant mole fraction of one, the mixture density must be equal to the
             {
                 if (linea.Den2 / cont.gasrho > 1.005 || cont.gasrho / linea.Den2 > 1.005 || linea.Den3 / cont.gasrho > 1.005 || cont.gasrho / linea.Den3 > 1.005)
                 {
-                    linea.Den2 = cont.gasrho; linea.Den3 = cont.gasrho; MessageBox.Show("Contaminant density corrected to" + Convert.ToString(cont.gasrho) + " kg/m\xB3");
+                    linea.Den2 = cont.gasrho; linea.Den3 = cont.gasrho; MessageBox.Show(Properties.Resources.kContDenCor + " " + Convert.ToString(cont.gasrho) + " kg/m\xB3");
                 }
                 cont.DENtriples = ListaLinea;
 
@@ -129,25 +121,25 @@ For a contaminant mole fraction of one, the mixture density must be equal to the
         private void generarColumnas()
         {
             DataGridTextColumn fraccion = new DataGridTextColumn();
-            fraccion.Header = "Contaminant mole fraction";
+            fraccion.Header = Properties.Resources.rContFracMol;
             fraccion.Binding = new Binding("Den1");
             DataListaDEN.Columns.Add(fraccion);
 
             DataGridTextColumn concentracion = new DataGridTextColumn();
-            concentracion.Header = "Contaminant concentration [Kg/m\xB3]";
+            concentracion.Header = Properties.Resources.rConCont;
             concentracion.Binding = new Binding("Den2");
             DataListaDEN.Columns.Add(concentracion);
 
             DataGridTextColumn densidad = new DataGridTextColumn();
-            densidad.Header = "Mixture density [Kg/m\xB3]";
+            densidad.Header = Properties.Resources.rDenMezcla;
             densidad.Binding = new Binding("Den3");
             DataListaDEN.Columns.Add(densidad);
 
             DataGridTemplateColumn Eliminar = new DataGridTemplateColumn();
-            Eliminar.Header = "Eliminar";
+            Eliminar.Header = Properties.Resources.kEliminar;
             DataTemplate tami = new DataTemplate();
             FrameworkElementFactory frBoton = new FrameworkElementFactory(typeof(Button));
-            frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, "Eliminae");
+            frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, Properties.Resources.kEliminar);
             frBoton.AddHandler(System.Windows.Controls.Button.ClickEvent, new RoutedEventHandler(btnEliminar_Click));
             tami.VisualTree = frBoton;
             Eliminar.CellTemplate = tami;
@@ -175,26 +167,25 @@ For a contaminant mole fraction of one, the mixture density must be equal to the
             string MError = "";
 
             try { Convert.ToDouble(TxtFraccionMContaminante.Text); }
-            catch (Exception) { MError += "El valor ingresado para la fraccion molar debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eFracMolp + "\n"; }
 
             try { Convert.ToDouble(TxtConcentracionContaminante.Text); }
-            catch (Exception) { MError += "El valor ingresado para la Concentracion debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eConcp + "\n"; }
 
             try { Convert.ToDouble(TxtDensidadMezcla.Text); }
-            catch (Exception) { MError += "El valor ingresado para la densidad de la mezcla debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eDenMezcla + "\n"; }
 
             if (ListaLinea.Count == 0)
             {
                 if (Convert.ToDouble(TxtDensidadMezcla.Text) / cont.rhoa > 1.005 || cont.rhoa / Convert.ToDouble(TxtDensidadMezcla.Text) > 1.005)
                 {
-                    TxtDensidadMezcla.Text = Convert.ToString(cont.rhoa); MessageBox.Show("Air density corrected to" + Convert.ToString(cont.rhoa) + " kg/m\xB3");
+                    TxtDensidadMezcla.Text = Convert.ToString(cont.rhoa); MessageBox.Show(Properties.Resources.eDenAireCor + " " + Convert.ToString(cont.rhoa) + " kg/m\xB3");
                 }
             }
             else if (ListaLinea.Count >= 1)
             {
-                _ = new Entidades.LineaDensidad();
                 Entidades.LineaDensidad Lin1 = ListaLinea[ListaLinea.Count - 1];
-                if (Lin1.Den1 > Convert.ToDouble(TxtFraccionMContaminante.Text)) { MError = "The contaminant mole fraction must be entered as a monotonically increasing function starting with pure air (i.e. contaminant mole fraction =0.0).\n"; }
+                if (Lin1.Den1 > Convert.ToDouble(TxtFraccionMContaminante.Text)) { MError = Properties.Resources.eFracMolCont + "\n"; }
             }
 
             if (MError.Length == 0)

@@ -29,17 +29,18 @@ namespace Degadis
         public EspecificacionesFuga()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             Iniciar();
         }
 
         private void Iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
+            
             lblTitulo.Content = Properties.Resources.kTitulo;
             LblCoefTransfCalor.Content = Properties.Resources.kCoefTransCal;
             LbLIsotermico.Content = Properties.Resources.kIsoterma;
-            //LblLlnlCorrVh.Content = Properties.Resources.ksi;
+            LblLlnlCorrVh.Content = Properties.Resources.kLLNL;
             LblTempSup.Content = Properties.Resources.kTempSuelo;
             LblTransfAgua.Content = Properties.Resources.kTransfereAgua;
             LblTransfCalor.Content = Properties.Resources.kTransfCalor;
@@ -90,42 +91,27 @@ namespace Degadis
         #region Ayuda
         private void BtnAyudaIsotermico_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"An isothermal simulation simply does not use the energy balance in DEGADIS to estimate the mixture density (from the mixture temperature). For an isothermal simulation then, the user must specify the relationship between contaminant mole fraction, contaminant concentration (kg/m**3), and mixture density (kg/m**3) via a series of ordered triples. This relationship is normally determined prior to running DEGADIS by calculating the pertinent properties for various mixtures of air and contaminant assuming the air and contaminant mix adiabatically (i.e., without any heat transfer with the surroundings.)
-
-For preliminary hazard assessment purposes, it may be adequate to approximate the density-concentration relationship using only two triples - one for pure air and the other for the released material. (See Spicer, Havens, and Key, Extension of DEGADIS for Modeling Aerosol Releases, in International Conference on Vapor Cloud Modeling, J.Woodward, ed., AIChE, 1987.) A nonisothermal simulation uses the energy balance in DEGADIS to calculate the mixture density (from the mixture temperature).  For a nonisothermal simulation, the user must specify the contaminant heat capacity and release temperature.  The energy balance in DEGADIS accounts for heat transfer with the surroundings and for water phase changes but does not account for contaminant phase changes.");
+            MessageBox.Show(Properties.Resources.aIsotermico);
         }
 
         private void BtnAyudaTransfCalor_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"DEGADIS has provisions for heat transfer to the contaminant cloud from the ground surface.");
+            MessageBox.Show(Properties.Resources.aTransCal);
         }
 
         private void BtnAyudaTempSup_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The ground (surface) temperature should reflect the conditions present during the release. If unknown, the surface temperature can normally be approximated by the ambient air temperature.");
+            MessageBox.Show(Properties.Resources.aTempSup);
         }
 
         private void BtnAyudaCoefTransfCalor_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"DEGADIS provides for three methods of specifying the heat transfer coefficient describing heat transfer from the ground surface to the contaminant cloud: (C) the built in (DEGADIS) correlation which is based on handbook correlations for forced and natural convection from a flat plate, (L) the LLNL correlation which is based on field scale experimental observations for LNG releases in the desert, or (V) a particular (constant) heat transfer coefficient
-
-V) The average ground-to-cloud heat transfer coefficient is assumed to apply everywhere along the bottom surface of the cloud.
-
-L) The form of the correlation is: Q = (Vh * rho * cp) * area * (tsurf-temp)
-Vh [m/s] is based on analysis by Lawrence Livermore National Laboratory of field-scale release experiments using liquefied natural gas(LNG).");
+            MessageBox.Show(Properties.Resources.aCoefTranCal);
         }
 
         private void BtnAyudaTransfAgua_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@" Water transfer is modeled as a mass transfer process from a water substrate to the contaminant cloud.  This transfer may be important when:
-(1) the contaminant cloud is significantly colder than the water surface, AND
-(2) the contaminat molecular weight is less than air.
-
-Water transfer is modeled only in the secondary source where it would be most significant.  Water is assumed to be transferred to the secondary source cloud in the area outside the primary source.
-
-The DEGADIS correlation option uses a heat-to-mass transfer analogy; the exact nature of theanalogy depends on whether natural or forced convection conditions exist.
-
-Particular Value option Use a constant for the water-to-cloud mass  transfer coefficient.");
+            MessageBox.Show(Properties.Resources.aTranAgua);
         }
         #endregion
 
@@ -377,7 +363,7 @@ Particular Value option Use a constant for the water-to-cloud mass  transfer coe
             if (ChcIsotermico.IsChecked == false && ChcTransfCalor.IsChecked == true)
                 {
                     try { cont.tsurf = Convert.ToDouble(TxtTemperaturaSuperficie.Text); }
-                    catch (Exception) { MError += "El valor ingresado para la tempratura de la superficie debe ser un numero positivo"; }
+                    catch (Exception) { MError += Properties.Resources.eTempSup; }
                 }
             
             if (!cont.booljet)
@@ -386,19 +372,19 @@ Particular Value option Use a constant for the water-to-cloud mass  transfer coe
                 if (ChcIsotermico.IsChecked == false && ChcTransfCalor.IsChecked == true && RdBtnCoefTransfCInput.IsChecked == true)
                 {
                     try { cont.htco = Convert.ToDouble(TxtCoeficienteCalorInput.Text); }
-                    catch (Exception) { MError += "El valor ingresado para el coeficiente de transferncia de calor debe ser un numero positivo"; }
+                    catch (Exception) { MError += Properties.Resources.eTransCal; }
                 }
 
                 if (ChcIsotermico.IsChecked == false && ChcTransfCalor.IsChecked == true && RdBtnCoefTransfAInput.IsChecked == true)
                 {
                     try { cont.wtco = Convert.ToDouble(TxtCoeficienteAguaInput.Text); }
-                    catch (Exception) { MError += "El valor ingresado para el coeficiente de transferncia de calor debe ser un numero positivo"; }
+                    catch (Exception) { MError += Properties.Resources.eTransCal; }
                 }
 
                 if (RdBtnCoefTransfCLlnLCorr.IsChecked == true)
                 {
                     try { cont.htco = Convert.ToDouble(TxtLlnlCorrVh.Text); }
-                    catch (Exception) { MError += "El valor ingresado para Vh debe ser un numero positivo"; }
+                    catch (Exception) { MError += Properties.Resources.eTransLLNL; }
                 }
             }
 

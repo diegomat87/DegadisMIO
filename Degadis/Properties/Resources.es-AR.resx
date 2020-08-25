@@ -146,7 +146,7 @@ carpeta</value>
     <comment>1 DegadisInicio</comment>
   </data>
   <data name="kSobreCaso" xml:space="preserve">
-    <value>Sobreescribir caso</value>
+    <value>Sobrescribir caso</value>
     <comment>1 DegadisInicio</comment>
   </data>
   <data name="KBuscCaso" xml:space="preserve">
@@ -166,11 +166,11 @@ carpeta</value>
     <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kDELTAY" xml:space="preserve">
-    <value>Tiempo medio estimado DELTAY [s]</value>
+    <value>Tiempo medio para estimar DELTAY [s]</value>
     <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kEstabilidad" xml:space="preserve">
-    <value>Estabilidad Pasquill</value>
+    <value>Estabilidad de Pasquill</value>
     <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kPresAmb" xml:space="preserve">
@@ -210,11 +210,11 @@ carpeta</value>
     <comment>2DatosAtmosfericos</comment>
   </data>
   <data name="kDetalle" xml:space="preserve">
-    <value>Detalle del Matrial</value>
+    <value>Especificaciones de la emisión</value>
     <comment>3especificacionesFuga</comment>
   </data>
   <data name="kIsoterma" xml:space="preserve">
-    <value>¿Es este un derrame de "isoterma"?</value>
+    <value>¿Es este un derrame de "isotérmico"?</value>
     <comment>3especificacionesFuga</comment>
   </data>
   <data name="kSi" xml:space="preserve">
@@ -254,7 +254,7 @@ carpeta</value>
     <comment>3especificacionesFuga</comment>
   </data>
   <data name="kEspCont" xml:space="preserve">
-    <value>Especificar propiedades contaminante</value>
+    <value>Especificar propiedades del contaminante</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kListGas" xml:space="preserve">
@@ -278,7 +278,7 @@ carpeta</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kPoteCalGas" xml:space="preserve">
-    <value>Potencia de capacidad calorífica contaminante</value>
+    <value>Potencia de la capacidad calorífica del contaminante</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kPesoMol" xml:space="preserve">
@@ -286,7 +286,7 @@ carpeta</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kULC" xml:space="preserve">
-    <value>Límite superior de preocupación como fracción molar
+    <value>Límite superior de interés como fracción molar
 (ULC)</value>
     <comment>4BaseDatos</comment>
   </data>
@@ -295,12 +295,12 @@ carpeta</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kLLC" xml:space="preserve">
-    <value>Límite inferior de preocupación como fracción molar
+    <value>Límite inferior de interés como fracción molar
 (LLC)</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kDensGas" xml:space="preserve">
-    <value>Densidad de liberación de contaminantes [kg/m3]</value>
+    <value>Densidad del contaminante de la emisión [kg/m3]</value>
     <comment>4BaseDatos</comment>
   </data>
   <data name="kElevRec" xml:space="preserve">
@@ -312,11 +312,11 @@ carpeta</value>
     <comment>4CurvaDensidad</comment>
   </data>
   <data name="kFracMol" xml:space="preserve">
-    <value>Fracción molar contaminante</value>
+    <value>Fracción molar del contaminante</value>
     <comment>4CurvaDensidad</comment>
   </data>
   <data name="kConcCon" xml:space="preserve">
-    <value>Concentración de contaminantes [kg/m3]</value>
+    <value>Concentración del contaminante [kg/m3]</value>
     <comment>4CurvaDensidad</comment>
   </data>
   <data name="kDensCon" xml:space="preserve">
@@ -328,7 +328,7 @@ carpeta</value>
     <comment>4CurvaDensidad</comment>
   </data>
   <data name="kDescVer" xml:space="preserve">
-    <value>Descripción de la versión</value>
+    <value>Descripción de la emisión</value>
     <comment>5Emision</comment>
   </data>
   <data name="kFracMolBaja" xml:space="preserve">
@@ -336,7 +336,7 @@ carpeta</value>
     <comment>5Emision</comment>
   </data>
   <data name="kPoD" xml:space="preserve">
-    <value>¿Se libera el contaminante: puro o diluido con aire?</value>
+    <value>¿Se emite el contaminante: puro o diluido con aire?</value>
     <comment>5Emision</comment>
   </data>
   <data name="kPuro" xml:space="preserve">
@@ -348,7 +348,7 @@ carpeta</value>
     <comment>5Emision</comment>
   </data>
   <data name="kEoT" xml:space="preserve">
-    <value>¿Se puede considerar esta liberación: en estado estacionario o transitoria?</value>
+    <value>¿Se puede considerar esta emisión en estado estacionario o transitoria?</value>
     <comment>5Emision</comment>
   </data>
   <data name="kEstacionaria" xml:space="preserve">
@@ -360,11 +360,11 @@ carpeta</value>
     <comment>5Emision</comment>
   </data>
   <data name="kEstEstacionario" xml:space="preserve">
-    <value>Liberación de estado estacionario</value>
+    <value>Emisión en estado estacionario</value>
     <comment>5EmisionA</comment>
   </data>
   <data name="kTasaLib" xml:space="preserve">
-    <value>Ingrese la tasa de liberación [kg de contaminante/s]</value>
+    <value>Ingrese la velocidad de emisión [kg de contaminante/s]</value>
     <comment>5EmisionA</comment>
   </data>
   <data name="kRadFuente" xml:space="preserve">
@@ -380,7 +380,7 @@ carpeta</value>
     <comment>5EmisionA</comment>
   </data>
   <data name="kEstTrans" xml:space="preserve">
-    <value>Liberación de estado transitorio</value>
+    <value>Emisión en estado transitorio</value>
     <comment>5EmisionB</comment>
   </data>
   <data name="kFracMas" xml:space="preserve">
@@ -400,7 +400,7 @@ carpeta</value>
     <comment>5EmisionB</comment>
   </data>
   <data name="kTiempo" xml:space="preserve">
-    <value>Tiempo medio estimado DELTAY [s]</value>
+    <value>Tiempo [s]</value>
     <comment>5EmisionB</comment>
   </data>
   <data name="kDiamFuente" xml:space="preserve">
@@ -414,5 +414,334 @@ carpeta</value>
   <data name="kElevFuente" xml:space="preserve">
     <value>Ingrese la elevación de la fuente [m]</value>
     <comment>5EmisionC</comment>
+  </data>
+  <data name="kValDefecto" xml:space="preserve">
+    <value>Se muestran valores por defecto</value>
+    <comment>1 DegadisInicio</comment>
+  </data>
+  <data name="kAyu0" xml:space="preserve">
+    <value>La velocidad del viento (u0) debe especificarse a una altura determinada (z0); z0 se elige para que sea representativo de la profundidad de la capa contaminante y, por lo general, se considera que es de 10 m para las emisiones a nivel del suelo. La velocidad del viento se considera constante durante el lanzamiento.
+Para velocidades del viento inferiores a aproximadamente 2 m / s (a 10 m), algunas suposiciones utilizadas en el modelo de chorro de pluma y la fase de dispersión a favor del viento de DEGADIS pueden dejar de ser válidas.
+Para los casos de baja velocidad del viento cuando el impulso de la fuente inicial no es significativo, este tipo de liberación se puede modelar usando DEGADIS ingresando una velocidad del viento cero en el modelo. Entonces, las concentraciones se calcularán solo para la nube de fuente secundaria. La distancia asociada con las concentraciones calculadas debe ajustarse para reflejar el movimiento de la nube fuente secundaria por cualquier viento ambiental presente.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyz0" xml:space="preserve">
+    <value>Ingrese la altura donde se mide la velocidad del viento</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyzr" xml:space="preserve">
+    <value>La rugosidad de la superficie (junto con la estabilidad atmosférica y la longitud de Monin-Obukhov) se utiliza para determinar la velocidad de fricción y caracterizar el perfil de velocidad del viento. El perfil de velocidad del viento logarítmico asumido asume que los elementos de rugosidad de la superficie son homogéneos. El perfil asumido puede no ser razonable para elevaciones menores que la altura de los elementos de la superficie. (Por lo general, la rugosidad de la superficie se puede aproximar como una décima parte de la altura de los elementos de la superficie con fines aerodinámicos). Al considerar la dispersión de contaminantes más densos que el aire, la rugosidad de la superficie utilizada en DEGADIS debe reflejar alturas de los elementos de la superficie que son menores que la profundidad de la capa de dispersión. Para las emisiones típicas de escamas de campo, la rugosidad de la superficie utilizada en DEGADIS debe ser inferior a 0,1 m.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyEst" xml:space="preserve">
+    <value>Ingrese a la clase de estabilidad Pasquill: A, B, C, D, E o F.
+La clase de estabilidad Pasquill-Gifford se usa para estimar:
+1) perfil de velocidad del viento
+2) Longitud de Monin-Obukhov
+3) velocidad de fricción
+4) parámetros de dispersión en la dirección x</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAytProm" xml:space="preserve">
+    <value>El tiempo promedio utilizado para estimar DELTAY (tdy) representa la escala de tiempo asociada con el meandro de la pluma lateral en el modelo. También son pertinentes otras escalas de tiempo: trel, thaz y ttrav.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyLongMO" xml:space="preserve">
+    <value>La longitud de Monin-Obukhov es una escala de longitud que cuantifica la estabilidad vertical en la atmósfera; es un parámetro utilizado en el perfil de velocidad del viento. Las estabilidades atmosféricas inestables (A, B y C) corresponden a longitudes negativas de Monin-Obukhov, mientras que las estabilidades atmosféricas estables (E y F) corresponden a longitudes positivas. La estabilidad atmosférica neutra (D) corresponde a una escala de longitud de Monin-Obukhov infinita (que se representa en DEGADIS con un valor de entrada cero a la longitud de Monin-Obukhov). Si se desconoce la escala de longitud de Monin-Obukhov, DEGADIS la estima a partir de la estabilidad atmosférica y la rugosidad de la superficie.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyTempAm" xml:space="preserve">
+    <value>La temperatura del aire ambiente debe reflejar las condiciones presentes durante la liberación.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyPresAm" xml:space="preserve">
+    <value>La presión del aire ambiente debe reflejar las condiciones presentes durante el lanzamiento.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="kAyHum" xml:space="preserve">
+    <value>La humedad ambiental se puede ingresar como: Relativa o Absoluta.</value>
+    <comment>2DatosAtmosfericos</comment>
+  </data>
+  <data name="eZr" xml:space="preserve">
+    <value>El valor ingresado para zr debe ser un numero positivo</value>
+  </data>
+  <data name="eHumAbs" xml:space="preserve">
+    <value>Esta humedad absoluta conduce a una humedad relativa superior a 100. Esto no es posible, por lo que la humedad relativa se ha ajustado a 100 dando una humedad absoluta de</value>
+  </data>
+  <data name="eTitulo" xml:space="preserve">
+    <value>El titulo puede contener hasta 320 caracteres</value>
+  </data>
+  <data name="eu0" xml:space="preserve">
+    <value>El valor ingresado para u0 debe ser un numero positivo</value>
+  </data>
+  <data name="ez0" xml:space="preserve">
+    <value>El valor ingresado para z0 debe ser un numero positivo</value>
+  </data>
+  <data name="eTiemProm" xml:space="preserve">
+    <value>El valor ingresado para el tiempo promedio debe ser un numero positivo</value>
+  </data>
+  <data name="eLongMO" xml:space="preserve">
+    <value>El valor ingresado para la longitud MO debe ser un numero</value>
+  </data>
+  <data name="eTempAmb" xml:space="preserve">
+    <value>El valor ingresado para la temperatura ambiente debe ser un numero positivo</value>
+  </data>
+  <data name="ePresAmb" xml:space="preserve">
+    <value>El valor ingresado para la presión ambiente debe ser un número positivo</value>
+  </data>
+  <data name="eHumRel" xml:space="preserve">
+    <value>El valor ingresado para la humedad relativa debe ser un numero positivo entre 0 y 100</value>
+  </data>
+  <data name="eHum" xml:space="preserve">
+    <value>El valor ingresado para la humedad debe ser un numero positivo</value>
+  </data>
+  <data name="ePresIrreal" xml:space="preserve">
+    <value>El valor de la presion ambiente ingresado aparenta ser irreal. ¿Desea continuar?</value>
+  </data>
+  <data name="advertencia" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="aIsotermico" xml:space="preserve">
+    <value>Una simulación isotérmica simplemente no usa el balance de energía en DEGADIS para estimar la densidad de la mezcla (a partir de la temperatura de la mezcla). Entonces, para una simulación isotérmica, el usuario debe especificar la relación entre la fracción molar del contaminante, la concentración del contaminante [kg/m^3] y la densidad de la mezcla [kg/m^3] mediante una serie de triples ordenados. Esta relación se determina normalmente antes de ejecutar DEGADIS calculando las propiedades pertinentes para varias mezclas de aire y contaminante asumiendo que el aire y el contaminante se mezclan adiabáticamente (es decir, sin transferencia de calor con el entorno).
+Para propósitos de evaluación preliminar de peligros, puede ser adecuado aproximar la relación densidad-concentración usando solo dos triples, uno para aire puro y otro para el material liberado. (Véase Spicer, Havens, and Key, Extension of DEGADIS for Modeling Aerosol Releases, en International Conference on Vapor Cloud Modeling, J.Woodward, ed., AIChE, 1987.) Una simulación no isotérmica utiliza el balance de energía en DEGADIS para calcular la mezcla. densidad (de la temperatura de la mezcla). Para una simulación no isotérmica, el usuario debe especificar la capacidad calorífica del contaminante y la temperatura de liberación. El balance de energía en DEGADIS tiene en cuenta la transferencia de calor con el entorno y los cambios de fase del agua, pero no tiene en cuenta los cambios de fase de contaminantes.</value>
+  </data>
+  <data name="aTransCal" xml:space="preserve">
+    <value>DEGADIS tiene disposiciones para la transferencia de calor a la nube contaminante desde la superficie del suelo.</value>
+  </data>
+  <data name="aTempSup" xml:space="preserve">
+    <value>La temperatura del suelo (superficie) debe reflejar las condiciones presentes durante la liberación. Si se desconoce, la temperatura de la superficie normalmente se puede aproximar a la temperatura del aire ambiente.</value>
+  </data>
+  <data name="aCoefTranCal" xml:space="preserve">
+    <value>DEGADIS proporciona tres métodos para especificar el coeficiente de transferencia de calor que describe la transferencia de calor desde la superficie del suelo a la nube contaminante: (C) la correlación integrada (DEGADIS) que se basa en correlaciones del manual para la convección forzada y natural de una placa plana, ( L) la correlación LLNL que se basa en observaciones experimentales a escala de campo para las liberaciones de GNL en el desierto, o (V) un coeficiente de transferencia de calor particular (constante).
+V) Se supone que el coeficiente de transferencia de calor promedio de tierra a nube se aplica en todas partes a lo largo de la superficie inferior de la nube.
+L) La forma de la correlación es: Q = (Vh * rho * cp) * area * (tsurf-temp)
+Vh [m/s] se basa en el análisis realizado por el Laboratorio Nacional Lawrence Livermore de experimentos de liberación a escala de campo utilizando gas natural licuado (GNL).</value>
+    <comment>4</comment>
+  </data>
+  <data name="aTranAgua" xml:space="preserve">
+    <value>La transferencia de agua se modela como un proceso de transferencia de masa desde un sustrato de agua a la nube contaminante. Esta transferencia puede ser importante cuando:
+(1) la nube contaminante es significativamente más fría que la superficie del agua, Y
+(2) el peso molecular del contaminante es menor que el del aire.
+La transferencia de agua se modela solo en la fuente secundaria donde sería más significativa. Se supone que el agua se transfiere a la nube de la fuente secundaria en el área fuera de la fuente primaria.
+La opción de correlación DEGADIS utiliza una analogía de transferencia de calor a masa; La naturaleza exacta de la analogía depende de si existen condiciones de convección natural o forzada.
+Opción de valor particular Utilice una constante para el coeficiente de transferencia de masa de agua a nube.</value>
+  </data>
+  <data name="eTempSup" xml:space="preserve">
+    <value>El valor ingresado para la tempratura de la superficie debe ser un numero positivo</value>
+  </data>
+  <data name="eTransCal" xml:space="preserve">
+    <value>El valor ingresado para el coeficiente de transferencia de calor debe ser un número positivo</value>
+  </data>
+  <data name="eTransLLNL" xml:space="preserve">
+    <value>El valor ingresado para Vh debe ser un número positivo</value>
+  </data>
+  <data name="kLLNL" xml:space="preserve">
+    <value>Ingrese el valor de Vh [m/s]</value>
+    <comment>3especificacionesFuga</comment>
+  </data>
+  <data name="aPropCont" xml:space="preserve">
+    <value>Las propiedades de los contaminantes pertinentes se incluyen en archivos de datos (extensión GAS). El contenido de un archivo de datos se puede editar con su editor de texto favorito. Se incluye un archivo de datos de ejemplo en EXAMPLE.GAS. Las entradas en blanco en el archivo de datos tienen por defecto las propiedades del aire con la excepción de la densidad que se calcula con la ley de los gases ideales.</value>
+  </data>
+  <data name="aGasMW" xml:space="preserve">
+    <value>El peso molecular del contaminante se usa para convertir entre fracción de masa, fracción molar y concentración; también se puede utilizar para estimar la densidad. El peso molecular del contaminante puede ser el peso molecular de una mezcla. (Cualquier aire presente en el material liberado no debe incluirse al determinar el peso molecular del contaminante (mezcla) para el modelo. Si hay aire presente en el material liberado que no pueda atribuirse a los procesos de mezcla atmosférica modelados por DEGADIS, se considera la liberación 'diluido'). En el modelo, el contaminante se trata como una sola especie. Si se libera una mezcla, la mezcla liberada se trata como el contaminante. Si solo un componente de la mezcla liberada es peligroso, la fracción molar del componente peligroso se puede determinar a partir de la fracción molar del contaminante liberado en la salida del modelo multiplicando la fracción molar del contaminante liberado por la fracción molar inicial del contaminante peligroso. componente en el contaminante liberado.
+Debido a que el peso molecular del contaminante se convierte entre masa y fracción molar, no deben usarse pesos 'pseudo' moleculares como los que se usan a veces para representar mezclas de aerosoles, por ejemplo. En este modelo, los aerosoles deben modelarse utilizando la opción 'isotérmica'. Consulte la AYUDA en la pregunta isotérmica para obtener más información sobre los aerosoles de modelado.</value>
+  </data>
+  <data name="aGasTemp" xml:space="preserve">
+    <value>La temperatura de liberación del contaminante debe representar la temperatura del contaminante cuando ingresa a la atmósfera. Para una piscina de líquido en ebullición, la temperatura de liberación de contaminantes es el punto de ebullición normal. Para una liberación de líquido presurizado, la liberación, la temperatura de liberación de contaminantes es el punto de ebullición normal. (La temperatura de liberación debe reflejar la condición del contaminante después de la despresurización a presión atmosférica). Para una simulación 'isotérmica', no se utiliza la temperatura de liberación de contaminantes.</value>
+  </data>
+  <data name="aGasRho" xml:space="preserve">
+    <value>La densidad de liberación de contaminantes es la densidad del contaminante cuando ingresa a la atmósfera. Si la densidad de liberación de contaminantes se toma de la base de datos de propiedades del gas, se corrigió para la presión de simulación. Para una emisión 'isotérmica', la densidad de emisión de contaminantes se comparará con la última entrada en la especificación de densidad requerida más adelante en este programa.</value>
+  </data>
+  <data name="aGasCPK" xml:space="preserve">
+    <value>Para la especificación de capacidad calorífica, se puede ingresar una capacidad calorífica dependiente de la temperatura usando la correlación codificada en DEGADIS. Si una capacidad calorífica constante es adecuada, establezca GASCPK igual a la capacidad calorífica [in J/kg/K] y GASCPP igual a cero; DEGINP volverá a calcular los valores que se utilizan en el modelo.</value>
+  </data>
+  <data name="aGasULC" xml:space="preserve">
+    <value>Los niveles de preocupación superior e inferior (como fracciones molares) pueden representar niveles de preocupación como el límite inferior de inflamabilidad (LFL) y LFL / 2 o el límite de exposición a corto plazo (STEL) y STEL / 2. Los niveles de preocupación superior e inferior se utilizan para calcular las isopletas que se muestran en el resultado del modelo. El nivel más bajo de preocupación (LLC) se utiliza para determinar la fracción molar más baja predeterminada de interés (yclow).</value>
+  </data>
+  <data name="aGasZZc" xml:space="preserve">
+    <value>La elevación para los cálculos de contorno (receptor) se utiliza junto con los niveles superior e inferior de interés para calcular las isopletas que se muestran en la salida del modelo.</value>
+  </data>
+  <data name="aNden" xml:space="preserve">
+    <value>Para los casos "isotérmicos", hay dos opciones para ingresar la relación concentración-densidad:
+  (1) NDEN = -1; La simulación trata al contaminante como si fuera un gas ideal con una capacidad calorífica molal constante igual a la del aire. Se ignora la condensación de agua.
+  (2) NDEN&gt; 0; En este caso, NDEN es el número de triples que se utilizan para especificar la concentración del contaminante y la densidad de la mezcla como funciones de la fracción molar del contaminante (basado en la mezcla adiabática entre el contaminante liberado y el aire ambiental).</value>
+  </data>
+  <data name="aOp1" xml:space="preserve">
+    <value>¿continuar con la opción 1?</value>
+  </data>
+  <data name="aOp2" xml:space="preserve">
+    <value>¿continuar con la opción 2?</value>
+  </data>
+  <data name="eDescrip" xml:space="preserve">
+    <value>Debe indicar una descripción</value>
+  </data>
+  <data name="eFormula" xml:space="preserve">
+    <value>Debe indicar una fórmula</value>
+  </data>
+  <data name="eMW" xml:space="preserve">
+    <value>Debe ingresar el Peso Molecular</value>
+  </data>
+  <data name="eMWd" xml:space="preserve">
+    <value>El Peso Molecular debe ser un Nº decimal</value>
+  </data>
+  <data name="eMWp" xml:space="preserve">
+    <value>El valor ingresado para el peso molecular debe ser un número positivo</value>
+  </data>
+  <data name="eGasTempp" xml:space="preserve">
+    <value>El valor ingresado para la temperatura del gas debe ser un número positivo</value>
+  </data>
+  <data name="eGasTemp" xml:space="preserve">
+    <value>Debe ingresar la temperatura de gas</value>
+  </data>
+  <data name="eGasTempd" xml:space="preserve">
+    <value>La temperatura del gas debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasRhop" xml:space="preserve">
+    <value>El valor ingresado para la densidad debe ser un número positivo</value>
+  </data>
+  <data name="eGasRho" xml:space="preserve">
+    <value>Debe ingresar la densidad</value>
+  </data>
+  <data name="eGasRhod" xml:space="preserve">
+    <value>La densidad debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasCPKp" xml:space="preserve">
+    <value>El valor ingresado para la capacidad calorífica debe ser un número positivo</value>
+  </data>
+  <data name="eGasCPK" xml:space="preserve">
+    <value>Debe ingresar la capacidad calorífica</value>
+  </data>
+  <data name="eGasCPKd" xml:space="preserve">
+    <value>La capacidad calorífica debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasCPPp" xml:space="preserve">
+    <value>El valor ingresado para el exponente de la capacidad calorífica debe ser un número positivo</value>
+  </data>
+  <data name="eGasCPP" xml:space="preserve">
+    <value>Debe ingresar el exponente de la capacidad calorífica</value>
+  </data>
+  <data name="eGasCPPd" xml:space="preserve">
+    <value>El exponente de la capacidad calorífica debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasULCp" xml:space="preserve">
+    <value>El valor ingresado para el límite superior debe ser un número positivo entre 0 y 1</value>
+  </data>
+  <data name="eGasULC" xml:space="preserve">
+    <value>Debe ingresar el límite superior</value>
+  </data>
+  <data name="eGasULCd" xml:space="preserve">
+    <value>El límite superior debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasLLCp" xml:space="preserve">
+    <value>El valor ingresado para el límite inferior debe ser un número positivo entre 0 y 1, y menor al límite inferior</value>
+  </data>
+  <data name="eGasLLC" xml:space="preserve">
+    <value>Debe ingresar el límite inferior</value>
+  </data>
+  <data name="eGasLLCd" xml:space="preserve">
+    <value>El límite inferior debe ser un Nº decimal</value>
+  </data>
+  <data name="eGasZZCp" xml:space="preserve">
+    <value>El valor ingresado para altura de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="eGasZZC" xml:space="preserve">
+    <value>Debe ingresar la altura de la fuente</value>
+  </data>
+  <data name="eGasZZCd" xml:space="preserve">
+    <value>La altura de la fuente debe ser un Nº decimal</value>
+  </data>
+  <data name="eLimite" xml:space="preserve">
+    <value>El límite inferior de interés debe ser menor que el límite superior de interés.</value>
+  </data>
+  <data name="aDenCurv" xml:space="preserve">
+    <value>La densidad se determina en función de la concentración mediante una lista de triples ordenados proporcionados por el usuario. Utilice el siguiente formulario:
+primer punto - aire puro y = 0.0, Cc = 0.0, RHOG = RHOA = kg / m ^ 3,
+           .
+           .
+           .
+último punto - gas puro y = 1.0, Cc = RHOE, RHOG = RHOE</value>
+    <comment>4</comment>
+  </data>
+  <data name="aFracMol" xml:space="preserve">
+    <value>La fracción molar del contaminante es el primer elemento de cada triple ordenado. Los triples deben comenzar con aire puro (fracción molar de contaminante = 0) y aumentar hasta el último punto con contaminante liberado puro.
+La fracción molar de contaminante debe ingresarse como una función que aumenta monótonamente comenzando con aire puro (es decir, fracción molar de contaminante = 0.0).</value>
+  </data>
+  <data name="aConCont" xml:space="preserve">
+    <value>La concentración de contaminante [in kg/m^3] ingresada aquí debe corresponder con la fracción molar de contaminante recién ingresada. Para una fracción molar de contaminante de cero, la concentración de contaminante también debe ser cero. Para una fracción molar de contaminante de uno, la concentración de contaminante también debe ser igual a la densidad del contaminante puro.</value>
+    <comment>4</comment>
+  </data>
+  <data name="aDenMezcla" xml:space="preserve">
+    <value>La densidad de la mezcla [in kg/m^3] ingresada aquí debe corresponder con la fracción molar del contaminante y la concentración del contaminante recién ingresados. Para una fracción molar de contaminante de cero, la densidad de la mezcla debe ser la densidad del aire ambiente.
+Para una fracción molar de contaminante de uno, la densidad de la mezcla debe ser igual a la densidad del contaminante puro.</value>
+    <comment>4</comment>
+  </data>
+  <data name="kContDenCor" xml:space="preserve">
+    <value>Densidad de contaminantes corregida a</value>
+    <comment>4</comment>
+  </data>
+  <data name="rContFracMol" xml:space="preserve">
+    <value>Fracción molar contaminante</value>
+    <comment>4</comment>
+  </data>
+  <data name="rConCont" xml:space="preserve">
+    <value>Concentración de contaminantes [Kg/m^3]</value>
+    <comment>4</comment>
+  </data>
+  <data name="rDenMezcla" xml:space="preserve">
+    <value>Densidad de la mezcla [Kg/m^3]</value>
+    <comment>4</comment>
+  </data>
+  <data name="kEliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="eFracMolp" xml:space="preserve">
+    <value>El valor ingresado para la fracción molar debe ser un número positivo</value>
+    <comment>4</comment>
+  </data>
+  <data name="eConcp" xml:space="preserve">
+    <value>El valor ingresado para la Concentración debe ser un número positivo</value>
+    <comment>4</comment>
+  </data>
+  <data name="eDenMezcla" xml:space="preserve">
+    <value>El valor ingresado para la densidad de la mezcla debe ser un número positivo</value>
+    <comment>4</comment>
+  </data>
+  <data name="eDenAireCor" xml:space="preserve">
+    <value>Densidad del aire corregida a</value>
+    <comment>4</comment>
+  </data>
+  <data name="eFracMolCont" xml:space="preserve">
+    <value>La fracción molar del contaminante debe ingresarse como una función que aumenta monótonamente comenzando con aire puro (es decir, fracción molar del contaminante = 0,0).</value>
+    <comment>4</comment>
+  </data>
+  <data name="aYclow" xml:space="preserve">
+    <value>La fracción molar más baja (predeterminada) de interés se basa en el nivel más bajo de preocupación dado anteriormente. Si desea seguir las fracciones molares de contaminantes más bajas que el nivel más bajo de preocupación, establezca la fracción molar más baja de interés en consecuencia. Para las simulaciones de estado estacionario, los cálculos se interrumpen cuando la fracción molar es menor que el nivel mínimo de preocupación. Para las simulaciones transitorias, los cálculos se interrumpen cuando la fracción molar es menos de una quinta parte del nivel más bajo de preocupación.</value>
+    <comment>5</comment>
+  </data>
+  <data name="aPoD" xml:space="preserve">
+    <value>El modelo puede considerar liberaciones que son 'puras' o 'diluidas' de la siguiente manera:
+Una liberación se considera pura si no hay aire en el gas o aerosol liberado. Un ejemplo de liberación pura sería una piscina de líquido hirviendo. El gas que sale de la piscina de líquido en ebullición no contiene aire procedente de la piscina. Para una liberación pura, se requerirá la tasa de liberación de contaminantes puros [kg de contaminante/s].
+Se considera que una liberación está diluida si hay aire en el gas o aerosol liberado. Un ejemplo de una liberación diluida sería la descarga de un escape (cuando hay aire en el flujo de escape). El gas que ingresa a la atmósfera contiene aire que no se puede atribuir a los procesos de mezcla atmosférica donde se libera la corriente. Para una liberación diluida, se requerirá la tasa de liberación de contaminante PURE [sin aire en kg de contaminante/s]; También se requerirá la fracción de masa de aire en el gas liberado.
+</value>
+    <comment>5</comment>
+  </data>
+  <data name="aSoT" xml:space="preserve">
+    <value>En una emisión transitoria, las características de la fuente varían con el tiempo; en una liberación de estado estable, las características de la fuente no varían con el tiempo. Una liberación también se considera transitoria si las características de la fuente no varían con el tiempo, pero la duración de la fuente es limitada.
+Hay tres escalas de tiempo que ayudan a determinar si un lanzamiento se modela como estado estacionario o transitorio:
+'trel' es la duración de la fuente (secundaria),
+'thaz' es el tiempo promedio asociado con una concentración de contaminante dada para propósitos de evaluación de peligros, y
+'ttrav' es el tiempo de viaje (basado en la velocidad de advección media del contaminante) hasta (1) la concentración más baja de interés O (2) el receptor a favor del viento más lejano.
+Una liberación se considera estado estable cuando 'trel' &gt;&gt; 'thaz' y 'ttrav';
+'tdy' debe establecerse en 'thaz'.
+Una liberación se considera transitoria cuando no se puede considerar en estado estable. 'tdy' debe establecerse en el menor de 'trel' o 'thaz' (para representar correctamente el meandro de la pluma lateral). Cuando 'trel' &lt;'thaz', el historial de tiempo de concentración en un punto (o receptor) disponible de DEG4 debe promediarse sobre 'thaz' para el análisis de consecuencias.</value>
+    <comment>5</comment>
+  </data>
+  <data name="eYclowp" xml:space="preserve">
+    <value>El valor ingresado para la menor fracción molar de interés debe ser un número positivo</value>
+    <comment>5</comment>
+  </data>
+  <data name="eYclow01" xml:space="preserve">
+    <value>El valor de la fracción molar debe estar entre 0 y 1</value>
+    <comment>5</comment>
   </data>
 </root>

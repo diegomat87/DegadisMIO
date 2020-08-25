@@ -29,6 +29,8 @@ namespace Degadis
         {
             InitializeComponent();
             cont.idioma = new CultureInfo("es-AR");
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             idiomas();
         }
 

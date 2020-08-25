@@ -342,4 +342,304 @@ folder</value>
   <data name="kElevFuente" xml:space="preserve">
     <value>Enter the source elevation [m]</value>
   </data>
+  <data name="kValDefecto" xml:space="preserve">
+    <value>Default values are shown</value>
+  </data>
+  <data name="kAyu0" xml:space="preserve">
+    <value>The windspeed(u0) must be specified at a given elevation(z0); z0 is chosen to be representative of the depth of the contaminant layer and is typically taken to be 10 m for ground-level releases. The windspeed is considered constant during the release.
+For windspeeds less than about 2 m/s (at 10 m), some assumptions used in the jet-plume model and the downwind dispersion phase of DEGADIS may no longer be valid.
+For low windspeed cases when the initial source momentum is not significant, this type of release can be modeled using DEGADIS by inputing a zero windspeed in the model. Concentrations will then be calculated for the secondary source cloud only. The distance associated with the calculated concentrations should be adjusted to reflect the movement of the secondary source cloud by any ambient wind present.</value>
+  </data>
+  <data name="kAyz0" xml:space="preserve">
+    <value>Enter the elevation where the windspeed is given</value>
+  </data>
+  <data name="kAyzr" xml:space="preserve">
+    <value>The surface roughness (along with the atmospheric stability and Monin-Obukhov length) is used to determine the friction velocity and to characterize the windspeed profile. The assumed logarithmic windspeed profile assumes that the surface roughness elements are homogeneous. The assumed profile may not be reasonable for elevations which are less than the height of the surface elements. (Typically, the surface roughness can be approximated as one-tenth of the height of the surface elements for aerodynamic purposes.) When considering dispersion of denser-than-air contaminants, the surface roughness used in DEGADIS should reflect surface element heights which are less than the depth of the dispersing layer. For typical field scale releases, the surface roughness used in DEGADIS should be less than 0.1 m.</value>
+  </data>
+  <data name="kAyEst" xml:space="preserve">
+    <value>Enter the Pasquill stability class: A,B,C,D,E or F.
+The Pasquill-Gifford stability class is used to estimate:
+1) windspeed profile
+2) Monin-Obukhov length
+3) friction velocity
+4) x-direction dispersion parameters</value>
+  </data>
+  <data name="kAytProm" xml:space="preserve">
+    <value>The averaging time used to estimate DELTAY (tdy) represents the time scale associated with lateral plume meander in the model. Other time scales are also pertinent: trel, thaz, and ttrav.</value>
+  </data>
+  <data name="kAyLongMO" xml:space="preserve">
+    <value>The Monin-Obukhov length is a length scale which quantifies the vertical stability in the atmosphere; it is a parameter used in the windspeed profile. Unstable atmospheric stabilities (A, B, and C)  correspond to negative Monin-Obukhov lengths, while stable atmospheric stabilities (E and F) correspond to positive lengths. Neutral atmospheric stability (D) corresponds to an infinite Monin-Obukhov length scale (which is represented in DEGADIS with a value of zero input to the Monin-Obukhov length). If the Monin-Obukhov length scale is unknown, DEGADIS estimates it from the atmospheric stability and the surface roughness.</value>
+  </data>
+  <data name="kAyTempAm" xml:space="preserve">
+    <value>The ambient air temperature should reflect the conditions present during the release.</value>
+  </data>
+  <data name="kAyPresAm" xml:space="preserve">
+    <value>The ambient air pressure should reflect the conditions present during the release.</value>
+  </data>
+  <data name="kAyHum" xml:space="preserve">
+    <value>The ambient humidity can be entered as: Relative or Absolute.</value>
+  </data>
+  <data name="eZr" xml:space="preserve">
+    <value>The value entered for zr must be a positive number</value>
+  </data>
+  <data name="eHumAbs" xml:space="preserve">
+    <value>This absolute humidity lead to a relative humidity greater than 100. This is not possible so relative humidity has been adjusted to 100 giving an absolute humidity of</value>
+  </data>
+  <data name="eTitulo" xml:space="preserve">
+    <value>The title can contain up to 320 characters</value>
+  </data>
+  <data name="eu0" xml:space="preserve">
+    <value>The value entered for u0 must be a positive number</value>
+  </data>
+  <data name="ez0" xml:space="preserve">
+    <value>The value entered for z0 must be a positive number</value>
+  </data>
+  <data name="eTiemProm" xml:space="preserve">
+    <value>The value entered for the average time must be a positive number</value>
+  </data>
+  <data name="eLongMO" xml:space="preserve">
+    <value>The value entered for the length MO must be a number</value>
+  </data>
+  <data name="eTempAmb" xml:space="preserve">
+    <value>The value entered for the room temperature must be a positive number</value>
+  </data>
+  <data name="ePresAmb" xml:space="preserve">
+    <value>The value entered for ambient pressure must be a positive number</value>
+  </data>
+  <data name="eHumRel" xml:space="preserve">
+    <value>The value entered for the relative humidity must be a positive number between 0 and 100</value>
+  </data>
+  <data name="eHum" xml:space="preserve">
+    <value>The value entered for humidity must be a positive number</value>
+  </data>
+  <data name="ePresIrreal" xml:space="preserve">
+    <value>The entered ambient pressure value appears to be unrealistic. do you wish to continue?</value>
+  </data>
+  <data name="advertencia" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="aIsotermico" xml:space="preserve">
+    <value>An isothermal simulation simply does not use the energy balance in DEGADIS to estimate the mixture density (from the mixture temperature). For an isothermal simulation then, the user must specify the relationship between contaminant mole fraction, contaminant concentration [kg/m^3], and mixture density [kg/m^3] via a series of ordered triples. This relationship is normally determined prior to running DEGADIS by calculating the pertinent properties for various mixtures of air and contaminant assuming the air and contaminant mix adiabatically (i.e., without any heat transfer with the surroundings.)
+For preliminary hazard assessment purposes, it may be adequate to approximate the density-concentration relationship using only two triples - one for pure air and the other for the released material. (See Spicer, Havens, and Key, Extension of DEGADIS for Modeling Aerosol Releases, in International Conference on Vapor Cloud Modeling, J.Woodward, ed., AIChE, 1987.) A nonisothermal simulation uses the energy balance in DEGADIS to calculate the mixture density (from the mixture temperature).  For a nonisothermal simulation, the user must specify the contaminant heat capacity and release temperature.  The energy balance in DEGADIS accounts for heat transfer with the surroundings and for water phase changes but does not account for contaminant phase changes.</value>
+  </data>
+  <data name="aTransCal" xml:space="preserve">
+    <value>DEGADIS has provisions for heat transfer to the contaminant cloud from the ground surface.</value>
+  </data>
+  <data name="aTempSup" xml:space="preserve">
+    <value>The ground (surface) temperature should reflect the conditions present during the release. If unknown, the surface temperature can normally be approximated by the ambient air temperature.</value>
+  </data>
+  <data name="aCoefTranCal" xml:space="preserve">
+    <value>DEGADIS provides for three methods of specifying the heat transfer coefficient describing heat transfer from the ground surface to the contaminant cloud: (C) the built in (DEGADIS) correlation which is based on handbook correlations for forced and natural convection from a flat plate, (L) the LLNL correlation which is based on field scale experimental observations for LNG releases in the desert, or (V) a particular (constant) heat transfer coefficient.
+V) The average ground-to-cloud heat transfer coefficient is assumed to apply everywhere along the bottom surface of the cloud.
+L) The form of the correlation is: Q = (Vh * rho * cp) * area * (tsurf-temp)
+Vh [m/s] is based on analysis by Lawrence Livermore National Laboratory of field-scale release experiments using liquefied natural gas(LNG).</value>
+  </data>
+  <data name="aTranAgua" xml:space="preserve">
+    <value>Water transfer is modeled as a mass transfer process from a water substrate to the contaminant cloud.  This transfer may be important when:
+(1) the contaminant cloud is significantly colder than the water surface, AND
+(2) the contaminat molecular weight is less than air.
+Water transfer is modeled only in the secondary source where it would be most significant.  Water is assumed to be transferred to the secondary source cloud in the area outside the primary source.
+The DEGADIS correlation option uses a heat-to-mass transfer analogy; the exact nature of theanalogy depends on whether natural or forced convection conditions exist.
+Particular Value option Use a constant for the water-to-cloud mass  transfer coefficient.</value>
+  </data>
+  <data name="eTempSup" xml:space="preserve">
+    <value>The value entered for the surface temperature must be a positive number</value>
+  </data>
+  <data name="eTransCal" xml:space="preserve">
+    <value>The value entered for the heat transfer coefficient must be a positive number</value>
+  </data>
+  <data name="eTransLLNL" xml:space="preserve">
+    <value>The value entered for Vh must be a positive number</value>
+  </data>
+  <data name="kLLNL" xml:space="preserve">
+    <value>Enter the value of Vh [m / s]</value>
+  </data>
+  <data name="aPropCont" xml:space="preserve">
+    <value>Pertinent contaminant properties are included in data files (extension GAS).  The contents of a data file can be edited with your favorite text editor.  An example data file is included in EXAMPLE.GAS. Blank entries in the data file are defaulted to the properties of air with the exception of the density which is calculated with the ideal gas law.</value>
+  </data>
+  <data name="aGasMW" xml:space="preserve">
+    <value>The contaminant molecular weight is used to convert between mass fraction, mole fraction, and concentration; it may also be used to estimate the density. The contaminant molecular weight can be the molecular weight of a mixture. (Any air present in the released material should not be included when determining the contaminant (mixture) molecular weight for the model. If any air is present in the released material which cannot be attributed to atmospheric mixing processes modeled by DEGADIS, the release is considered 'diluted'.) In the model, the contaminant is treated as a single species. If a mixture is released, the released mixture is treated as the contaminant.  If only one component of the released mixture is hazardous, the mole fraction of the hazardous component can be determined from the mole fraction of the released contaminant in the model output by multiplying the mole fraction of the released contaminant by the initial mole fraction of the hazardous component in the released contaminant.
+Because the contaminant molecular weight converts between mass and mole fraction, 'pseudo' molecular weights should not be used such as are used at times to represent aerosol mixtures, for example.  In this model, aerosols should be modeled using the 'isothermal' option.  See the HELP under the isothermal question for further information about modeling aerosols.</value>
+  </data>
+  <data name="aGasTemp" xml:space="preserve">
+    <value>The contaminant release temperature should represent the temperature of the contaminant as it enters the atmosphere. For a boiling liquid pool, the contaminant release temperature is the normal boiling point. For a pressurized liquid release, the releae, the contaminant release temperature is the normal boiling point.  (The release temperature should reflect the contaminant's condition after depressurizing to atmospheric pressure.) For an 'isothermal' simulation, the contaminant release temperature is not used.</value>
+  </data>
+  <data name="aGasRho" xml:space="preserve">
+    <value>The contaminant release density is the density of the contaminant as it enters the atmosphere.  If the contaminant release density is taken from the gas property data base, it was corrected for the simulation pressure. For an 'isothermal' release, the contaminant release density will be compared to the last entry in the density specification required later in this program.</value>
+  </data>
+  <data name="aGasCPK" xml:space="preserve">
+    <value>For the heat capacity specification, a temperature dependent heat capacity can be entered using the correlation coded into DEGADIS.  If a constant heat capacity is adequate, set GASCPK equal to the heat capacity [in J/kg/K] and GASCPP equal to zero; DEGINP will recalculate the values as used in the model.</value>
+  </data>
+  <data name="aGasULC" xml:space="preserve">
+    <value>The upper and lower levels of concern (as mole fractions) can represent such levels of concern as the lower flammability limit (LFL) and LFL/2 or the short term exposure limit (STEL) and STEL/2. The upper and lower levels of concern are used to calculate isopleths shown in the model output. The lower level of concern (LLC) is used to determine the default lowest mole fraction of interest (yclow).</value>
+  </data>
+  <data name="aGasZZc" xml:space="preserve">
+    <value>The elevation for the contour (receptor) calculations is used along with the upper and lower levels of concern to calculate the isopleths shown in the model output.</value>
+  </data>
+  <data name="aNden" xml:space="preserve">
+    <value>For "isothermal" cases, there are two options for entering the concentration density relationship:
+ (1) NDEN = -1; The simulation treats the contaminant as if it were an ideal gas with a constant molal heat capacity equal to that of air. Water condensation is ignored.
+ (2) NDEN &gt; 0; In this case, NDEN is the number of triples which are used to specify the contaminant concentration and mixture density as functions of the contaminant mole fraction(based on adiabatic mixing between the released contaminant and ambient air).</value>
+  </data>
+  <data name="aOp1" xml:space="preserve">
+    <value>continue with option 1?</value>
+  </data>
+  <data name="aOp2" xml:space="preserve">
+    <value>continue with option 2?</value>
+  </data>
+  <data name="eDescrip" xml:space="preserve">
+    <value>Must provide a description</value>
+  </data>
+  <data name="eFormula" xml:space="preserve">
+    <value>You must indicate a formula</value>
+  </data>
+  <data name="eMW" xml:space="preserve">
+    <value>You must enter the Molecular Weight</value>
+  </data>
+  <data name="eMWd" xml:space="preserve">
+    <value>Molecular Weight must be a decimal number</value>
+  </data>
+  <data name="eMWp" xml:space="preserve">
+    <value>The value entered for molecular weight must be a positive number</value>
+  </data>
+  <data name="eGasTempp" xml:space="preserve">
+    <value>The value entered for the gas temperature must be a positive number</value>
+  </data>
+  <data name="eGasTemp" xml:space="preserve">
+    <value>You must enter the gas temperature</value>
+  </data>
+  <data name="eGasTempd" xml:space="preserve">
+    <value>The gas temperature must be a decimal number</value>
+  </data>
+  <data name="eGasRhop" xml:space="preserve">
+    <value>The value entered for the density must be a positive number</value>
+  </data>
+  <data name="eGasRho" xml:space="preserve">
+    <value>You must enter the density</value>
+  </data>
+  <data name="eGasRhod" xml:space="preserve">
+    <value>The density must be a decimal number</value>
+  </data>
+  <data name="eGasCPKp" xml:space="preserve">
+    <value>The value entered for heat capacity must be a positive number</value>
+  </data>
+  <data name="eGasCPK" xml:space="preserve">
+    <value>You must enter the heat capacity</value>
+  </data>
+  <data name="eGasCPKd" xml:space="preserve">
+    <value>The heat capacity must be a decimal number</value>
+  </data>
+  <data name="eGasCPPp" xml:space="preserve">
+    <value>The value entered for the heat capacity exponent must be a positive number</value>
+  </data>
+  <data name="eGasCPP" xml:space="preserve">
+    <value>You must enter the exponent of the heat capacity</value>
+  </data>
+  <data name="eGasCPPd" xml:space="preserve">
+    <value>The exponent of the heat capacity must be a decimal number</value>
+  </data>
+  <data name="eGasULCp" xml:space="preserve">
+    <value>The value entered for the upper limit must be a positive number between 0 and 1</value>
+  </data>
+  <data name="eGasULC" xml:space="preserve">
+    <value>You must enter the upper limit</value>
+  </data>
+  <data name="eGasULCd" xml:space="preserve">
+    <value>The upper limit must be a decimal number</value>
+  </data>
+  <data name="eGasLLCp" xml:space="preserve">
+    <value>The value entered for the lower limit must be a positive number between 0 and 1, and less than the lower limit</value>
+  </data>
+  <data name="eGasLLC" xml:space="preserve">
+    <value>You must enter the lower limit</value>
+  </data>
+  <data name="eGasLLCd" xml:space="preserve">
+    <value>The lower limit must be a decimal number</value>
+  </data>
+  <data name="eGasZZCp" xml:space="preserve">
+    <value>The value entered for font height must be a positive number</value>
+  </data>
+  <data name="eGasZZC" xml:space="preserve">
+    <value>You must enter the height of the font</value>
+  </data>
+  <data name="eGasZZCd" xml:space="preserve">
+    <value>The height of the font must be a decimal number</value>
+  </data>
+  <data name="eLimite" xml:space="preserve">
+    <value>The lower limit of concern must be less than the upper limit of concern.</value>
+  </data>
+  <data name="aDenCurv" xml:space="preserve">
+    <value>The density is determined as a function of concentration by a listing of ordered triples supplied by the user.  Use the following form:
+first point    -- pure air  y=0.0,Cc=0.0,RHOG=RHOA=kg/m^3,
+          .
+          .
+          .
+last point     -- pure gas  y=1.0,Cc=RHOE,RHOG=RHOE</value>
+  </data>
+  <data name="aFracMol" xml:space="preserve">
+    <value>The contaminant mole fraction is the first element in each ordered triple. The triples must start with pure air (contaminant mole fraction = 0.) and increase to the last point with pure released contaminant.
+The contaminant mole fraction must be entered as a monotonically increasing function starting with pure air (i.e.contaminant mole fraction =0.0).</value>
+  </data>
+  <data name="aConCont" xml:space="preserve">
+    <value>The contaminant concentration [in kg/m^3] entered here should correspond with the contaminant mole fraction just entered. For a contaminant mole fraction of zero, the contaminant concentration must also be zero. For a contaminant mole fraction of one, the contaminant concentration must also be equal to the pure contaminant density.</value>
+  </data>
+  <data name="aDenMezcla" xml:space="preserve">
+    <value>The mixture density [in kg/m^3] entered here should correspond with the contaminant mole fraction and contaminant concentration just entered. For a contaminant mole fraction of zero, the mixture density must be the ambient air density.
+For a contaminant mole fraction of one, the mixture density must be equal to the pure contaminant density.</value>
+  </data>
+  <data name="kContDenCor" xml:space="preserve">
+    <value>Contaminant density corrected to</value>
+  </data>
+  <data name="rContFracMol" xml:space="preserve">
+    <value>Contaminant mole fraction</value>
+  </data>
+  <data name="rConCont" xml:space="preserve">
+    <value>Contaminant concentration [Kg/m^3]</value>
+  </data>
+  <data name="rDenMezcla" xml:space="preserve">
+    <value>Mixture density [Kg/m^3]</value>
+  </data>
+  <data name="kEliminar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="eFracMolp" xml:space="preserve">
+    <value>The value entered for the mole fraction must be a positive number</value>
+  </data>
+  <data name="eConcp" xml:space="preserve">
+    <value>The value entered for Concentration must be a positive number</value>
+  </data>
+  <data name="eDenMezcla" xml:space="preserve">
+    <value>The value entered for the density of the mix must be a positive number</value>
+  </data>
+  <data name="eDenAireCor" xml:space="preserve">
+    <value>Air density corrected to</value>
+  </data>
+  <data name="eFracMolCont" xml:space="preserve">
+    <value>The contaminant mole fraction must be entered as a monotonically increasing function starting with pure air (i.e. contaminant mole fraction =0.0).</value>
+  </data>
+  <data name="aYclow" xml:space="preserve">
+    <value>The (default) lowest mole fraction of interest is based on the lowest level of concern given before. If you wish to follow contaminant mole fractions lower than the lowest level of concern, set the lowest mole fraction of interest accordingly. For steady-state simulations, the calculations are discontinued when the mole fraction is less than the lowest level of concern. For transient simulations, the calculations are discontinued when the mole fraction is less than one-fifth of the lowest level of concern.</value>
+  </data>
+  <data name="aPoD" xml:space="preserve">
+    <value>The model can consider releases which are 'pure' or 'diluted' as follows:
+A release is considered to be pure if no air is present in the released gas or aerosol. An example of a pure release would be a boiling liquid pool. The gas leaving the boiling liquid pool contains no air which comes from the pool.  For a pure release, the pure contaminant release rate [kg contaminant/s] will be required.
+A release is considered to be diluted if air is present in the released gas or aerosol. An example of a diluted release would be the discharge from an exhaust (when air is present in the exhaust stream).  The gas entering the atmosphere contains air which cannot be attributed to the atmospheric mixing processes where the stream is released.  For a diluted release, the PURE contaminant release rate [without air in kg contaminant/s] will be required; the mass fraction of air in the released gas will also be required.
+</value>
+  </data>
+  <data name="aSoT" xml:space="preserve">
+    <value>In a transient release, the source characteristics vary with time; in a steady state release, the source characteristics do not vary with time.  A release is also considered transient if the source characteristics do not vary with time but the duration of the source is limited.
+There are three time scales which help determine whether a release is modeled as steady state or transient: 
+'trel' is the duration of the (secondary) source,
+'thaz' is the averaging time associated with a given contaminant concentration for hazard assessment purposes, and 
+'ttrav' is the travel time(based on the mean advection speed of the contaminant) to (1) the lowest concentration of interest OR (2) the farthest downwind receptor.
+A release is considered steady state when 'trel' &gt;&gt; 'thaz' and 'ttrav';
+'tdy' should be set to 'thaz'.
+A release is considered transient when it cannot be considered steady state. 'tdy' should be set to the smaller of 'trel' or 'thaz'(to properly represent the lateral plume meander).  When 'trel'&lt; 'thaz', the concentration time history at a point (or receptor) available from DEG4 should be averaged over 'thaz' for consequence analysis.</value>
+  </data>
+  <data name="eYclowp" xml:space="preserve">
+    <value>The value entered for the lowest mole fraction of interest must be a positive number</value>
+  </data>
+  <data name="eYclow01" xml:space="preserve">
+    <value>The value of the mole fraction must be between 0 and 1</value>
+  </data>
 </root>

@@ -26,13 +26,13 @@ namespace Degadis
         public BaseDeDatosPropiedades()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             Iniciar();
         }
 
         private void Iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kEspCont;
             lblList.Content = Properties.Resources.kListGas;
             LblGasCpk.Content = Properties.Resources.kCapCal;
@@ -74,39 +74,37 @@ namespace Degadis
         #region ayuda
         private void BtnAyudaPropiedadesContaminante_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"Pertinent contaminant properties are included in data files (extension GAS).  The contents of a data file can be edited with your favorite text editor.  An example data file is included in EXAMPLE.GAS. Blank entries in the data file are defaulted to the properties of air with the exception of the density which is calculated with the ideal gas law.");
+            MessageBox.Show(Properties.Resources.aPropCont);
         }
 
         private void BtnAyudaGasMW_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The contaminant molecular weight is used to convert between mass fraction, mole fraction, and concentration; it may also be used to estimate the density. The contaminant molecular weight can be the molecular weight of a mixture. (Any air present in the released material should not be included when determining the contaminant (mixture) molecular weight for the model. If any air is present in the released material which cannot be attributed to atmospheric mixing processes modeled by DEGADIS, the release is considered 'diluted'.) In the model, the contaminant is treated as a single species. If a mixture is released, the released mixture is treated as the contaminant.  If only one component of the released mixture is hazardous, the mole fraction of the hazardous component can be determined from the mole fraction of the released contaminant in the model output by multiplying the mole fraction of the released contaminant by the initial mole fraction of the hazardous component in the released contaminant.
-
-Because the contaminant molecular weight converts between mass and mole fraction, 'pseudo' molecular weights should not be used such as are used at times to represent aerosol mixtures, for example.  In this model, aerosols should be modeled using the 'isothermal' option.  See the HELP under the isothermal question for further information about modeling aerosols.");
+            MessageBox.Show(Properties.Resources.aGasMW);
         }
 
         private void BtnAyudaGasTemp_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The contaminant release temperature should represent the temperature of the contaminant as it enters the atmosphere. For a boiling liquid pool, the contaminant release temperature is the normal boiling point. For a pressurized liquid release, the releae, the contaminant release temperature is the normal boiling point.  (The release temperature should reflect the contaminant's condition after depressurizing to atmospheric pressure.) For an 'isothermal' simulation, the contaminant release temperature is not used.");
+            MessageBox.Show(Properties.Resources.aGasTemp);
         }
 
         private void BtnAyudaGasRho_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The contaminant release density is the density of the contaminant as it enters the atmosphere.  If the contaminant release density is taken from the gas property data base, it was corrected for the simulation pressure. For an 'isothermal' release, the contaminant release density will be compared to the last entry in the density specification required later in this program.");
+            MessageBox.Show(Properties.Resources.aGasRho);
         }
 
         private void BtnAyudaGasCpk_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"For the heat capacity specification, a temperature dependent heat capacity can be entered using the correlation coded into DEGADIS.  If a constant heat capacity is adequate, set GASCPK equal to the heat capacity (in J/kg/K) and GASCPP equal to zero; DEGINP will recalculate the values as used in the model.");
+            MessageBox.Show(Properties.Resources.aGasCPK);
         }
 
         private void BtnAyudaGasUlc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The upper and lower levels of concern (as mole fractions) can represent such levels of concern as the lower flammability limit (LFL) and LFL/2 or the short term exposure limit (STEL) and STEL/2. The upper and lower levels of concern are used to calculate isopleths shown in the model output. The lower level of concern (LLC) is used to determine the default lowest mole fraction of interest (yclow).");
+            MessageBox.Show(Properties.Resources.aGasULC);
         }
 
         private void BtnAyudaGasZzc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The elevation for the contour (receptor) calculations is used along with the upper and lower levels of concern to calculate the isopleths shown in the model output.");
+            MessageBox.Show(Properties.Resources.aGasZZc);
         }
         #endregion
 
@@ -228,16 +226,11 @@ Because the contaminant molecular weight converts between mass and mole fraction
                         bool continuacion = true;
                         while (continuacion == true)
                         {
-                            MessageBoxResult result = MessageBox.Show(@" For ""isothermal"" cases, there are two options for entering the concentration density relationship:
-
- (1) NDEN = -1; The simulation treats the contaminant as if it were an ideal gas with a constant molal heat capacity equal to that of air. Water condensation is ignored.
-
- (2) NDEN > 0; In this case, NDEN is the number of triples which are used to specify the contaminant concentration and mixture density as functions of the contaminant mole fraction(based on adiabatic mixing between the released contaminant and ambient air).",
-"", MessageBoxButton.OK);
+                            MessageBoxResult result = MessageBox.Show(Properties.Resources.aNden,"", MessageBoxButton.OK);
 
                             if (result == MessageBoxResult.OK)
                             {
-                                MessageBoxResult result2 = MessageBox.Show("continue with option 1 ? ", "", MessageBoxButton.YesNo);
+                                MessageBoxResult result2 = MessageBox.Show(Properties.Resources.aOp1, "", MessageBoxButton.YesNo);
                                 if (result2 == MessageBoxResult.Yes)
                                 {
                                     continuacion = false;
@@ -246,7 +239,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                                 }
                                 else
                                 {
-                                    MessageBoxResult result3 = MessageBox.Show("continue with option 2 ? ", "", MessageBoxButton.YesNo);
+                                    MessageBoxResult result3 = MessageBox.Show(Properties.Resources.aOp2, "", MessageBoxButton.YesNo);
                                     if (result3 == MessageBoxResult.Yes)
                                     {
                                         continuacion = false;
@@ -269,16 +262,11 @@ Because the contaminant molecular weight converts between mass and mole fraction
                         bool continuacion = true;
                         while (continuacion == true)
                         {
-                            MessageBoxResult result = MessageBox.Show(@" For ""isothermal"" cases, there are two options for entering the concentration density relationship:
-
- (1) NDEN = -1; The simulation treats the contaminant as if it were an ideal gas with a constant molal heat capacity equal to that of air. Water condensation is ignored.
-
- (2) NDEN > 0; In this case, NDEN is the number of triples which are used to specify the contaminant concentration and mixture density as functions of the contaminant mole fraction(based on adiabatic mixing between the released contaminant and ambient air).",
-"", MessageBoxButton.OK);
+                            MessageBoxResult result = MessageBox.Show(Properties.Resources.aNden,"", MessageBoxButton.OK);
 
                             if (result == MessageBoxResult.OK)
                             {
-                                MessageBoxResult result2 = MessageBox.Show("continue with option 1 ? ", "", MessageBoxButton.YesNo);
+                                MessageBoxResult result2 = MessageBox.Show(Properties.Resources.aOp1, "", MessageBoxButton.YesNo);
                                 if (result2 == MessageBoxResult.Yes)
                                 {
                                     continuacion = false;
@@ -287,7 +275,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                                 }
                                 else
                                 {
-                                    MessageBoxResult result3 = MessageBox.Show("continue with option 2 ? ", "", MessageBoxButton.YesNo);
+                                    MessageBoxResult result3 = MessageBox.Show(Properties.Resources.aOp2, "", MessageBoxButton.YesNo);
                                     if (result3 == MessageBoxResult.Yes)
                                     {
                                         continuacion = false;
@@ -322,12 +310,12 @@ Because the contaminant molecular weight converts between mass and mole fraction
 
             if (TxtGasDescripcion.Text.Trim() == "")
             {
-                mnsError += "Debe indicar una descripcion\n";
+                mnsError += Properties.Resources.eDescrip + "\n";
             }
 
             if (TxtGasFormula.Text.Trim() == "")
             {
-                mnsError += "Debe indicar una formula\n";
+                mnsError += Properties.Resources.eFormula + "\n";
             }
             else
             {
@@ -339,18 +327,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gasmw = Convert.ToDouble(TxtGasMW.Text);
                 if (cont.gasmw < 0)
                 {
-                    mnsError += "El valor ingresado para el peso molecular debe ser un numero positivo\n";
+                    mnsError += Properties.Resources.eMWp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasMW.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar el Peso Molecular\n";
+                    mnsError += Properties.Resources.eMW + "\n";
                 }
                 else
                 {
-                    mnsError += "El Peso Molecular debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eMWd + "\n";
                 }
             }
 
@@ -361,7 +349,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                     cont.temjet = Convert.ToDouble(TxtGasTemp.Text);
                     if (cont.temjet < 0)
                     {
-                        mnsError += "El valor ingresado para la temperatura del gas debe ser un numero positivo\n";
+                        mnsError += Properties.Resources.eGasTempp + "\n";
                     }
                 }
                 else
@@ -369,7 +357,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                     cont.gastem = Convert.ToDouble(TxtGasTemp.Text);
                     if (cont.gastem < 0)
                     {
-                        mnsError += "El valor ingresado para la temperatura del gas debe ser un numero positivo\n";
+                        mnsError += Properties.Resources.eGasTempp + "\n";
                     }
                 }
 
@@ -378,11 +366,11 @@ Because the contaminant molecular weight converts between mass and mole fraction
             {
                 if (TxtGasTemp.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar la temperatura de gas\n";
+                    mnsError += Properties.Resources.eGasTemp + "\n";
                 }
                 else
                 {
-                    mnsError += "La temperatura del gas debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasTempd + "\n";
                 }
             }
 
@@ -392,18 +380,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gasrho = cont.gasrho * cont.pamb;//porque aca
                 if (cont.gasrho < 0)
                 {
-                    mnsError += "El valor ingresado para la densidad debe ser un numero positivo\n";
+                    mnsError += Properties.Resources.eGasRhop + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasRho.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar la densidad\n";
+                    mnsError += Properties.Resources.eGasRho + "\n";
                 }
                 else
                 {
-                    mnsError += "La densidad debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasRhod + "\n";
                 }
             }
 
@@ -412,18 +400,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gascpk = Convert.ToDouble(TxtGasCpk.Text);
                 if (cont.gascpk < 0)
                 {
-                    mnsError += "El valor ingresado para la capacidad calorifica debe ser un numero positivo\n";
+                    mnsError += Properties.Resources.eGasCPKp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasCpk.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar la capacidad calorifica\n";
+                    mnsError += Properties.Resources.eGasCPK + "\n";
                 }
                 else
                 {
-                    mnsError += "La capacidad calorifica debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasCPKd + "\n";
                 }
             }
 
@@ -432,18 +420,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gascpp = Convert.ToDouble(TxtGasCpp.Text);
                 if (cont.gascpp < 0)
                 {
-                    mnsError += "El valor ingresado para el exponente de la capacidad calorifica debe ser un numero positivo\n";
+                    mnsError += Properties.Resources.eGasCPPp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasCpp.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar el exponente de la capacidad calorifica\n";
+                    mnsError += Properties.Resources.eGasCPP + "\n";
                 }
                 else
                 {
-                    mnsError += "El exponente de la capacidad calorifica debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasCPPd + "\n";
                 }
             }
 
@@ -452,18 +440,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gasulc = Convert.ToDouble(TxtGasUlc.Text);
                 if (cont.gasulc < 0.0 || cont.gasulc>1.0)
                 {
-                    mnsError += "El valor ingresado para el limite superior debe ser un numero positivo entre 0 y 1\n";
+                    mnsError += Properties.Resources.eGasULCp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasUlc.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar el limite superior\n";
+                    mnsError += Properties.Resources.eGasULC + "\n";
                 }
                 else
                 {
-                    mnsError += "El limite superior debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasULCd + "\n";
                 }
             }
 
@@ -472,18 +460,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gasllc = Convert.ToDouble(TxtGasLlc.Text);
                 if (cont.gasllc < 0.0 || cont.gasllc>1.0)
                 {
-                    mnsError += "El valor ingresado para el limite inferior debe ser un numero positivo entre 0 y 1, y menor al limite inferior\n";
+                    mnsError += Properties.Resources.eGasLLCp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasLlc.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar el limite inferior\n";
+                    mnsError += Properties.Resources.eGasLLC + "\n";
                 }
                 else
                 {
-                    mnsError += "El limite inferior debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasLLCd + "\n";
                 }
             }
 
@@ -492,18 +480,18 @@ Because the contaminant molecular weight converts between mass and mole fraction
                 cont.gaszzc = Convert.ToDouble(TxtGasZzc.Text);
                 if (cont.gaszzc < 0)
                 {
-                    mnsError += "El valor ingresado para altura de la fuente debe ser un numero positivo\n";
+                    mnsError += Properties.Resources.eGasZZCp + "\n";
                 }
             }
             catch (FormatException)
             {
                 if (TxtGasZzc.Text.Trim() == "")
                 {
-                    mnsError += "Debe ingresar la altura de la fuente\n";
+                    mnsError += Properties.Resources.eGasZZC + "\n";
                 }
                 else
                 {
-                    mnsError += "La altura de la fuente debe ser un Nº decimal\n";
+                    mnsError += Properties.Resources.eGasZZCd + "\n";
                 }
             }
 
@@ -524,7 +512,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                     }
                     else
                     {
-                        MessageBox.Show(@"The lower limit of concern must be less than the upper limit of concern.");
+                        MessageBox.Show(Properties.Resources.eLimite);
                         if (Convert.ToDouble(TxtGasUlc.Text) == Convert.ToDouble(TxtGasLlc.Text)) { TxtGasLlc.Text = Convert.ToString(Convert.ToDouble(TxtGasUlc.Text) / 2.0); }
 
                         return false;
@@ -545,7 +533,7 @@ Because the contaminant molecular weight converts between mass and mole fraction
                     }
                     else
                     {
-                        MessageBox.Show(@"The lower limit of concern must be less than the upper limit of concern.");
+                        MessageBox.Show(Properties.Resources.eLimite);
                         if (Convert.ToDouble(TxtGasUlc.Text) == Convert.ToDouble(TxtGasLlc.Text)) { TxtGasLlc.Text = Convert.ToString(Convert.ToDouble(TxtGasUlc.Text) / 2.0); }
 
                         return false;

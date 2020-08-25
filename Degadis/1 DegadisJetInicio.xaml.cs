@@ -27,13 +27,13 @@ namespace Degadis
         public DegadisJetInicio()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             idiomas();
         }
 
         private void idiomas()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             btnNuevoCaso.Content = Properties.Resources.kCrearCaso;
             lblEditar.Content = Properties.Resources.kEditCaso;
             lblBuscar.Content = Properties.Resources.KBuscCaso;
@@ -46,7 +46,7 @@ namespace Degadis
             cont.itran = 0;
             DatosAtmosfericos datosAtmosfericos = new DatosAtmosfericos();
             this.NavigationService.Navigate(datosAtmosfericos);
-            MessageBox.Show("Se muestran valores por defecto", "", MessageBoxButton.OK);
+            MessageBox.Show(Properties.Resources.kValDefecto, "", MessageBoxButton.OK);
         }
     }
 }

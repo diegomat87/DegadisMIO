@@ -31,13 +31,13 @@ namespace Degadis
         public DatosAtmosfericos()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = Cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = Cont.idioma;
             Inicializar();
         }
 
         private void Inicializar()
         {
-            Thread.CurrentThread.CurrentCulture = Cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = Cont.idioma;
             lblAtmospheric.Content = Properties.Resources.kAtmPar;
             lblestabilidad.Content = Properties.Resources.kEstabilidad;
             lbllongitudMoninObukhov.Content = Properties.Resources.kMonin;
@@ -84,56 +84,47 @@ namespace Degadis
         #region Ayudas
         private void BtnAyudau0_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The windspeed(u0) must be specified at a given elevation(z0); z0 is chosen to be representative of the depth of the contaminant layer and is typically taken to be 10 m for ground-level releases. The windspeed is considered constant during the release.
-
-For windspeeds less than about 2 m/s (at 10 m), some assumptions used in the jet-plume model and the downwind dispersion phase of DEGADIS may no longer be valid.
-
-For low windspeed cases when the initial source momentum is not significant, this type of release can be modeled using DEGADIS by inputing a zero windspeed in the model. Concentrations will then be calculated for the secondary source cloud only. The distance associated with the calculated concentrations should be adjusted to reflect the movement of the secondary source cloud by any ambient wind present.");
+            MessageBox.Show(Properties.Resources.kAyu0);
         }
 
         private void BtnAyudaz0_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Enter the elevation where the windspeed is given");
+            MessageBox.Show(Properties.Resources.kAyz0);
         }
 
         private void BtnAyudaZr_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The surface roughness (along with the atmospheric stability and Monin-Obukhov length) is used to determine the friction velocity and to characterize the windspeed profile. The assumed logarithmic windspeed profile assumes that the surface roughness elements are homogeneous. The assumed profile may not be reasonable for elevations which are less than the height of the surface elements. (Typically, the surface roughness can be approximated as one-tenth of the height of the surface elements for aerodynamic purposes.) When considering dispersion of denser-than-air contaminants, the surface roughness used in DEGADIS should reflect surface element heights which are less than the depth of the dispersing layer. For typical field scale releases, the surface roughness used in DEGADIS should be less than 0.1 m.");
+            MessageBox.Show(Properties.Resources.kAyzr);
         }
 
         private void BtnAyudaEstabilidad_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"Enter the Pasquill stability class: A,B,C,D,E or F.
-The Pasquill-Gifford stability class is used to estimate: 
-1) windspeed profile
-2) Monin-Obukhov length
-3) friction velocity
-4) x-direction dispersion parameters");
+            MessageBox.Show(Properties.Resources.kAyEst);
         }
 
         private void BtnAyudaTiempoPromedio_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The averaging time used to estimate DELTAY (tdy) represents the time scale associated with lateral plume meander in the model. Other time scales are also pertinent: trel, thaz, and ttrav. ");
+            MessageBox.Show(Properties.Resources.kAytProm);
         }
 
         private void BtnAyudaLongitudMO_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The Monin-Obukhov length is a length scale which quantifies the vertical stability in the atmosphere; it is a parameter used in the windspeed profile. Unstable atmospheric stabilities (A, B, and C)  correspond to negative Monin-Obukhov lengths, while stable atmospheric stabilities (E and F) correspond to positive lengths. Neutral atmospheric stability (D) corresponds to an infinite Monin-Obukhov length scale (which is represented in DEGADIS with a value of zero input to the Monin-Obukhov length). If the Monin-Obukhov length scale is unknown, DEGADIS estimates it from the atmospheric stability and the surface roughness.");
+            MessageBox.Show(Properties.Resources.kAyLongMO);
         }
 
         private void BtnAyudaTemperaturaAmb_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The ambient air temperature should reflect the conditions present during the release.");
+            MessageBox.Show(Properties.Resources.kAyTempAm);
         }
 
         private void BtnAyudaPresionAtm_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The ambient air pressure should reflect the conditions present during the release.");
+            MessageBox.Show(Properties.Resources.kAyPresAm);
         }
 
         private void BtnAyudaHumedad_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The ambient humidity can be entered as: Relative or Absolute.");
+            MessageBox.Show(Properties.Resources.kAyHum);
         }
         #endregion
 
@@ -221,7 +212,7 @@ The Pasquill-Gifford stability class is used to estimate:
                 Cont.zr = Convert.ToDouble(txtzr.Text);
                 calcularRml();
             }
-            catch (FormatException) { MessageBox.Show("El valor ingresado para zr debe ser un numero positivo"); }
+            catch (FormatException) { MessageBox.Show(Properties.Resources.eZr); }
         }
 
         private void RdBtnLongMODefault_Checked(object sender, RoutedEventArgs e)
@@ -266,7 +257,7 @@ The Pasquill-Gifford stability class is used to estimate:
                     {
                         Cont.humedadrel = 100;
                         Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
-                        MessageBox.Show("This absolute humidity lead to a relative humidity greater than 100. This is not possible so relative humidity has been adjusted to 100 giving an absolute humidity of"+ Cont.humedad);
+                        MessageBox.Show(Properties.Resources.eHumAbs+" "+ Cont.humedad);
                     }
                 }
                 else
@@ -423,24 +414,24 @@ The Pasquill-Gifford stability class is used to estimate:
                 }
                 Cont.titles = title1to4;
             }
-            else { MError += "El titutlo puede contener hasta 320 caracteres\n"; }
+            else { MError += Properties.Resources.eTitulo+"\n"; }
 
             try { Cont.u0 = Convert.ToDouble(txtu0.Text); }
-            catch (FormatException) { MError += "El valor ingresado para u0 debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.eu0+"\n"; }
 
             try { Cont.z0 = Convert.ToDouble(txtz0.Text); }
-            catch (FormatException) { MError += "El valor ingresado para z0 debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.ez0+"\n"; }
 
             try { Cont.zr = Convert.ToDouble(txtzr.Text); }
-            catch (FormatException) { MError += "El valor ingresado para zr debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.eZr+"\n"; }
 
             try { Cont.avtime = Convert.ToDouble(txttiempopromedio.Text); }
-            catch (FormatException) { MError += "El valor ingresado para el tiempo promedio debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.eTiemProm+"\n"; }
 
             if (RdBtnLongMOSet.IsChecked == true)
             {
                 try { Cont.rml = Convert.ToDouble(txtlongitudMoninObukhov.Text); }
-                catch (FormatException) { MError += "El valor ingresado para la longitud MO debe ser un numero\n"; }
+                catch (FormatException) { MError += Properties.Resources.eLongMO+"\n"; }
             }
             else
             {
@@ -448,17 +439,17 @@ The Pasquill-Gifford stability class is used to estimate:
             }
 
             try { Cont.tamb = Convert.ToDouble(txtTemperaturaAmbiente.Text); }
-            catch (FormatException) { MError += "El valor ingresado para la temperatura ambiente debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.eTempAmb+"\n"; }
 
             try { Cont.pamb = Convert.ToDouble(txtPresionAmbiente.Text); }
-            catch (FormatException) { MError += "El valor ingresado para la presion ambiente debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.ePresAmb+"\n"; }
 
             try 
             { 
                 Convert.ToDouble(txtHumedad.Text);
                 if (RdBtnHumedadR.IsChecked == true)
                 {
-                    if (Convert.ToDouble(txtHumedad.Text) > 100) { MError += "El valor ingresado para la humedad relativa debe ser un numero positivo entre 0 y 100\n"; }
+                    if (Convert.ToDouble(txtHumedad.Text) > 100) { MError += Properties.Resources.eHumRel+"\n"; }
                     else { Cont.humedadrel = Convert.ToDouble(txtHumedad.Text); }
                 }
                 else
@@ -467,13 +458,13 @@ The Pasquill-Gifford stability class is used to estimate:
                 }
                 
             }
-            catch (FormatException) { MError += "El valor ingresado para la humedad debe ser un numero positivo\n"; }
+            catch (FormatException) { MError += Properties.Resources.eHum+"\n"; }
 
             if (MError == "")
             {
                 if (Convert.ToDouble(txtPresionAmbiente.Text) < 0.7 || Convert.ToDouble(txtPresionAmbiente.Text) > 1.1)
                 {
-                    MessageBoxResult result = MessageBox.Show("El valor de la presion ambiente ingresado aparenta ser irreal. Desea Continuar?", "Advertencia", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show(Properties.Resources.ePresIrreal, Properties.Resources.advertencia, MessageBoxButton.YesNo);
                     if (result == MessageBoxResult.Yes)
                     {
                         return true;

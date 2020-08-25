@@ -61,6 +61,671 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a DEGADIS proporciona tres métodos para especificar el coeficiente de transferencia de calor que describe la transferencia de calor desde la superficie del suelo a la nube contaminante: (C) la correlación integrada (DEGADIS) que se basa en correlaciones del manual para la convección forzada y natural de una placa plana, ( L) la correlación LLNL que se basa en observaciones experimentales a escala de campo para las liberaciones de GNL en el desierto, o (V) un coeficiente de transferencia de calor particular (c [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aCoefTranCal {
+            get {
+                return ResourceManager.GetString("aCoefTranCal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La concentración de contaminante [in kg/m^3] ingresada aquí debe corresponder con la fracción molar de contaminante recién ingresada. Para una fracción molar de contaminante de cero, la concentración de contaminante también debe ser cero. Para una fracción molar de contaminante de uno, la concentración de contaminante también debe ser igual a la densidad del contaminante puro..
+        /// </summary>
+        internal static string aConCont {
+            get {
+                return ResourceManager.GetString("aConCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La densidad se determina en función de la concentración mediante una lista de triples ordenados proporcionados por el usuario. Utilice el siguiente formulario:
+        ///primer punto - aire puro y = 0.0, Cc = 0.0, RHOG = RHOA = kg/m^3,
+        ///           .
+        ///           .
+        ///           .
+        ///último punto - gas puro y = 1.0, Cc = RHOE, RHOG = RHOE.
+        /// </summary>
+        internal static string aDenCurv {
+            get {
+                return ResourceManager.GetString("aDenCurv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La densidad de la mezcla [in kg/m^3] ingresada aquí debe corresponder con la fracción molar del contaminante y la concentración del contaminante recién ingresados. Para una fracción molar de contaminante de cero, la densidad de la mezcla debe ser la densidad del aire ambiente.
+        ///Para una fracción molar de contaminante de uno, la densidad de la mezcla debe ser igual a la densidad del contaminante puro..
+        /// </summary>
+        internal static string aDenMezcla {
+            get {
+                return ResourceManager.GetString("aDenMezcla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Advertencia.
+        /// </summary>
+        internal static string advertencia {
+            get {
+                return ResourceManager.GetString("advertencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fracción molar del contaminante es el primer elemento de cada triple ordenado. Los triples deben comenzar con aire puro (fracción molar de contaminante = 0) y aumentar hasta el último punto con contaminante liberado puro.
+        ///La fracción molar de contaminante debe ingresarse como una función que aumenta monótonamente comenzando con aire puro (es decir, fracción molar de contaminante = 0.0)..
+        /// </summary>
+        internal static string aFracMol {
+            get {
+                return ResourceManager.GetString("aFracMol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Para la especificación de capacidad calorífica, se puede ingresar una capacidad calorífica dependiente de la temperatura usando la correlación codificada en DEGADIS. Si una capacidad calorífica constante es adecuada, establezca GASCPK igual a la capacidad calorífica [in J/kg/K] y GASCPP igual a cero; DEGINP volverá a calcular los valores que se utilizan en el modelo..
+        /// </summary>
+        internal static string aGasCPK {
+            get {
+                return ResourceManager.GetString("aGasCPK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El peso molecular del contaminante se usa para convertir entre fracción de masa, fracción molar y concentración; también se puede utilizar para estimar la densidad. El peso molecular del contaminante puede ser el peso molecular de una mezcla. (Cualquier aire presente en el material liberado no debe incluirse al determinar el peso molecular del contaminante (mezcla) para el modelo. Si hay aire presente en el material liberado que no pueda atribuirse a los procesos de mezcla atmosférica modelados por DEGADIS, [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aGasMW {
+            get {
+                return ResourceManager.GetString("aGasMW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La densidad de liberación de contaminantes es la densidad del contaminante cuando ingresa a la atmósfera. Si la densidad de liberación de contaminantes se toma de la base de datos de propiedades del gas, se corrigió para la presión de simulación. Para una emisión &apos;isotérmica&apos;, la densidad de emisión de contaminantes se comparará con la última entrada en la especificación de densidad requerida más adelante en este programa..
+        /// </summary>
+        internal static string aGasRho {
+            get {
+                return ResourceManager.GetString("aGasRho", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La temperatura de liberación del contaminante debe representar la temperatura del contaminante cuando ingresa a la atmósfera. Para una piscina de líquido en ebullición, la temperatura de liberación de contaminantes es el punto de ebullición normal. Para una liberación de líquido presurizado, la liberación, la temperatura de liberación de contaminantes es el punto de ebullición normal. (La temperatura de liberación debe reflejar la condición del contaminante después de la despresurización a presión atmosféri [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aGasTemp {
+            get {
+                return ResourceManager.GetString("aGasTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Los niveles de preocupación superior e inferior (como fracciones molares) pueden representar niveles de preocupación como el límite inferior de inflamabilidad (LFL) y LFL / 2 o el límite de exposición a corto plazo (STEL) y STEL / 2. Los niveles de preocupación superior e inferior se utilizan para calcular las isopletas que se muestran en el resultado del modelo. El nivel más bajo de preocupación (LLC) se utiliza para determinar la fracción molar más baja predeterminada de interés (yclow)..
+        /// </summary>
+        internal static string aGasULC {
+            get {
+                return ResourceManager.GetString("aGasULC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La elevación para los cálculos de contorno (receptor) se utiliza junto con los niveles superior e inferior de interés para calcular las isopletas que se muestran en la salida del modelo..
+        /// </summary>
+        internal static string aGasZZc {
+            get {
+                return ResourceManager.GetString("aGasZZc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Una simulación isotérmica simplemente no usa el balance de energía en DEGADIS para estimar la densidad de la mezcla (a partir de la temperatura de la mezcla). Entonces, para una simulación isotérmica, el usuario debe especificar la relación entre la fracción molar del contaminante, la concentración del contaminante [kg/m^3] y la densidad de la mezcla [kg/m^3] mediante una serie de triples ordenados. Esta relación se determina normalmente antes de ejecutar DEGADIS calculando las propiedades pertinentes para  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aIsotermico {
+            get {
+                return ResourceManager.GetString("aIsotermico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Para los casos &quot;isotérmicos&quot;, hay dos opciones para ingresar la relación concentración-densidad:
+        ///  (1) NDEN = -1; La simulación trata al contaminante como si fuera un gas ideal con una capacidad calorífica molal constante igual a la del aire. Se ignora la condensación de agua.
+        ///  (2) NDEN&gt; 0; En este caso, NDEN es el número de triples que se utilizan para especificar la concentración del contaminante y la densidad de la mezcla como funciones de la fracción molar del contaminante (basado en la mezcla adiabá [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aNden {
+            get {
+                return ResourceManager.GetString("aNden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿continuar con la opción 1?.
+        /// </summary>
+        internal static string aOp1 {
+            get {
+                return ResourceManager.GetString("aOp1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿continuar con la opción 2?.
+        /// </summary>
+        internal static string aOp2 {
+            get {
+                return ResourceManager.GetString("aOp2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El modelo puede considerar liberaciones que son &apos;puras&apos; o &apos;diluidas&apos; de la siguiente manera:
+        ///Una liberación se considera pura si no hay aire en el gas o aerosol liberado. Un ejemplo de liberación pura sería una piscina de líquido hirviendo. El gas que sale de la piscina de líquido en ebullición no contiene aire procedente de la piscina. Para una liberación pura, se requerirá la tasa de liberación de contaminantes puros [kg de contaminante/s].
+        ///Se considera que una liberación está diluida si hay aire en el  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aPoD {
+            get {
+                return ResourceManager.GetString("aPoD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Las propiedades de los contaminantes pertinentes se incluyen en archivos de datos (extensión GAS). El contenido de un archivo de datos se puede editar con su editor de texto favorito. Se incluye un archivo de datos de ejemplo en EXAMPLE.GAS. Las entradas en blanco en el archivo de datos tienen por defecto las propiedades del aire con la excepción de la densidad que se calcula con la ley de los gases ideales..
+        /// </summary>
+        internal static string aPropCont {
+            get {
+                return ResourceManager.GetString("aPropCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En una emisión transitoria, las características de la fuente varían con el tiempo; en una liberación de estado estable, las características de la fuente no varían con el tiempo. Una liberación también se considera transitoria si las características de la fuente no varían con el tiempo, pero la duración de la fuente es limitada.
+        ///Hay tres escalas de tiempo que ayudan a determinar si un lanzamiento se modela como estado estacionario o transitorio:
+        ///&apos;trel&apos; es la duración de la fuente (secundaria),
+        ///&apos;thaz&apos; es e [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aSoT {
+            get {
+                return ResourceManager.GetString("aSoT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La temperatura del suelo (superficie) debe reflejar las condiciones presentes durante la liberación. Si se desconoce, la temperatura de la superficie normalmente se puede aproximar a la temperatura del aire ambiente..
+        /// </summary>
+        internal static string aTempSup {
+            get {
+                return ResourceManager.GetString("aTempSup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La transferencia de agua se modela como un proceso de transferencia de masa desde un sustrato de agua a la nube contaminante. Esta transferencia puede ser importante cuando:
+        ///(1) la nube contaminante es significativamente más fría que la superficie del agua, Y
+        ///(2) el peso molecular del contaminante es menor que el del aire.
+        ///La transferencia de agua se modela solo en la fuente secundaria donde sería más significativa. Se supone que el agua se transfiere a la nube de la fuente secundaria en el área fuera de [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aTranAgua {
+            get {
+                return ResourceManager.GetString("aTranAgua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DEGADIS tiene disposiciones para la transferencia de calor a la nube contaminante desde la superficie del suelo..
+        /// </summary>
+        internal static string aTransCal {
+            get {
+                return ResourceManager.GetString("aTransCal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fracción molar más baja (predeterminada) de interés se basa en el nivel más bajo de preocupación dado anteriormente. Si desea seguir las fracciones molares de contaminantes más bajas que el nivel más bajo de preocupación, establezca la fracción molar más baja de interés en consecuencia. Para las simulaciones de estado estacionario, los cálculos se interrumpen cuando la fracción molar es menor que el nivel mínimo de preocupación. Para las simulaciones transitorias, los cálculos se interrumpen cuando la fr [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aYclow {
+            get {
+                return ResourceManager.GetString("aYclow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la Concentración debe ser un número positivo.
+        /// </summary>
+        internal static string eConcp {
+            get {
+                return ResourceManager.GetString("eConcp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Densidad del aire corregida a.
+        /// </summary>
+        internal static string eDenAireCor {
+            get {
+                return ResourceManager.GetString("eDenAireCor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la densidad de la mezcla debe ser un número positivo.
+        /// </summary>
+        internal static string eDenMezcla {
+            get {
+                return ResourceManager.GetString("eDenMezcla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe indicar una descripción.
+        /// </summary>
+        internal static string eDescrip {
+            get {
+                return ResourceManager.GetString("eDescrip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe indicar una fórmula.
+        /// </summary>
+        internal static string eFormula {
+            get {
+                return ResourceManager.GetString("eFormula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fracción molar del contaminante debe ingresarse como una función que aumenta monótonamente comenzando con aire puro (es decir, fracción molar del contaminante = 0,0)..
+        /// </summary>
+        internal static string eFracMolCont {
+            get {
+                return ResourceManager.GetString("eFracMolCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la fracción molar debe ser un número positivo.
+        /// </summary>
+        internal static string eFracMolp {
+            get {
+                return ResourceManager.GetString("eFracMolp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar la capacidad calorífica.
+        /// </summary>
+        internal static string eGasCPK {
+            get {
+                return ResourceManager.GetString("eGasCPK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La capacidad calorífica debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasCPKd {
+            get {
+                return ResourceManager.GetString("eGasCPKd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la capacidad calorífica debe ser un número positivo.
+        /// </summary>
+        internal static string eGasCPKp {
+            get {
+                return ResourceManager.GetString("eGasCPKp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar el exponente de la capacidad calorífica.
+        /// </summary>
+        internal static string eGasCPP {
+            get {
+                return ResourceManager.GetString("eGasCPP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El exponente de la capacidad calorífica debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasCPPd {
+            get {
+                return ResourceManager.GetString("eGasCPPd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el exponente de la capacidad calorífica debe ser un número positivo.
+        /// </summary>
+        internal static string eGasCPPp {
+            get {
+                return ResourceManager.GetString("eGasCPPp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar el límite inferior.
+        /// </summary>
+        internal static string eGasLLC {
+            get {
+                return ResourceManager.GetString("eGasLLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El límite inferior debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasLLCd {
+            get {
+                return ResourceManager.GetString("eGasLLCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el límite inferior debe ser un número positivo entre 0 y 1, y menor al límite inferior.
+        /// </summary>
+        internal static string eGasLLCp {
+            get {
+                return ResourceManager.GetString("eGasLLCp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar la densidad.
+        /// </summary>
+        internal static string eGasRho {
+            get {
+                return ResourceManager.GetString("eGasRho", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La densidad debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasRhod {
+            get {
+                return ResourceManager.GetString("eGasRhod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la densidad debe ser un número positivo.
+        /// </summary>
+        internal static string eGasRhop {
+            get {
+                return ResourceManager.GetString("eGasRhop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar la temperatura de gas.
+        /// </summary>
+        internal static string eGasTemp {
+            get {
+                return ResourceManager.GetString("eGasTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La temperatura del gas debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasTempd {
+            get {
+                return ResourceManager.GetString("eGasTempd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la temperatura del gas debe ser un número positivo.
+        /// </summary>
+        internal static string eGasTempp {
+            get {
+                return ResourceManager.GetString("eGasTempp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar el límite superior.
+        /// </summary>
+        internal static string eGasULC {
+            get {
+                return ResourceManager.GetString("eGasULC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El límite superior debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasULCd {
+            get {
+                return ResourceManager.GetString("eGasULCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el límite superior debe ser un número positivo entre 0 y 1.
+        /// </summary>
+        internal static string eGasULCp {
+            get {
+                return ResourceManager.GetString("eGasULCp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar la altura de la fuente.
+        /// </summary>
+        internal static string eGasZZC {
+            get {
+                return ResourceManager.GetString("eGasZZC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La altura de la fuente debe ser un Nº decimal.
+        /// </summary>
+        internal static string eGasZZCd {
+            get {
+                return ResourceManager.GetString("eGasZZCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para altura de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eGasZZCp {
+            get {
+                return ResourceManager.GetString("eGasZZCp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la humedad debe ser un numero positivo.
+        /// </summary>
+        internal static string eHum {
+            get {
+                return ResourceManager.GetString("eHum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Esta humedad absoluta conduce a una humedad relativa superior a 100. Esto no es posible, por lo que la humedad relativa se ha ajustado a 100 dando una humedad absoluta de.
+        /// </summary>
+        internal static string eHumAbs {
+            get {
+                return ResourceManager.GetString("eHumAbs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la humedad relativa debe ser un numero positivo entre 0 y 100.
+        /// </summary>
+        internal static string eHumRel {
+            get {
+                return ResourceManager.GetString("eHumRel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El límite inferior de interés debe ser menor que el límite superior de interés..
+        /// </summary>
+        internal static string eLimite {
+            get {
+                return ResourceManager.GetString("eLimite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la longitud MO debe ser un numero.
+        /// </summary>
+        internal static string eLongMO {
+            get {
+                return ResourceManager.GetString("eLongMO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar el Peso Molecular.
+        /// </summary>
+        internal static string eMW {
+            get {
+                return ResourceManager.GetString("eMW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Peso Molecular debe ser un Nº decimal.
+        /// </summary>
+        internal static string eMWd {
+            get {
+                return ResourceManager.GetString("eMWd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el peso molecular debe ser un número positivo.
+        /// </summary>
+        internal static string eMWp {
+            get {
+                return ResourceManager.GetString("eMWp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la presión ambiente debe ser un número positivo.
+        /// </summary>
+        internal static string ePresAmb {
+            get {
+                return ResourceManager.GetString("ePresAmb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor de la presion ambiente ingresado aparenta ser irreal. ¿Desea continuar?.
+        /// </summary>
+        internal static string ePresIrreal {
+            get {
+                return ResourceManager.GetString("ePresIrreal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la temperatura ambiente debe ser un numero positivo.
+        /// </summary>
+        internal static string eTempAmb {
+            get {
+                return ResourceManager.GetString("eTempAmb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la tempratura de la superficie debe ser un numero positivo.
+        /// </summary>
+        internal static string eTempSup {
+            get {
+                return ResourceManager.GetString("eTempSup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el tiempo promedio debe ser un numero positivo.
+        /// </summary>
+        internal static string eTiemProm {
+            get {
+                return ResourceManager.GetString("eTiemProm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El titulo puede contener hasta 320 caracteres.
+        /// </summary>
+        internal static string eTitulo {
+            get {
+                return ResourceManager.GetString("eTitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el coeficiente de transferencia de calor debe ser un número positivo.
+        /// </summary>
+        internal static string eTransCal {
+            get {
+                return ResourceManager.GetString("eTransCal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para Vh debe ser un número positivo.
+        /// </summary>
+        internal static string eTransLLNL {
+            get {
+                return ResourceManager.GetString("eTransLLNL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para u0 debe ser un numero positivo.
+        /// </summary>
+        internal static string eu0 {
+            get {
+                return ResourceManager.GetString("eu0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor de la fracción molar debe estar entre 0 y 1.
+        /// </summary>
+        internal static string eYclow01 {
+            get {
+                return ResourceManager.GetString("eYclow01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la menor fracción molar de interés debe ser un número positivo.
+        /// </summary>
+        internal static string eYclowp {
+            get {
+                return ResourceManager.GetString("eYclowp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para z0 debe ser un numero positivo.
+        /// </summary>
+        internal static string ez0 {
+            get {
+                return ResourceManager.GetString("ez0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para zr debe ser un numero positivo.
+        /// </summary>
+        internal static string eZr {
+            get {
+                return ResourceManager.GetString("eZr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Agregar.
         /// </summary>
         internal static string kAgregar {
@@ -75,6 +740,93 @@ namespace Degadis.Properties {
         internal static string kAtmPar {
             get {
                 return ResourceManager.GetString("kAtmPar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ingrese a la clase de estabilidad Pasquill: A, B, C, D, E o F.
+        ///La clase de estabilidad Pasquill-Gifford se usa para estimar:
+        ///1) perfil de velocidad del viento
+        ///2) Longitud de Monin-Obukhov
+        ///3) velocidad de fricción
+        ///4) parámetros de dispersión en la dirección x.
+        /// </summary>
+        internal static string kAyEst {
+            get {
+                return ResourceManager.GetString("kAyEst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La humedad ambiental se puede ingresar como: Relativa o Absoluta..
+        /// </summary>
+        internal static string kAyHum {
+            get {
+                return ResourceManager.GetString("kAyHum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La longitud de Monin-Obukhov es una escala de longitud que cuantifica la estabilidad vertical en la atmósfera; es un parámetro utilizado en el perfil de velocidad del viento. Las estabilidades atmosféricas inestables (A, B y C) corresponden a longitudes negativas de Monin-Obukhov, mientras que las estabilidades atmosféricas estables (E y F) corresponden a longitudes positivas. La estabilidad atmosférica neutra (D) corresponde a una escala de longitud de Monin-Obukhov infinita (que se representa en DEGADIS c [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string kAyLongMO {
+            get {
+                return ResourceManager.GetString("kAyLongMO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La presión del aire ambiente debe reflejar las condiciones presentes durante el lanzamiento..
+        /// </summary>
+        internal static string kAyPresAm {
+            get {
+                return ResourceManager.GetString("kAyPresAm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La temperatura del aire ambiente debe reflejar las condiciones presentes durante la liberación..
+        /// </summary>
+        internal static string kAyTempAm {
+            get {
+                return ResourceManager.GetString("kAyTempAm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El tiempo promedio utilizado para estimar DELTAY (tdy) representa la escala de tiempo asociada con el meandro de la pluma lateral en el modelo. También son pertinentes otras escalas de tiempo: trel, thaz y ttrav..
+        /// </summary>
+        internal static string kAytProm {
+            get {
+                return ResourceManager.GetString("kAytProm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La velocidad del viento (u0) debe especificarse a una altura determinada (z0); z0 se elige para que sea representativo de la profundidad de la capa contaminante y, por lo general, se considera que es de 10 m para las emisiones a nivel del suelo. La velocidad del viento se considera constante durante el lanzamiento.
+        ///Para velocidades del viento inferiores a aproximadamente 2 m / s (a 10 m), algunas suposiciones utilizadas en el modelo de chorro de pluma y la fase de dispersión a favor del viento de DEGADIS p [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string kAyu0 {
+            get {
+                return ResourceManager.GetString("kAyu0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ingrese la altura donde se mide la velocidad del viento.
+        /// </summary>
+        internal static string kAyz0 {
+            get {
+                return ResourceManager.GetString("kAyz0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La rugosidad de la superficie (junto con la estabilidad atmosférica y la longitud de Monin-Obukhov) se utiliza para determinar la velocidad de fricción y caracterizar el perfil de velocidad del viento. El perfil de velocidad del viento logarítmico asumido asume que los elementos de rugosidad de la superficie son homogéneos. El perfil asumido puede no ser razonable para elevaciones menores que la altura de los elementos de la superficie. (Por lo general, la rugosidad de la superficie se puede aproximar como  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string kAyzr {
+            get {
+                return ResourceManager.GetString("kAyzr", resourceCulture);
             }
         }
         
@@ -106,11 +858,20 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Concentración de contaminantes [kg/m3].
+        ///   Busca una cadena traducida similar a Concentración del contaminante [kg/m3].
         /// </summary>
         internal static string kConcCon {
             get {
                 return ResourceManager.GetString("kConcCon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Densidad de contaminantes corregida a.
+        /// </summary>
+        internal static string kContDenCor {
+            get {
+                return ResourceManager.GetString("kContDenCor", resourceCulture);
             }
         }
         
@@ -160,7 +921,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tiempo medio estimado DELTAY [s].
+        ///   Busca una cadena traducida similar a Tiempo medio para estimar DELTAY [s].
         /// </summary>
         internal static string kDELTAY {
             get {
@@ -178,7 +939,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Densidad de liberación de contaminantes [kg/m3].
+        ///   Busca una cadena traducida similar a Densidad del contaminante de la emisión [kg/m3].
         /// </summary>
         internal static string kDensGas {
             get {
@@ -196,7 +957,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Descripción de la versión.
+        ///   Busca una cadena traducida similar a Descripción de la emisión.
         /// </summary>
         internal static string kDescVer {
             get {
@@ -205,7 +966,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Detalle del Matrial.
+        ///   Busca una cadena traducida similar a Especificaciones de la emisión.
         /// </summary>
         internal static string kDetalle {
             get {
@@ -268,7 +1029,16 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¿Se puede considerar esta liberación: en estado estacionario o transitoria?.
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        internal static string kEliminar {
+            get {
+                return ResourceManager.GetString("kEliminar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Se puede considerar esta emisión en estado estacionario o transitoria?.
         /// </summary>
         internal static string kEoT {
             get {
@@ -277,7 +1047,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Especificar propiedades contaminante.
+        ///   Busca una cadena traducida similar a Especificar propiedades del contaminante.
         /// </summary>
         internal static string kEspCont {
             get {
@@ -286,7 +1056,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Estabilidad Pasquill.
+        ///   Busca una cadena traducida similar a Estabilidad de Pasquill.
         /// </summary>
         internal static string kEstabilidad {
             get {
@@ -304,7 +1074,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Liberación de estado estacionario.
+        ///   Busca una cadena traducida similar a Emisión en estado estacionario.
         /// </summary>
         internal static string kEstEstacionario {
             get {
@@ -313,7 +1083,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Liberación de estado transitorio.
+        ///   Busca una cadena traducida similar a Emisión en estado transitorio.
         /// </summary>
         internal static string kEstTrans {
             get {
@@ -340,7 +1110,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fracción molar contaminante.
+        ///   Busca una cadena traducida similar a Fracción molar del contaminante.
         /// </summary>
         internal static string kFracMol {
             get {
@@ -376,7 +1146,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¿Es este un derrame de &quot;isoterma&quot;?.
+        ///   Busca una cadena traducida similar a ¿Es este un derrame de &quot;isotérmico&quot;?.
         /// </summary>
         internal static string kIsoterma {
             get {
@@ -403,12 +1173,21 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Límite inferior de preocupación como fracción molar
+        ///   Busca una cadena traducida similar a Límite inferior de interés como fracción molar
         ///(LLC).
         /// </summary>
         internal static string kLLC {
             get {
                 return ResourceManager.GetString("kLLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ingrese el valor de Vh [m/s].
+        /// </summary>
+        internal static string kLLNL {
+            get {
+                return ResourceManager.GetString("kLLNL", resourceCulture);
             }
         }
         
@@ -494,7 +1273,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¿Se libera el contaminante: puro o diluido con aire?.
+        ///   Busca una cadena traducida similar a ¿Se emite el contaminante: puro o diluido con aire?.
         /// </summary>
         internal static string kPoD {
             get {
@@ -503,7 +1282,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Potencia de capacidad calorífica contaminante.
+        ///   Busca una cadena traducida similar a Potencia de la capacidad calorífica del contaminante.
         /// </summary>
         internal static string kPoteCalGas {
             get {
@@ -594,7 +1373,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sobreescribir caso.
+        ///   Busca una cadena traducida similar a Sobrescribir caso.
         /// </summary>
         internal static string kSobreCaso {
             get {
@@ -603,7 +1382,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ingrese la tasa de liberación [kg de contaminante/s].
+        ///   Busca una cadena traducida similar a Ingrese la velocidad de emisión [kg de contaminante/s].
         /// </summary>
         internal static string kTasaLib {
             get {
@@ -702,12 +1481,21 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Límite superior de preocupación como fracción molar
+        ///   Busca una cadena traducida similar a Límite superior de interés como fracción molar
         ///(ULC).
         /// </summary>
         internal static string kULC {
             get {
                 return ResourceManager.GetString("kULC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se muestran valores por defecto.
+        /// </summary>
+        internal static string kValDefecto {
+            get {
+                return ResourceManager.GetString("kValDefecto", resourceCulture);
             }
         }
         
@@ -726,6 +1514,33 @@ namespace Degadis.Properties {
         internal static string kZ0 {
             get {
                 return ResourceManager.GetString("kZ0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Concentración de contaminantes [Kg/m^3].
+        /// </summary>
+        internal static string rConCont {
+            get {
+                return ResourceManager.GetString("rConCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fracción molar contaminante.
+        /// </summary>
+        internal static string rContFracMol {
+            get {
+                return ResourceManager.GetString("rContFracMol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Densidad de la mezcla [Kg/m^3].
+        /// </summary>
+        internal static string rDenMezcla {
+            get {
+                return ResourceManager.GetString("rDenMezcla", resourceCulture);
             }
         }
     }
