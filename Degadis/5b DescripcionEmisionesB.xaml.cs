@@ -29,6 +29,8 @@ namespace Degadis
         public DescripcionEmisionB()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             iniciar();
         }
 
@@ -65,80 +67,38 @@ namespace Degadis
         #region Ayuda
         private void BtnAyudaMasaInicial_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"Specification of an initial mass of contaminant over the source allows the user to model an instantaneous release of material.
-
- Note that this is the mass of PURE contaminant over the source and does not include any air which may be present in this initial mass.  The mass fraction of contaminant and initial radius of this initial mass of contaminant over the source are taken from the ground-level source specification at time zero.
-
- Specification of any contaminant present over the source at time zero...
-
- For any contaminant present over the source at time zero, the radius and mass fraction of this material are taken from the ground-level source specification at time zero.");
+            MessageBox.Show(Properties.Resources.aMasaIni);
         }
 
         private void BtnAyudaDescrpcionTransitoria_Click(object sender, RoutedEventArgs e)
         {
-            if (cont.idilut == 1) { MessageBox.Show(@"Transient Source Description...
-
- The primary source is described by the contaminant release rate (E[=]kg contaminant/s), radius (R1[=]m), contaminant mass fraction (PWC) and release temperature (PTEMP[=]K); these are input by ordered points as follows:
-
-  first point:
-     -- t=0, E(t=0), R1(t=0), PWC(t=0), PTEMP(t=0) (initial, nonzero values)
-  second point:
-     -- t=t1, E(t=t1), R1(t=t1), PWC(t=t1), PTEMP(t=t1)
-               .
-               .
-               .
-  last nonzero point:
-     -- t=TEND, E(t=TEND), R1(t=TEND), PWC(t=TEND), PTEMP(t=TEND)
-  next to last point:
-     -- t=TEND+1., E=0., R1=0., PWC=1., PTEMP=TAMB
-  last point:
-     -- t=TEND+2., E=0., R1=0., PWC=1., PTEMP=TAMB
-
- Note: the final time (TEND) is the last time when E and R1 are non-zero."); }
-            else { MessageBox.Show(@" Transient Source Description...
-
- The primary is described by the source mass evolution rate(E[=]kg / s) and radius(R1[=]m) for a transient release which are input by ordered triples as follows:
-
- first point-- t = 0, E(t = 0), R1(t = 0)(initial, nonzero values)
-
- second point-- t = t1, E(t = t1), R1(t = t1)
-              .
-              .
-              .
-
- last nonzero point-- t = TEND, E(t = TEND), R1(t = TEND)
-
- next to last point-- t = TEND + 1., E = 0., R1 = 0.
-
- last point-- t = TEND + 2., E = 0., R1 = 0.
-
-Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
-
+            if (cont.idilut == 1) { MessageBox.Show(Properties.Resources.aDescTrans1); }
+            else { MessageBox.Show(Properties.Resources.aDescTrans2); }
         }
 
         private void BtnAyudaTimeSource_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"A transient (primary) source must be specified as a function of time. The primary source starts at time=0 s.");
+            MessageBox.Show(Properties.Resources.aTimeSource);
         }
 
         private void BtnAyudaReleaseRate_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The evolution (release) rate is the rate contaminant (without air) is released to the atmosphere (in kg contaminant/s).");
+            MessageBox.Show(Properties.Resources.aReleaseRate);
         }
 
         private void BtnAyudaSourceRadius_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The primary source radius represents the area through which the evolution rate passes.  Primary sources which are not circular can normally be modeled as circular with the same area.");
+            MessageBox.Show(Properties.Resources.aSourceRad);
         }
 
         private void BtnAyudaMassFraction_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The source contaminant mass fraction is the mass fraction of the non-air components in the released material (at this time).  This mass fraction must be specified for a 'diluted' source. ");
+            MessageBox.Show(Properties.Resources.aFracMass);
         }
 
         private void BtnAyudaSourceTemprature_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The temperature of the released material (K) must be specified for a 'diluted' source.");
+            MessageBox.Show(Properties.Resources.aTempFuente);
         }
         #endregion
 
@@ -209,7 +169,7 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
             Entidades.LineaSource lineaf2 = ListaLinea[cont.nsrc - 2];
             if (lineaf.ET != 0.0 || lineaf2.ET != 0.0 || lineaf.R1T != 0 || lineaf2.R1T != 0)
             {
-                MessageBox.Show("The last two entries for the source rate and the source radius must be zero. You have specified one of these values as nonzero.");
+                MessageBox.Show(Properties.Resources.eET);
             }
             cont.SourceSoT = ListaLinea;
 
@@ -231,35 +191,35 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
             if (cont.idilut == 1)
             {
                 DataGridTextColumn Tiempo = new DataGridTextColumn();
-                Tiempo.Header = "Tiempo [s]";
+                Tiempo.Header = Properties.Resources.rTiempo;
                 Tiempo.Binding = new Binding("PTIME");
                 DataListaTransientSource.Columns.Add(Tiempo);
 
                 DataGridTextColumn Flujo = new DataGridTextColumn();
-                Flujo.Header = "Flujo [Kg/s]";
+                Flujo.Header = Properties.Resources.rFlujo;
                 Flujo.Binding = new Binding("ET");
                 DataListaTransientSource.Columns.Add(Flujo);
 
                 DataGridTextColumn Radio = new DataGridTextColumn();
-                Radio.Header = "Radio de la fuente [m]";
+                Radio.Header = Properties.Resources.rRadio;
                 Radio.Binding = new Binding("R1T");
                 DataListaTransientSource.Columns.Add(Radio);
 
                 DataGridTextColumn FraccionM = new DataGridTextColumn();
-                FraccionM.Header = "Fraccion Molar";
+                FraccionM.Header = Properties.Resources.rFracMol;
                 FraccionM.Binding = new Binding("PWC");
                 DataListaTransientSource.Columns.Add(FraccionM);
 
                 DataGridTextColumn TemperaturaS = new DataGridTextColumn();
-                TemperaturaS.Header = "Temperatura de la fuente [K]";
+                TemperaturaS.Header = Properties.Resources.rTempFuente;
                 TemperaturaS.Binding = new Binding("PTEMP");
                 DataListaTransientSource.Columns.Add(TemperaturaS);
 
                 DataGridTemplateColumn Eliminar = new DataGridTemplateColumn();
-                Eliminar.Header = "Eliminar";
+                Eliminar.Header = Properties.Resources.kEliminar;
                 DataTemplate tami = new DataTemplate();
                 FrameworkElementFactory frBoton = new FrameworkElementFactory(typeof(Button));
-                frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, "Eliminae");
+                frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, Properties.Resources.kEliminar);
                 frBoton.AddHandler(System.Windows.Controls.Button.ClickEvent, new RoutedEventHandler(btnEliminar_Click));
                 tami.VisualTree = frBoton;
                 Eliminar.CellTemplate = tami;
@@ -268,25 +228,25 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
             else
             {
                 DataGridTextColumn Tiempo = new DataGridTextColumn();
-                Tiempo.Header = "Tiempo [s]";
+                Tiempo.Header = Properties.Resources.rTiempo;
                 Tiempo.Binding = new Binding("PTIME");
                 DataListaTransientSource.Columns.Add(Tiempo);
 
                 DataGridTextColumn Flujo = new DataGridTextColumn();
-                Flujo.Header = "Flujo [Kg/s]";
+                Flujo.Header = Properties.Resources.rFlujo;
                 Flujo.Binding = new Binding("ET");
                 DataListaTransientSource.Columns.Add(Flujo);
 
                 DataGridTextColumn Radio = new DataGridTextColumn();
-                Radio.Header = "Radio de la fuente [m]";
+                Radio.Header = Properties.Resources.rRadio;
                 Radio.Binding = new Binding("R1T");
                 DataListaTransientSource.Columns.Add(Radio);
 
                 DataGridTemplateColumn Eliminar = new DataGridTemplateColumn();
-                Eliminar.Header = "Eliminar";
+                Eliminar.Header = Properties.Resources.kEliminar;
                 DataTemplate tami = new DataTemplate();
                 FrameworkElementFactory frBoton = new FrameworkElementFactory(typeof(Button));
-                frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, "Eliminae");
+                frBoton.SetValue(System.Windows.Controls.Button.ContentProperty, Properties.Resources.kEliminar);
                 frBoton.AddHandler(System.Windows.Controls.Button.ClickEvent, new RoutedEventHandler(btnEliminar_Click));
                 tami.VisualTree = frBoton;
                 Eliminar.CellTemplate = tami;
@@ -340,25 +300,25 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero."); }
             string MError = "";
 
             try { Convert.ToDouble(TxtTimeSource.Text); }
-            catch (Exception) { MError += "El valor ingresado para el tiempo debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eTiempoFuente + "\n"; }
 
             try { Convert.ToDouble(TxtRleaseRate.Text); }
-            catch (Exception) { MError += "El valor ingresado para el flujo de contaminante debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eRelease + "\n"; }
 
             try { Convert.ToDouble(TxtSourceRadius.Text); }
-            catch (Exception) { MError += "El valor ingresado para el radio de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eRadFuentep + "\n"; }
 
             try { Convert.ToDouble(TxtMassFraction.Text); }
-            catch (Exception) { MError += "El valor ingresado para la fraccion masica de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eFracMasica + "\n"; }
 
             try { Convert.ToDouble(TxtSourceTemprature.Text); }
-            catch (Exception) { MError += "El valor ingresado para la temperatura de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eTempFuentp + "\n"; }
 
             if (ListaLinea.Count >= 1)
             {
                 _ = new Entidades.LineaSource();
                 Entidades.LineaSource linea = ListaLinea[ListaLinea.Count - 1];
-                if (linea.PTIME > Convert.ToDouble(TxtTimeSource.Text)) { MError += "The source specification must be entered as a monotonicly increasing function starting at time zero."; }
+                if (linea.PTIME > Convert.ToDouble(TxtTimeSource.Text)) { MError += Properties.Resources.eLinea2; }
             }
 
             if (MError == "")

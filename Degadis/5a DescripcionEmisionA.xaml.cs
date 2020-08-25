@@ -28,13 +28,13 @@ namespace Degadis
         public DescripcionEmisionA()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             iniciar();
         }
 
         private void iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kEstEstacionario;
             LblFlujoEmison.Content = Properties.Resources.kTasaLib;
             LblFraccionMolarCont.Content = Properties.Resources.kMasaCont;
@@ -59,17 +59,17 @@ namespace Degadis
         #region ayudas
         private void BtnAyudaFlujoEmision_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The steady-state evolution (release) rate is the rate contaminant (without air) is released to the atmosphere (in kg contaminant/s).");
+            MessageBox.Show(Properties.Resources.aFluEm);
         }
 
         private void BtnAyudaRadioFuente_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The steady-state (primary) source radius represents the area through which the evolution rate passes.  Primary sources which are not circular can normally be modeled as circular with the same area.");
+            MessageBox.Show(Properties.Resources.aRadFuente);
         }
 
         private void BtnAyudaFraccionMolarCont_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@"The source contaminant mass fraction is the mass fraction of the non-air components in the released material. This mass fraction must be specified for a 'diluted' source.");
+            MessageBox.Show(Properties.Resources.aFracMolCon);
         }
         #endregion
 
@@ -174,7 +174,6 @@ namespace Degadis
                 FileER1 fileER1 = new FileER1();
                 this.NavigationService.Navigate(fileER1);
             }
-            else { MessageBox.Show("Not OK"); }
         }
         #endregion
 
@@ -184,16 +183,16 @@ namespace Degadis
             string MError = "";
 
             try { cont.ess = Convert.ToDouble(TxtFlujoEmision.Text); }
-            catch (Exception) { MError += "El valor ingresado para el flujo de contaminante debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eFluContp + "\n"; }
 
             try { cont.r1ss = Convert.ToDouble(TxtRadioFuente.Text); }
-            catch (Exception) { MError += "El valor ingresado para el radio de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eRadFuentep + "\n"; }
 
             try { cont.ptemp1 = Convert.ToDouble(TxtTemperaturaFuente.Text); }
-            catch (Exception) { MError += "El valor ingresado para la temperatura de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eTempFuentp + "\n"; }
 
             try { cont.pwc1 = Convert.ToDouble(TxtFraccionMolarCont.Text); }
-            catch (Exception) { MError += "El valor ingresado para la fraccion molar debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eFracMolp + "\n"; }
 
             if (MError.Length == 0)
             {

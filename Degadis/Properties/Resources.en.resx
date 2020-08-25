@@ -642,4 +642,127 @@ A release is considered transient when it cannot be considered steady state. 'td
   <data name="eYclow01" xml:space="preserve">
     <value>The value of the mole fraction must be between 0 and 1</value>
   </data>
+  <data name="aFluEm" xml:space="preserve">
+    <value>The steady-state evolution (release) rate is the rate contaminant (without air) is released to the atmosphere [in kg contaminant/s].</value>
+  </data>
+  <data name="aRadFuente" xml:space="preserve">
+    <value>The steady-state (primary) source radius represents the area through which the evolution rate passes.  Primary sources which are not circular can normally be modeled as circular with the same area.</value>
+  </data>
+  <data name="aFracMolCon" xml:space="preserve">
+    <value>The source contaminant mass fraction is the mass fraction of the non-air components in the released material. This mass fraction must be specified for a 'diluted' source.</value>
+  </data>
+  <data name="eFluContp" xml:space="preserve">
+    <value>The value entered for the contaminant flow must be a positive number</value>
+  </data>
+  <data name="eRadFuentep" xml:space="preserve">
+    <value>The value entered for the radius of the source must be a positive number</value>
+  </data>
+  <data name="eTempFuentp" xml:space="preserve">
+    <value>The value entered for the source temperature must be a positive number</value>
+  </data>
+  <data name="aMasaIni" xml:space="preserve">
+    <value>Specification of an initial mass of contaminant over the source allows the user to model an instantaneous release of material.
+Note that this is the mass of PURE contaminant over the source and does not include any air which may be present in this initial mass.  The mass fraction of contaminant and initial radius of this initial mass of contaminant over the source are taken from the ground-level source specification at time zero.
+Specification of any contaminant present over the source at time zero...
+For any contaminant present over the source at time zero, the radius and mass fraction of this material are taken from the ground-level source specification at time zero.</value>
+  </data>
+  <data name="aDescTrans1" xml:space="preserve">
+    <value>Transient Source Description...
+The primary source is described by the contaminant release rate (E[=]kg contaminant/s), radius (R1[=]m), contaminant mass fraction (PWC) and release temperature (PTEMP[=]K); these are input by ordered points as follows:
+first point:
+     -- t=0, E(t=0), R1(t=0), PWC(t=0), PTEMP(t=0) (initial, nonzero values)
+second point:
+     -- t=t1, E(t=t1), R1(t=t1), PWC(t=t1), PTEMP(t=t1)
+               .
+               .
+               .
+last nonzero point:
+     -- t=TEND, E(t=TEND), R1(t=TEND), PWC(t=TEND), PTEMP(t=TEND)
+next to last point:
+     -- t=TEND+1., E=0., R1=0., PWC=1., PTEMP=TAMB
+last point:
+     -- t=TEND+2., E=0., R1=0., PWC=1., PTEMP=TAMB
+
+Note: the final time (TEND) is the last time when E and R1 are non-zero.</value>
+  </data>
+  <data name="aDescTrans2" xml:space="preserve">
+    <value>Transient Source Description...
+The primary is described by the source mass evolution rate(E[=]kg / s) and radius(R1[=]m) for a transient release which are input by ordered triples as follows:
+first point-- t = 0, E(t = 0), R1(t = 0)(initial, nonzero values)
+second point-- t = t1, E(t = t1), R1(t = t1)
+              .
+              .
+              .
+last nonzero point-- t = TEND, E(t = TEND), R1(t = TEND)
+next to last point-- t = TEND + 1., E = 0., R1 = 0.
+last point-- t = TEND + 2., E = 0., R1 = 0.
+
+Note: the final time(TEND) is the last time when E and R1 are non - zero.</value>
+  </data>
+  <data name="aTimeSource" xml:space="preserve">
+    <value>A transient (primary) source must be specified as a function of time. The primary source starts at time=0 s.</value>
+  </data>
+  <data name="aReleaseRate" xml:space="preserve">
+    <value>The evolution (release) rate is the rate contaminant (without air) is released to the atmosphere [in kg contaminant/s].</value>
+  </data>
+  <data name="aSourceRad" xml:space="preserve">
+    <value>The primary source radius represents the area through which the evolution rate passes.  Primary sources which are not circular can normally be modeled as circular with the same area.</value>
+  </data>
+  <data name="aFracMass" xml:space="preserve">
+    <value>The source contaminant mass fraction is the mass fraction of the non-air components in the released material (at this time). This mass fraction must be specified for a 'diluted' source.</value>
+  </data>
+  <data name="aTempFuente" xml:space="preserve">
+    <value>The temperature of the released material [K] must be specified for a 'diluted' source.</value>
+  </data>
+  <data name="eET" xml:space="preserve">
+    <value>The last two entries for the source rate and the source radius must be zero. You have specified one of these values as nonzero.</value>
+  </data>
+  <data name="rTiempo" xml:space="preserve">
+    <value>Tome [s]</value>
+  </data>
+  <data name="rFlujo" xml:space="preserve">
+    <value>Flow [Kg/s]</value>
+  </data>
+  <data name="rRadio" xml:space="preserve">
+    <value>Source radius [m]</value>
+  </data>
+  <data name="rFracMol" xml:space="preserve">
+    <value>Molar fraction</value>
+  </data>
+  <data name="rTempFuente" xml:space="preserve">
+    <value>Source temperature [K]</value>
+  </data>
+  <data name="eTiempoFuente" xml:space="preserve">
+    <value>The value entered for time must be a positive number</value>
+  </data>
+  <data name="eRelease" xml:space="preserve">
+    <value>The value entered for the contaminant flow must be a positive number</value>
+  </data>
+  <data name="eFracMasica" xml:space="preserve">
+    <value>The value entered for the mass fraction of the source must be a positive number</value>
+  </data>
+  <data name="eLinea2" xml:space="preserve">
+    <value>The source specification must be entered as a monotonicly increasing function starting at time zero.</value>
+  </data>
+  <data name="aDiamFuente" xml:space="preserve">
+    <value>The source diameter represents the area through which the evolution rate passes.</value>
+  </data>
+  <data name="aElevFuente" xml:space="preserve">
+    <value>The source elevation is the release height (m).</value>
+  </data>
+  <data name="aSourceDurp" xml:space="preserve">
+    <value>The source duration is the duration of the primary release (s).</value>
+  </data>
+  <data name="eDiamFuentep" xml:space="preserve">
+    <value>The value entered for the diameter of the font must be a positive number</value>
+  </data>
+  <data name="eElevFuentep" xml:space="preserve">
+    <value>The value entered for the elevation of the source must be a positive number</value>
+  </data>
+  <data name="eDurFuentep" xml:space="preserve">
+    <value>The value entered for the duration must be a positive number</value>
+  </data>
+  <data name="kJetPLU" xml:space="preserve">
+    <value>JETPLUIN: ELEJET has been increased to:</value>
+  </data>
 </root>

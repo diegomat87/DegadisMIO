@@ -103,11 +103,77 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Descripción de la fuente transitoria ...
+        ///La fuente primaria se describe por la tasa de liberación de contaminantes (E [=] kg de contaminante / s), el radio (R1 [=] m), la fracción de masa del contaminante (PWC) y la temperatura de liberación (PTEMP [=] K); estos se ingresan por puntos ordenados de la siguiente manera:
+        ///primer punto:
+        ///      - t = 0, E (t = 0), R1 (t = 0), PWC (t = 0), PTEMP (t = 0) (valores iniciales distintos de cero)
+        ///segundo punto:
+        ///      - t = t1, E (t = t1), R1 (t = t1), PWC (t = t1),  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aDescTrans1 {
+            get {
+                return ResourceManager.GetString("aDescTrans1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Descripción de la fuente transitoria ...
+        ///El primario se describe mediante la tasa de evolución de la masa de la fuente (E [=] kg / s) y el radio (R1 [=] m) para una liberación transitoria que se ingresan mediante triples ordenados de la siguiente manera:
+        ///primer punto - t = 0, E (t = 0), R1 (t = 0) (valores iniciales distintos de cero)
+        ///segundo punto - t = t1, E (t = t1), R1 (t = t1)
+        ///               .
+        ///               .
+        ///               .
+        ///último punto distinto de cero - t = TEND, E (t = TEND), R1 (t = TEND) [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aDescTrans2 {
+            get {
+                return ResourceManager.GetString("aDescTrans2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El diámetro de la fuente representa el área a través de la cual pasa la tasa de evolución..
+        /// </summary>
+        internal static string aDiamFuente {
+            get {
+                return ResourceManager.GetString("aDiamFuente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Advertencia.
         /// </summary>
         internal static string advertencia {
             get {
                 return ResourceManager.GetString("advertencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La elevación de la fuente es la altura de liberación (m)..
+        /// </summary>
+        internal static string aElevFuente {
+            get {
+                return ResourceManager.GetString("aElevFuente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La tasa de evolución (liberación) en estado estacionario es la tasa de contaminación (sin aire) que se libera a la atmósfera [en kg de contaminante/s]..
+        /// </summary>
+        internal static string aFluEm {
+            get {
+                return ResourceManager.GetString("aFluEm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fracción de masa del contaminante de origen es la fracción de masa de los componentes no aéreos en el material liberado (en este momento). Esta fracción de masa debe especificarse para una fuente &quot;diluida&quot;..
+        /// </summary>
+        internal static string aFracMass {
+            get {
+                return ResourceManager.GetString("aFracMass", resourceCulture);
             }
         }
         
@@ -118,6 +184,15 @@ namespace Degadis.Properties {
         internal static string aFracMol {
             get {
                 return ResourceManager.GetString("aFracMol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La fracción de masa del contaminante de origen es la fracción de masa de los componentes no aéreos en el material liberado. Esta fracción de masa debe especificarse para una fuente &quot;diluida&quot;..
+        /// </summary>
+        internal static string aFracMolCon {
+            get {
+                return ResourceManager.GetString("aFracMolCon", resourceCulture);
             }
         }
         
@@ -185,6 +260,17 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La especificación de una masa inicial de contaminante sobre la fuente permite al usuario modelar una liberación instantánea de material.
+        ///Tenga en cuenta que esta es la masa de contaminante PURO sobre la fuente y no incluye el aire que pueda estar presente en esta masa inicial. La fracción de masa de contaminante y el radio inicial de esta masa inicial de contaminante sobre la fuente se toman de la especificación de la fuente a nivel del suelo en el tiempo cero.
+        ///Especificación de cualquier contaminante pre [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string aMasaIni {
+            get {
+                return ResourceManager.GetString("aMasaIni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Para los casos &quot;isotérmicos&quot;, hay dos opciones para ingresar la relación concentración-densidad:
         ///  (1) NDEN = -1; La simulación trata al contaminante como si fuera un gas ideal con una capacidad calorífica molal constante igual a la del aire. Se ignora la condensación de agua.
         ///  (2) NDEN&gt; 0; En este caso, NDEN es el número de triples que se utilizan para especificar la concentración del contaminante y la densidad de la mezcla como funciones de la fracción molar del contaminante (basado en la mezcla adiabá [resto de la cadena truncado]&quot;;.
@@ -234,6 +320,24 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El radio de la fuente en estado estacionario (primario) representa el área a través de la cual pasa la tasa de evolución. Las fuentes primarias que no son circulares normalmente se pueden modelar como circulares con la misma área..
+        /// </summary>
+        internal static string aRadFuente {
+            get {
+                return ResourceManager.GetString("aRadFuente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La tasa de evolución (liberación) es la tasa de contaminación (sin aire) que se libera a la atmósfera [in kg de contaminante/s]..
+        /// </summary>
+        internal static string aReleaseRate {
+            get {
+                return ResourceManager.GetString("aReleaseRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a En una emisión transitoria, las características de la fuente varían con el tiempo; en una liberación de estado estable, las características de la fuente no varían con el tiempo. Una liberación también se considera transitoria si las características de la fuente no varían con el tiempo, pero la duración de la fuente es limitada.
         ///Hay tres escalas de tiempo que ayudan a determinar si un lanzamiento se modela como estado estacionario o transitorio:
         ///&apos;trel&apos; es la duración de la fuente (secundaria),
@@ -246,11 +350,47 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La duración de la fuente es la duración de las versiones primarias..
+        /// </summary>
+        internal static string aSourceDurp {
+            get {
+                return ResourceManager.GetString("aSourceDurp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El radio de la fuente primaria representa el área a través de la cual pasa la tasa de evolución. Las fuentes primarias que no son circulares normalmente se pueden modelar como circulares con la misma área..
+        /// </summary>
+        internal static string aSourceRad {
+            get {
+                return ResourceManager.GetString("aSourceRad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La temperatura del material liberado [K] debe especificarse para una fuente &apos;diluida&apos;..
+        /// </summary>
+        internal static string aTempFuente {
+            get {
+                return ResourceManager.GetString("aTempFuente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La temperatura del suelo (superficie) debe reflejar las condiciones presentes durante la liberación. Si se desconoce, la temperatura de la superficie normalmente se puede aproximar a la temperatura del aire ambiente..
         /// </summary>
         internal static string aTempSup {
             get {
                 return ResourceManager.GetString("aTempSup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Una fuente transitoria (primaria) debe especificarse en función del tiempo. La fuente primaria comienza en el tiempo = 0 s..
+        /// </summary>
+        internal static string aTimeSource {
+            get {
+                return ResourceManager.GetString("aTimeSource", resourceCulture);
             }
         }
         
@@ -321,11 +461,65 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el diametro de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eDiamFuentep {
+            get {
+                return ResourceManager.GetString("eDiamFuentep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la duración debe ser un número positivo.
+        /// </summary>
+        internal static string eDurFuentep {
+            get {
+                return ResourceManager.GetString("eDurFuentep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la elevacion de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eElevFuentep {
+            get {
+                return ResourceManager.GetString("eElevFuentep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Las dos últimas entradas para la tasa de la fuente y el radio de la fuente deben ser cero. Ha especificado uno de estos valores como distinto de cero..
+        /// </summary>
+        internal static string eET {
+            get {
+                return ResourceManager.GetString("eET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el flujo de contaminante debe ser un número positivo.
+        /// </summary>
+        internal static string eFluContp {
+            get {
+                return ResourceManager.GetString("eFluContp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debe indicar una fórmula.
         /// </summary>
         internal static string eFormula {
             get {
                 return ResourceManager.GetString("eFormula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la fraccion masica de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eFracMasica {
+            get {
+                return ResourceManager.GetString("eFracMasica", resourceCulture);
             }
         }
         
@@ -573,6 +767,15 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La especificación de la fuente debe ingresarse como una función que aumenta monótonamente comenzando en el tiempo cero..
+        /// </summary>
+        internal static string eLinea2 {
+            get {
+                return ResourceManager.GetString("eLinea2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El valor ingresado para la longitud MO debe ser un numero.
         /// </summary>
         internal static string eLongMO {
@@ -627,6 +830,24 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el radio de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eRadFuentep {
+            get {
+                return ResourceManager.GetString("eRadFuentep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el flujo de contaminante debe ser un número positivo.
+        /// </summary>
+        internal static string eRelease {
+            get {
+                return ResourceManager.GetString("eRelease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El valor ingresado para la temperatura ambiente debe ser un numero positivo.
         /// </summary>
         internal static string eTempAmb {
@@ -636,11 +857,29 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para la temperatura de la fuente debe ser un número positivo.
+        /// </summary>
+        internal static string eTempFuentp {
+            get {
+                return ResourceManager.GetString("eTempFuentp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El valor ingresado para la tempratura de la superficie debe ser un numero positivo.
         /// </summary>
         internal static string eTempSup {
             get {
                 return ResourceManager.GetString("eTempSup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor ingresado para el tiempo debe ser un número positivo.
+        /// </summary>
+        internal static string eTiempoFuente {
+            get {
+                return ResourceManager.GetString("eTiempoFuente", resourceCulture);
             }
         }
         
@@ -1155,6 +1394,15 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a JETPLUIN: ELEJET se ha aumentado a:.
+        /// </summary>
+        internal static string kJetPLU {
+            get {
+                return ResourceManager.GetString("kJetPLU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tasa de liberación de contaminantes [kg/s].
         /// </summary>
         internal static string kLibCont {
@@ -1541,6 +1789,51 @@ namespace Degadis.Properties {
         internal static string rDenMezcla {
             get {
                 return ResourceManager.GetString("rDenMezcla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Flujo [Kg/s].
+        /// </summary>
+        internal static string rFlujo {
+            get {
+                return ResourceManager.GetString("rFlujo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fracción Molar.
+        /// </summary>
+        internal static string rFracMol {
+            get {
+                return ResourceManager.GetString("rFracMol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Radio de la fuente [m].
+        /// </summary>
+        internal static string rRadio {
+            get {
+                return ResourceManager.GetString("rRadio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Temperatura de la fuente [K].
+        /// </summary>
+        internal static string rTempFuente {
+            get {
+                return ResourceManager.GetString("rTempFuente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo [s].
+        /// </summary>
+        internal static string rTiempo {
+            get {
+                return ResourceManager.GetString("rTiempo", resourceCulture);
             }
         }
     }

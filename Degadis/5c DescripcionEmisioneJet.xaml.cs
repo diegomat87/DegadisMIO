@@ -30,13 +30,13 @@ namespace Degadis
         public DescripcionEmisionJet()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             Iniciar();
         }
 
         private void Iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kDescVer;
             LblReleaseRate.Content = Properties.Resources.kTasaLib;
             LblSourceDiameter.Content = Properties.Resources.kDiamFuente;
@@ -63,22 +63,22 @@ namespace Degadis
         #region Ayuda
         private void BtnAyudaReleaseRate_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@" The evolution (release) rate is the rate contaminant (without air) is released to the atmosphere (in kg contaminant/s).");
+            MessageBox.Show(Properties.Resources.aReleaseRate);
         }
 
         private void BtnAyudaSourceDiameter_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@" The source diameter represents the area through which the evolution rate passes.");
+            MessageBox.Show(Properties.Resources.aDiamFuente);
         }
 
         private void BtnAyudaSourceElevation_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@" The source elevation is the release height (m).");
+            MessageBox.Show(Properties.Resources.aElevFuente);
         }
 
         private void BtnAyudaSourceDuration_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(@" The source duration is the duration of the primary release (s).");
+            MessageBox.Show(Properties.Resources.aSourceDurp);
         }
         #endregion
 
@@ -137,18 +137,18 @@ namespace Degadis
             string MError = "";
 
             try { cont.erate = Convert.ToDouble(TxtReleaseRate.Text); }
-            catch (Exception) { MError += "El valor ingresado para el flujo de contaminante debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eFluContp + "\n"; }
 
             try { cont.diajet = Convert.ToDouble(TxtSourceDiameter.Text); }
-            catch (Exception) { MError += "El valor ingresado para el diametro de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eDiamFuentep + "\n"; }
 
             try { cont.elejet = Convert.ToDouble(TxtSourceElevation.Text); }
-            catch (Exception) { MError += "El valor ingresado para la elevacion de la fuente debe ser un numero positivo\n"; }
+            catch (Exception) { MError += Properties.Resources.eElevFuentep + "\n"; }
 
             if (cont.booljet)
             {
                 try { cont.tend = Convert.ToDouble(TxtSourceDuration.Text); }
-                catch (Exception) { MError += "El valor ingresado para la duracion debe ser un numero positivo\n"; }
+                catch (Exception) { MError += Properties.Resources.eDurFuentep + "\n"; }
             }
 
 
@@ -187,7 +187,7 @@ namespace Degadis
             }
             else if (cont.nden == 0) { cont.isofl = 0; cont.DENtriples = null; }
             else { cont.isofl = 1; }
-            if (cont.elejet < 2 * cont.zr) { cont.elejet = 2 * cont.zr; MessageBox.Show("JETPLUIN: ELEJET has been increased to:" + cont.elejet); }
+            if (cont.elejet < 2 * cont.zr) { cont.elejet = 2 * cont.zr; MessageBox.Show(Properties.Resources.kJetPLU + cont.elejet); }
             cont.alfa1 = 0.028; cont.alfa2 = 0.37;
             int tamDen = cont.DENtriples.Count;
             if (tamDen > 0)

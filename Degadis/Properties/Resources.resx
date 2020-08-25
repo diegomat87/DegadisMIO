@@ -642,4 +642,127 @@ Una liberación se considera transitoria cuando no se puede considerar en estado
   <data name="eYclow01" xml:space="preserve">
     <value>El valor de la fracción molar debe estar entre 0 y 1</value>
   </data>
+  <data name="aFluEm" xml:space="preserve">
+    <value>La tasa de evolución (liberación) en estado estacionario es la tasa de contaminación (sin aire) que se libera a la atmósfera [en kg de contaminante/s].</value>
+  </data>
+  <data name="aRadFuente" xml:space="preserve">
+    <value>El radio de la fuente en estado estacionario (primario) representa el área a través de la cual pasa la tasa de evolución. Las fuentes primarias que no son circulares normalmente se pueden modelar como circulares con la misma área.</value>
+  </data>
+  <data name="aFracMolCon" xml:space="preserve">
+    <value>La fracción de masa del contaminante de origen es la fracción de masa de los componentes no aéreos en el material liberado. Esta fracción de masa debe especificarse para una fuente "diluida".</value>
+  </data>
+  <data name="eFluContp" xml:space="preserve">
+    <value>El valor ingresado para el flujo de contaminante debe ser un número positivo</value>
+  </data>
+  <data name="eRadFuentep" xml:space="preserve">
+    <value>El valor ingresado para el radio de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="eTempFuentp" xml:space="preserve">
+    <value>El valor ingresado para la temperatura de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="aMasaIni" xml:space="preserve">
+    <value>La especificación de una masa inicial de contaminante sobre la fuente permite al usuario modelar una liberación instantánea de material.
+Tenga en cuenta que esta es la masa de contaminante PURO sobre la fuente y no incluye el aire que pueda estar presente en esta masa inicial. La fracción de masa de contaminante y el radio inicial de esta masa inicial de contaminante sobre la fuente se toman de la especificación de la fuente a nivel del suelo en el tiempo cero.
+Especificación de cualquier contaminante presente sobre la fuente en el momento cero ...
+Para cualquier contaminante presente sobre la fuente en el momento cero, el radio y la fracción de masa de este material se toman de la especificación de la fuente a nivel del suelo en el momento cero.</value>
+  </data>
+  <data name="aDescTrans1" xml:space="preserve">
+    <value>Descripción de la fuente transitoria ...
+La fuente primaria se describe por la tasa de liberación de contaminantes (E [=] kg de contaminante / s), el radio (R1 [=] m), la fracción de masa del contaminante (PWC) y la temperatura de liberación (PTEMP [=] K); estos se ingresan por puntos ordenados de la siguiente manera:
+primer punto:
+      - t = 0, E (t = 0), R1 (t = 0), PWC (t = 0), PTEMP (t = 0) (valores iniciales distintos de cero)
+segundo punto:
+      - t = t1, E (t = t1), R1 (t = t1), PWC (t = t1), PTEMP (t = t1)
+                .
+                .
+                .
+último punto distinto de cero:
+      - t = TEND, E (t = TEND), R1 (t = TEND), PWC (t = TEND), PTEMP (t = TEND)
+junto al último punto:
+      - t = TEND + 1., E = 0., R1 = 0., PWC = 1., PTEMP = TAMB
+ultimo punto:
+      - t = TEND + 2., E = 0., R1 = 0., PWC = 1., PTEMP = TAMB
+
+Nota: la última vez (TEND) es la última vez que E y R1 son distintos de cero.</value>
+  </data>
+  <data name="aDescTrans2" xml:space="preserve">
+    <value>Descripción de la fuente transitoria ...
+El primario se describe mediante la tasa de evolución de la masa de la fuente (E [=] kg / s) y el radio (R1 [=] m) para una liberación transitoria que se ingresan mediante triples ordenados de la siguiente manera:
+primer punto - t = 0, E (t = 0), R1 (t = 0) (valores iniciales distintos de cero)
+segundo punto - t = t1, E (t = t1), R1 (t = t1)
+               .
+               .
+               .
+último punto distinto de cero - t = TEND, E (t = TEND), R1 (t = TEND)
+próximo al último punto - t = TEND + 1., E = 0., R1 = 0.
+último punto - t = TEND + 2., E = 0., R1 = 0.
+
+Nota: la última vez (TEND) es la última vez que E y R1 son distintos de cero.</value>
+  </data>
+  <data name="aTimeSource" xml:space="preserve">
+    <value>Una fuente transitoria (primaria) debe especificarse en función del tiempo. La fuente primaria comienza en el tiempo = 0 s.</value>
+  </data>
+  <data name="aReleaseRate" xml:space="preserve">
+    <value>La tasa de evolución (liberación) es la tasa de contaminación (sin aire) que se libera a la atmósfera [in kg de contaminante/s].</value>
+  </data>
+  <data name="aSourceRad" xml:space="preserve">
+    <value>El radio de la fuente primaria representa el área a través de la cual pasa la tasa de evolución. Las fuentes primarias que no son circulares normalmente se pueden modelar como circulares con la misma área.</value>
+  </data>
+  <data name="aFracMass" xml:space="preserve">
+    <value>La fracción de masa del contaminante de origen es la fracción de masa de los componentes no aéreos en el material liberado (en este momento). Esta fracción de masa debe especificarse para una fuente "diluida".</value>
+  </data>
+  <data name="aTempFuente" xml:space="preserve">
+    <value>La temperatura del material liberado [K] debe especificarse para una fuente 'diluida'.</value>
+  </data>
+  <data name="eET" xml:space="preserve">
+    <value>Las dos últimas entradas para la tasa de la fuente y el radio de la fuente deben ser cero. Ha especificado uno de estos valores como distinto de cero.</value>
+  </data>
+  <data name="rTiempo" xml:space="preserve">
+    <value>Tiempo [s]</value>
+  </data>
+  <data name="rFlujo" xml:space="preserve">
+    <value>Flujo [Kg/s]</value>
+  </data>
+  <data name="rRadio" xml:space="preserve">
+    <value>Radio de la fuente [m]</value>
+  </data>
+  <data name="rFracMol" xml:space="preserve">
+    <value>Fracción Molar</value>
+  </data>
+  <data name="rTempFuente" xml:space="preserve">
+    <value>Temperatura de la fuente [K]</value>
+  </data>
+  <data name="eTiempoFuente" xml:space="preserve">
+    <value>El valor ingresado para el tiempo debe ser un número positivo</value>
+  </data>
+  <data name="eRelease" xml:space="preserve">
+    <value>El valor ingresado para el flujo de contaminante debe ser un número positivo</value>
+  </data>
+  <data name="eFracMasica" xml:space="preserve">
+    <value>El valor ingresado para la fraccion masica de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="eLinea2" xml:space="preserve">
+    <value>La especificación de la fuente debe ingresarse como una función que aumenta monótonamente comenzando en el tiempo cero.</value>
+  </data>
+  <data name="aDiamFuente" xml:space="preserve">
+    <value>El diámetro de la fuente representa el área a través de la cual pasa la tasa de evolución.</value>
+  </data>
+  <data name="aElevFuente" xml:space="preserve">
+    <value>La elevación de la fuente es la altura de liberación (m).</value>
+  </data>
+  <data name="aSourceDurp" xml:space="preserve">
+    <value>La duración de la fuente es la duración de las versiones primarias.</value>
+  </data>
+  <data name="eDiamFuentep" xml:space="preserve">
+    <value>El valor ingresado para el diametro de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="eElevFuentep" xml:space="preserve">
+    <value>El valor ingresado para la elevacion de la fuente debe ser un número positivo</value>
+  </data>
+  <data name="eDurFuentep" xml:space="preserve">
+    <value>El valor ingresado para la duración debe ser un número positivo</value>
+  </data>
+  <data name="kJetPLU" xml:space="preserve">
+    <value>JETPLUIN: ELEJET se ha aumentado a:</value>
+  </data>
 </root>
