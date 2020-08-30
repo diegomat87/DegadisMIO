@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -163,8 +164,9 @@ namespace Degadis
 
             cwc = wc;  cwa = wa; centh = enth;
             zbrent zbrent = new zbrent();
-            cont.temp = zbrent.Zb(Enth0, tmin, tmax, acrit)[0];
-            ierr= Convert.ToInt32(zbrent.Zb(Enth0, tmin, tmax, acrit)[1]);
+            List<double> aux= zbrent.Zb(Enth0, tmin, tmax, acrit);
+            cont.temp = aux[0];
+            ierr= Convert.ToInt32(aux[1]);
             if (ierr != 0) 
             {
                 System.Windows.MessageBox.Show("ierr not equal to 0!!!");
@@ -378,79 +380,7 @@ namespace Degadis
             return;
         }
 
-        public class LineaAdiabat
-        {
-            private double _ifl;
-            private double _wc;
-            private double _wa;
-            private double _yc;
-            private double _ya;
-            private double _cc;
-            private double _rho;
-            private double _wm;
-            private double _enthalpy;
-            private double _temp;
-            public double IFL
-            {
-                get { return _ifl; }
-                set { _ifl = value; }
-            }
-
-            public double WC
-            {
-                get { return _wc; }
-                set { _wc = value; }
-            }
-
-            public double WA
-            {
-                get { return _wa; }
-                set { _wa = value; }
-            }
-
-            public double YC
-            {
-                get { return _yc; }
-                set { _yc = value; }
-            }
-
-            public double YA
-            {
-                get { return _ya; }
-                set { _ya = value; }
-            }
-            public double CC
-            {
-                get { return _cc; }
-                set { _cc = value; }
-            }
-
-            public double RHO
-            {
-                get { return _rho; }
-                set { _rho = value; }
-            }
-
-            public double WM
-            {
-                get { return _wm; }
-                set { _wm = value; }
-            }
-
-            public double ENTHALPY
-            {
-                get { return _enthalpy; }
-                set { _enthalpy = value; }
-            }
-
-            public double TEMP
-            {
-                get { return _temp; }
-                set { _temp = value; }
-            }
-
-        }
-        public List<LineaAdiabat> Adiabat(double ifl,double wc, double yc,  double cc)
+         public Entidades.LineaAdiabat Adiabat(double ifl,double wc, double yc,  double cc)
         {
             #region resumen
             //subroutine to return:
@@ -494,8 +424,7 @@ namespace Degadis
             double enthalpy=0;
             double temp = 0;
             bool aux = true;
-            List<LineaAdiabat> resultados = new List<LineaAdiabat>();
-            LineaAdiabat lineaAdiabat = new LineaAdiabat();
+            Entidades.LineaAdiabat lineaAdiabat = new Entidades.LineaAdiabat();
             switch (ifl)
             {//Falta manejar el error. en todos los case tiene que estar esa posibilidad. Clase trap.
                 #region case -2
@@ -522,9 +451,8 @@ namespace Degadis
                     lineaAdiabat.CC = cc;
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
-                    resultados.Clear();
-                    resultados.Add(lineaAdiabat);
-                    return resultados;
+                    
+                    return lineaAdiabat;
                     #endregion
                 #region case -1
                 case -1:
@@ -550,9 +478,7 @@ namespace Degadis
                     lineaAdiabat.CC = cc;
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
-                    resultados.Clear();
-                    resultados.Add(lineaAdiabat);
-                    return resultados;
+                    return lineaAdiabat;
                 #endregion
                 #region case 0
                 case 0:
@@ -607,9 +533,7 @@ namespace Degadis
                     lineaAdiabat.CC = cc;
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
-                    resultados.Clear();
-                    resultados.Add(lineaAdiabat);
-                    return resultados;
+                    return lineaAdiabat;
                 #endregion
                 #region case 1
                 case 1:
@@ -687,9 +611,7 @@ namespace Degadis
                     lineaAdiabat.CC = cc;
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
-                    resultados.Clear();
-                    resultados.Add(lineaAdiabat);
-                    return resultados;
+                    return lineaAdiabat;
                 #endregion
                 #region case 2
                 case 2:
@@ -749,9 +671,10 @@ namespace Degadis
                     lineaAdiabat.CC = cc;
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
-                    resultados.Clear();
-                    resultados.Add(lineaAdiabat);
-                    return resultados;
+                    return lineaAdiabat;
+                    break;
+                default:
+                    return lineaAdiabat;
                     #endregion
             }
         }

@@ -16,7 +16,7 @@ namespace Degadis
         public List<double> Zb(del func, double x1, double x2, double tol)
         {
             List<double> resultados = new List<double>();
-            int ierr = 0;
+            double ierr = 0;
             double a = x1;
             double b = x2;
             double c = 0;
@@ -127,6 +127,7 @@ namespace Degadis
                     {
                         b = b + Signo(tol1, xm);
                     }
+
                     fb = func(b);
                 }
             }
@@ -135,6 +136,7 @@ namespace Degadis
             resultados.Clear();
             resultados.Add(0);
             resultados.Add(ierr);
+            return resultados;
         }
 
         private static double Signo(double a, double b)

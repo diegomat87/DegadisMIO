@@ -216,12 +216,11 @@ namespace Degadis
             enth = proter.Cpc(cont.gastem) * (cont.gastem - cont.tamb);
             if (cont.isofl == 0)
             {
-                OperativoDegPropTermod operativo = new OperativoDegPropTermod();
-                OperativoDegPropTermod.LineaAdiabat linad = new OperativoDegPropTermod.LineaAdiabat();
-                operativo.Setden(wc, wa, enth);
-                linad = operativo.Adiabat(2, 0, cont.gasllc, 0)[0];
+                Entidades.LineaAdiabat linad = new Entidades.LineaAdiabat();
+                proter.Setden(wc, wa, enth);
+                linad = proter.Adiabat(2, 0, cont.gasllc, 0);
                 double cllc = linad.CC;
-                linad = operativo.Adiabat(2, 0, cont.gasulc, 0)[0];
+                linad = proter.Adiabat(2, 0, cont.gasllc, 0);
                 double culc = linad.CC;
             }
 
