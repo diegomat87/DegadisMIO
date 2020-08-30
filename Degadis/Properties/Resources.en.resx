@@ -765,4 +765,8 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero.</value
   <data name="kJetPLU" xml:space="preserve">
     <value>JETPLUIN: ELEJET has been increased to:</value>
   </data>
+  <data name="trap26" xml:space="preserve">
+    <value>This is a programming diagnostic and should never occur.
+If it does, rebuild the model from the original files.</value>
+  </data>
 </root>

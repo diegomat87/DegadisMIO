@@ -1836,5 +1836,15 @@ namespace Degadis.Properties {
                 return ResourceManager.GetString("rTiempo", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Este es un diagnóstico de programación y nunca debería ocurrir.
+        ///Si es así, reconstruya el modelo a partir de los archivos originales..
+        /// </summary>
+        internal static string trap26 {
+            get {
+                return ResourceManager.GetString("trap26", resourceCulture);
+            }
+        }
     }
 }

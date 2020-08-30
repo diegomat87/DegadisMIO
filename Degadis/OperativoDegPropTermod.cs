@@ -672,11 +672,12 @@ namespace Degadis
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
                     return lineaAdiabat;
-                    break;
                 default:
+                    System.Windows.Forms.MessageBox.Show(Properties.Resources.trap26);
+                    System.Windows.Forms.Application.Exit();
                     return lineaAdiabat;
                     #endregion
-            }
+            }            
         }
     }
 }

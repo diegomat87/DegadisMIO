@@ -898,4 +898,8 @@ Nota: la última vez (TEND) es la última vez que E y R1 son distintos de cero.<
     <value>JETPLUIN: ELEJET se ha aumentado a:</value>
     <comment>5c</comment>
   </data>
+  <data name="trap26" xml:space="preserve">
+    <value>Este es un diagnóstico de programación y nunca debería ocurrir.
+Si es así, reconstruya el modelo a partir de los archivos originales.</value>
+  </data>
 </root>
