@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,10 +22,11 @@ namespace Degadis
         double cwc;
         double cwa;
         double centh;
+        int ierr;
 
 
         public double HumedadAbs(double tamb, double humedadrel)
-        {///determina la humedad absoluta kg/kg
+        {///Determina la humedad absoluta kg/kg
             double sat; //atm y °K
             sat = cont.wmw / cont.wma * Watvp(tamb) / (cont.pamb - Watvp(tamb));
 
@@ -33,7 +35,7 @@ namespace Degadis
         }
 
         private static double Watvp(double tamb)
-        {
+        {///Determina la presion de vapor del agua
             return Math.Exp(14.683943 - 5407.0 / tamb);
         }
 
@@ -42,7 +44,7 @@ namespace Degadis
             double sat; //atm y °K
 
             sat = cont.wmw / cont.wma * Watvp(cont.tamb) / (cont.pamb - Watvp(cont.tamb));
-            return cont.humedad * 100 / sat;
+            return cont.humid * 100 / sat;
 
         }
 
@@ -104,6 +106,7 @@ namespace Degadis
             //c adiabatic lookup CALL ADIABAT
             //c               for isofl.eq.1.or.ihtfl.eq.0.and.ifl.eq.1
             #endregion
+
             double ww; double yw; double acrit = 0.001;
             ww = 1 - wc - wa;
             cont.wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
@@ -120,7 +123,7 @@ namespace Degadis
             if (ifl == 0) 
             {
                 enth = wc * Cpc(cont.gastem) * (cont.gastem - cont.tamb)
-                            + (ww - wa * cont.humedad) * cont.cpw * (cont.tsurf - cont.tamb); 
+                            + (ww - wa * cont.humid) * cont.cpw * (cont.tsurf - cont.tamb); 
             }
             
             if(ifl==1 && cont.ihtfl == 0) 
@@ -160,10 +163,15 @@ namespace Degadis
 
             cwc = wc;  cwa = wa; centh = enth;
             zbrent zbrent = new zbrent();
-            List<double> aux= zbrent.zb(Enth0, tmin, tmax, acrit);
-            cont.temp = aux[0];
-            //if (aux[1] !=0)
-            ///if (ierr.ne. 0) call trap(24,0)
+            cont.temp = zbrent.Zb(Enth0, tmin, tmax, acrit)[0];
+            ierr= Convert.ToInt32(zbrent.Zb(Enth0, tmin, tmax, acrit)[1]);
+            if (ierr != 0) 
+            {
+                System.Windows.MessageBox.Show("ierr not equal to 0!!!");
+                //Programar trap. Clase que maneja los errores en degadis.
+                //call trap(24,0)
+            }
+                    
             DensityCalculation(cont.wm, ww, wa, wc, cont.ya, yc, cont.rho, cont.temp, enth);
             return;
         }
@@ -251,7 +259,7 @@ namespace Degadis
 
             linea.Den1 = 0; 
             linea.Den2 = 0; 
-            linea.Den3 = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+            linea.Den3 = cont.pamb * (1.0 + cont.humid) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humid)) / cont.tamb;
             linea.Den4 = 0; 
             linea.Den5 = cont.tamb;
             listden.Add(linea);
@@ -273,8 +281,8 @@ namespace Degadis
 
             for (int i = ils; i > 0; i--)
             {
-                zbda = (Convert.ToDouble(i) / Convert.ToDouble(iils)) / (1.0 + cont.humedad);
-                zw = zbda * cont.humedad;
+                zbda = (Convert.ToDouble(i) / Convert.ToDouble(iils)) / (1.0 + cont.humid);
+                zw = zbda * cont.humid;
                 zg = 1.0 - zbda - zw;
 
                 enmix = zg * enthalpy;
@@ -370,9 +378,81 @@ namespace Degadis
             return;
         }
 
-        private void Adiabat(double ifl, double yc, double cc, double wc)
+        public class LineaAdiabat
         {
-            #region comment
+            private double _ifl;
+            private double _wc;
+            private double _wa;
+            private double _yc;
+            private double _ya;
+            private double _cc;
+            private double _rho;
+            private double _wm;
+            private double _enthalpy;
+            private double _temp;
+            public double IFL
+            {
+                get { return _ifl; }
+                set { _ifl = value; }
+            }
+
+            public double WC
+            {
+                get { return _wc; }
+                set { _wc = value; }
+            }
+
+            public double WA
+            {
+                get { return _wa; }
+                set { _wa = value; }
+            }
+
+            public double YC
+            {
+                get { return _yc; }
+                set { _yc = value; }
+            }
+
+            public double YA
+            {
+                get { return _ya; }
+                set { _ya = value; }
+            }
+            public double CC
+            {
+                get { return _cc; }
+                set { _cc = value; }
+            }
+
+            public double RHO
+            {
+                get { return _rho; }
+                set { _rho = value; }
+            }
+
+            public double WM
+            {
+                get { return _wm; }
+                set { _wm = value; }
+            }
+
+            public double ENTHALPY
+            {
+                get { return _enthalpy; }
+                set { _enthalpy = value; }
+            }
+
+            public double TEMP
+            {
+                get { return _temp; }
+                set { _temp = value; }
+            }
+
+        }
+        public List<LineaAdiabat> Adiabat(double ifl,double wc, double yc,  double cc)
+        {
+            #region resumen
             //subroutine to return:
             //mass fractions(w's)
             //       mole fractions(y's)
@@ -407,44 +487,79 @@ namespace Degadis
             double w2;
             double w1;
             double slope;
+            double ya;
+            double wm;
+            double wa=0;
+            double rho;
+            double enthalpy=0;
+            double temp = 0;
             bool aux = true;
+            List<LineaAdiabat> resultados = new List<LineaAdiabat>();
+            LineaAdiabat lineaAdiabat = new LineaAdiabat();
             switch (ifl)
-            {
+            {//Falta manejar el error. en todos los case tiene que estar esa posibilidad. Clase trap.
+                #region case -2
                 case -2:
                     ycl = yc;
                     if (ycl < 0)
                     {
                         ycl = 0;
                     }
-                    gamma = cont.enthalpy;
-                    cont.ya = (1 - (1 + cont.gasmw * humsrc / cont.wmw) * ycl) / (1 + cont.humedad * cont.wma / cont.wmw);
+                    gamma = enthalpy;
+                    ya = (1 - (1 + cont.gasmw * humsrc / cont.wmw) * ycl) / (1 + cont.humid * cont.wma / cont.wmw);
                     yw = 1 - cont.ya - ycl;
-                    cont.wm = ycl * cont.gasmw + cont.ya * cont.wma + yw * cont.wmw;
+                    wm = ycl * cont.gasmw + cont.ya * cont.wma + yw * cont.wmw;
                     wc = cont.gasmw / cont.wm * ycl;
-                    cont.wa = cont.wma / cont.wm * cont.ya;
+                    wa = cont.wma / cont.wm * cont.ya;
                     cc = wc * cont.rhoa / (1 - gamma * wc);
-                    cont.rho = cc / wc;
-                    break;
+                    rho = cc / wc;
+                    lineaAdiabat.WC = wc;
+                    lineaAdiabat.WA = wa;
+                    lineaAdiabat.WM = wm;
+                    lineaAdiabat.YC = yc;
+                    lineaAdiabat.YA = ya;
+                    lineaAdiabat.RHO = rho;
+                    lineaAdiabat.CC = cc;
+                    lineaAdiabat.ENTHALPY = enthalpy;
+                    lineaAdiabat.TEMP = temp;
+                    resultados.Clear();
+                    resultados.Add(lineaAdiabat);
+                    return resultados;
+                    #endregion
+                #region case -1
                 case -1:
                     ccl = cc;
                     if (ccl < 0)
                     {
                         ccl = 0;
                     }
-                    gamma = cont.enthalpy;
+                    gamma = enthalpy;
                     wc = ccl / (cont.rhoa + ccl * gamma);
-                    cont.wa = (1 - (1 + humsrc) * wc) / (1 + cont.humedad);
+                    wa = (1 - (1 + humsrc) * wc) / (1 + cont.humid);
                     ww = 1 - cont.wa - wc;
-                    cont.wm = 1 / (wc / cont.gasmw + cont.wa / cont.wma + ww / cont.wmw);
+                    wm = 1 / (wc / cont.gasmw + cont.wa / cont.wma + ww / cont.wmw);
                     yc = cont.wm / cont.gasmw * wc;
-                    cont.ya = cont.wm / cont.wma * cont.wa;
-                    cont.rho = ccl / wc;
-                    break;
+                    ya = cont.wm / cont.wma * cont.wa;
+                    rho = ccl / wc;
+                    lineaAdiabat.WC = wc;
+                    lineaAdiabat.WA = wa;
+                    lineaAdiabat.WM = wm;
+                    lineaAdiabat.YC = yc;
+                    lineaAdiabat.YA = ya;
+                    lineaAdiabat.RHO = rho;
+                    lineaAdiabat.CC = cc;
+                    lineaAdiabat.ENTHALPY = enthalpy;
+                    lineaAdiabat.TEMP = temp;
+                    resultados.Clear();
+                    resultados.Add(lineaAdiabat);
+                    return resultados;
+                #endregion
+                #region case 0
                 case 0:
                     ccl = cc;
-                    if (cc < 0)
+                    if (cc < 0.0)
                     {
-                        ccl = 0;
+                        ccl = 0.0;
                     }
                     i = 2;
                     aux = true;
@@ -468,37 +583,51 @@ namespace Degadis
                         i++;
                     } while (aux);
                     slope = (cont.DENtriples[i].Den3 - cont.DENtriples[i - 1].Den3) / (cont.DENtriples[i].Den2 - cont.DENtriples[i - 1].Den2);
-                    cont.rho = (ccl - cont.DENtriples[i - 1].Den2) * slope + cont.DENtriples[i - 1].Den3;
+                    rho = (ccl - cont.DENtriples[i - 1].Den2) * slope + cont.DENtriples[i - 1].Den3;
                     wcl = ccl / cont.rho;
                     wc = wcl;
-                    cont.wa = (1 - (1 + humsrc) * wc) / (1 + cont.humedad);
+                    wa = (1 - (1 + humsrc) * wc) / (1 + cont.humid);
                     ww = 1 - cont.wa - wc;
-                    cont.wm = 1 / (wc / cont.gasmw + cont.wa / cont.wma + ww / cont.wmw);
+                    wm = 1 / (wc / cont.gasmw + cont.wa / cont.wma + ww / cont.wmw);
                     yc = cont.wm / cont.gasmw * wc;
-                    cont.ya = cont.wm / cont.wma * cont.wa;
+                    ya = cont.wm / cont.wma * cont.wa;
                     w1 = cont.DENtriples[i - 1].Den2 / cont.DENtriples[i - 1].Den3;
                     w2 = cont.DENtriples[i].Den2 / cont.DENtriples[i].Den3;
                     slope = (cont.DENtriples[i].Den4 - cont.DENtriples[i - 1].Den4) / (w2 - w1);
-                    cont.enthalpy = (wcl - w1) * slope + cont.DENtriples[i - 1].Den4;
+                    enthalpy = (wcl - w1) * slope + cont.DENtriples[i - 1].Den4;
                     slope = (cont.DENtriples[i].Den5 - cont.DENtriples[i - 1].Den5) / (w2 - w1);
-                    cont.temp = (wcl - w1) * slope + cont.DENtriples[i - 1].Den5;
-                    break;
+                    temp = (wcl - w1) * slope + cont.DENtriples[i - 1].Den5;
+
+                    lineaAdiabat.WC = wc;
+                    lineaAdiabat.WA = wa;
+                    lineaAdiabat.WM = wm;
+                    lineaAdiabat.YC = yc;
+                    lineaAdiabat.YA = ya;
+                    lineaAdiabat.RHO = rho;
+                    lineaAdiabat.CC = cc;
+                    lineaAdiabat.ENTHALPY = enthalpy;
+                    lineaAdiabat.TEMP = temp;
+                    resultados.Clear();
+                    resultados.Add(lineaAdiabat);
+                    return resultados;
+                #endregion
+                #region case 1
                 case 1:
                     wcl = wc;
                     if (wc < 0)
                     {
                         wcl = 0;
-                        cont.wa = 1 / (1 + cont.humedad);
+                        wa = 1 / (1 + cont.humid);
                     }
                     else if (wc > 1)
                     {
                         wcl = 1;
-                        cont.wa = 0;
+                        wa = 0;
                     }
-                    ww = 1 - cont.wa - wcl;
-                    cont.wm = 1 / (wcl / cont.gasmw + cont.wa / cont.wma + ww / cont.wmw);
-                    yc = cont.wm / cont.gasmw * wcl;
-                    cont.ya = cont.wm / cont.wma * cont.wa;
+                    ww = 1 - wa - wcl;
+                    wm = 1 / (wcl / cont.gasmw + wa / cont.wma + ww / cont.wmw);
+                    yc = wm / cont.gasmw * wcl;
+                    ya = wm / cont.wma * wa;
                     i = 2;
                     aux = true;
                     do
@@ -520,7 +649,7 @@ namespace Degadis
                         }
                     } while (aux);
                     slope = (cont.DENtriples[i].Den3 - cont.DENtriples[i - 1].Den3) / (cont.DENtriples[i].Den2 - cont.DENtriples[i - 1].Den2);
-                    cont.rho = (cont.DENtriples[i - 1].Den3 - cont.DENtriples[i - 1].Den2 * slope) / (1 - slope * wcl);
+                    rho = (cont.DENtriples[i - 1].Den3 - cont.DENtriples[i - 1].Den2 * slope) / (1 - slope * wcl);
                     cc = cont.rho * wcl;
                     i = 2;
                     aux = true;
@@ -546,25 +675,37 @@ namespace Degadis
                     w1 = cont.DENtriples[i - 1].Den2 / cont.DENtriples[i - 1].Den3;
                     w2 = cont.DENtriples[i].Den2 / cont.DENtriples[i].Den3;
                     slope = (cont.DENtriples[i].Den4 - cont.DENtriples[i - 1].Den4) / (w2 - w1);
-                    cont.enthalpy = (wcl - w1) * slope + cont.DENtriples[i - 1].Den4;
+                    enthalpy = (wcl - w1) * slope + cont.DENtriples[i - 1].Den4;
                     slope = (cont.DENtriples[i].Den5 - cont.DENtriples[i - 1].Den5) / (w2 - w1);
-                    cont.temp = (wcl - w1) * slope + cont.DENtriples[i - 1].Den5;
-                    break;
+                    temp = (wcl - w1) * slope + cont.DENtriples[i - 1].Den5;
+                    lineaAdiabat.WC = wc;
+                    lineaAdiabat.WA = wa;
+                    lineaAdiabat.WM = wm;
+                    lineaAdiabat.YC = yc;
+                    lineaAdiabat.YA = ya;
+                    lineaAdiabat.RHO = rho;
+                    lineaAdiabat.CC = cc;
+                    lineaAdiabat.ENTHALPY = enthalpy;
+                    lineaAdiabat.TEMP = temp;
+                    resultados.Clear();
+                    resultados.Add(lineaAdiabat);
+                    return resultados;
+                #endregion
+                #region case 2
                 case 2:
-                    i = 0;
                     ycl = yc;
                     if (yc < 0)
                     {
                         ycl = 0;
-                        cont.wa = 1 / (1 + cont.humedad);
-                        ww = 1 - cont.wa;
-                        cont.wm = 1 / (cont.wma / cont.wa + cont.wmw / ww);
-                        cont.ya = cont.wm / cont.wma * cont.wa;
+                        wa = 1 / (1 + cont.humid);
+                        ww = 1 - wa;
+                        wm = 1 / (cont.wma / wa + cont.wmw / ww);
+                        ya = wm / cont.wma * wa;
                     }
                     else if (yc > 1)
                     {
                         ycl = 1;
-                        cont.ya = 0;
+                        ya = 0;
                     }
                     i = 2;
                     aux = true;
@@ -586,20 +727,32 @@ namespace Degadis
                             i++;
                         }
                     } while (aux);
-                    cont.wm = ycl * cont.gasmw + (1 - ycl) * cont.wma * cont.wmw * (1 + cont.humedad) / (cont.wmw + cont.wma * cont.humedad);
-                    wc = ycl * cont.gasmw / cont.wm;
-                    cont.wa = (1 - wc) / (1 + cont.humedad);
-                    ww = 1 - wc - cont.wa;
+                    wm = ycl * cont.gasmw + (1 - ycl) * cont.wma * cont.wmw * (1 + cont.humid) / (cont.wmw + cont.wma * cont.humid);
+                    wc = ycl * cont.gasmw / wm;
+                    wa = (1 - wc) / (1 + cont.humid);
+                    ww = 1 - wc - wa;
                     slope = (cont.DENtriples[i].Den3 - cont.DENtriples[i - 1].Den3) / (cont.DENtriples[i].Den2 - cont.DENtriples[i - 1].Den2);
                     cc = wc * (cont.DENtriples[i - 1].Den3 - slope * cont.DENtriples[i - 1].Den2) / (1 - wc * slope);
-                    cont.rho = cc / wc;
+                    rho = cc / wc;
                     w1 = cont.DENtriples[i - 1].Den2 / cont.DENtriples[i - 1].Den3;
                     w2 = cont.DENtriples[i].Den2 / cont.DENtriples[i].Den3;
                     slope = (cont.DENtriples[i].Den4 - cont.DENtriples[i - 1].Den4) / (w2 - w1);
-                    cont.enthalpy = (wc - w1) * slope + cont.DENtriples[i - 1].Den4;
+                    enthalpy = (wc - w1) * slope + cont.DENtriples[i - 1].Den4;
                     slope = (cont.DENtriples[i].Den5 - cont.DENtriples[i - 1].Den5) / (w2 - w1);
-                    cont.enthalpy = (wc - w1) * slope + cont.DENtriples[i - 1].Den5;
-                    break;
+                    temp = (wc - w1) * slope + cont.DENtriples[i - 1].Den5;
+                    lineaAdiabat.WC = wc;
+                    lineaAdiabat.WA = wa;
+                    lineaAdiabat.WM = wm;
+                    lineaAdiabat.YC = yc;
+                    //lineaAdiabat.YA = ya;
+                    lineaAdiabat.RHO = rho;
+                    lineaAdiabat.CC = cc;
+                    lineaAdiabat.ENTHALPY = enthalpy;
+                    lineaAdiabat.TEMP = temp;
+                    resultados.Clear();
+                    resultados.Add(lineaAdiabat);
+                    return resultados;
+                    #endregion
             }
         }
     }

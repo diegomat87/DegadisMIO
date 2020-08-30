@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Globalization;
+using Entidades;
 
 namespace Degadis
 {
@@ -120,7 +121,7 @@ namespace Degadis
         {
             if (Validar())
             {
-                arch.crearJet(cont.nombre, cont.ruta, cont.titles, cont.u0, cont.z0, cont.zr, cont.istab, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.humedadrel, cont.tsurf, cont.gasnam, cont.gasmw, cont.avtime, cont.temjet, cont.gasulc, cont.gasllc, cont.gaszzc, cont.indht, cont.gascpk, cont.gascpp, cont.DENtriples, cont.erate, cont.elejet, cont.diajet, cont.tend, cont.distmx);
+                arch.crearJet(cont.nombre, cont.ruta, cont.titles, cont.u0, cont.z0, cont.zr, cont.istab, cont.indvel, cont.rml, cont.tamb, cont.pamb, cont.relhum, cont.tsurf, cont.gasnam, cont.gasmw, cont.avtime, cont.temjet, cont.gasulc, cont.gasllc, cont.gaszzc, cont.indht, cont.gascpk, cont.gascpp, cont.DENtriples, cont.erate, cont.elejet, cont.diajet, cont.tend, cont.distmx);
                 Siguiente();
             }
         }
@@ -176,7 +177,7 @@ namespace Degadis
             {
                 cont.isofl = 1;
                 cont.rhoe = cont.pamb * cont.gasmw / cont.rgas / cont.temjet;
-                cont.rhoa = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+                cont.rhoa = cont.pamb * (1.0 + cont.humid) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humid)) / cont.tamb;
                 Entidades.LineaDensidad linea1 = new Entidades.LineaDensidad();
                 Entidades.LineaDensidad linea2 = new Entidades.LineaDensidad();
                 linea1.Den1 = 0; linea1.Den2 = 0; linea1.Den3 = cont.rhoa; linea1.Den4 = 0; linea1.Den5 = cont.tamb;
@@ -200,7 +201,7 @@ namespace Degadis
             }
             else
             {
-                cont.rhoa = cont.pamb * (1.0 + cont.humedad) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humedad)) / cont.tamb;
+                cont.rhoa = cont.pamb * (1.0 + cont.humid) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humid)) / cont.tamb;
                 cont.rhoe = cont.pamb * cont.gasmw / cont.rgas / cont.gastem;
             }
             cont.gasrho = cont.rhoe;
@@ -216,9 +217,12 @@ namespace Degadis
             if (cont.isofl == 0)
             {
                 OperativoDegPropTermod operativo = new OperativoDegPropTermod();
+                OperativoDegPropTermod.LineaAdiabat linad = new OperativoDegPropTermod.LineaAdiabat();
                 operativo.Setden(wc, wa, enth);
-                //	call adiabat(2,twc,twa,gasllc,ya,cllc,r,w,t,p)
-                //  call adiabat(2,twc,twa,gasulc,ya,culc,r,w,t,p)
+                linad = operativo.Adiabat(2, 0, cont.gasllc, 0)[0];
+                double cllc = linad.CC;
+                linad = operativo.Adiabat(2, 0, cont.gasulc, 0)[0];
+                double culc = linad.CC;
             }
 
             cont.UA = cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.Psif(cont.elejet));

@@ -148,7 +148,7 @@ namespace Degadis
             }
         }
 
-        public double humedad
+        public double humid
         {
             set
             {
@@ -161,7 +161,7 @@ namespace Degadis
             }
         }
 
-        public double humedadrel
+        public double relhum
         {
             set
             {

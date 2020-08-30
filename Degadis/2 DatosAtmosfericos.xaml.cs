@@ -61,8 +61,8 @@ namespace Degadis
             txtTemperaturaAmbiente.Text = Cont.tamb.ToString();
             txtPresionAmbiente.Text = Cont.pamb.ToString();
             txtlongitudMoninObukhov.Text = Cont.rml.ToString();
-            txtHumedad.Text = Cont.humedadrel.ToString();
-            opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
+            txtHumedad.Text = Cont.relhum.ToString();
+            opTermodinamicas.HumedadAbs(Cont.tamb, Cont.relhum);
             calcularRml();
             cargarComboBox();
         }
@@ -232,14 +232,14 @@ namespace Degadis
         {
             try
             {
-                txtHumedad.Text = Cont.humedadrel.ToString();
+                txtHumedad.Text = Cont.relhum.ToString();
             }
             catch (NullReferenceException) { }
         }
 
         private void RdBtnHumedadA_Checked(object sender, RoutedEventArgs e)
         {
-            txtHumedad.Text = Cont.humedad.ToString();
+            txtHumedad.Text = Cont.humid.ToString();
         }
         #endregion
 
@@ -252,19 +252,19 @@ namespace Degadis
                 SetParametros();
                 if (RdBtnHumedadA.IsChecked == true)
                 {
-                    Cont.humedadrel = opTermodinamicas.HumedadRel();
-                    if (Cont.humedadrel > 100)
+                    Cont.relhum = opTermodinamicas.HumedadRel();
+                    if (Cont.relhum > 100)
                     {
-                        Cont.humedadrel = 100;
-                        Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
-                        MessageBox.Show(Properties.Resources.eHumAbs+" "+ Cont.humedad);
+                        Cont.relhum = 100;
+                        Cont.humid = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.relhum);
+                        MessageBox.Show(Properties.Resources.eHumAbs+" "+ Cont.humid);
                     }
                 }
                 else
                 {
-                    Cont.humedad = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.humedadrel);
+                    Cont.humid = opTermodinamicas.HumedadAbs(Cont.tamb, Cont.relhum);
                 }
-                Cont.rhoa = Cont.pamb * (1.0 + Cont.humedad) * Cont.wmw / (Cont.rgas * (Cont.wmw / Cont.wma + Cont.humedad)) / Cont.tamb;
+                Cont.rhoa = Cont.pamb * (1.0 + Cont.humid) * Cont.wmw / (Cont.rgas * (Cont.wmw / Cont.wma + Cont.humid)) / Cont.tamb;
 
                 EspecificacionesFuga especificacionesFuga = new EspecificacionesFuga();
                 this.NavigationService.Navigate(especificacionesFuga);
@@ -450,11 +450,11 @@ namespace Degadis
                 if (RdBtnHumedadR.IsChecked == true)
                 {
                     if (Convert.ToDouble(txtHumedad.Text) > 100) { MError += Properties.Resources.eHumRel+"\n"; }
-                    else { Cont.humedadrel = Convert.ToDouble(txtHumedad.Text); }
+                    else { Cont.relhum = Convert.ToDouble(txtHumedad.Text); }
                 }
                 else
                 {
-                    Cont.humedad= Convert.ToDouble(txtHumedad.Text);
+                    Cont.humid= Convert.ToDouble(txtHumedad.Text);
                 }
                 
             }

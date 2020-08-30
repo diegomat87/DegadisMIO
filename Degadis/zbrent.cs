@@ -13,7 +13,7 @@ namespace Degadis
     public delegate double del(double x);
     class zbrent
     {
-        public List<double> zb(del func, double x1, double x2, double tol)
+        public List<double> Zb(del func, double x1, double x2, double tol)
         {
             List<double> resultados = new List<double>();
             int ierr = 0;
@@ -54,7 +54,7 @@ namespace Degadis
                 return resultados;
             }
             fc = fb;
-            for (int i = 1; 1 <= 100; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 if (Signo(1.0,fb) * Signo(1.0,fc) > 0)
                 {
