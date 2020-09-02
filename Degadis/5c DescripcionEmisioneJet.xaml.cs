@@ -216,15 +216,21 @@ namespace Degadis
             enth = proter.Cpc(cont.gastem) * (cont.gastem - cont.tamb);
             if (cont.isofl == 0)
             {
-                Entidades.LineaAdiabat linad = new Entidades.LineaAdiabat();
                 proter.Setden(wc, wa, enth);
-                linad = proter.Adiabat(2, 0, cont.gasllc, 0);
-                double cllc = linad.CC;
-                linad = proter.Adiabat(2, 0, cont.gasllc, 0);
-                double culc = linad.CC;
             }
+            Entidades.LineaAdiabat linad = new Entidades.LineaAdiabat();
+            linad = proter.Adiabat(2, 0, cont.gasllc, 0);
+            double cllc = linad.CC;
+            linad = proter.Adiabat(2, 0, cont.gasllc, 0);
+            double culc = linad.CC;
+
+            //PRINT VALUES OF PARAMETERS INITIAL CONDITIONS
 
             cont.UA = cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.Psif(cont.elejet));
+
+           
+
+
         }
         #endregion
     }

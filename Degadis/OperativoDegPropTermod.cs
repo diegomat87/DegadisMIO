@@ -672,7 +672,6 @@ namespace Degadis
                     lineaAdiabat.ENTHALPY = enthalpy;
                     lineaAdiabat.TEMP = temp;
                     return lineaAdiabat;
-                    break;
                 default:
                     return lineaAdiabat;
                     #endregion
