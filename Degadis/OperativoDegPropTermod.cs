@@ -30,7 +30,6 @@ namespace Degadis
         {///Determina la humedad absoluta kg/kg
             double sat; //atm y °K
             sat = cont.wmw / cont.wma * Watvp(tamb) / (cont.pamb - Watvp(tamb));
-
             return humedadrel / 100 * sat;
 
         }
@@ -170,8 +169,7 @@ namespace Degadis
             if (ierr != 0) 
             {
                 System.Windows.MessageBox.Show("ierr not equal to 0!!!");
-                //Programar trap. Clase que maneja los errores en degadis.
-                //call trap(24,0)
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.trap24);
             }
                     
             DensityCalculation(cont.wm, ww, wa, wc, cont.ya, yc, cont.rho, cont.temp, enth);
@@ -356,7 +354,7 @@ namespace Degadis
             k++;
             if (k >= cont.igen)
             {
-                //call trap(28,0)
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.trap28);
             }
             if (wc == 1.0)
             {
@@ -673,9 +671,10 @@ namespace Degadis
                     lineaAdiabat.TEMP = temp;
                     return lineaAdiabat;
                 default:
+                    System.Windows.Forms.MessageBox.Show(Properties.Resources.trap26);
                     return lineaAdiabat;
                     #endregion
-            }
+            }            
         }
     }
 }

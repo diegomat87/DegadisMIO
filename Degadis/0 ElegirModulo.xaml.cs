@@ -36,8 +36,6 @@ namespace Degadis
 
         private void idiomas()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             btnSelect.Content = Properties.Resources.kSelCarp;
             BtnDeg.Content = Properties.Resources.kMDeg;
             BtnJet.Content = Properties.Resources.kMJet;

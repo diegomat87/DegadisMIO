@@ -1836,5 +1836,339 @@ namespace Degadis.Properties {
                 return ResourceManager.GetString("rTiempo", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La integración de fuente ha devuelto IHLF = I3
+        ///Este error ocurre durante la integración de las ecuaciones que describen la fuente de gas. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 bisecciones del incremento inicial de la variable independiente para realizar un paso de integración dentro del error especificado. Reducir el tamaño del paso inicial de la variable independiente (STPIN en el archivo ER1). Si esto no funciona, será nece [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap01 {
+            get {
+                return ResourceManager.GetString("trap01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 12, el incremento inicial de la variable independiente (STPIN) es 0. Corrija el archivo ER1 y ejecute el programa nuevamente
+        ///Cuando IHLF = 13, el incremento inicial de la variable independiente (STPIN) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. STPIN debe ser positivo. Corrija el archivo ER1 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap011 {
+            get {
+                return ResourceManager.GetString("trap011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ALPH? ZBRENT ha fallado en JETPLU IERR: I4.
+        /// </summary>
+        internal static string trap02 {
+            get {
+                return ResourceManager.GetString("trap02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SZF? Falló la integración local; IHLF = &apos;, I3
+        ///Este error ocurre durante la estimación de SZ sobre la fuente cuando no hay gas presente. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 bisecciones del incremento inicial de la variable independiente para realizar un paso de integración dentro del error especificado. Reduzca el tamaño del paso inicial de la variable independiente (SZSTP0 en el archivo ER1). Si esto no funciona, aumente lo [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap03 {
+            get {
+                return ResourceManager.GetString("trap03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 13, el incremento inicial de la variable independiente (SZSTP0) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. SZSTP0 debe ser positivo. Corrija el archivo ER1 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap031 {
+            get {
+                return ResourceManager.GetString("trap031", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reservado.
+        /// </summary>
+        internal static string trap04 {
+            get {
+                return ResourceManager.GetString("trap04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a CRFG? SE NECESITARON MÁS PUNTOS PARA GEN3
+        ///El área COMÚN / GEN3 / almacena valores representativos de los parámetros de fuente calculados. Si aparece este mensaje, relaje los criterios de error CRFG (CRFGER) en el archivo ER1. Si este es un problema común, la longitud de los vectores / GEN3 / puede aumentarse cambiando el valor de MAXL en DEG1.PRM y recompilando y volviendo a enlazar DEGADIS..
+        /// </summary>
+        internal static string trap05 {
+            get {
+                return ResourceManager.GetString("trap05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TUPF? CÁLCULO DEL OBSERVADOR - ZBRENT FALLÓ: I2
+        ///La búsqueda de prueba y error asociada con la búsqueda del borde contra el viento de la fuente de gas para un observador falló. A menudo, este problema se puede evitar agregando uno o dos observadores adicionales al número actual de observadores (lo que cambia las condiciones para la prueba y error). Otra posibilidad es aumentar los criterios de error para esta función (ERTUPF) en el archivo ER2..
+        /// </summary>
+        internal static string trap06 {
+            get {
+                return ResourceManager.GetString("trap06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TUPF? CÁLCULO DEL OBSERVADOR - ZBRENT FALLÓ:
+        ///La búsqueda de prueba y error asociada con encontrar el borde a favor del viento de la fuente de gas para un observador falló. A menudo, este problema se puede evitar agregando uno o dos observadores adicionales al número actual de observadores (lo que cambia las condiciones para la prueba y error). Otra posibilidad es aumentar los criterios de error para esta función (ERTDNF) en el archivo ER2..
+        /// </summary>
+        internal static string trap07 {
+            get {
+                return ResourceManager.GetString("trap07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP? FALLÓ LA INTEGRACIÓN DEL OBSERVADOR, IHLF = &apos;, I3
+        ///Este error ocurre durante la integración de las cinco ecuaciones diferenciales que promedian la fuente para cada observador. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 bisecciones del incremento inicial de la variable independiente para realizar un paso de integración dentro del error especificado. Reducir el tamaño del paso inicial de la variable independiente (STPO en el a [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap08 {
+            get {
+                return ResourceManager.GetString("trap08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 12, el incremento inicial de la variable independiente (STPO) es 0. Corrija el archivo ER2 y ejecute el programa nuevamente.
+        ///Cuando IHLF = 13, el incremento inicial de la variable independiente (STPO) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. STPO debe ser positivo. Corrija el archivo ER2 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap081 {
+            get {
+                return ResourceManager.GetString("trap081", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP / DEG2S? FALLO INTEGRACIÓN PSEUDOESTABLE, IHLF = &apos;, I3
+        ///Este error ocurre durante la integración de las cuatro ecuaciones diferenciales que describen la parte del cálculo a favor del viento cuando b&gt; 0. La rutina que llama a TRAP es SSSUP si se está ejecutando una simulación transitoria; si se está ejecutando una simulación de estado estable, la rutina de llamada es DEG2S. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 biseccione [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap09 {
+            get {
+                return ResourceManager.GetString("trap09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 12, el incremento inicial de la variable independiente (STPP) es 0. Corrija el archivo ER2 y ejecute el programa nuevamente.
+        ///Cuando IHLF = 13, el incremento inicial de la variable independiente (STPP) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. STPP debe ser positivo. Corrija el archivo ER2 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap091 {
+            get {
+                return ResourceManager.GetString("trap091", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP / DEG2S? FALLO DE INTEGRACIÓN GAUSSIAN, IHLF = &apos;, I3
+        ///Este error ocurre durante la integración de las ecuaciones diferenciales que describen la parte del cálculo a favor del viento cuando b = 0. La rutina que llama a TRAP es SSSUP si se está ejecutando una simulación transitoria; si se está ejecutando una simulación de estado estable, la rutina de llamada es DEG2S. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 bisecciones del in [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap10 {
+            get {
+                return ResourceManager.GetString("trap10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 12, el incremento inicial de la variable independiente (STPG) es 0. Corrija el archivo ER2 y ejecute el programa nuevamente.
+        ///Cuando IHLF = 13, el incremento inicial de la variable independiente (STPG) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. STPG debe ser positivo. Corrija el archivo ER2 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap101 {
+            get {
+                return ResourceManager.GetString("trap101", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP / DEG2S? NÚMERO TOTAL DE REGISTROS EXCEDE 120000
+        ///Este es un punto de parada arbitrario para el proceso con el fin de evitar que una simulación descontrolada llene el espacio del disco. Relaja las especificaciones de salida (ODLP, ODLLP, ODLG u ODLLG) en el archivo ER2 para generar menos salida si los parámetros de entrada son válidos..
+        /// </summary>
+        internal static string trap11 {
+            get {
+                return ResourceManager.GetString("trap11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TPROP / ADDHEAT? Fallo de ZBRENT
+        ///ZBRENT falló porque la temperatura no estaba acotada correctamente Verifique las condiciones de entrada y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap17 {
+            get {
+                return ResourceManager.GetString("trap17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ALPH? FALLÓ LA INTEGRACIÓN ALFA, IHLF =
+        ///La integración que determina el ajuste integral de mínimos cuadrados para ALPHA ha fallado. Tenga en cuenta que los valores pequeños de la longitud Monin-Obukhov (RML &lt;O (1 m)) en combinación con condiciones atmosféricas estables pueden causar esta falla. IHLF es un código de error devuelto por el paquete de integración RKGST.
+        ///Cuando IHLF = 11, fueron necesarias más de 10 bisecciones del incremento inicial de la variable independiente para realizar un paso de integr [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap18 {
+            get {
+                return ResourceManager.GetString("trap18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cuando IHLF = 12, el incremento inicial de la variable independiente (STPINZ) es 0. Corrija el archivo ER1 y ejecute el programa nuevamente.
+        ///Cuando IHLF = 13, el incremento inicial de la variable independiente (STPINZ) no es el mismo signo que la diferencia entre el límite superior del intervalo y el límite inferior del intervalo. STPINZ debe ser negativo. Corrija el archivo ER1 y ejecute el programa nuevamente. Este error también ocurrirá si la rugosidad de la superficie ZR es mayor que la altura de refer [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap181 {
+            get {
+                return ResourceManager.GetString("trap181", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ALPH? ZBRENT no ha podido localizar ALPHA IERR:
+        ///El procedimiento de búsqueda que determina ALPHA ha fallado. Este error puede ser el resultado de una especificación de velocidad inusual, como valores pequeños de la longitud Monin-Obukhov (ML &lt;O (1.m)) o alturas de referencia pequeñas (Z0 &lt;O (10. * ML)). IERR es un código de error devuelto por la rutina ZBRENT.
+        ///Cuando IERR = 1, la búsqueda de ALPHA falló después de un número específico de iteraciones. Aumente el límite de error utilizado por ZBRENT (EPS en [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap19 {
+            get {
+                return ResourceManager.GetString("trap19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ESTRT? EOF prematuro en RUNNAME.ER1 o RUNNAME.ER2.
+        ///La parte del programa que lee archivos ER1 y ER2 encontró una marca de fin de archivo antes de que se hubiera leído toda la información. Confirme estos archivos y ejecute el programa nuevamente. Si es necesario, copie y edite el archivo EJEMPLO apropiado y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap20 {
+            get {
+                return ResourceManager.GetString("trap20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ESTRT1 / ESTRT2 / ESTRT2SS / ESTRT3? DECODIFICAR falló
+        ///La parte del programa que lee el archivo ER1, ER2 o ER3 no entendió una entrada numérica. Los números deben aparecer en las columnas 11 a 20 de la línea sin caracteres alfabéticos en el campo. (Tenga en cuenta que la notación exponencial no está permitida). Esta restricción no se aplica a las líneas de comentarios que tienen un signo de exclamación (!) En la primera columna..
+        /// </summary>
+        internal static string trap21 {
+            get {
+                return ResourceManager.GetString("trap21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ESTRT1? No se encontró el archivo de parámetros RUNNAME.ER1.
+        ///No se encontró el archivo ER1 para la simulación actual (RUNNAME). Copie el archivo EXAMPLE.ER1 en RUNNAME.ER1 y edítelo según sea necesario. Ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap22 {
+            get {
+                return ResourceManager.GetString("trap22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SORTS1? Menos de 3 puntos ordenados para cualquier momento.
+        ///Solo uno o dos puntos de simulación fueron aplicables para los tiempos de clasificación especificados. Hay cuatro posibles causas para esta condición:
+        ///(1) Si este mensaje aparece cuando los tiempos de clasificación están predeterminados (CHECK5 se establece en 0. en el archivo ER3), probablemente será necesario aumentar el número de observadores para obtener una buena resolución del campo de concentración a favor del viento. (El número de observa [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string trap23 {
+            get {
+                return ResourceManager.GetString("trap23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TPROP? Bucle de prueba y error comprometido
+        ///TPROP estima la temperatura de una mezcla basándose en la composición y entalpía de la mezcla. Asegúrese de que las propiedades de las especies en difusión se ingresen correctamente y vuelva a ejecutar la simulación..
+        /// </summary>
+        internal static string trap24 {
+            get {
+                return ResourceManager.GetString("trap24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TPROP? Bucle de densidad isotérmica comprometido
+        ///Este error nunca debería ocurrir, pero si ocurre, reconstruya el modelo a partir de los archivos originales y vuelva a ejecutar la simulación..
+        /// </summary>
+        internal static string trap25 {
+            get {
+                return ResourceManager.GetString("trap25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Este es un diagnóstico de programación y nunca debería ocurrir.
+        ///Si es así, reconstruya el modelo a partir de los archivos originales..
+        /// </summary>
+        internal static string trap26 {
+            get {
+                return ResourceManager.GetString("trap26", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TPROP? Solicitud IGEN demasiado grande en SETDEN
+        ///La subrutina SETDEN (en TPROP) realiza una serie de cálculos de mezcla adiabática con una mezcla de gas especificada y aire ambiental y coloca el resultado en la matriz DEN (5, IGEN). Este error indica que se necesitan más puntos en DEN de los que se especificaron originalmente. Aumente la asignación de DEN cambiando el valor de IGEN en DEGINP.PRM y recompilando y volviendo a vincular DEGADIS..
+        /// </summary>
+        internal static string trap28 {
+            get {
+                return ResourceManager.GetString("trap28", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PHIF? flag IPHIFL está fuera de límites
+        ///Los valores adecuados de IPHIFL son números enteros entre 1 y 5 inclusive. Aunque los valores de IPHIFL se ingresan en el archivo ER1 como números reales, deben estar en este rango. Verifique el archivo ER1 y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap29 {
+            get {
+                return ResourceManager.GetString("trap29", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP / DEG2S? concentración mayor que RHOE
+        ///Si la concentración del contaminante es mayor que la densidad del componente puro para una simulación isotérmica, se producirá este error. Sin embargo, esta situación nunca debería ocurrir. Compruebe las condiciones de entrada y vuelva a ejecutar el programa..
+        /// </summary>
+        internal static string trap30 {
+            get {
+                return ResourceManager.GetString("trap30", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SSSUP? concentración mayor que RHOE
+        ///Si la concentración del contaminante es mayor que la densidad del componente puro para una simulación isotérmica, se producirá este error. Sin embargo, esta situación nunca debería ocurrir. Compruebe las condiciones de entrada y vuelva a ejecutar el programa..
+        /// </summary>
+        internal static string trap31 {
+            get {
+                return ResourceManager.GetString("trap31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PSS? Fallo de convergencia sz.
+        ///Este es un diagnóstico de programación y nunca debería ocurrir. Si lo hace, verifique las condiciones de entrada y ejecute el programa nuevamente..
+        /// </summary>
+        internal static string trap32 {
+            get {
+                return ResourceManager.GetString("trap32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string trap33 {
+            get {
+                return ResourceManager.GetString("trap33", resourceCulture);
+            }
+        }
     }
 }

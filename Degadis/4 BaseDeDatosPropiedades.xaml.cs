@@ -26,8 +26,6 @@ namespace Degadis
         public BaseDeDatosPropiedades()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             Iniciar();
         }
 

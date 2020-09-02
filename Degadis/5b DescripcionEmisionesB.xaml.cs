@@ -29,15 +29,11 @@ namespace Degadis
         public DescripcionEmisionB()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             iniciar();
         }
 
         private void iniciar()
         {
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kEstTrans;
             LblMasainicialFuente.Content = Properties.Resources.KMasaIni;
             LblMassFraction.Content = Properties.Resources.kFracMas;

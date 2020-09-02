@@ -31,8 +31,6 @@ namespace Degadis
         public DatosAtmosfericos()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = Cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = Cont.idioma;
             Inicializar();
         }
 

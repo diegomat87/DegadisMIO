@@ -27,8 +27,6 @@ namespace Degadis
         public DegadisInicio()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             idiomas();
         }
 

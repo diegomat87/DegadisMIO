@@ -28,8 +28,6 @@ namespace Degadis
         public DescripcionEmisionA()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             iniciar();
         }
 

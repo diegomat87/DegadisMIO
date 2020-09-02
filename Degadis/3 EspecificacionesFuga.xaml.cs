@@ -29,8 +29,6 @@ namespace Degadis
         public EspecificacionesFuga()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             Iniciar();
         }
 
