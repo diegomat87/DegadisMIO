@@ -769,4 +769,138 @@ Note: the final time(TEND) is the last time when E and R1 are non - zero.</value
     <value>This is a programming diagnostic and should never occur.
 If it does, rebuild the model from the original files.</value>
   </data>
+  <data name="trap01" xml:space="preserve">
+    <value>Source integration has returned IHLF=I3
+This error occurs during integration of the equations which describe the gas source.  IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the initial step size of the independent variable (STPIN in the ER1 file).  If this does not work, it will be necessary to either increase the error criteria for all of the dependent variables being integrated (ERBND in the ER1 file) or increase the error criteria for the variable violating the criteria by decreasing the error weight for that variable (one of the following: WTRG WTTM, WTYA, WTYC, WTEB, WTMB, or WTUH in the ER1 file)</value>
+  </data>
+  <data name="trap011" xml:space="preserve">
+    <value>When IHLF=12, the initial increment of the independent variable (STPIN) is 0.  Correct the ER1 file, and execute the program again
+When IHLF=13, the initial increment of the independent variable (STPIN) is not the same sign as the difference between the upper bound of the interval and the lower bound of the interval.  STPIN must be positive.  Correct the ER1 file, and execute the program again.</value>
+  </data>
+  <data name="trap02" xml:space="preserve">
+    <value>ALPH? ZBRENT has failed in JETPLU IERR: I4</value>
+  </data>
+  <data name="trap03" xml:space="preserve">
+    <value>SZF? Local integration failed; IHLF=',I3
+This error occurs during estimation of SZ over the source when no gas is present.  IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the initial step size of the independent variable (SZSTP0 in the ER1 file).  If this does not work, increase the error criteria for all of the dependent variables being integrated (SZERR in the ER1 file).
+When IHLF=12, the initial increment of the independent variable (SZSTP0) is 0.  Correct the ER1 file, and execute the program again.</value>
+  </data>
+  <data name="trap031" xml:space="preserve">
+    <value>When IHLF=13, the initial increment of the independent variable (SZSTP0) is not the same sign as the difference between the upper bound of the interval and the lower bound of the interval.  SZSTP0 must be positive.  Correct the ER1 file, and execute the program again.</value>
+  </data>
+  <data name="trap04" xml:space="preserve">
+    <value>Reserved</value>
+  </data>
+  <data name="trap05" xml:space="preserve">
+    <value>CRFG? MORE POINTS FOR GEN3 WERE NEEDED
+The COMMON area /GEN3/ stores representative values of the calculated source parameters.  If this message occurs, relax the CRFG error criteria (CRFGER) in the ER1 file.  If this is a common problem, the length of the /GEN3/ vectors can be increased by changing the value of MAXL in DEG1.PRM and recompiling and relinking DEGADIS.</value>
+  </data>
+  <data name="trap06" xml:space="preserve">
+    <value>TUPF? OBSERVER CALCULATION - ZBRENT FAILED: I2
+The trial and error search associated with finding the upwind edge of the gas source for an observer failed. Often, this problem can be avoided by adding one or two additional observers to the present number of observers (which changes the conditions for the trial and error). Another possibility is to increase the error criteria for this function (ERTUPF) in the ER2 file.</value>
+  </data>
+  <data name="trap07" xml:space="preserve">
+    <value>TUPF? OBSERVER CALCULATION - ZBRENT FAILED: 
+The trial and error search associated with finding the downwind edge of the gas source for an observer failed. Often, this problem can be avoided by adding one or two additional observers to the present number of observers (which changes the conditions for the trial and error). Another possibility is to increase the error criteria for this function (ERTDNF) in the ER2 file.</value>
+  </data>
+  <data name="trap08" xml:space="preserve">
+    <value>SSSUP? OBSERVER INTEGRATION FAILED, IHLF=',I3
+This error occurs during integration of the five differential equations which average the source for each observer.  IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the initial step size of the independent variable (STPO in the ER2 file).  If this does not work, t will be necessary to either increase the error criteria for all of the dependent variables being integrated (ERRO in the ER2 file) or increase the error criteria for the variable violating the criteria by decreasing the error weight for that variable (one of the following: WTAIO, WTQOO, or WTSZO in the ER2 file).</value>
+  </data>
+  <data name="trap081" xml:space="preserve">
+    <value>When IHLF=12, the initial increment of the independent variable (STPO) is 0.  Correct the ER2 file, and execute the program again.
+When IHLF=13, the initial increment of the independent variable (STPO) is not the same sign as the difference between the upper bound of the interval and the lower bound of the interval.  STPO must be positive.  Correct the ER2 file, and execute the program again.</value>
+  </data>
+  <data name="trap09" xml:space="preserve">
+    <value>SSSUP/DEG2S? PSEUDO-STEADY INTEG FAILED, IHLF=',I3
+This error occurs during integration of the four differential equations describing the portion of the downwind calculation when b&gt;0.  The routine calling TRAP is SSSUP if a transient simulation is being executed; if a steady-state simulation is being executed, the calling routine is DEG2S.  IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the initial step size of the independent variable (STPP in the ER2 file).  If this does not work, it will be necessary to either increase the error criteria for all of the dependent variables being integrated (ERRP in the ER2 file) or increase the error criteria for the variable violating the criteria by decreasing the error weight for that variable (one of the following: WTSZP, WTSYP, WTBEP, or WTDH in the ER2 file).</value>
+  </data>
+  <data name="trap091" xml:space="preserve">
+    <value>When IHLF=12, the initial increment of the independent variable (STPP) is 0.  Correct the ER2 file, and execute the program again.
+When IHLF=13, the initial increment of the independent variable (STPP) is not the same sign as the difference  between the upper bound of the interval and the lower bound of the interval.  STPP must be positive.  Correct the ER2 file, and execute the program again.</value>
+  </data>
+  <data name="trap10" xml:space="preserve">
+    <value>SSSUP/DEG2S? GAUSSIAN INTEGRATION FAIL, IHLF=',I3
+This error occurs during integration of the differential equations describing the portion of the downwind calculation when b=0.  The routine calling TRAP is SSSUP if a transient simulation is being executed; if a steady-state simulation is being executed, the calling  routine is DEG2S.  IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the initial step size of the independent variable (STPG in the ER2 file).  If this does not work, it will be necessary to either increase the error criteria for all of the dependent variables being integrated (ERRG in the ER2 file) or increase the error criteria for the variable violating the criteria by decreasing the error weight for that variable (either WTRUH or WTDHG in the ER2 file).</value>
+  </data>
+  <data name="trap101" xml:space="preserve">
+    <value>When IHLF=12, the initial increment of the independent variable (STPG) is 0.  Correct the ER2 file, and execute the program again.
+When IHLF=13, the initial increment of the independent variable (STPG) is not the same sign as the difference between the upper bound of the interval and the lower bound of the interval.  STPG must be positive.  Correct the ER2 file, and execute the program again.</value>
+  </data>
+  <data name="trap11" xml:space="preserve">
+    <value>SSSUP/DEG2S? TOTAL No. OF RECORDS EXCEED 120000
+This is an arbitrary stopping point for the process in order to keep a runaway simulation from filling up disk  space.  Relax the output specifications (ODLP, ODLLP, ODLG, or ODLLG) in the ER2 file in order to generate less output if the input parameters are valid.</value>
+  </data>
+  <data name="trap17" xml:space="preserve">
+    <value>TPROP/ADDHEAT? ZBRENT failure
+ZBRENT failed because the temperature was not bounded properly.Check the input conditions, and execute the program again.</value>
+  </data>
+  <data name="trap18" xml:space="preserve">
+    <value>ALPH? ALPHA INTEGRATION FAILED, IHLF=
+The integration which determines the integral least squares fit for ALPHA has failed.  Note that small values of the Monin-Obukhov length ( RML &lt; O(1m) ) in combination with stable atmospheric conditions may cause this failure. IHLF is an error code returned by the integration package RKGST.
+When IHLF=11, more than 10 bisections of the initial increment of the independent variable were necessary to make an integration step within the specified error.  Reduce the absolute value of the initial step size of the independent variable (STPINZ in the ER1 file).  If this does not work, it will be necessary to increase the error criteria (ERBNDZ in the ER1 file).</value>
+  </data>
+  <data name="trap181" xml:space="preserve">
+    <value>When IHLF=12, the initial increment of the independent variable (STPINZ) is 0. Correct the ER1 file, and execute the program again.
+When IHLF=13, the initial increment of the independent variable (STPINZ) is not the same sign as the difference between the upper bound of the interval and the lower bound of the interval.  STPINZ must be negative.  Correct the ER1 file, and execute the program again.  This error will also occur if the surface roughness ZR is greater than the reference height Z0.</value>
+  </data>
+  <data name="trap19" xml:space="preserve">
+    <value>ALPH? ZBRENT has failed to locate ALPHA IERR: 
+The search procedure which determines ALPHA has failed. This error may be the result of an unusual velocity specification such as small values of the Monin-Obukhov length ( ML &lt; O(1.m) ) or small reference heights ( Z0 &lt; O(10. * ML) ).  IERR is an error code returned by the routine ZBRENT.
+When IERR=1, the search for ALPHA failed after a specified number of iterations. Increase the error bound used by ZBRENT (EPS in ER1 file).
+When IERR=2, the basic assumption that the function which governs the search for ALPHA changes sign over the specified interval is false.  Increase the search interval by decreasing the lower bound of ALPHA (XLI in the ER1 file) and increasing the upper bound (XRI in the ER1 file).</value>
+  </data>
+  <data name="trap20" xml:space="preserve">
+    <value>ESTRT? Premature EOF in RUNNAME.ER1 or RUNNAME.ER2.
+The portion of the program which reads ER1 and ER2 files encountered an end-of-file mark before all of the information had been read.  Confirm these files, and execute the program again.  If necessary, copy and edit the appropriate EXAMPLE file, and execute the program again.</value>
+  </data>
+  <data name="trap21" xml:space="preserve">
+    <value>ESTRT1/ESTRT2/ESTRT2SS/ESTRT3? DECODE failed
+The portion of the program which reads the ER1, ER2, or the ER3 file failed to understand a numerical entry. The numbers must appear in columns 11-20 of the line with  no alphabetic characters in the field.  (Note that exponential notation is not allowed.) This restriction does not apply to comment lines which have an exclamation point (!) in the first column.</value>
+  </data>
+  <data name="trap22" xml:space="preserve">
+    <value>ESTRT1? The parameter file RUNNAME.ER1 was not found.
+The ER1 file was not found for the current simulation (RUNNAME).  Copy the file EXAMPLE.ER1 file to RUNNAME.ER1 and edit it as necessary.  Execute the program again.</value>
+  </data>
+  <data name="trap23" xml:space="preserve">
+    <value>SORTS1? Fewer than 3 points sorted for any time.
+Only one or two simulation points were applicable for the sort times specified.  There are four possible causes for this condition:
+(1) If this message appears when the sort times are defaulted (CHECK5 is set to 0. in the ER3 file), the number of observers will probably have to be increased to give a good resolution of the downwind concentration field.  (The number of observers is NOBS in the ER2 file with a maximum of ',I3,' (MAXNOB) in DEG2.PRM.) As a rule of thumb, one gets good resolution of the downwind concentration field if the ratio (secondary source duration / number of observers) is less than about 10 seconds (or 20 at most).
+(2) The sort times specified in the ER3 file were before the simulation had developed significantly. This is only applicable when the user is specifying the sort times (i.e. when CHECK5 is set to 1. in the ER3 file). Increase the time of the first sort (ERT1), and rerun the program.
+(3) The sort times specified in the ER3 file were after the gas was below the lowest concentration of interest This is only applicable when the user is specifying the sort times (i.e. when CHECK5 is set to 1. in the ER3 file). Decrease the time of the first sort (ERT1), and rerun the program.  If additional results are desired for later times, restart the simulation and specify a lower concentration of interest in the input step (lower YCLOW in DEGINP or GASLLC in JETPLUIN).
+(4) The distance specified in DEG4 was too large for the lowest concentration of interest specified.  Restart the simulation and lower the lowest concentration of interest (by lowering YCLOW in DEGINP or GASLLC in JETPLUIN).</value>
+  </data>
+  <data name="trap24" xml:space="preserve">
+    <value>TPROP? Trial and error loop compromised
+TPROP estimates the temperature of a mixture based upon the composition and enthalpy of the mixture.  Ensure the properties for the diffusing species are entered correctly and execute the simulation again.</value>
+  </data>
+  <data name="trap25" xml:space="preserve">
+    <value>TPROP? Isothermal density loop compromised
+This error should never occur, but if it does, rebuild the model from the original files and run the simulation over.</value>
+  </data>
+  <data name="trap28" xml:space="preserve">
+    <value>TPROP? IGEN request too large in SETDEN
+The subroutine SETDEN (in TPROP) performs a series of adiabatic mixing calculations with a specified gas mixture and ambient air and places the result in the array DEN(5,IGEN).  This error indicates more points are needed in DEN than were originally specified.  Increase the allocation for DEN by changing the value of IGEN in DEGINP.PRM and recompiling and relinking DEGADIS.</value>
+  </data>
+  <data name="trap29" xml:space="preserve">
+    <value>PHIF? flag IPHIFL is out of bounds
+Proper values of IPHIFL are integers between 1 and 5 inclusive.  Although values of IPHIFL are entered in the ER1 file as real numbers, they should be in this range.  Check the ER1 file, and execute the program again.</value>
+  </data>
+  <data name="trap30" xml:space="preserve">
+    <value>SSSUP/DEG2S? concentration greater than RHOE
+If the concentration of the contaminant becomes greater than the pure component density for an isothermal simulation, this error will occur.  However, this situation should never occur.  Check the input conditions, and execute the program again.</value>
+  </data>
+  <data name="trap31" xml:space="preserve">
+    <value>SSSUP? concentration greater than RHOE
+If the concentration of the contaminant becomes greater than the pure component density for an isothermal simulation, this error will occur.  However, this situation should never occur.  Check the input conditions, and execute the program again.</value>
+  </data>
+  <data name="trap32" xml:space="preserve">
+    <value>PSS? Sz convergence failure.
+This is a programming diagnostic and should never occur.If it does, check the input conditions, and execute the program again</value>
+  </data>
 </root>

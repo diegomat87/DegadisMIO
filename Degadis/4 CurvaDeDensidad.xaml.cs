@@ -32,8 +32,6 @@ namespace Degadis
             cont.DENtriples = null;
             cont.rhoe = cont.gasrho;
             cont.rhoa = cont.pamb * (1.0 + cont.humid) * cont.wmw / (cont.rgas * (cont.wmw / cont.wma + cont.humid)) / cont.tamb;
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             lblTitulo.Content = Properties.Resources.kCurva;
             LblConcntracionContaminante.Content = Properties.Resources.kConcCon;
             LblDensidadMezcla.Content = Properties.Resources.kDensCon;
