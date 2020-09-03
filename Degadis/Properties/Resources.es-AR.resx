@@ -516,7 +516,7 @@ Para propósitos de evaluación preliminar de peligros, puede ser adecuado aprox
 V) Se supone que el coeficiente de transferencia de calor promedio de tierra a nube se aplica en todas partes a lo largo de la superficie inferior de la nube.
 L) La forma de la correlación es: Q = (Vh * rho * cp) * area * (tsurf-temp)
 Vh [m/s] se basa en el análisis realizado por el Laboratorio Nacional Lawrence Livermore de experimentos de liberación a escala de campo utilizando gas natural licuado (GNL).</value>
-    <comment>4</comment>
+    <comment>3 especificacionfuga</comment>
   </data>
   <data name="aTranAgua" xml:space="preserve">
     <value>La transferencia de agua se modela como un proceso de transferencia de masa desde un sustrato de agua a la nube contaminante. Esta transferencia puede ser importante cuando:
@@ -1035,5 +1035,9 @@ Si la concentración del contaminante es mayor que la densidad del componente pu
   <data name="trap32" xml:space="preserve">
     <value>PSS? Fallo de convergencia sz.
 Este es un diagnóstico de programación y nunca debería ocurrir. Si lo hace, verifique las condiciones de entrada y ejecute el programa nuevamente.</value>
+  </data>
+  <data name="trap33" xml:space="preserve">
+    <value>SSG? Fallo de convergencia sz.
+Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, verifique las condiciones de entrada y ejecute el programa nuevamente.</value>
   </data>
 </root>

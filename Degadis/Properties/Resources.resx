@@ -904,6 +904,7 @@ Si la concentración del contaminante es mayor que la densidad del componente pu
 Este es un diagnóstico de programación y nunca debería ocurrir. Si lo hace, verifique las condiciones de entrada y ejecute el programa nuevamente.</value>
   </data>
   <data name="trap33" xml:space="preserve">
-    <value></value>
+    <value>SSG? Fallo de convergencia sz.
+Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, verifique las condiciones de entrada y ejecute el programa nuevamente.</value>
   </data>
 </root>
