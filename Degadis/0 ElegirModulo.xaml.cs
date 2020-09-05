@@ -29,13 +29,13 @@ namespace Degadis
         {
             InitializeComponent();
             cont.idioma = new CultureInfo("es-AR");
-            Thread.CurrentThread.CurrentCulture = cont.idioma;
-            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             idiomas();
         }
 
         private void idiomas()
         {
+            Thread.CurrentThread.CurrentCulture = cont.idioma;
+            Thread.CurrentThread.CurrentUICulture = cont.idioma;
             btnSelect.Content = Properties.Resources.kSelCarp;
             BtnDeg.Content = Properties.Resources.kMDeg;
             BtnJet.Content = Properties.Resources.kMJet;
@@ -68,6 +68,18 @@ namespace Degadis
                     cont.ruta = ruta;
                 }
             }
+        }
+
+        private void rdbEnglish_Checked(object sender, RoutedEventArgs e)
+        {
+            cont.idioma = new CultureInfo("en");
+            idiomas();
+        }
+
+        private void rdbEspañol_Checked(object sender, RoutedEventArgs e)
+        {
+            cont.idioma = new CultureInfo("es-AR");
+            idiomas();
         }
     }
 }
