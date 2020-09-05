@@ -130,8 +130,7 @@
     <value>Nombre de archivo</value>
   </data>
   <data name="kSelCarp" xml:space="preserve">
-    <value>Seleccionar
-carpeta</value>
+    <value>Seleccionar carpeta</value>
   </data>
   <data name="kCrearCaso" xml:space="preserve">
     <value>Crear nuevo caso</value>
