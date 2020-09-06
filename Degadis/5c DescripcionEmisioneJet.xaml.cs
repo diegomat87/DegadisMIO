@@ -16,6 +16,7 @@ using System.Threading;
 using System.Globalization;
 using Entidades;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Forms;
 
 namespace Degadis
 {
@@ -63,27 +64,27 @@ namespace Degadis
         #region Ayuda
         private void BtnAyudaReleaseRate_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Properties.Resources.aReleaseRate);
+            System.Windows.MessageBox.Show(Properties.Resources.aReleaseRate);
         }
 
         private void BtnAyudaSourceDiameter_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Properties.Resources.aDiamFuente);
+            System.Windows.MessageBox.Show(Properties.Resources.aDiamFuente);
         }
 
         private void BtnAyudaSourceElevation_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Properties.Resources.aElevFuente);
+            System.Windows.MessageBox.Show(Properties.Resources.aElevFuente);
         }
 
         private void BtnAyudaSourceDuration_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Properties.Resources.aSourceDurp);
+            System.Windows.MessageBox.Show(Properties.Resources.aSourceDurp);
         }
         #endregion
 
         #region Transformaciones
-        private void TxtReleaseRate_KeyDown(object sender, KeyEventArgs e)
+        private void TxtReleaseRate_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
@@ -91,7 +92,7 @@ namespace Degadis
                 e.Handled = true;
         }
 
-        private void TxtSourceDiameter_KeyDown(object sender, KeyEventArgs e)
+        private void TxtSourceDiameter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
@@ -99,7 +100,7 @@ namespace Degadis
                 e.Handled = true;
         }
 
-        private void TxtSourceElevation_KeyDown(object sender, KeyEventArgs e)
+        private void TxtSourceElevation_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
@@ -107,7 +108,7 @@ namespace Degadis
                 e.Handled = true;
         }
 
-        private void TxtSourceDuration_KeyDown(object sender, KeyEventArgs e)
+        private void TxtSourceDuration_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.OemComma)
                 e.Handled = false; //transformar punto en coma
@@ -158,7 +159,7 @@ namespace Degadis
             }
             else
             {
-                MessageBox.Show(MError);
+                System.Windows.MessageBox.Show(MError);
                 return false;
             }
         }
@@ -176,6 +177,10 @@ namespace Degadis
             double theta;
             double qqq;
             double rk1, rk2, rk3, rk4, rk5, rk6;
+            double delta = 2.15;
+            double sc = 1.42;
+            double sysz, sy, sz;
+
 
             if (cont.tsurf < 250) { cont.tsurf = cont.tamb; }
             cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - proter.Psif(cont.z0));
@@ -195,7 +200,7 @@ namespace Degadis
             }
             else if (cont.nden == 0) { cont.isofl = 0; cont.DENtriples = null; }
             else { cont.isofl = 1; }
-            if (cont.elejet < 2 * cont.zr) { cont.elejet = 2 * cont.zr; MessageBox.Show(Properties.Resources.kJetPLU + cont.elejet); }
+            if (cont.elejet < 2 * cont.zr) { cont.elejet = 2 * cont.zr; System.Windows.Forms.MessageBox.Show(Properties.Resources.kJetPLU + cont.elejet); }
             cont.alfa1 = 0.028; cont.alfa2 = 0.37;
             int tamDen = cont.DENtriples.Count;
             if (tamDen > 0)
@@ -323,10 +328,41 @@ namespace Degadis
                 cont.erate = qinit * cont.rhoe;
 
                 double ppp = Math.Sqrt(Math.PI) / 2;
+                ERF erf = new ERF();
+
+                qqq = erf.erf(delta / Math.Sqrt(2) * ppp);
+                rk1 = Math.PI * qqq * (2 * qqq);
+
+                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + sc) * ppp);
+                rk2 = Math.PI / (1 + sc) * qqq * (2 * qqq);
+
+                rk3 = Math.PI * Math.Pow(delta, 2);
+
+                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(sc) * ppp);
+                rk4 = Math.PI / sc * qqq * (2 * qqq);
+
+                qqq = erf.erf(delta * Math.Sqrt(sc) * ppp);
+                rk5 = Math.PI / (2 * sc) * qqq * (2 * qqq);
+
+                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + 2 * sc) * ppp);
+                rk6 = Math.PI / (1 + 2 * sc) * qqq * (2 * qqq);
+
+                sysz = cont.erate / cc / (rk1 * ua * Math.Cos(theta) + rk2 * uc);
+
+                sy = Math.Sqrt(sysz);
+                sz = sy;
+
+                yr[1] = cc;
+                yr[2] = sysz;
+                yr[3] = theta;
+                yr[4] = uc;
+                yr[5] = Math.Max(dist, 1E-30);
+                yr[6] = zj;
+
+                return; 
 
 
-
-        }
+            }
 
 
 
