@@ -918,4 +918,10 @@ This is a programming diagnostic and should never occur. If it does, check the i
   <data name="aErf" xml:space="preserve">
     <value>argument of erf &lt; 0</value>
   </data>
+  <data name="eGamma1" xml:space="preserve">
+    <value>GAMMA?--ARGUMENT LESS THAN 0.000001</value>
+  </data>
+  <data name="eGamma2" xml:space="preserve">
+    <value>GAMMA?--ARGUMENT GREATER THAN 34.5--OVERFLOW</value>
+  </data>
 </root>

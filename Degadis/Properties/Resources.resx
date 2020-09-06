@@ -918,4 +918,10 @@ Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, v
   <data name="aErf" xml:space="preserve">
     <value></value>
   </data>
+  <data name="eGamma1" xml:space="preserve">
+    <value>GAMMA?-- Argumento menor a 0.000001</value>
+  </data>
+  <data name="eGamma2" xml:space="preserve">
+    <value>GAMMA? - Desbordamiento. Argumento mayor a 34,5</value>
+  </data>
 </root>

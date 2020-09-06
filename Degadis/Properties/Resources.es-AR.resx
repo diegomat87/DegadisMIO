@@ -1039,4 +1039,12 @@ Este es un diagnóstico de programación y nunca debería ocurrir. Si lo hace, v
     <value>SSG? Fallo de convergencia sz.
 Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, verifique las condiciones de entrada y ejecute el programa nuevamente.</value>
   </data>
+  <data name="eGamma1" xml:space="preserve">
+    <value>GAMMA?-- Argumento menor a 0.000001</value>
+    <comment>gamma</comment>
+  </data>
+  <data name="eGamma2" xml:space="preserve">
+    <value>GAMMA? - Desbordamiento. Argumento mayor a 34,5</value>
+    <comment>gamma</comment>
+  </data>
 </root>

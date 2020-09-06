@@ -551,6 +551,24 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a GAMMA?-- Argumento menor a 0.000001.
+        /// </summary>
+        internal static string eGamma1 {
+            get {
+                return ResourceManager.GetString("eGamma1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a GAMMA? - Desbordamiento. Argumento mayor a 34,5.
+        /// </summary>
+        internal static string eGamma2 {
+            get {
+                return ResourceManager.GetString("eGamma2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debe ingresar la capacidad calorífica.
         /// </summary>
         internal static string eGasCPK {
