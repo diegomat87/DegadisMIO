@@ -133,8 +133,7 @@
     <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kSelCarp" xml:space="preserve">
-    <value>Seleccionar
-carpeta</value>
+    <value>Seleccionar carpeta</value>
     <comment>0 Elegir Modulo</comment>
   </data>
   <data name="kCrearCaso" xml:space="preserve">

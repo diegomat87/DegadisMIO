@@ -1584,8 +1584,7 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Seleccionar
-        ///carpeta.
+        ///   Busca una cadena traducida similar a Seleccionar carpeta.
         /// </summary>
         internal static string kSelCarp {
             get {
