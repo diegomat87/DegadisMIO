@@ -902,4 +902,16 @@ If the concentration of the contaminant becomes greater than the pure component 
     <value>PSS? Sz convergence failure.
 This is a programming diagnostic and should never occur.If it does, check the input conditions, and execute the program again</value>
   </data>
+  <data name="JSetJet" xml:space="preserve">
+    <value>J exceeded in SETJET; Aj and Bj are extrapolated.</value>
+  </data>
+  <data name="LSetJet" xml:space="preserve">
+    <value>SETJET loop failed</value>
+  </data>
+  <data name="XSetJet" xml:space="preserve">
+    <value>XOD &lt; 0. in SETJET.</value>
+  </data>
+  <data name="aErf" xml:space="preserve">
+    <value>argument of erf &lt; 0</value>
+  </data>
 </root>

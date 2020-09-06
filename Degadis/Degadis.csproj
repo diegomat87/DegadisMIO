@@ -60,6 +60,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ERF.cs" />
+    <Compile Include="Gamma.cs" />
+    <Compile Include="Incgamma.cs" />
     <Compile Include="zbrent.cs" />
   </ItemGroup>
   <ItemGroup>

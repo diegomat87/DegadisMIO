@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Globalization;
 using Entidades;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Degadis
 {
@@ -167,6 +168,14 @@ namespace Degadis
 
             double qinit;
             double gamma;
+            double cc;
+            double uj;
+            double zj;
+            double uc;
+            double dist;
+            double theta;
+            double qqq;
+            double rk1, rk2, rk3, rk4, rk5, rk6;
 
             if (cont.tsurf < 250) { cont.tsurf = cont.tamb; }
             cont.Ustar = cont.u0 * cont.vkc / (Math.Log((cont.z0 + cont.zr) / cont.zr) - proter.Psif(cont.z0));
@@ -226,10 +235,104 @@ namespace Degadis
 
             cont.UA = cont.Ustar / cont.vkc * (Math.Log((cont.elejet + cont.zr) / cont.zr) - proter.Psif(cont.elejet));
 
-           
+            double[] dyr = new double[6];
+            double[] yr = new double[6];
+            for (int i = 1; i < 7; i++)
+            {
+                dyr[i] = 1.0;
+                yr[i] = 0.0;
+            }
+
+            yr[1] = cont.rhoe;
+            SetJet(cont.UA,cont.diajet,cont.elejet);
+            cont.rho = cont.gasrho;
+            cont.temp = cont.gastem;
+
+            void SetJet(double ua, double diajet, double elejet)
+            {
+                cc = yr[1];
+                uj = qinit / Math.PI / Math.Pow(diajet, 2) * 4.0;
+
+                double sod = 7.7 * (1.0 - Math.Exp(-0.48 * Math.Sqrt(cont.rhoe * uj / cont.rhoa / cont.UA)));
+
+                double rj = (cont.rhoe / cont.rhoa) * Math.Pow(uj / ua, 2);
+                double delrho = cont.rhoe - cont.rhoa;
+                double froude = 1.688;
+                if (delrho > 0) { froude = cont.rhoa * Math.Pow(ua, 2) / cont.gg / delrho / diajet; }
+                froude = Math.Min(froude, 1.688);
+
+                double aj; double bj;
+                if (rj < 0.036)
+                {
+                    aj = 18.519 * rj;
+                    bj = 0.4;
+                }
+                else if (rj > 0.036 && rj <= 10)
+                {
+                    aj = Math.Exp(0.2476 + 0.3016 * Math.Log(froude) + 0.24386 * Math.Log(rj));
+                    bj = 0.4;
+                }
+                else if (rj > 10 && rj <= 50)
+                {
+                    aj = Math.Exp(0.405465 + 0.131386 * Math.Log(rj) + 0.054931 * Math.Pow(Math.Log(rj), 2));
+                    bj = Math.Exp(-0.744691 - 0.074525 * Math.Log(rj));
+                }
+                else if (rj > 50 && rj <= 600)
+                {
+                    aj = Math.Exp(-2.55104 + 1.49202 * Math.Log(rj) - 0.097623 * Math.Pow(Math.Log(rj), 2));
+                    bj = Math.Exp(-0.446718 - 0.150694 * Math.Log(rj));
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show(Properties.Resources.JSetJet);
+                    aj = Math.Exp(1.44099 + 0.243045 * Math.Log(rj));
+                    bj = Math.Exp(-0.446718 - 0.150694 * Math.Log(rj));
+                }
+
+                double bji = 1 / bj;
+
+                double zod = sod;
+                double xod; double fff; double fffp; double zodn; double check;
+                for (int iii = 0; iii < 102; iii++)
+                {
+                    if (iii > 100) { System.Windows.Forms.MessageBox.Show(Properties.Resources.LSetJet); return; }
+                    xod = Math.Pow(zod / aj, bji);
+                    fff = Math.Pow(xod, 2) + Math.Pow(zod, 2) - Math.Pow(sod, 2);
+                    fffp = Math.Pow(xod, 2) * 2 / bj / zod + 2 * zod;
+                    zodn = zod - fff / fffp;
+                    check = Math.Abs((zodn - zod) / zod);
+                    if (check > 0.00001) { zod = zodn; }
+                }
+
+                xod = xod;
+                dist = xod * diajet;
+                double slope;
+                if (xod > 0.0)
+                {
+                    slope = bj * zod / xod;
+                    theta = Math.Atan(slope);
+                }
+                else if (xod == 0.0)
+                {
+                    theta = Math.PI / 2;
+                }
+                else { System.Windows.Forms.MessageBox.Show(Properties.Resources.XSetJet); return; }
+                zj = zod * diajet + elejet;
+                uc = uj - ua * Math.Cos(theta);
+
+                cont.erate = qinit * cont.rhoe;
+
+                double ppp = Math.Sqrt(Math.PI) / 2;
+
 
 
         }
+
+
+
+        }
+
+        
         #endregion
     }
 }

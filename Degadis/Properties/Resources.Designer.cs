@@ -160,6 +160,15 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string aErf {
+            get {
+                return ResourceManager.GetString("aErf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La tasa de evolución (liberación) en estado estacionario es la tasa de contaminación (sin aire) que se libera a la atmósfera [en kg de contaminante/s]..
         /// </summary>
         internal static string aFluEm {
@@ -965,6 +974,15 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string JSetJet {
+            get {
+                return ResourceManager.GetString("JSetJet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Agregar.
         /// </summary>
         internal static string kAgregar {
@@ -1765,6 +1783,15 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string LSetJet {
+            get {
+                return ResourceManager.GetString("LSetJet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Concentración de contaminantes [Kg/m^3].
         /// </summary>
         internal static string rConCont {
@@ -2167,6 +2194,15 @@ namespace Degadis.Properties {
         internal static string trap33 {
             get {
                 return ResourceManager.GetString("trap33", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string XSetJet {
+            get {
+                return ResourceManager.GetString("XSetJet", resourceCulture);
             }
         }
     }

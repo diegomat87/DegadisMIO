@@ -905,4 +905,16 @@ Este es un diagnóstico de programación y nunca debería ocurrir. Si lo hace, v
   <data name="trap33" xml:space="preserve">
     <value></value>
   </data>
+  <data name="JSetJet" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="LSetJet" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="XSetJet" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="aErf" xml:space="preserve">
+    <value></value>
+  </data>
 </root>
