@@ -2189,7 +2189,8 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a SSG? Fallo de convergencia sz.
+        ///Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, verifique las condiciones de entrada y ejecute el programa nuevamente..
         /// </summary>
         internal static string trap33 {
             get {

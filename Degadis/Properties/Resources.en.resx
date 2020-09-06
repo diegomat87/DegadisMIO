@@ -900,7 +900,11 @@ If the concentration of the contaminant becomes greater than the pure component 
   </data>
   <data name="trap32" xml:space="preserve">
     <value>PSS? Sz convergence failure.
-This is a programming diagnostic and should never occur.If it does, check the input conditions, and execute the program again</value>
+This is a programming diagnostic and should never occur. If it does, check the input conditions, and execute the program again.</value>
+  </data>
+  <data name="trap33" xml:space="preserve">
+    <value>SSG? Sz convergence failure.
+This is a programming diagnostic and should never occur. If it does, check the input conditions, and execute the program again.</value>
   </data>
   <data name="JSetJet" xml:space="preserve">
     <value>J exceeded in SETJET; Aj and Bj are extrapolated.</value>
