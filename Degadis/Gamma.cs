@@ -15,7 +15,7 @@ namespace Degadis
         double gamma = 0;
         double y = 0;
         //cambiar nombre
-        public List<double> gama(double xx)
+        public double gama(double xx)
         {
             
             if (xx <= 34.5)
@@ -88,15 +88,14 @@ namespace Degadis
             {
                 case 1:
                     System.Windows.Forms.MessageBox.Show(Properties.Resources.eGamma1);
+                    Application.Exit();
                     break;
                 case 2:
                     System.Windows.Forms.MessageBox.Show(Properties.Resources.eGamma2);
+                    Application.Exit();
                     break;
             }
-            List<double> resultados = new List<double>();
-            resultados.Add(gamma);
-            resultados.Add(ier);
-            return resultados;
+            return gamma;
         }
 
         private void a110()
