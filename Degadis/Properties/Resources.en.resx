@@ -924,4 +924,16 @@ This is a programming diagnostic and should never occur. If it does, check the i
   <data name="eGamma2" xml:space="preserve">
     <value>GAMMA?--ARGUMENT GREATER THAN 34.5--OVERFLOW</value>
   </data>
+  <data name="eIncGamma1" xml:space="preserve">
+    <value>GAMINC? Arugments are out-of-bounds. ALPHA: </value>
+  </data>
+  <data name="eIncGamma2" xml:space="preserve">
+    <value>GSER? ALPHA is too large or ITMAX is too small.</value>
+  </data>
+  <data name="eIncGamma3" xml:space="preserve">
+    <value>GSER? BETA is out-of-bounds.</value>
+  </data>
+  <data name="eIncGamma4" xml:space="preserve">
+    <value>GCF? ALPHA is too large or ITMAX is too small.</value>
+  </data>
 </root>

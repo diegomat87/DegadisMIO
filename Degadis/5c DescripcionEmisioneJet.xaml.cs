@@ -297,7 +297,7 @@ namespace Degadis
                 double bji = 1 / bj;
 
                 double zod = sod;
-                double xod; double fff; double fffp; double zodn; double check;
+                double xod=0; double fff; double fffp; double zodn; double check;
                 for (int iii = 0; iii < 102; iii++)
                 {
                     if (iii > 100) { System.Windows.Forms.MessageBox.Show(Properties.Resources.LSetJet); return; }
@@ -309,7 +309,6 @@ namespace Degadis
                     if (check > 0.00001) { zod = zodn; }
                 }
 
-                xod = xod;
                 dist = xod * diajet;
                 double slope;
                 if (xod > 0.0)

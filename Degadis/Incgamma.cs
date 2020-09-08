@@ -18,20 +18,17 @@ namespace Degadis
         {
             if (beta<0 || alfa<=0)
             {
-                //format(' GAMINC? Arugments are out-of-bounds. ALPHA: ',     .			1PG13.5,' BETA: ',1PG13.5)
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.eIncGamma1 + alfa + " BETA: " + beta);
             }
             if (beta<alfa+1)
             {
-                //call gser( aa, alpha, beta, gln)
                 gser(alfa, beta);
             }
             else
             {
-                //call gcf( aa, alpha, beta, gln)		! continued fraction
                 gcf(alfa, beta);
                 aa = 1.0 - aa;
             }
-            //gaminc = dexp(dlog(aa) + gln)
             return Math.Exp(Math.Log(aa) + gln);
         }
 
@@ -40,7 +37,7 @@ namespace Degadis
             gln = gammln(alfa);
             if (beta < 0)
             {
-                //'GSER? BETA is out-of-bounds.'
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.eIncGamma3);
                 return;
             }
             else if (beta == 0)
@@ -64,7 +61,7 @@ namespace Degadis
                     return;
                 }
             }
-            //'GSER? ALPHA is too large or ITMAX is too small.'
+            System.Windows.Forms.MessageBox.Show(Properties.Resources.eIncGamma2);
         }
 
         private double gammln(double alfa)
@@ -111,7 +108,6 @@ namespace Degadis
                 double ana = an - alfa;
                 a0 = a1 + a0 * ana;
                 b0 = b1 + b0 * ana;
-                //double anf = an;
                 a1 = beta * a0 + an * a1;
                 b1 = beta * b0 + an * b1;
                 if (a1!=0)
@@ -130,7 +126,7 @@ namespace Degadis
                     gold = gg;
                 }
             }
-            //write(6,*) 'GCF? ALPHA is too large or ITMAX is too small.'
+            System.Windows.Forms.MessageBox.Show(Properties.Resources.eIncGamma4);
         }
     }
 }

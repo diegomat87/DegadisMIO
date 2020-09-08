@@ -785,6 +785,42 @@ namespace Degadis.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a GAMINC? Los argumentos están fuera de límites. ALFA: .
+        /// </summary>
+        internal static string eIncGamma1 {
+            get {
+                return ResourceManager.GetString("eIncGamma1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a GSER? ALPHA es demasiado grande o ITMAX es demasiado pequeño..
+        /// </summary>
+        internal static string eIncGamma2 {
+            get {
+                return ResourceManager.GetString("eIncGamma2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a GSER? BETA está fuera de los límites..
+        /// </summary>
+        internal static string eIncGamma3 {
+            get {
+                return ResourceManager.GetString("eIncGamma3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a GCF? ALPHA es demasiado grande o ITMAX es demasiado pequeño..
+        /// </summary>
+        internal static string eIncGamma4 {
+            get {
+                return ResourceManager.GetString("eIncGamma4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El límite inferior de interés debe ser menor que el límite superior de interés..
         /// </summary>
         internal static string eLimite {

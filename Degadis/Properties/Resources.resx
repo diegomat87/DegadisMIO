@@ -924,4 +924,16 @@ Este es un diagnóstico de programación y nunca debería ocurrir. Si es así, v
   <data name="eGamma2" xml:space="preserve">
     <value>GAMMA? - Desbordamiento. Argumento mayor a 34,5</value>
   </data>
+  <data name="eIncGamma1" xml:space="preserve">
+    <value>GAMINC? Los argumentos están fuera de límites. ALFA: </value>
+  </data>
+  <data name="eIncGamma2" xml:space="preserve">
+    <value>GSER? ALPHA es demasiado grande o ITMAX es demasiado pequeño.</value>
+  </data>
+  <data name="eIncGamma3" xml:space="preserve">
+    <value>GSER? BETA está fuera de los límites.</value>
+  </data>
+  <data name="eIncGamma4" xml:space="preserve">
+    <value>GCF? ALPHA es demasiado grande o ITMAX es demasiado pequeño.</value>
+  </data>
 </root>
