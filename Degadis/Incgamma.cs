@@ -14,7 +14,7 @@ namespace Degadis
         Gamma gam = new Gamma();
         double aa = 0;
         double gln = 0;
-        public double incGama(double alfa, double beta)
+        public double Gaminc(double alfa, double beta)
         {
             if (beta<0 || alfa<=0)
             {

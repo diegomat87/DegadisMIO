@@ -15,7 +15,7 @@ namespace Degadis
         double gamma = 0;
         double y = 0;
         //cambiar nombre
-        public double gama(double xx)
+        public double Gama(double xx)
         {
             
             if (xx <= 34.5)
@@ -60,11 +60,21 @@ namespace Degadis
                                 }
                             }
                         }
+                        else
+                        {
+                            while (x <= 1.0)
+                            {
+                                gamma = gamma / x;
+                                x = x + 1.0;
+                            }
+                            a110();
+                        }
                     }
-                    else if (x<1)
+                    else if (x>1)
                     {
                         a110();
                     }
+                    else { return gamma; }
                 }
                 else
                 {

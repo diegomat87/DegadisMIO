@@ -329,21 +329,21 @@ namespace Degadis
                 double ppp = Math.Sqrt(Math.PI) / 2;
                 ERF erf = new ERF();
 
-                qqq = erf.erf(delta / Math.Sqrt(2) * ppp);
+                qqq = erf.Erf(delta / Math.Sqrt(2) * ppp);
                 rk1 = Math.PI * qqq * (2 * qqq);
 
-                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + sc) * ppp);
+                qqq = erf.Erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + sc) * ppp);
                 rk2 = Math.PI / (1 + sc) * qqq * (2 * qqq);
 
                 rk3 = Math.PI * Math.Pow(delta, 2);
 
-                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(sc) * ppp);
+                qqq = erf.Erf(delta / Math.Sqrt(2) * Math.Sqrt(sc) * ppp);
                 rk4 = Math.PI / sc * qqq * (2 * qqq);
 
-                qqq = erf.erf(delta * Math.Sqrt(sc) * ppp);
+                qqq = erf.Erf(delta * Math.Sqrt(sc) * ppp);
                 rk5 = Math.PI / (2 * sc) * qqq * (2 * qqq);
 
-                qqq = erf.erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + 2 * sc) * ppp);
+                qqq = erf.Erf(delta / Math.Sqrt(2) * Math.Sqrt(1 + 2 * sc) * ppp);
                 rk6 = Math.PI / (1 + 2 * sc) * qqq * (2 * qqq);
 
                 sysz = cont.erate / cc / (rk1 * ua * Math.Cos(theta) + rk2 * uc);
