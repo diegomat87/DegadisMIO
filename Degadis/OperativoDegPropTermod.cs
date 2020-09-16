@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Degadis
         double cwa;
         double centh;
         int ierr;
-
+        double acrit = 0.001;
 
         public double HumedadAbs(double tamb, double humedadrel)
         {///Determina la humedad absoluta kg/kg
@@ -107,7 +108,7 @@ namespace Degadis
             //c               for isofl.eq.1.or.ihtfl.eq.0.and.ifl.eq.1
             #endregion
 
-            double ww; double yw; double acrit = 0.001;
+            double ww; double yw; 
             ww = 1 - wc - wa;
             cont.wm = 1 / (wc / cont.gasmw + wa / cont.wma + ww / cont.wmw);
             yc = cont.wm / cont.gasmw * wc;
@@ -378,7 +379,87 @@ namespace Degadis
             return;
         }
 
-         public Entidades.LineaAdiabat Adiabat(double ifl,double wc, double yc,  double cc)
+        //programada casi toda, no vi que devuelve (por ahora no devuelve nada)
+        public void addheat(double cc, double dh, double temp)
+        {
+            double cp = cont.cpa;
+            double rhoa = cont.DENtriples[0].Den3;
+            Entidades.LineaAdiabat lad= Adiabat(0,wc,yc,cc);
+            wc = lad.WC;
+            cont.wa = lad.WA;
+            yc = lad.YC;
+            cont.ya = lad.YA;
+            temp = lad.TEMP;
+
+            double ww = 1.0 - wc - cont.wa;
+            double yw = 1.0 - yc - cont.ya;
+
+            if (cont.isofl==1 || cont.ihtfl==0)
+            {
+                return;
+            }
+            if (dh<=0)
+            {
+                return;
+            }
+            //enth = enth + dh es asi?
+            cont.enthalpy += dh;
+
+            if (cont.enthalpy > 0)
+            {
+                temp = cont.tamb;
+                auxheat(dh, temp, ref cp, lad.TEMP, ww);
+            }
+            double tmax = Math.Max(cont.gastem, Math.Max(cont.tsurf, cont.tamb));
+            double ehi = Enthal(wc, cont.wa, tmax);
+            if (cont.enthalpy>ehi)
+            {
+                temp = tmax;
+                auxheat(dh, temp, ref cp, lad.TEMP, ww);
+            }
+
+            double tmin = lad.TEMP;
+            cwc = wc;
+            cwa = cont.wa;
+            centh = cont.enthalpy;
+
+            zbrent zbrent = new zbrent();
+            List<double> aux = zbrent.Zb(Enth0, tmin, tmax, acrit);
+            ierr = Convert.ToInt32(aux[1]);
+            if (ierr != 0)
+            {
+                double tinc = (tmin + tmax) / 100.0;
+                temp = tmin;
+                tmin = tmin / 2.0;
+                tmax = 2.0 * tmax;
+                //call limit(enth0, temp, tinc, tmax, tmin)
+                //aca no se que funcion usa
+
+                //call zbrent(temp, enth0, tmin, tmax, acrit, ierr)
+                aux = zbrent.Zb(Enth0, tmin, tmax, acrit);
+                ierr = Convert.ToInt32(aux[1]);
+                if (ierr != 0)
+                {
+                    auxheat(dh, temp, ref cp, lad.TEMP, ww);
+                }
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.trap17);
+            }
+        }
+
+        private void auxheat(double dh, double temp, ref double cp, double amt, double ww)
+        {
+            double ywsat = Watvp(temp) / cont.pamb;
+            double wwsat = cont.wmw / cont.wm * ywsat + (cont.ya + yc) / (1.0 - ywsat);
+            double conden = Math.Max(0.0, ww - wwsat);
+            double rho = 1.0 / (cont.wa / (cont.pamb * cont.wma / cont.rgas / temp) + (ww - conden) / (cont.pamb * cont.wmw / cont.rgas / temp) + conden / cont.rhowl + wc * temp / cont.gastem / cont.gasrho);
+            if (temp != amt)
+            {
+                cp = Math.Max(dh / (temp - amt), cont.cpa);
+            }
+            return;
+        }
+
+        public Entidades.LineaAdiabat Adiabat(double ifl,double wc, double yc,  double cc)
         {
             #region resumen
             //subroutine to return:
