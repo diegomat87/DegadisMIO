@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuxSetEnt.cs" />
     <Compile Include="Gas.cs" />
     <Compile Include="LineaAdiabat.cs" />
     <Compile Include="LineaDensidad.cs" />

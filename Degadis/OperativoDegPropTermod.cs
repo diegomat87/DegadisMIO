@@ -459,6 +459,21 @@ namespace Degadis
             return;
         }
 
+        public Entidades.AuxSetEnt setent(double temp)
+        {
+            Entidades.AuxSetEnt ase = new AuxSetEnt();
+
+            if (cont.isofl==1)
+            {
+                ase.hmrte = Cpc(temp) * (temp - cont.tamb);
+                if (cont.iwtfl !=0)
+                {
+                    ase.hwrte = cont.cpw * (cont.tsurf - cont.tamb);
+                }
+            }
+            return ase;
+        }
+
         public Entidades.LineaAdiabat Adiabat(double ifl,double wc, double yc,  double cc)
         {
             #region resumen
